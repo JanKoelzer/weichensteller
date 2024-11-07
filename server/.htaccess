@@ -1,0 +1,16 @@
+RewriteEngine On
+
+# Redirect HTTP to HTTPS
+RewriteCond %{HTTPS} !=on
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+DirectoryIndex index.html
+
+# Set Cross-Origin-Embedder-Policy header to 'require-corp'
+Header set Cross-Origin-Embedder-Policy "require-corp"
+
+# Set Cross-Origin-Opener-Policy header to 'same-origin'
+Header set Cross-Origin-Opener-Policy "same-origin"
+
+# Set Cross-Origin-Resource-Policy header to 'cross-origin'
+Header set Cross-Origin-Resource-Policy "cross-origin"

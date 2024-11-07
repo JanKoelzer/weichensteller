@@ -1,0 +1,28 @@
+keys,de,en
+TITLE,Weichensteller,Weichensteller
+SPEED,Geschwindigkeit,Speed
+TRAFFIC_DENSITY,Zugdichte,Traffic Density
+NUMBER_STATIONS,Anzahl Bahnhöfe,Number of Stations
+NUMBER_SWITCHES,Anzahl Zusatzweichen,Number of extra Switches
+NUMBER_BRAKES,Anzahl Notbremsen,Number of Emergency Brakes
+NUMBER_ERRORS,Fehlertoleranz,Max. number of Errors
+DIFFICULTY,Schwierigkeit:,Difficulty:
+DIFFICULTY_HINT,"Je schwieriger das Spiel eingestellt ist,
+desto mehr Punkte bekommst du für jeden richtig geleieten Zug.","The harder the game, the more points you
+earn for each train that reaches its destination."
+START,Start,Start
+SPEED_HINT,"Stelle ein, wie schnell die Loks fahren.",Define the speed of the trains.
+TRAFFIC_DENSITY_HINT,"Stelle ein, wie viele Loks gleichzeitig auf der Strecke sind.",Define the number of trains on track at a time.
+NUMBER_STATIONS_HINT,"Stelle ein, wie viele verschiedene Bahnhöfe die Loks ansteuern.
+Je mehr es sind, desto schwieriger ist das Spiel.","Define the number of different stations that the trains go to.
+The more stations you have, the harder is the game."
+NUMBER_SWITCHES_HINT,"Stelle ein, wie viele Weichen auf der Strecke erscheinen sollen.
+Je mehr es sind, desto eher kannst du Fehler korrigieren.","Define the number of switches you have available.
+The more switches there are, the easier it is to fix an error."
+NUMBER_BRAKES_HINT,"Stelle ein, wie oft du mit einem Druck auf  STOP die
+Notbremse aktivieren kannst. Einige Sekunden lang
+bleiben dann alle Züge stehen und du kannst in Ruhe
+alle Weichen einstellen.","Define your number of Emergency Brakes.
+Clicking/Tapping STOP will stop all trains for some
+seconds so that you can set up your switches without hurry."
+NUMBER_ERRORS_HINT,"Stelle ein, nach wie vielen falsch geleiteten Loks das Spiel endet.",The game will end if the number of errors you have made exceeds this number.

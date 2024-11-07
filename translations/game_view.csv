@@ -1,0 +1,15 @@
+keys,de,en
+MAIN_MENU,Hauptmenü,Main Menu
+SETTINGS,Einstellungen,Settings
+RESTART_GAME,Neues Spiel,Restart Game
+TIME,Zeit:,Time:
+ERRORS,Fehler:,Errors:
+SCORE,Punkte:,Score:
+TRAINS,Züge:,Trains:
+STOP,STOP,STOP
+PROMPT_TEXT_JS,Dein Name für die Bestenliste:,Your name for Highscore:
+AGE_0,0-5 Jahre,0-5 Years
+AGE_1,6-12 Jahre,6-12 Years
+AGE_2,13+ Jahre,13+ Years
+NAME_PLACEHOLDER,Name…,Name…
+GO,Los!,Go!

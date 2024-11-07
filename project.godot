@@ -1,0 +1,44 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Weichensteller"
+run/main_scene="res://main_menu.tscn"
+config/features=PackedStringArray("4.3", "Forward Plus")
+boot_splash/image="res://icon.png"
+config/icon="res://icon.png"
+config/movie_file="/home/jtk/workspace/Weichensteller/movies/main.avi"
+
+[autoload]
+
+GameSettings="*res://game_settings.gd"
+Highscore="*res://highscore.gd"
+LanguageSettings="*res://language_settings.gd"
+
+[display]
+
+window/size/viewport_width=1024
+window/size/viewport_height=480
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+
+[editor]
+
+movie_writer/movie_file="/home/jtk/workspace/Weichensteller/movies/main.avi"
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://translations/difficulty_settings.de.translation", "res://translations/difficulty_settings.en.translation", "res://translations/game_view.de.translation", "res://translations/game_view.en.translation", "res://translations/main_menu.de.translation", "res://translations/main_menu.en.translation", "res://translations/help_menu.de.translation", "res://translations/help_menu.en.translation", "res://translations/highscore_menu.de.translation", "res://translations/highscore_menu.en.translation")
+
+[rendering]
+
+textures/vram_compression/import_etc2_astc=true
+environment/defaults/default_clear_color=Color(0.633757, 0.633757, 0.633757, 1)

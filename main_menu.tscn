@@ -1,0 +1,87 @@
+[gd_scene load_steps=6 format=3 uid="uid://hqe61n41cay3"]
+
+[ext_resource type="Script" path="res://main_menu.gd" id="1_1d7qk"]
+[ext_resource type="Texture2D" uid="uid://eij2hohstuhh" path="res://images/background.png" id="1_l5ut5"]
+[ext_resource type="Texture2D" uid="uid://ktcfmm3dnniy" path="res://icon.png" id="2_r25rp"]
+[ext_resource type="Texture2D" uid="uid://cqhoidm6a2ami" path="res://rails.png" id="2_wo0fw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xyu7x"]
+font_size = 64
+
+[node name="MainMenu" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1d7qk")
+
+[node name="BackgroundSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_l5ut5")
+centered = false
+
+[node name="TrainsSprite" type="Sprite2D" parent="."]
+position = Vector2(0, 1)
+texture = ExtResource("2_wo0fw")
+offset = Vector2(512, 370)
+region_enabled = true
+region_rect = Rect2(0, 196, 384, 196)
+
+[node name="Title" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="Title"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "GAME_TITLE"
+label_settings = SubResource("LabelSettings_xyu7x")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="Title"]
+layout_mode = 2
+
+[node name="LogoSprite" type="Sprite2D" parent="Title/Control"]
+position = Vector2(25, 10)
+scale = Vector2(2, 2)
+texture = ExtResource("2_r25rp")
+centered = false
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 2
+text = "START_GAME"
+
+[node name="HighscoreButton" type="Button" parent="."]
+layout_mode = 2
+text = "HIGHSCORE"
+
+[node name="HelpButton" type="Button" parent="."]
+layout_mode = 2
+text = "MANUAL"
+
+[node name="CreditsButton" type="Button" parent="."]
+layout_mode = 2
+text = "CREDITS"
+
+[node name="QuitButton" type="Button" parent="."]
+layout_mode = 2
+text = "QUIT_GAME"
+
+[node name="AudioCheckbox" type="CheckBox" parent="."]
+layout_mode = 2
+button_pressed = true
+text = "SOUND"
+
+[node name="LanguageCheckbox" type="CheckBox" parent="."]
+layout_mode = 2
+text = "ENGLISH"
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="HighscoreButton" to="." method="_on_highscore_button_pressed"]
+[connection signal="pressed" from="HelpButton" to="." method="_on_help_button_pressed"]
+[connection signal="pressed" from="CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="AudioCheckbox" to="." method="_on_audio_checkbox_pressed"]
+[connection signal="pressed" from="LanguageCheckbox" to="." method="_on_language_button_pressed"]

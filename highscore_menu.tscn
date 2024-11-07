@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://dysw0v0macqh6"]
+
+[ext_resource type="Texture2D" uid="uid://eij2hohstuhh" path="res://images/background.png" id="1_hnsup"]
+[ext_resource type="Script" path="res://highscore_menu.gd" id="1_wdu0c"]
+[ext_resource type="Texture2D" uid="uid://ktcfmm3dnniy" path="res://icon.png" id="2_nqsqo"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mrghh"]
+font_size = 64
+
+[node name="HighscoreMenu" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wdu0c")
+
+[node name="BackgroundSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_hnsup")
+centered = false
+
+[node name="Title" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="Title"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Bestenliste"
+label_settings = SubResource("LabelSettings_mrghh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="Title"]
+layout_mode = 2
+
+[node name="LogoSprite" type="Sprite2D" parent="Title/Control"]
+position = Vector2(25, 10)
+scale = Vector2(2, 2)
+texture = ExtResource("2_nqsqo")
+centered = false
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+
+[node name="CloseButton" type="Button" parent="CenterContainer"]
+layout_mode = 2
+text = "BACK"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+
+[node name="HighscoreLabel" type="Label" parent="ScrollContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1024, 0)
+layout_mode = 2
+text = "LOADING_HIGHSCORE"
+autowrap_mode = 2
+
+[connection signal="pressed" from="CenterContainer/CloseButton" to="." method="_on_close_button_pressed"]

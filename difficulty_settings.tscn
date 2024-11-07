@@ -1,0 +1,264 @@
+[gd_scene load_steps=5 format=3 uid="uid://beulniltj2hto"]
+
+[ext_resource type="Script" path="res://difficulty_settings.gd" id="1_rxans"]
+[ext_resource type="Texture2D" uid="uid://eij2hohstuhh" path="res://images/background.png" id="2_lfrnk"]
+[ext_resource type="Texture2D" uid="uid://ktcfmm3dnniy" path="res://icon.png" id="2_lkeq7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_t7ix4"]
+font_size = 64
+
+[node name="DifficultySettings" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rxans")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_lfrnk")
+centered = false
+
+[node name="Title" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="Title"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "GAME_TITLE"
+label_settings = SubResource("LabelSettings_t7ix4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="Title"]
+layout_mode = 2
+
+[node name="LogoSprite" type="Sprite2D" parent="Title/Control"]
+position = Vector2(25, 10)
+scale = Vector2(2, 2)
+texture = ExtResource("2_lkeq7")
+centered = false
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 2
+columns = 4
+
+[node name="Label2" type="Label" parent="GridContainer"]
+layout_mode = 2
+tooltip_text = "SPEED_HINT"
+mouse_filter = 1
+theme_override_font_sizes/font_size = 36
+text = "SPEED"
+
+[node name="SpeedScrollBar" type="SpinBox" parent="GridContainer"]
+visible = false
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+min_value = 75.0
+max_value = 200.0
+step = 5.0
+value = 100.0
+rounded = true
+
+[node name="SpeedMinusButton" type="Button" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "-"
+
+[node name="SpeedPlusButton" type="Button" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "+"
+
+[node name="SpeedLabel" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "100"
+
+[node name="Label3" type="Label" parent="GridContainer"]
+layout_mode = 2
+tooltip_text = "TRAFFIC_DENSITY_HINT"
+mouse_filter = 1
+theme_override_font_sizes/font_size = 36
+text = "TRAFFIC_DENSITY"
+
+[node name="NumConcurrentTrainsScrollBar" type="SpinBox" parent="GridContainer"]
+visible = false
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+min_value = 2.0
+max_value = 5.0
+value = 3.0
+rounded = true
+
+[node name="ConcurrentMinusButton" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "-"
+
+[node name="ConcurrentPlusButton" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "+"
+
+[node name="NumConcurrentTrainsLabel" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "100"
+
+[node name="Label7" type="Label" parent="GridContainer"]
+layout_mode = 2
+tooltip_text = "NUMBER_STATIONS_HINT"
+mouse_filter = 1
+theme_override_font_sizes/font_size = 36
+text = "NUMBER_STATIONS"
+
+[node name="NumStationsScrollBar" type="SpinBox" parent="GridContainer"]
+visible = false
+layout_mode = 2
+min_value = 3.0
+max_value = 6.0
+value = 5.0
+rounded = true
+
+[node name="StationsMinusButton" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "-"
+
+[node name="StationsPlusButton" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "+"
+
+[node name="NumStationsLabel" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "6"
+
+[node name="Label8" type="Label" parent="GridContainer"]
+layout_mode = 2
+tooltip_text = "NUMBER_SWITCHES_HINT"
+mouse_filter = 1
+theme_override_font_sizes/font_size = 36
+text = "NUMBER_SWITCHES"
+
+[node name="NumSwitchesScrollBar" type="SpinBox" parent="GridContainer"]
+visible = false
+layout_mode = 2
+max_value = 10.0
+value = 5.0
+rounded = true
+
+[node name="SwitchesMinusButton" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "-"
+
+[node name="SwitchesPlusButton" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "+"
+
+[node name="NumSwitchesLabel" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "5"
+
+[node name="Label9" type="Label" parent="GridContainer"]
+layout_mode = 2
+tooltip_text = "NUMBER_BRAKES_HINT"
+mouse_filter = 1
+theme_override_font_sizes/font_size = 36
+text = "NUMBER_BRAKES"
+
+[node name="NumBrakesScrollBar" type="SpinBox" parent="GridContainer"]
+visible = false
+layout_mode = 2
+max_value = 5.0
+value = 3.0
+rounded = true
+
+[node name="BrakesMinusButton" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "-"
+
+[node name="BrakesPlusButton" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "+"
+
+[node name="NumBrakesLabel" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "3	"
+
+[node name="Label10" type="Label" parent="GridContainer"]
+layout_mode = 2
+tooltip_text = "NUMBER_ERRORS_HINT"
+mouse_filter = 1
+theme_override_font_sizes/font_size = 36
+text = "NUMBER_ERRORS"
+
+[node name="MaxErrorsScrollBar" type="SpinBox" parent="GridContainer"]
+visible = false
+layout_mode = 2
+max_value = 10.0
+value = 5.0
+rounded = true
+
+[node name="ErrorsMinusButton" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "-"
+
+[node name="ErrorsPlusButton" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "+"
+
+[node name="MaxErrorsLabel" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "5"
+
+[node name="VBoxContainer" type="HBoxContainer" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Label" type="Label" parent="GridContainer/VBoxContainer"]
+layout_mode = 2
+tooltip_text = "DIFFICULTY_HINT"
+mouse_filter = 1
+theme_override_font_sizes/font_size = 36
+text = "DIFFICULTY"
+
+[node name="FactorLabel" type="Label" parent="GridContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "100 %"
+
+[node name="Control" type="Control" parent="GridContainer"]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="GridContainer"]
+layout_mode = 2
+
+[node name="StartButton" type="Button" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "START"
+
+[connection signal="value_changed" from="GridContainer/SpeedScrollBar" to="." method="update_view"]
+[connection signal="pressed" from="GridContainer/SpeedMinusButton" to="." method="_on_speed_minus_button_pressed"]
+[connection signal="pressed" from="GridContainer/SpeedPlusButton" to="." method="_on_speed_plus_button_pressed"]
+[connection signal="value_changed" from="GridContainer/NumConcurrentTrainsScrollBar" to="." method="update_view"]
+[connection signal="pressed" from="GridContainer/ConcurrentMinusButton" to="." method="_on_concurrent_minus_button_pressed"]
+[connection signal="pressed" from="GridContainer/ConcurrentPlusButton" to="." method="_on_concurrent_plus_button_pressed"]
+[connection signal="value_changed" from="GridContainer/NumStationsScrollBar" to="." method="update_view"]
+[connection signal="pressed" from="GridContainer/StationsMinusButton" to="." method="_on_stations_minus_button_pressed"]
+[connection signal="pressed" from="GridContainer/StationsPlusButton" to="." method="_on_stations_plus_button_pressed"]
+[connection signal="value_changed" from="GridContainer/NumSwitchesScrollBar" to="." method="update_view"]
+[connection signal="pressed" from="GridContainer/SwitchesMinusButton" to="." method="_on_switches_minus_button_pressed"]
+[connection signal="pressed" from="GridContainer/SwitchesPlusButton" to="." method="_on_switches_plus_button_pressed"]
+[connection signal="value_changed" from="GridContainer/NumBrakesScrollBar" to="." method="update_view"]
+[connection signal="pressed" from="GridContainer/BrakesMinusButton" to="." method="_on_brakes_minus_button_pressed"]
+[connection signal="pressed" from="GridContainer/BrakesPlusButton" to="." method="_on_brakes_plus_button_pressed"]
+[connection signal="value_changed" from="GridContainer/MaxErrorsScrollBar" to="." method="update_view"]
+[connection signal="pressed" from="GridContainer/ErrorsMinusButton" to="." method="_on_errors_minus_button_pressed"]
+[connection signal="pressed" from="GridContainer/ErrorsPlusButton" to="." method="_on_errors_plus_button_pressed"]
+[connection signal="pressed" from="GridContainer/StartButton" to="." method="_on_start_button_pressed"]
