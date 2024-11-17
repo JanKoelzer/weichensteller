@@ -7,13 +7,13 @@ Geschwindigkeit: Stelle ein, wie schnell die Züge fahren. Sie nimmt im Laufe de
 
 Zugdichte: Stelle ein, wie viele Züge gleichzeitig auf der Strecke sind. Wie auch die Geschwindigkeit nimmt sie immer weiter zu.
 
-Anzahl Bahnhöfe: Jeder Bahnhof hat eine Farbe (Rot, Orange, Gelb, Grün, Blau, Violett). Stelle ein, wie viele verschiedene Bahnhöfe die Züge ansteuern. Je mehr Bahnhöfe es gibt, desto schwieriger ist es, einen Zug ans richtige Ziel zu bringen.
+Anzahl Bahnhöfe: Jeder Bahnhof hat eine Farbe (Rot, Orange, Gelb, Grün, Blau, Violett). Stelle ein, wie viele verschiedene Bahnhöfe die Züge ansteuern. Je mehr Bahnhöfe es gibt, desto schwieriger ist es, einen Zug ans richtige Ziel zu bringen. „Regenbogen-Züge“ dürfen zu jedem Bahnhof geleitet werden.
 
 Anzahl Weichen: An jeder Weiche kann eine Lok gerade aus fahren oder nach oben bzw. unten abbiegen. Es gibt immer genügend Weichen, damit alle Züge den richtigen Bahnhof erreichen können. Je mehr zusätzliche Weichen es gibt, desto eher kannst du Fehler korrigieren.
 
 Anzahl Notbremsen: Mit ""Notbremsen"" kannst du alle Loks einige Sekunden lang anhalten, um dich zu orientieren und Weichen einzustellen. Klicke/tippe dazu auf STOP.
 
-Fehlertoleranz: Stelle ein, nach wie vielen falsch geleiteten Loks das Spiel endet. Alle bereits gestarteten Züge fahren noch weiter, bis sie einen Bahnhof erreicht haben.","Click/tap the switches to set their direction in order to guide the trains to the destination of the same color. You cain points for every train reaches the correct station. The harder your settings, the more points you get!
+Fehlertoleranz: Stelle ein, nach wie vielen falsch geleiteten Loks das Spiel endet. Alle bereits gestarteten Züge fahren noch weiter, bis sie einen Bahnhof erreicht haben.","Click/tap the switches to set their direction in order to guide the trains to the destination of the same color. („Rainbow trains“ can be lead to any station.) You cain points for every train reaches the correct station. The harder your settings, the more points you get!
 
 Speed: Define the speed of the trains. It increases over time.
 

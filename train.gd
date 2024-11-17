@@ -18,10 +18,10 @@ var direction: int:
 			directionIndex = 0
 		else:
 			directionIndex = index
-		
 
-enum TrainColor {RED = 0, ORANGE = 1, YELLOW = 2, GREEN = 3, BLUE = 4, PURPLE = 5}
-var color: TrainColor: # this should be "ready only after init"
+
+enum TrainColor {RAINBOW = -1, RED = 0, ORANGE = 1, YELLOW = 2, GREEN = 3, BLUE = 4, PURPLE = 5}
+var color: TrainColor: # this should be "read only after init"
 	set = set_color
 
 
@@ -30,18 +30,11 @@ signal moved(t: Train)
 
 func set_color(c: TrainColor) -> void:
 	color = c
-	$Sprite.region_rect= Rect2(tile_size*color, tile_size*randi_range(3,5), tile_size, tile_size)
-
-
-static func new_train(num_stations: int, train_speed: float) -> Train:
-	var scene = preload("res://train.tscn")
-	
-	var t: Train = scene.instantiate()
-	t.color = TrainColor.values()[randi_range(0, num_stations-1)]
-	
-	t.speed = train_speed
-	
-	return t
+	if color == TrainColor.RAINBOW:
+		$Sprite.region_rect= [Rect2(tile_size*5, 0, tile_size, tile_size),Rect2(tile_size*5, tile_size, tile_size, tile_size), Rect2(tile_size*4, tile_size, tile_size, tile_size)].pick_random()
+		$RainbowPlayer.play("rainbow")
+	else:
+		$Sprite.region_rect= Rect2(tile_size*color, tile_size*randi_range(3,6), tile_size, tile_size)
 
 
 func move() -> void:
@@ -50,7 +43,7 @@ func move() -> void:
 	var duration: float = (1.0 + (sqrt(2)-1)*abs(direction)) / speed
 	var delta = Vector2(tile_size * 1.0, tile_size * direction)
 	
-	# move forward
+	# move forward	
 	tween.tween_property(self, "position", position + delta, duration)
 	tween.set_trans(Tween.TRANS_LINEAR)
 	tween.tween_callback(func(): moved.emit(self))
@@ -59,18 +52,19 @@ func move() -> void:
 	
 
 func fade_in() -> void:
-	$AnimationPlayer.play("fade_in")
+	$FadePlayer.play("fade_in")
 
 
 func fade_out(was_success: bool) -> void:
+	speed = 0.0
 	if not was_success:
 		var shader: Resource = preload("res://grayscale.gdshader")
 		var shader_material: ShaderMaterial = ShaderMaterial.new()
 		shader_material.shader = shader
 		shader_material.set_shader_parameter("engine_time_sec", Time.get_ticks_msec() / 1000.0)
-		shader_material.set_shader_parameter("duration", 0.2)
+		shader_material.set_shader_parameter("duration", 1.0)
 		$Sprite.material = shader_material
-	$AnimationPlayer.play("fade_out")
+	$FadePlayer.play("fade_out")
 
 func _on_animation_player_animation_finished(anim_name: String) -> void:
 	if anim_name == "fade_out":

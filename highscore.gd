@@ -5,8 +5,8 @@ const MED = "6-12"
 const MAX = "13+"
 
 
-var get_highscore_request = HTTPRequest
-var put_highscore_request = HTTPRequest
+var get_highscore_request: HTTPRequest
+var put_highscore_request: HTTPRequest
 var get_highscore_url: String			
 var put_highscore_url: String
 var secret: String
@@ -35,37 +35,41 @@ func receive_highscore() -> void:
 	
 func put_highscore(user_name: String, score: int, group: String) -> void:
 	# create nonce for basic replay protection
-	var crypto := Crypto.new()
+	var crypto = Crypto.new()
 	var nonce = crypto.generate_random_bytes(4).decode_u32(0)
+	var iv = crypto.generate_random_bytes(16)
 	
 	var headers: Array[String] = ["Content-Type: application/json"]
-	var  http_data_json: Dictionary = {
-		"secret_key": secret,
-		"nonce": "%X" % [nonce],
-		"score_data": {
+	var score_data = {
 			"name": user_name.substr(0, 30),
 			"score": score,
-			"group": group
+			"group": group,
+			"nonce": "%X" % [nonce]
 		}
-	}
-	var http_data_string = encode(encrypt(JSON.stringify(http_data_json), secret))
-	put_highscore_request.request(put_highscore_url,headers,HTTPClient.METHOD_PUT,http_data_string)
-
-
-func encrypt(data: String, key: String) -> PackedByteArray:
-	var key_buffer = key.to_utf8_buffer()
-	var data_buffer = data.to_utf8_buffer()
 	
-	# weak, self-made encryption (to avoid interop problems with PHP)
-	var crypt = PackedByteArray()
-	for i in range(data_buffer.size()):
-		crypt.append(data_buffer[i] ^ key_buffer[i % key_buffer.size()])
-
-	return crypt
+	var encrypted_score_data: PackedByteArray = encrypt(
+			pkcs7_pad(JSON.stringify(score_data).to_utf8_buffer(), 16),
+			secret.to_utf8_buffer(),
+			iv
+		)
+		
+	var data = {
+		"cipher_text_b64": base64(encrypted_score_data),
+		"iv_b64": base64(iv)
+		}
+	var data_string = JSON.stringify(data)
 	
-func encode(msg: PackedByteArray) -> String:
-	return Marshalls.raw_to_base64(msg)
+	put_highscore_request.request(put_highscore_url,headers,HTTPClient.METHOD_PUT,data_string)
 
+
+func encrypt(data: PackedByteArray, key: PackedByteArray, iv: PackedByteArray) -> PackedByteArray:
+	# Encrypt with AES-128-CBC
+	var aes = AESContext.new()
+	aes.start(AESContext.MODE_CBC_ENCRYPT, key, iv)
+	var encrypted = aes.update(data)
+	aes.finish()
+	return encrypted
+	
 func _on_get_highscore_request_request_completed(_result, response_code, _headers, body) -> void:
 	if response_code == 200:
 		var response_text: String = body.get_string_from_utf8()
@@ -80,10 +84,25 @@ func _on_get_highscore_request_request_completed(_result, response_code, _header
 		print("Request failed with response code:", response_code)
 
 
+func base64(data: PackedByteArray) -> String:
+	return Marshalls.raw_to_base64(data)
+
+
+func pkcs7_pad(data: PackedByteArray, block_size: int) -> PackedByteArray:
+	var pad_length = block_size - (data.size() % block_size)
+	data.resize(data.size() + pad_length)
+	
+	# Fill the padding with the pad_length value.
+	for i in range(pad_length):
+		data[- i - 1] = pad_length
+
+	return data
+
 
 func _on_put_highscore_request_request_completed(_result, response_code, headers, body) -> void:
 	if response_code in range(200, 300):
 		print("Data has been PUT successfully.")
+		print(body.get_string_from_utf8())
 	else:
 		print("Request failed with response code:", response_code)
 		print("Request failed with response headers:", headers)

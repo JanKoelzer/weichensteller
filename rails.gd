@@ -150,7 +150,7 @@ func _on_train_moved(train: Train) -> void:
 		train.direction = 0
 		
 	if data.get_custom_data("is_end"):
-		if data.get_custom_data("train_color") == train.color:
+		if data.get_custom_data("train_color") == train.color or train.color == Train.TrainColor.RAINBOW:
 			$ScoreAudioStreamPlayer.play()
 			train.fade_out(true)
 			scored.emit()
@@ -165,15 +165,26 @@ func _on_train_moved(train: Train) -> void:
 
 func set_train_on_tracks() -> void:
 	var train_speed: float = GameSettings.speed + sum_trains_started / 50.0 # slowly increase speed over time	
-	var t: Train = Train.new_train(GameSettings.num_stations, train_speed)
+	var t: Train = train_scene.instantiate()
+	
 	$Trains.add_child(t)
-	trains_on_track += 1
-	sum_trains_started += 1
+	t.speed = train_speed
 	var track: int = randi_range(0, GameSettings.num_stations - 1)
 	t.position = Vector2(0, tile_set.tile_size.y * track  + tile_set.tile_size.y / 2.0)
+	
+	if GameSettings.joker_enabled and sum_trains_started > 5 and randi_range(0, 24) == 0:
+		t.color = Train.TrainColor.RAINBOW
+	else:
+		# do not use TrainColor.RAINBOW, which has index 0
+		t.color = Train.TrainColor.values()[randi_range(1, GameSettings.num_stations)]
+	
 	t.fade_in()
+	trains_on_track += 1
+	sum_trains_started += 1
 	t.moved.connect(_on_train_moved)
 	t.move()
+	
+	# set timer for next train
 	var wait_time: float =  COL_COUNT/(train_speed*GameSettings.num_concurrent_trains + sum_trains_started/40.0) # "+ sum_trains_started/40	" to make trains appear "faster faster" than the speed increases → overall traffic increases
-	$TrainCreationTimer.wait_time =wait_time
+	$TrainCreationTimer.wait_time = wait_time
 	$TrainCreationTimer.start()

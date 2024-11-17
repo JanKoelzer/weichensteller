@@ -17,6 +17,8 @@ const DEFAULT_EXTRA_SWITCHES = 5
 const MIN_BRAKES = 0
 const MAX_BRAKES = 5
 const DEFAULT_BRAKES = 3
+const DEFAULT_AUTO_BRAKE_ENABLED = true
+const DEFAULT_AUTO_BRAKE_THRESHOLD = 2
 const MIN_ERRORS = 0
 const MAX_ERRORS = 10
 const DEFAULT_MAX_ERRORS = 5
@@ -51,6 +53,14 @@ var num_brakes: int = DEFAULT_BRAKES:
 		num_brakes = clampi(v, MIN_BRAKES, MAX_BRAKES)
 		changed.emit("num_brakes", v)
 
+# currently not customizable
+const auto_brake_threshold: int = DEFAULT_AUTO_BRAKE_THRESHOLD
+
+var auto_brake_enabled: bool = DEFAULT_AUTO_BRAKE_ENABLED:
+	get: return auto_brake_enabled
+	set(v):
+		auto_brake_enabled = v
+		changed.emit("auto_brake_enabled", v)
 
 var max_errors: int = DEFAULT_MAX_ERRORS:
 	get: return max_errors
@@ -58,12 +68,14 @@ var max_errors: int = DEFAULT_MAX_ERRORS:
 		max_errors = clampi(v, MIN_ERRORS, MAX_ERRORS)
 		changed.emit("max_errors", v)
 
+# currently always turened off
+var joker_enabled: bool = false
 
 func score_factor() -> float:
 	var k: float = 1.0
 	k *= speed**1.2
 	k *= (float(num_concurrent_trains)/DEFAULT_CONCURRENT_TRAINS)**1.2
-	k *= (float(num_stations)/DEFAULT_STATIONS)**1.2
+	k *= (float(num_stations)/DEFAULT_STATIONS)**2
 	k *= 1 + 0.08*(DEFAULT_EXTRA_SWITCHES-num_extra_switches)
 	k *= 1 + 0.05*(DEFAULT_BRAKES-num_brakes)
 	k *= 1 + 0.1*(DEFAULT_MAX_ERRORS-max_errors)

@@ -345,116 +345,126 @@ libraries = {
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="CenterContainer/HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "TRAINS"
 
-[node name="TrainCountLabel" type="Label" parent="CenterContainer/HBoxContainer"]
+[node name="TrainCountLabel" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "0"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer/HBoxContainer/TrainCountLabel"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer/VBoxContainer/HBoxContainer/TrainCountLabel"]
 libraries = {
 "": SubResource("AnimationLibrary_d0jt8")
 }
 
-[node name="VSeparator" type="VSeparator" parent="CenterContainer/HBoxContainer"]
+[node name="VSeparator" type="VSeparator" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CenterContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "SCORE"
 
-[node name="ScoreLabel" type="Label" parent="CenterContainer/HBoxContainer"]
+[node name="ScoreLabel" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "0"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer/HBoxContainer/ScoreLabel"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer/VBoxContainer/HBoxContainer/ScoreLabel"]
 libraries = {
 "": SubResource("AnimationLibrary_y681f")
 }
 
-[node name="VSeparator2" type="VSeparator" parent="CenterContainer/HBoxContainer"]
+[node name="VSeparator2" type="VSeparator" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="Label3" type="Label" parent="CenterContainer/HBoxContainer"]
+[node name="Label3" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "ERRORS"
 
-[node name="ErrorsLabel" type="Label" parent="CenterContainer/HBoxContainer"]
+[node name="ErrorsLabel" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "0"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer/HBoxContainer/ErrorsLabel"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer/VBoxContainer/HBoxContainer/ErrorsLabel"]
 libraries = {
 "": SubResource("AnimationLibrary_7gscs")
 }
 
-[node name="VSeparator3" type="VSeparator" parent="CenterContainer/HBoxContainer"]
+[node name="VSeparator3" type="VSeparator" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="PauseButtons" type="HBoxContainer" parent="CenterContainer/HBoxContainer"]
-unique_name_in_owner = true
+[node name="VSeparator5" type="VSeparator" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="VSeparator5" type="VSeparator" parent="CenterContainer/HBoxContainer"]
-layout_mode = 2
-
-[node name="Label5" type="Label" parent="CenterContainer/HBoxContainer"]
+[node name="Label5" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "TIME"
 
-[node name="TimeLabel" type="Label" parent="CenterContainer/HBoxContainer"]
+[node name="TimeLabel" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "0"
 
-[node name="Timer" type="Timer" parent="CenterContainer/HBoxContainer/TimeLabel"]
+[node name="Timer" type="Timer" parent="CenterContainer/VBoxContainer/HBoxContainer/TimeLabel"]
 autostart = true
 
-[node name="VSeparator4" type="VSeparator" parent="CenterContainer/HBoxContainer"]
+[node name="VSeparator4" type="VSeparator" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="RestartButton" type="Button" parent="CenterContainer/HBoxContainer"]
+[node name="PauseButtons" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="AutoBrakeCheckBox" type="CheckBox" parent="CenterContainer/VBoxContainer/PauseButtons"]
+layout_mode = 2
+text = "AUTO_STOP"
+
+[node name="HSeparator2" type="HSeparator" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MenuContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="RestartButton" type="Button" parent="CenterContainer/VBoxContainer/MenuContainer"]
 layout_mode = 2
 text = "RESTART_GAME"
 
-[node name="DifficultySettingsButton" type="Button" parent="CenterContainer/HBoxContainer"]
+[node name="DifficultySettingsButton" type="Button" parent="CenterContainer/VBoxContainer/MenuContainer"]
 layout_mode = 2
 text = "SETTINGS"
 
-[node name="MainMenuButton" type="Button" parent="CenterContainer/HBoxContainer"]
+[node name="MainMenuButton" type="Button" parent="CenterContainer/VBoxContainer/MenuContainer"]
 layout_mode = 2
 text = "MAIN_MENU"
 
-[node name="HighscoreControls" type="CenterContainer" parent="."]
+[node name="HighscoreControls" type="HBoxContainer" parent="CenterContainer/VBoxContainer/MenuContainer"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HighscoreControls"]
-layout_mode = 2
-
-[node name="PlayerNameEdit" type="LineEdit" parent="HighscoreControls/HBoxContainer"]
+[node name="PlayerNameEdit" type="LineEdit" parent="CenterContainer/VBoxContainer/MenuContainer/HighscoreControls"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 placeholder_text = "NAME_PLACEHOLDER"
 
-[node name="ChildSubmitButton" type="Button" parent="HighscoreControls/HBoxContainer"]
+[node name="ChildSubmitButton" type="Button" parent="CenterContainer/VBoxContainer/MenuContainer/HighscoreControls"]
 layout_mode = 2
 text = "AGE_0"
 
-[node name="PupilSubmitButton" type="Button" parent="HighscoreControls/HBoxContainer"]
+[node name="PupilSubmitButton" type="Button" parent="CenterContainer/VBoxContainer/MenuContainer/HighscoreControls"]
 layout_mode = 2
 text = "AGE_1"
 
-[node name="AdultSubmitButton" type="Button" parent="HighscoreControls/HBoxContainer"]
+[node name="AdultSubmitButton" type="Button" parent="CenterContainer/VBoxContainer/MenuContainer/HighscoreControls"]
 layout_mode = 2
 text = "AGE_2"
 
@@ -462,10 +472,11 @@ text = "AGE_2"
 [connection signal="errored" from="Container/Rails" to="." method="_on_rails_errored"]
 [connection signal="scored" from="Container/Rails" to="." method="_on_rails_scored"]
 [connection signal="train_started" from="Container/Rails" to="." method="_on_rails_train_started"]
-[connection signal="timeout" from="CenterContainer/HBoxContainer/TimeLabel/Timer" to="." method="_on_timer_timeout"]
-[connection signal="pressed" from="CenterContainer/HBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
-[connection signal="pressed" from="CenterContainer/HBoxContainer/DifficultySettingsButton" to="." method="_on_difficulty_settings_button_pressed"]
-[connection signal="pressed" from="CenterContainer/HBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
-[connection signal="pressed" from="HighscoreControls/HBoxContainer/ChildSubmitButton" to="." method="_on_highscore_submit_button_pressed" binds= ["0-5"]]
-[connection signal="pressed" from="HighscoreControls/HBoxContainer/PupilSubmitButton" to="." method="_on_highscore_submit_button_pressed" binds= ["6-12"]]
-[connection signal="pressed" from="HighscoreControls/HBoxContainer/AdultSubmitButton" to="." method="_on_highscore_submit_button_pressed" binds= ["13+"]]
+[connection signal="timeout" from="CenterContainer/VBoxContainer/HBoxContainer/TimeLabel/Timer" to="." method="_on_timer_timeout"]
+[connection signal="toggled" from="CenterContainer/VBoxContainer/PauseButtons/AutoBrakeCheckBox" to="." method="_on_auto_brake_check_box_toggled"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/MenuContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/MenuContainer/DifficultySettingsButton" to="." method="_on_difficulty_settings_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/MenuContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/MenuContainer/HighscoreControls/ChildSubmitButton" to="." method="_on_highscore_submit_button_pressed" binds= ["0-5"]]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/MenuContainer/HighscoreControls/PupilSubmitButton" to="." method="_on_highscore_submit_button_pressed" binds= ["6-12"]]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/MenuContainer/HighscoreControls/AdultSubmitButton" to="." method="_on_highscore_submit_button_pressed" binds= ["13+"]]

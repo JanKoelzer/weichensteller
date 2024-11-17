@@ -20,13 +20,6 @@ script = ExtResource("1_1d7qk")
 texture = ExtResource("1_l5ut5")
 centered = false
 
-[node name="TrainsSprite" type="Sprite2D" parent="."]
-position = Vector2(0, 1)
-texture = ExtResource("2_wo0fw")
-offset = Vector2(512, 370)
-region_enabled = true
-region_rect = Rect2(0, 196, 384, 196)
-
 [node name="Title" type="HBoxContainer" parent="."]
 layout_mode = 2
 alignment = 1
@@ -77,6 +70,18 @@ text = "SOUND"
 [node name="LanguageCheckbox" type="CheckBox" parent="."]
 layout_mode = 2
 text = "ENGLISH"
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="TrainsSprite" type="Sprite2D" parent="CenterContainer/Control"]
+position = Vector2(0, 69)
+texture = ExtResource("2_wo0fw")
+region_enabled = true
+region_rect = Rect2(0, 196, 384, 196)
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="HighscoreButton" to="." method="_on_highscore_button_pressed"]
