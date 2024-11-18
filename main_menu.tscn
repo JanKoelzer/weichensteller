@@ -78,10 +78,10 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="TrainsSprite" type="Sprite2D" parent="CenterContainer/Control"]
-position = Vector2(0, 69)
+position = Vector2(0, 56)
 texture = ExtResource("2_wo0fw")
 region_enabled = true
-region_rect = Rect2(0, 196, 384, 196)
+region_rect = Rect2(0, 196, 384, 250)
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="HighscoreButton" to="." method="_on_highscore_button_pressed"]

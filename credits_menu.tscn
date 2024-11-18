@@ -49,7 +49,7 @@ layout_mode = 2
 text = "BACK"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
-custom_minimum_size = Vector2(0, 150)
+custom_minimum_size = Vector2(0, 195)
 layout_mode = 2
 
 [node name="CopyrightLabel" type="Label" parent="ScrollContainer"]
@@ -67,7 +67,7 @@ THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 autowrap_mode = 3
 
 [node name="ScrollContainer2" type="ScrollContainer" parent="."]
-custom_minimum_size = Vector2(0, 150)
+custom_minimum_size = Vector2(0, 146)
 layout_mode = 2
 
 [node name="ThirdPartyLabel" type="Label" parent="ScrollContainer2"]

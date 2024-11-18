@@ -7,10 +7,11 @@ func _ready() -> void:
 	var audio_setting = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))
 	$AudioCheckbox.button_pressed = audio_setting == AUDIO_ON_DB
 	$LanguageCheckbox.button_pressed = not TranslationServer.get_locale().begins_with("de") 
-	
+
+
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()
-	
+
 
 func _on_start_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://difficulty_settings.tscn")

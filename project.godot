@@ -13,8 +13,8 @@ config_version=5
 config/name="Weichensteller"
 run/main_scene="res://main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-boot_splash/image="res://icon.png"
-config/icon="res://icon.png"
+boot_splash/image="res://icon192.png"
+config/icon="res://icon192.png"
 config/movie_file="/home/jtk/workspace/Weichensteller/movies/main.avi"
 
 [autoload]
