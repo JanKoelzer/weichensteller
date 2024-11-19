@@ -34,7 +34,25 @@ func set_color(c: TrainColor) -> void:
 		$Sprite.region_rect= [Rect2(tile_size*5, 0, tile_size, tile_size),Rect2(tile_size*5, tile_size, tile_size, tile_size), Rect2(tile_size*4, tile_size, tile_size, tile_size)].pick_random()
 		$RainbowPlayer.play("rainbow")
 	else:
-		$Sprite.region_rect= Rect2(tile_size*color, tile_size*randi_range(3,6), tile_size, tile_size)
+		var u = color
+		var v = randi_range(3,6)
+		if v == 3:
+			$SparkParticles/Timer.start(randf_range(2, 2))
+		else:
+			remove_child($SparkParticles)
+			
+		if v == 5:
+			$ExhaustParticles.position = Vector2i(-25, -10)
+		elif v == 4:
+			$ExhaustParticles.position = Vector2i(-13, 4)
+		if v != 4 and v != 5:
+			remove_child($ExhaustParticles)
+			
+			
+		if v != 6:
+			remove_child($SmokeParticles)
+			
+		$Sprite.region_rect= Rect2(tile_size*u, tile_size*v, tile_size, tile_size)
 
 
 func move() -> void:
@@ -69,3 +87,9 @@ func fade_out(was_success: bool) -> void:
 func _on_animation_player_animation_finished(anim_name: String) -> void:
 	if anim_name == "fade_out":
 		queue_free()
+
+
+func _on_timer_timeout():
+	$SparkParticles.position.y = randi_range(-10, 10)
+	$SparkParticles.emitting = true
+	$SparkParticles/Timer.start(randf_range(3, 8))
