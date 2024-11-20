@@ -130,5 +130,7 @@ func auto_brake():
 	brakes = brakes.slice(0, brakes.size()-1) # skip checkbox
 	for b in brakes:
 		if not b.disabled:
+			%PauseButtons/AutoBrakeCheckBox/AnimationPlayer.play("activated")
+			get_tree().create_timer(pause_time).timeout.connect(func(): %PauseButtons/AutoBrakeCheckBox/AnimationPlayer.pause())
 			activate_brakes(b)
 			break # active only one brake

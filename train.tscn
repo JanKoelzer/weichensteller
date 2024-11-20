@@ -163,7 +163,7 @@ script = ExtResource("2_wgsvc")
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_lo3q4")
 region_enabled = true
-region_rect = Rect2(0, 192, 64, 64)
+region_rect = Rect2(0, 256, 64, 64)
 
 [node name="FadePlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -222,7 +222,7 @@ color_initial_ramp = SubResource("Gradient_fodbn")
 autostart = true
 
 [node name="ExhaustParticles" type="CPUParticles2D" parent="."]
-position = Vector2(-24, -9)
+position = Vector2(-15, 9)
 amount = 50
 lifetime = 0.3
 randomness = 0.5

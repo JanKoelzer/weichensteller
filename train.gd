@@ -44,8 +44,8 @@ func set_color(c: TrainColor) -> void:
 		if v == 5:
 			$ExhaustParticles.position = Vector2i(-25, -10)
 		elif v == 4:
-			$ExhaustParticles.position = Vector2i(-13, 4)
-		if v != 4 and v != 5:
+			$ExhaustParticles.position = Vector2i(-5, 9)
+		else:
 			remove_child($ExhaustParticles)
 			
 			
@@ -80,7 +80,7 @@ func fade_out(was_success: bool) -> void:
 		var shader_material: ShaderMaterial = ShaderMaterial.new()
 		shader_material.shader = shader
 		shader_material.set_shader_parameter("engine_time_sec", Time.get_ticks_msec() / 1000.0)
-		shader_material.set_shader_parameter("duration", 1.0)
+		shader_material.set_shader_parameter("duration", 0.5)
 		$Sprite.material = shader_material
 	$FadePlayer.play("fade_out")
 
