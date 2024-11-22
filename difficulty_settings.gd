@@ -2,11 +2,14 @@ extends VBoxContainer
 
 
 func _ready() -> void:
-	GameSettings.changed.connect(update_view) # react to future changes in settings
+	# react to future changes in settings
+	GameSettings.changed.connect(func(_prop: String, _v: Variant) -> void:
+			update_view()
+	) 
 	update_view()
 
 
-func update_view(_prop = null, _v = null) -> void:
+func update_view() -> void:
 	$GridContainer/SpeedLabel.text = str(round(GameSettings.speed*100))
 	$GridContainer/NumConcurrentTrainsLabel.text = str(GameSettings.num_concurrent_trains)
 	$GridContainer/NumStationsLabel.text = str(GameSettings.num_stations)

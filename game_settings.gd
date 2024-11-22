@@ -72,7 +72,7 @@ var max_errors: int = DEFAULT_MAX_ERRORS:
 var joker_enabled: bool = false
 
 func score_factor() -> float:
-	var k: float = 1.0
+	var k := 1.0
 	k *= speed**1.2
 	k *= (float(num_concurrent_trains)/DEFAULT_CONCURRENT_TRAINS)**1.2
 	k *= (float(num_stations)/DEFAULT_STATIONS)**2

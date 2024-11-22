@@ -1,72 +1,112 @@
 class_name Train
 extends Node2D
 
-static var train_scene: PackedScene = preload("res://train.tscn")
+static var wind_direction := Vector2.from_angle(randf()*2*PI)
+static var wind_speed := randf()*100
+
+signal moved(t: Train)
+
+enum TrainColor {
+		RAINBOW = -1,
+		RED = 0,
+		ORANGE = 1,
+		YELLOW = 2,
+		GREEN = 3,
+		BLUE = 4,
+		PURPLE = 5,
+}
 
 const tile_size: int = 64
 
-var speed: float = 1.0 # default 
+static var train_scene: PackedScene = preload("res://train.tscn")
+
+var speed := 1.0 # default 
 
 var directions: Array[int] = [-1, 0, 1]
-var directionIndex: int = 1;
+var directionIndex := 1;
 var direction: int:
 	get:
 		return directions[directionIndex]
 	set(v):
-		var index = directions.find(v)
+		var index := directions.find(v)
 		if index == -1:
 			directionIndex = 0
 		else:
 			directionIndex = index
 
 
-enum TrainColor {RAINBOW = -1, RED = 0, ORANGE = 1, YELLOW = 2, GREEN = 3, BLUE = 4, PURPLE = 5}
+
 var color: TrainColor: # this should be "read only after init"
 	set = set_color
-
-
-signal moved(t: Train)
 
 
 func set_color(c: TrainColor) -> void:
 	color = c
 	if color == TrainColor.RAINBOW:
-		$Sprite.region_rect= [Rect2(tile_size*5, 0, tile_size, tile_size),Rect2(tile_size*5, tile_size, tile_size, tile_size), Rect2(tile_size*4, tile_size, tile_size, tile_size)].pick_random()
+		$Sprite.region_rect= [
+				Rect2(tile_size*5, 0, tile_size, tile_size),
+				Rect2(tile_size*5, tile_size, tile_size, tile_size),
+				Rect2(tile_size*4, tile_size, tile_size, tile_size)
+			].pick_random()
 		$RainbowPlayer.play("rainbow")
 	else:
-		var u = color
-		var v = randi_range(3,6)
+		var u := color
+		var v := randi_range(3, 6)
+		
 		if v == 3:
-			$SparkParticles/Timer.start(randf_range(2, 2))
+			$SmokeParticles.amount = randi_range(4, 10)
+			$SmokeParticles.lifetime = randf_range(0.1, 0.3)
+			$SmokeParticles.initial_velocity_min = wind_speed
+			$SmokeParticles.initial_velocity_max = wind_speed
+			$SmokeParticles.direction = wind_direction
+			$SparkParticles/Timer.start(randf_range(2, 5))
 		else:
 			remove_child($SparkParticles)
 			
-		if v == 5:
-			$ExhaustParticles.position = Vector2i(-25, -10)
-		elif v == 4:
-			$ExhaustParticles.position = Vector2i(-5, 9)
+		if v == 4 or v == 5:
+			$ExhaustParticles.initial_velocity_min = wind_speed
+			$ExhaustParticles.initial_velocity_max = wind_speed
+			$ExhaustParticles.direction = wind_direction
+			$ExhaustParticles.lifetime = randf_range(0.2, 0.4)
+			$ExhaustParticles.amount = randi_range(40, 60)
+			$ExhaustParticles.color = \
+					Color($ExhaustParticles.color, randf_range(0.8, 1.0))\
+					.darkened(randf_range(0.0, 0.2))		
+			if v == 5:
+				$ExhaustParticles.position = Vector2i(-25, -10)
+			elif v == 4:
+				$ExhaustParticles.position = Vector2i(-24, 2)
 		else:
 			remove_child($ExhaustParticles)
 			
-			
-		if v != 6:
+		if v == 6:
+			$SmokeParticles.initial_velocity_min = wind_speed
+			$SmokeParticles.initial_velocity_max = wind_speed
+			$SmokeParticles.direction = wind_direction
+			$SmokeParticles.color = \
+					Color($SmokeParticles.color, randf_range(0.4, 0.6))\
+					.darkened(randf_range(0.0, 0.3))
+			$SmokeParticles.lifetime = randf_range(2.8, 3.8)
+			$SmokeParticles.amount = randi_range(400, 550)
+		else:
 			remove_child($SmokeParticles)
 			
-		$Sprite.region_rect= Rect2(tile_size*u, tile_size*v, tile_size, tile_size)
+		$Sprite.region_rect = Rect2(tile_size*u, tile_size*v, tile_size, tile_size)
 
 
 func move() -> void:
-	var tween: Tween = create_tween()
+	var tween := create_tween()
 	
 	var duration: float = (1.0 + (sqrt(2)-1)*abs(direction)) / speed
-	var delta = Vector2(tile_size * 1.0, tile_size * direction)
+	var delta := Vector2(tile_size * 1.0, tile_size * direction)
 	
 	# move forward	
 	tween.tween_property(self, "position", position + delta, duration)
 	tween.set_trans(Tween.TRANS_LINEAR)
-	tween.tween_callback(func(): moved.emit(self))
+	tween.tween_callback(func() -> void: moved.emit(self))
 	# rotation
-	create_tween().tween_property(self, "rotation_degrees", 45*direction, 0.2/speed).set_trans(Tween.TRANS_LINEAR)
+	create_tween().tween_property(self, "rotation_degrees",
+			45*direction, 0.2/speed).set_trans(Tween.TRANS_LINEAR)
 	
 
 func fade_in() -> void:
@@ -76,8 +116,8 @@ func fade_in() -> void:
 func fade_out(was_success: bool) -> void:
 	speed = 0.0
 	if not was_success:
-		var shader: Resource = preload("res://grayscale.gdshader")
-		var shader_material: ShaderMaterial = ShaderMaterial.new()
+		var shader := preload("res://grayscale.gdshader")
+		var shader_material := ShaderMaterial.new()
 		shader_material.shader = shader
 		shader_material.set_shader_parameter("engine_time_sec", Time.get_ticks_msec() / 1000.0)
 		shader_material.set_shader_parameter("duration", 0.5)
@@ -89,7 +129,7 @@ func _on_animation_player_animation_finished(anim_name: String) -> void:
 		queue_free()
 
 
-func _on_timer_timeout():
+func _on_spark_timer_timeout() -> void:
 	$SparkParticles.position.y = randi_range(-10, 10)
 	$SparkParticles.emitting = true
 	$SparkParticles/Timer.start(randf_range(3, 8))

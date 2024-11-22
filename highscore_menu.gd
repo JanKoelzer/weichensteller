@@ -7,15 +7,15 @@ func _ready() -> void:
 	Highscore.receive_highscore()
 
 
-func _on_highscore_updated(highscore):
+func _on_highscore_updated(highscore: Dictionary) -> void:
 	%HighscoreLabel.text = ""
-	for group in [Highscore.MIN, Highscore.MED, Highscore.MAX]:
+	for group: String in [Highscore.MIN, Highscore.MED, Highscore.MAX]:
 		%HighscoreLabel.text += tr("AGE")+ " " + group + ":\n"
-		for i in highscore[group].size():
-			var entry = highscore[group][i]
+		for i: int in range(highscore[group].size()):
+			var entry := highscore[group][i] as Dictionary
 			%HighscoreLabel.text += "%s. %s, %s, %s\n" % [i+1, entry.name, entry.score, entry.date]
 		%HighscoreLabel.text += "\n\n"
 
 
-func _on_close_button_pressed():
+func _on_close_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://main_menu.tscn")

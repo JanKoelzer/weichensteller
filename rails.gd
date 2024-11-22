@@ -1,15 +1,15 @@
 extends TileMapLayer
 
-var train_scene: PackedScene = preload("res://train.tscn")
+var Train_scene: PackedScene = preload("res://train.tscn")
 
 signal train_started(sum_trains_started: int)
 signal scored()
 signal errored()
 signal end()
 
-const COL_COUNT = 16
+const COL_COUNT := 16
 
-var generate_trains: bool = true:
+var generate_trains := true:
 	get: return not $TrainCreationTimer.is_stopped()
 	set(v):
 		if not v and not $TrainCreationTimer.is_stopped(): 
@@ -25,7 +25,7 @@ var trains_on_track: int = 0:
 			end.emit()
 
 
-var sum_trains_started: int = 0:
+var sum_trains_started := 0:
 	get: return sum_trains_started
 	set(v):
 		sum_trains_started = v
@@ -33,6 +33,8 @@ var sum_trains_started: int = 0:
 
 
 func _ready() -> void:
+	Train.wind_direction = Vector2.from_angle(randf()*PI/4 - PI/8)
+	Train.wind_speed = randf()*50
 	create_railways()
 
 
@@ -41,7 +43,7 @@ func start() -> void:
 
 
 func create_railways() -> void:
-	var n: int = GameSettings.num_stations
+	var n := GameSettings.num_stations
 	# reset everything
 	self.clear()
 	for row in range(GameSettings.num_stations):
@@ -51,7 +53,7 @@ func create_railways() -> void:
 				set_cell(Vector2i(col, row), 0, Vector2i(row, 2))
 	
 	# set minimal switches
-	var cols: Array = range(1, COL_COUNT - 1)
+	var cols := range(1, COL_COUNT - 1)
 	cols.shuffle() 
 	var cols_for_up: Array = cols.slice(0, n)
 	var cols_for_down: Array = cols.slice(n, 2*n)
@@ -59,12 +61,12 @@ func create_railways() -> void:
 	cols_for_down.sort()
 	cols_for_up.sort()
 	cols_for_up.reverse()
-	for row in range(n - 1):
+	for row: int in range(n - 1):
 		set_switch(cols_for_down[row], row, 1)
 		set_switch(cols_for_up[row], row+1, -1)# n - 1 - row, -1)
 
 	# set extra switches
-	var num_extra_switches: int = GameSettings.num_extra_switches
+	var num_extra_switches := GameSettings.num_extra_switches
 	while num_extra_switches > 0:
 		var pos: Vector2i = Vector2i(randi_range(1, COL_COUNT - 2), randi_range(0, n - 1))		
 		if get_cell_tile_data(pos) != null and not get_cell_tile_data(pos).get_custom_data("is_switch"):
@@ -80,7 +82,7 @@ func set_switch(x: int, y: int, direction: int = 0) -> void:
 	# use direction only, if possible
 	if y + direction < 0 or y + direction >= GameSettings.num_stations:
 				direction = -direction
-	var atlas_coord_x: int = randi_range(0, 1) if direction == 1 else randi_range(2, 3)
+	var atlas_coord_x := randi_range(0, 1) if direction == 1 else randi_range(2, 3)
 	set_cell(Vector2i(x, y), 0, Vector2i(atlas_coord_x, 0))
 
 
@@ -106,7 +108,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 # active or deavtive a switch
 func switch(cell: Vector2i) -> void:
-	var data: TileData = get_cell_tile_data(cell)
+	var data := get_cell_tile_data(cell)
 	var new_atlas_coords: Vector2i
 	var audioPlayer: AudioStreamPlayer
 	
@@ -137,8 +139,8 @@ func switch(cell: Vector2i) -> void:
 	
 
 func _on_train_moved(train: Train) -> void:
-	var cell: Vector2i = get_cell_at(to_local(train.position))
-	var data: TileData = get_cell_tile_data(cell)
+	var cell := get_cell_at(to_local(train.position))
+	var data := get_cell_tile_data(cell)
 	
 	if data == null:
 		train.queue_free()
@@ -164,12 +166,13 @@ func _on_train_moved(train: Train) -> void:
 
 
 func set_train_on_tracks() -> void:
-	var train_speed: float = GameSettings.speed + sum_trains_started / 50.0 # slowly increase speed over time	
-	var t: Train = train_scene.instantiate()
+	var train_speed := GameSettings.speed + sum_trains_started / 50.0 # slowly increase speed over time	
+	var t := Train_scene.instantiate()
 	
 	$Trains.add_child(t)
+	$Trains.move_child(t, 0)
 	t.speed = train_speed
-	var track: int = randi_range(0, GameSettings.num_stations - 1)
+	var track := randi_range(0, GameSettings.num_stations - 1)
 	t.position = Vector2(0, tile_set.tile_size.y * track  + tile_set.tile_size.y / 2.0)
 	
 	if GameSettings.joker_enabled and sum_trains_started > 5 and randi_range(0, 24) == 0:
@@ -185,6 +188,6 @@ func set_train_on_tracks() -> void:
 	t.move()
 	
 	# set timer for next train
-	var wait_time: float =  COL_COUNT/(train_speed*GameSettings.num_concurrent_trains + sum_trains_started/40.0) # "+ sum_trains_started/40	" to make trains appear "faster faster" than the speed increases → overall traffic increases
+	var wait_time :=  COL_COUNT/(train_speed*GameSettings.num_concurrent_trains + sum_trains_started/40.0) # "+ sum_trains_started/40	" to make trains appear "faster faster" than the speed increases → overall traffic increases
 	$TrainCreationTimer.wait_time = wait_time
 	$TrainCreationTimer.start()
