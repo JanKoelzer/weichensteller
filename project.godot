@@ -24,6 +24,11 @@ GameSettings="*res://game_settings.gd"
 Highscore="*res://highscore.gd"
 LanguageSettings="*res://language_settings.gd"
 
+[debug]
+
+gdscript/warnings/untyped_declaration=1
+gdscript/warnings/renamed_in_godot_4_hint=false
+
 [display]
 
 window/size/viewport_width=1024
