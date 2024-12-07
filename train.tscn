@@ -168,25 +168,18 @@ libraries = {
 "": SubResource("AnimationLibrary_bdd4j")
 }
 
-[node name="RainbowPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_bdd4j")
-}
-
-[node name="SmokeParticles" type="CPUParticles2D" parent="."]
+[node name="SteamParticles" type="CPUParticles2D" parent="."]
 z_index = 1
 z_as_relative = false
 position = Vector2(11, -1)
 amount = 400
 lifetime = 2.0
-preprocess = 1.0
-explosiveness = 0.01
-randomness = 0.2
+explosiveness = 0.1
+randomness = 0.4
 lifetime_randomness = 1.0
 texture = ExtResource("3_ogqkn")
 emission_shape = 1
 emission_sphere_radius = 8.0
-direction = Vector2(-100, -50)
 spread = 15.0
 gravity = Vector2(0, 0)
 scale_amount_min = 0.8
@@ -236,5 +229,4 @@ color_ramp = SubResource("Gradient_17jyq")
 color_initial_ramp = SubResource("Gradient_6whlh")
 
 [connection signal="animation_finished" from="FadePlayer" to="." method="_on_animation_player_animation_finished"]
-[connection signal="animation_finished" from="RainbowPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="SparkParticles/Timer" to="." method="_on_spark_timer_timeout"]

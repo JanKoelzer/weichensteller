@@ -1,6 +1,8 @@
 class_name GameView
 extends VBoxContainer
 
+const COL_COUNT := 16
+
 var time: int = 0
 var error_count: int = 0
 var score: float = 0.0
@@ -34,6 +36,7 @@ func _ready() -> void:
 	%PauseButtons/AutoBrakeCheckBox.button_pressed = GameSettings.auto_brake_enabled
 	
 	# start the game
+	%Rails.init(COL_COUNT, GameSettings)
 	start_after_countdown()
 	
 	
@@ -56,7 +59,7 @@ func activate_brakes(b: Button) -> void:
 func _on_rails_scored() -> void:
 	score += 10 * GameSettings.score_factor()
 	errors_in_row = 0
-	%ScoreLabel.text = str(roundf(score))
+	%ScoreLabel.text = str(roundi(score))
 	%ScoreLabel/AnimationPlayer.play("changed")
 
 
@@ -117,7 +120,7 @@ func _on_main_menu_button_pressed() -> void:
 func _on_highscore_submit_button_pressed(age: String) -> void:
 	var player_name := %HighscoreControls.find_child("PlayerNameEdit").text as String
 	if player_name != null and player_name != "":
-		Highscore.put_highscore(player_name, roundf(score), age)
+		Highscore.put_highscore(player_name, roundi(score), age)
 		%HighscoreControls.visible = false
 
 
