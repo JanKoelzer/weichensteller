@@ -12,11 +12,12 @@ config_version=5
 
 config/name="Weichensteller"
 run/main_scene="res://main_menu.tscn"
+config/quit_on_go_back=false
 config/features=PackedStringArray("4.3", "Forward Plus")
 boot_splash/image="res://icon192.png"
 config/icon="res://icon192.png"
 config/windows_native_icon="res://icon.ico"
-config/movie_file="/home/jtk/workspace/Weichensteller/movies/main.avi"
+config/movie_file="res://movies/main.avi"
 
 [autoload]
 

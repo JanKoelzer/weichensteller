@@ -38,7 +38,12 @@ func _ready() -> void:
 	# start the game
 	%Rails.init(COL_COUNT, GameSettings)
 	start_after_countdown()
-	
+
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_WM_GO_BACK_REQUEST:
+		get_tree().change_scene_to_file("res://difficulty_settings.tscn")
+
 	
 func start_after_countdown() -> void:
 	var label: Array[Label] = [%CountdownLabel0, %CountdownLabel1, %CountdownLabel2, %CountdownLabel3]

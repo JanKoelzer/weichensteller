@@ -9,6 +9,11 @@ func _ready() -> void:
 	update_view()
 
 
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_WM_GO_BACK_REQUEST:
+		get_tree().change_scene_to_file("res://main_menu.tscn")
+
+
 func update_view() -> void:
 	$GridContainer/SpeedLabel.text = str(round(GameSettings.speed*100))
 	$GridContainer/NumConcurrentTrainsLabel.text = str(GameSettings.num_concurrent_trains)

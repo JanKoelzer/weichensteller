@@ -7,14 +7,14 @@ const MAX = "13+"
 
 var get_highscore_request: HTTPRequest
 var put_highscore_request: HTTPRequest
-var get_highscore_url: String			
+var get_highscore_url: String
 var put_highscore_url: String
 var secret: String
 
 signal highscore_updated(highscore: Dictionary)
 
 
-func _ready() -> void:	
+func _ready() -> void:
 	var credentials := JSON.parse_string(FileAccess.get_file_as_string('res://server/credentials.json')) as Dictionary
 	secret = credentials['score-url-secret']
 	get_highscore_url = credentials['score-url']
