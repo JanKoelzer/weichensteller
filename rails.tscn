@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=4 uid="uid://bj451436lnaqo"]
 
 [ext_resource type="Texture2D" uid="uid://cqhoidm6a2ami" path="res://rails.png" id="1_4sor6"]
-[ext_resource type="Script" path="res://rails.gd" id="2_oee5r"]
+[ext_resource type="Script" uid="uid://cjm4kopl3vglx" path="res://rails.gd" id="2_oee5r"]
 [ext_resource type="AudioStream" uid="uid://b1lgkk2ec4a6c" path="res://sounds/error.ogg" id="4_2xn0g"]
 [ext_resource type="AudioStream" uid="uid://1rkr8souukfy" path="res://sounds/score.ogg" id="5_35er8"]
 [ext_resource type="AudioStream" uid="uid://cqmsridmfrloj" path="res://sounds/switch-activate.ogg" id="6_5y7s6"]

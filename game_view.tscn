@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=4 uid="uid://b5khbek0fxki0"]
 
-[ext_resource type="Script" path="res://game_view.gd" id="1_6hfh6"]
+[ext_resource type="Script" uid="uid://522w2u3g8ouo" path="res://game_view.gd" id="1_6hfh6"]
 [ext_resource type="PackedScene" uid="uid://bj451436lnaqo" path="res://rails.tscn" id="1_rrse5"]
 [ext_resource type="Texture2D" uid="uid://eij2hohstuhh" path="res://images/background.png" id="2_g1875"]
 
@@ -37,8 +37,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xll60"]
 _data = {
-"RESET": SubResource("Animation_r1erm"),
-"fade_out": SubResource("Animation_ybkoo")
+&"RESET": SubResource("Animation_r1erm"),
+&"fade_out": SubResource("Animation_ybkoo")
 }
 
 [sub_resource type="Animation" id="Animation_215vd"]
@@ -75,8 +75,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4him0"]
 _data = {
-"RESET": SubResource("Animation_215vd"),
-"rainbow": SubResource("Animation_ggm76")
+&"RESET": SubResource("Animation_215vd"),
+&"rainbow": SubResource("Animation_ggm76")
 }
 
 [sub_resource type="Animation" id="Animation_b7km5"]
@@ -112,8 +112,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_d0jt8"]
 _data = {
-"RESET": SubResource("Animation_b7km5"),
-"changed": SubResource("Animation_bhpc2")
+&"RESET": SubResource("Animation_b7km5"),
+&"changed": SubResource("Animation_bhpc2")
 }
 
 [sub_resource type="Animation" id="Animation_plniq"]
@@ -149,8 +149,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y681f"]
 _data = {
-"RESET": SubResource("Animation_plniq"),
-"changed": SubResource("Animation_0m12q")
+&"RESET": SubResource("Animation_plniq"),
+&"changed": SubResource("Animation_0m12q")
 }
 
 [sub_resource type="Animation" id="Animation_m1u77"]
@@ -186,8 +186,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7gscs"]
 _data = {
-"RESET": SubResource("Animation_m1u77"),
-"changed": SubResource("Animation_sbrcx")
+&"RESET": SubResource("Animation_m1u77"),
+&"changed": SubResource("Animation_sbrcx")
 }
 
 [sub_resource type="Animation" id="Animation_mqv32"]
@@ -223,8 +223,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yvdyt"]
 _data = {
-"RESET": SubResource("Animation_mqv32"),
-"activated": SubResource("Animation_a1wuf")
+&"RESET": SubResource("Animation_mqv32"),
+&"activated": SubResource("Animation_a1wuf")
 }
 
 [node name="GameView" type="VBoxContainer"]
@@ -271,7 +271,7 @@ text = "GO"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Container/Countdown/CountdownLabel0"]
 libraries = {
-"": SubResource("AnimationLibrary_xll60")
+&"": SubResource("AnimationLibrary_xll60")
 }
 
 [node name="CountdownLabel1" type="Label" parent="Container/Countdown"]
@@ -294,7 +294,7 @@ text = "1"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Container/Countdown/CountdownLabel1"]
 libraries = {
-"": SubResource("AnimationLibrary_xll60")
+&"": SubResource("AnimationLibrary_xll60")
 }
 
 [node name="CountdownLabel2" type="Label" parent="Container/Countdown"]
@@ -317,7 +317,7 @@ text = "2"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Container/Countdown/CountdownLabel2"]
 libraries = {
-"": SubResource("AnimationLibrary_xll60")
+&"": SubResource("AnimationLibrary_xll60")
 }
 
 [node name="CountdownLabel3" type="Label" parent="Container/Countdown"]
@@ -340,7 +340,7 @@ text = "3"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Container/Countdown/CountdownLabel3"]
 libraries = {
-"": SubResource("AnimationLibrary_xll60")
+&"": SubResource("AnimationLibrary_xll60")
 }
 
 [node name="GameOverDisplay" type="Control" parent="Container"]
@@ -376,7 +376,7 @@ horizontal_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Container/GameOverDisplay/VBoxContainer/FinalScoreLabel"]
 libraries = {
-"": SubResource("AnimationLibrary_4him0")
+&"": SubResource("AnimationLibrary_4him0")
 }
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
@@ -399,7 +399,7 @@ text = "0"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer/VBoxContainer/HBoxContainer/TrainCountLabel"]
 libraries = {
-"": SubResource("AnimationLibrary_d0jt8")
+&"": SubResource("AnimationLibrary_d0jt8")
 }
 
 [node name="VSeparator" type="VSeparator" parent="CenterContainer/VBoxContainer/HBoxContainer"]
@@ -416,7 +416,7 @@ text = "0"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer/VBoxContainer/HBoxContainer/ScoreLabel"]
 libraries = {
-"": SubResource("AnimationLibrary_y681f")
+&"": SubResource("AnimationLibrary_y681f")
 }
 
 [node name="VSeparator2" type="VSeparator" parent="CenterContainer/VBoxContainer/HBoxContainer"]
@@ -433,7 +433,7 @@ text = "0"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer/VBoxContainer/HBoxContainer/ErrorsLabel"]
 libraries = {
-"": SubResource("AnimationLibrary_7gscs")
+&"": SubResource("AnimationLibrary_7gscs")
 }
 
 [node name="VSeparator3" type="VSeparator" parent="CenterContainer/VBoxContainer/HBoxContainer"]
@@ -467,7 +467,7 @@ text = "AUTO_STOP"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer/VBoxContainer/PauseButtons/AutoBrakeCheckBox"]
 libraries = {
-"": SubResource("AnimationLibrary_yvdyt")
+&"": SubResource("AnimationLibrary_yvdyt")
 }
 
 [node name="HSeparator2" type="HSeparator" parent="CenterContainer/VBoxContainer"]
