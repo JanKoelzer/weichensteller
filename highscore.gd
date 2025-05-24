@@ -1,9 +1,7 @@
 extends Node
 
-const MIN = "0-5"
-const MED = "6-12"
-const MAX = "13+"
-
+enum AgeGroups { MIN = 0, MED = 1, MAX = 2 }
+const AgeGroupNames: Array[String] = [ "0-5", "6-12", "13+"]
 
 var get_highscore_request: HTTPRequest
 var put_highscore_request: HTTPRequest
@@ -12,7 +10,7 @@ var put_highscore_url: String
 var secret: String
 
 signal highscore_updated(highscore: Dictionary)
-
+signal highscore_put(success: bool)
 
 func _ready() -> void:
 	var credentials := JSON.parse_string(FileAccess.get_file_as_string('res://server/credentials.json')) as Dictionary
@@ -78,11 +76,15 @@ func _on_get_highscore_request_request_completed(_result: int,
 		var response_text := body.get_string_from_utf8()
 		var score_list := JSON.parse_string(response_text) as Array
 		score_list.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
-				return a["score"] > b["score"]
+			return a["score"] > b["score"]
 		)
-		var highscore := { MIN: [], MED: [], MAX: [] }
+		var highscore := {
+			Highscore.AgeGroupNames[AgeGroups.MIN]: [],
+			Highscore.AgeGroupNames[Highscore.AgeGroups.MED]: [],
+			Highscore.AgeGroupNames[Highscore.AgeGroups.MAX]: [],
+		}
 		for i: int in range(score_list.size()):
-				(highscore[score_list[i]["group"]] as Array).append(score_list[i])
+			(highscore[score_list[i]["group"]] as Array).append(score_list[i])
 		highscore_updated.emit(highscore)
 		
 	else:
@@ -110,7 +112,9 @@ func _on_put_highscore_request_request_completed(_result: int,
 	if response_code in range(200, 300):
 		print("Data has been PUT successfully.")
 		print(body.get_string_from_utf8())
+		highscore_put.emit(true)
 	else:
 		print("Request failed with response code:", response_code)
 		print("Request failed with response headers:", headers)
 		print("Request failed with response body:", body.get_string_from_utf8())
+		highscore_put.emit(false)

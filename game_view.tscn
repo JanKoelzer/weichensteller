@@ -510,6 +510,11 @@ text = "AGE_1"
 layout_mode = 2
 text = "AGE_2"
 
+[node name="SubmitStatusLabel" type="Label" parent="CenterContainer/VBoxContainer/MenuContainer/HighscoreControls"]
+visible = false
+layout_mode = 2
+text = "…"
+
 [connection signal="end" from="Container/Rails" to="." method="_on_rails_end"]
 [connection signal="errored" from="Container/Rails" to="." method="_on_rails_errored"]
 [connection signal="scored" from="Container/Rails" to="." method="_on_rails_scored"]

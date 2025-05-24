@@ -127,9 +127,22 @@ func _on_main_menu_button_pressed() -> void:
 func _on_highscore_submit_button_pressed(age: String) -> void:
 	var player_name := %HighscoreControls.find_child("PlayerNameEdit").text as String
 	if player_name != null and player_name != "":
+		if not Highscore.highscore_put.is_connected(_on_highscore_put):
+			Highscore.highscore_put.connect(_on_highscore_put)
 		Highscore.put_highscore(player_name, roundi(score), age)
-		%HighscoreControls.visible = false
+		for button: Control in [%HighscoreControls/ChildSubmitButton, %HighscoreControls/PupilSubmitButton, %HighscoreControls/AdultSubmitButton]:
+			button.disabled = true
+		%HighscoreControls/SubmitStatusLabel.text = "…"
+		%HighscoreControls/SubmitStatusLabel.visible = true
 
+func _on_highscore_put(success: bool) -> void:
+	if success:
+		%HighscoreControls/SubmitStatusLabel.text = tr("OK")
+	else:
+		for button: Button in [%HighscoreControls/ChildSubmitButton, %HighscoreControls/PupilSubmitButton, %HighscoreControls/AdultSubmitButton]:
+			button.disabled = false
+		%HighscoreControls/SubmitStatusLabel.text = tr("PLEASE_RETRY")
+	
 
 func _on_auto_brake_check_box_toggled(toggled_on: bool) -> void:
 	GameSettings.auto_brake_enabled = toggled_on

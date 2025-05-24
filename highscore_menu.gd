@@ -1,20 +1,29 @@
 extends VBoxContainer
 
 
+@onready
+var highscore_labels := [
+	%HighscoreTabContainer/Age0/HighscoreLabel,
+	%HighscoreTabContainer/Age1/HighscoreLabel,
+	%HighscoreTabContainer/Age2/HighscoreLabel,
+]
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	for group_idx: int in Highscore.AgeGroups.size():
+		$HighscoreTabContainer.set_tab_title(group_idx, tr("AGE")+ " " + Highscore.AgeGroupNames[group_idx])
 	Highscore.highscore_updated.connect(_on_highscore_updated)
 	Highscore.receive_highscore()
 
 
 func _on_highscore_updated(highscore: Dictionary) -> void:
-	%HighscoreLabel.text = ""
-	for group: String in [Highscore.MIN, Highscore.MED, Highscore.MAX]:
-		%HighscoreLabel.text += tr("AGE")+ " " + group + ":\n"
-		for i: int in range(highscore[group].size()):
+	for group_idx: int in Highscore.AgeGroups.size():
+		var group := Highscore.AgeGroupNames[group_idx] as String
+		highscore_labels[group_idx].text = ""
+		
+		for i: int in highscore[group].size():
 			var entry := highscore[group][i] as Dictionary
-			%HighscoreLabel.text += "%s. %s, %s, %s\n" % [i+1, entry.name, entry.score, entry.date]
-		%HighscoreLabel.text += "\n\n"
+			highscore_labels[group_idx].text += "%s. %s, %s, %s\n" % [i+1, entry.name, roundi(entry.score), entry.date]
 
 
 func _on_close_button_pressed() -> void:

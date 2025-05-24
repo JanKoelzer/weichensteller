@@ -48,12 +48,41 @@ layout_mode = 2
 layout_mode = 2
 text = "BACK"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
+[node name="HighscoreTabContainer" type="TabContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+current_tab = 0
+
+[node name="Age0" type="ScrollContainer" parent="HighscoreTabContainer"]
 custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
+metadata/_tab_index = 0
 
-[node name="HighscoreLabel" type="Label" parent="ScrollContainer"]
-unique_name_in_owner = true
+[node name="HighscoreLabel" type="Label" parent="HighscoreTabContainer/Age0"]
+custom_minimum_size = Vector2(1024, 0)
+layout_mode = 2
+text = "LOADING_HIGHSCORE"
+autowrap_mode = 2
+
+[node name="Age1" type="ScrollContainer" parent="HighscoreTabContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="HighscoreLabel" type="Label" parent="HighscoreTabContainer/Age1"]
+custom_minimum_size = Vector2(1024, 0)
+layout_mode = 2
+text = "LOADING_HIGHSCORE"
+autowrap_mode = 2
+
+[node name="Age2" type="ScrollContainer" parent="HighscoreTabContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="HighscoreLabel" type="Label" parent="HighscoreTabContainer/Age2"]
 custom_minimum_size = Vector2(1024, 0)
 layout_mode = 2
 text = "LOADING_HIGHSCORE"
