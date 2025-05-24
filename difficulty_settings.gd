@@ -15,7 +15,7 @@ func _notification(what: int) -> void:
 
 
 func update_view() -> void:
-	$GridContainer/SpeedLabel.text = str(round(GameSettings.speed*100))
+	$GridContainer/SpeedLabel.text = str(roundi(GameSettings.speed*100))
 	$GridContainer/NumConcurrentTrainsLabel.text = str(GameSettings.num_concurrent_trains)
 	$GridContainer/NumStationsLabel.text = str(GameSettings.num_stations)
 	$GridContainer/NumSwitchesLabel.text = str(GameSettings.num_extra_switches)

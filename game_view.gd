@@ -74,8 +74,10 @@ func _on_rails_errored() -> void:
 	%ErrorsLabel.text = str(error_count)
 	%ErrorsLabel/AnimationPlayer.play("changed")
 	if error_count > GameSettings.max_errors:
-		%ErrorsLabel/AnimationPlayer.get_animation("changed").loop = true
+		%ErrorsLabel/AnimationPlayer.get_animation("changed").loop_mode = Animation.LoopMode.LOOP_LINEAR
 		sunset_game()
+	else:
+		%ErrorsLabel/AnimationPlayer.get_animation("changed").loop_mode = Animation.LoopMode.LOOP_NONE
 
 
 func sunset_game() -> void:
@@ -92,7 +94,7 @@ func _on_rails_end() -> void:
 	%TimeLabel/Timer.stop()
 	%ErrorsLabel/AnimationPlayer.stop()
 	%GameOverDisplay.visible = true
-	%FinalScoreLabel.text = "Punkte: " + str(round(score))
+	%FinalScoreLabel.text = "Punkte: " + str(roundi(score))
 	%FinalScoreLabel/AnimationPlayer.play("rainbow")
 	%FinalScoreLabel/AnimationPlayer.speed_scale = 2.0
 	
