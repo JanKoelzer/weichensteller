@@ -158,4 +158,4 @@ func auto_brake() -> void:
 				%PauseButtons/AutoBrakeCheckBox/AnimationPlayer.pause()
 			)
 			activate_brakes(b as Button)
-			break # active only one brake
+			break # activate only one brake

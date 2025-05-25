@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://hqe61n41cay3"]
+[gd_scene load_steps=8 format=3 uid="uid://hqe61n41cay3"]
 
 [ext_resource type="Script" uid="uid://bych0wagxg6d5" path="res://main_menu.gd" id="1_1d7qk"]
 [ext_resource type="Texture2D" uid="uid://eij2hohstuhh" path="res://images/background.png" id="1_l5ut5"]
 [ext_resource type="Texture2D" uid="uid://ktcfmm3dnniy" path="res://icon.png" id="2_r25rp"]
 [ext_resource type="Texture2D" uid="uid://cqhoidm6a2ami" path="res://rails.png" id="2_wo0fw"]
+[ext_resource type="Texture2D" uid="uid://c16c2cb5uwaxm" path="res://images/flag_de.png" id="5_qe12f"]
+[ext_resource type="Texture2D" uid="uid://bmfoqsuqdyjh1" path="res://images/flag_en.png" id="6_qe12f"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xyu7x"]
 font_size = 64
@@ -67,9 +69,18 @@ layout_mode = 2
 button_pressed = true
 text = "SOUND"
 
-[node name="LanguageCheckbox" type="CheckBox" parent="."]
+[node name="LanguageSettings" type="HBoxContainer" parent="."]
 layout_mode = 2
-text = "ENGLISH"
+
+[node name="LanguageOptionButton" type="OptionButton" parent="LanguageSettings"]
+unique_name_in_owner = true
+layout_mode = 2
+selected = 0
+item_count = 2
+popup/item_0/icon = ExtResource("6_qe12f")
+popup/item_0/id = 1
+popup/item_1/icon = ExtResource("5_qe12f")
+popup/item_1/id = 0
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 2
@@ -80,6 +91,7 @@ layout_mode = 2
 [node name="TrainsSprite" type="Sprite2D" parent="CenterContainer/Control"]
 position = Vector2(0, 56)
 texture = ExtResource("2_wo0fw")
+offset = Vector2(0, -40)
 region_enabled = true
 region_rect = Rect2(0, 196, 384, 250)
 
@@ -89,4 +101,4 @@ region_rect = Rect2(0, 196, 384, 250)
 [connection signal="pressed" from="CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="AudioCheckbox" to="." method="_on_audio_checkbox_pressed"]
-[connection signal="pressed" from="LanguageCheckbox" to="." method="_on_language_button_pressed"]
+[connection signal="item_selected" from="LanguageSettings/LanguageOptionButton" to="." method="_on_language_option_button_item_selected"]
