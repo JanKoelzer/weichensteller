@@ -30,6 +30,7 @@ func update_view() -> void:
 	$GridContainer/NumBrakesLabel.text = str(GameSettings.num_brakes)
 	$GridContainer/MaxErrorsLabel.text = str(GameSettings.max_errors)
 	
+	print(GameSettings.selected_stations)
 	for i in range(station_buttons.size()):
 		station_buttons[i].button_pressed = GameSettings.selected_stations.has(i)
 	
@@ -92,7 +93,7 @@ func _on_errors_minus_button_pressed() -> void:
 	GameSettings.max_errors -= 1
 
 
-func _on_station_button_toggled(_toggled_on: bool) -> void:
+func _on_station_button_pressed() -> void:
 	var selected_stations: Dictionary[int, bool] = { }
 	for i in range(station_buttons.size()):
 		if station_buttons[i].button_pressed:

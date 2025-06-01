@@ -13,7 +13,7 @@ const DEFAULT_STATIONS : Dictionary[int, bool] = {
 	Train.TrainColor.ORANGE: true,
 	Train.TrainColor.YELLOW: true,
 	Train.TrainColor.GREEN: true,
-	Train.TrainColor.BLUE: true,	
+	Train.TrainColor.BLUE: true,
 } # Only use TRUE and ERASE unused
 const MIN_CONCURRENT_TRAINS = 2
 const MAX_CONCURRENT_TRAINS = 5
@@ -42,7 +42,7 @@ var selected_stations: Dictionary[int, bool] = DEFAULT_STATIONS:
 		for k: int in v.keys():
 			if k >= MAX_STATIONS or k < 0:
 				return
-		selected_stations = v
+		selected_stations = v.duplicate()
 		# always emit the signal to update/not update views
 		changed.emit("selected_stations", v)
 
