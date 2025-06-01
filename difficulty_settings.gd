@@ -98,3 +98,11 @@ func _on_station_button_toggled(_toggled_on: bool) -> void:
 		if station_buttons[i].button_pressed:
 			selected_stations[i] = true
 	GameSettings.selected_stations = selected_stations
+	if GameSettings.is_valid():
+		%NumStationsLabel/AnimationPlayer.get_animation("changed_negative").\
+				loop_mode = Animation.LOOP_NONE
+	else:
+		%NumStationsLabel/AnimationPlayer.play("changed_negative")
+		%NumStationsLabel/AnimationPlayer.get_animation("changed_negative").\
+				loop_mode = Animation.LOOP_LINEAR
+		

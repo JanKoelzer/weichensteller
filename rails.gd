@@ -38,6 +38,9 @@ var wind_direction: Vector2
 var wind_speed: float
 
 func init(num_cols: int, settings: GameSettings) -> void:
+	assert(num_cols > 2)
+	assert(settings.is_valid())
+	
 	self.game_settings = settings
 	self.col_count = num_cols
 	self.wind_direction = Vector2.from_angle(randf_range(-PI/8, PI/8))

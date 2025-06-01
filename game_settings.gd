@@ -39,7 +39,7 @@ var speed: float = DEFAULT_SPEED:
 var selected_stations: Dictionary[int, bool] = DEFAULT_STATIONS:
 	get: return selected_stations
 	set(v):
-		for k in v.keys():
+		for k: int in v.keys():
 			if k >= MAX_STATIONS or k < 0:
 				return
 		selected_stations = v
