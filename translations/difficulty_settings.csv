@@ -3,6 +3,7 @@ TITLE,Weichensteller,Switchman
 SPEED,Geschwindigkeit,Speed
 TRAFFIC_DENSITY,Zugdichte,Traffic Density
 NUMBER_STATIONS,Anzahl Bahnhöfe,Number of Stations
+SELECTED_STATIONS,Bahnhöfe (min. 3),Stations (at least 3)
 NUMBER_SWITCHES,Anzahl Zusatzweichen,Number of extra Switches
 NUMBER_BRAKES,Anzahl Notbremsen,Number of Emergency Brakes
 NUMBER_ERRORS,Fehlertoleranz,Max. number of Errors

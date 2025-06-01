@@ -8,7 +8,9 @@ signal errored()
 signal end()
 
 var col_count := 16
+var row_count: int
 var game_settings: GameSettings
+var colors: Dictionary[int, Train.TrainColor]
 
 var generate_trains := true:
 	get: return not $TrainCreationTimer.is_stopped()
@@ -40,6 +42,13 @@ func init(num_cols: int, settings: GameSettings) -> void:
 	self.col_count = num_cols
 	self.wind_direction = Vector2.from_angle(randf_range(-PI/8, PI/8))
 	self.wind_speed = randf()*50
+	
+	# create an array that maps each row to a (selected) color
+	row_count = game_settings.selected_stations.size()
+	var color_keys := game_settings.selected_stations.keys()
+	color_keys.sort()
+	for i in row_count:
+		colors.set(i, color_keys[i])
 	create_railways()
 
 
@@ -48,14 +57,14 @@ func start() -> void:
 
 
 func create_railways() -> void:
-	var n := game_settings.num_stations
+	var n := game_settings.selected_stations.size()
 	# reset everything
 	self.clear()
-	for row in range(game_settings.num_stations):
+	for row in row_count:
 		for col in range(col_count):
 			set_cell(Vector2i(col, row), 0, Vector2i(4, 0))
 			if col == col_count - 1:
-				set_cell(Vector2i(col, row), 0, Vector2i(row, 2))
+				set_cell(Vector2i(col, row), 0, Vector2i(colors[row], 2))
 	
 	# set minimal switches
 	var cols := range(1, col_count - 1)
@@ -86,7 +95,7 @@ func set_switch(x: int, y: int, direction: int = 0) -> void:
 		direction = randi_range(0, 1) * 2 - 1
 
 	# use direction only, if possible
-	if y + direction < 0 or y + direction >= game_settings.num_stations:
+	if y + direction < 0 or y + direction >= game_settings.selected_stations.size():
 		direction = -direction
 	var atlas_coord_x := randi_range(0, 1) if direction == 1 else randi_range(2, 3)
 	set_cell(Vector2i(x, y), 0, Vector2i(atlas_coord_x, 0))
@@ -173,8 +182,7 @@ func _on_train_moved(train: Train) -> void:
 
 func set_train_on_tracks() -> void:
 	var t := Train_scene.instantiate() as Train
-	var new_color: Train.TrainColor = Train.TrainColor.values()\
-			.slice(0, game_settings.num_stations).pick_random()
+	var new_color: Train.TrainColor = game_settings.selected_stations.keys().pick_random()
 	var track := randi_range(0, game_settings.num_stations - 1)
 	var new_position := Vector2(0, tile_set.tile_size.y * track  + tile_set.tile_size.y / 2.0)
 	var new_speed := game_settings.speed + sum_trains_started / 50.0 # slowly increase speed over time	

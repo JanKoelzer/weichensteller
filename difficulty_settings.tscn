@@ -1,11 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://beulniltj2hto"]
+[gd_scene load_steps=13 format=3 uid="uid://beulniltj2hto"]
 
 [ext_resource type="Script" uid="uid://b46v6j77q3xc8" path="res://difficulty_settings.gd" id="1_rxans"]
 [ext_resource type="Texture2D" uid="uid://eij2hohstuhh" path="res://images/background.png" id="2_lfrnk"]
 [ext_resource type="Texture2D" uid="uid://ktcfmm3dnniy" path="res://icon.png" id="2_lkeq7"]
+[ext_resource type="Texture2D" uid="uid://d2pptf7hr5120" path="res://images/stations/station_0.png" id="4_jnpvi"]
+[ext_resource type="Texture2D" uid="uid://dtyitg1yr6gd6" path="res://images/stations/station_1.png" id="5_ty162"]
+[ext_resource type="Texture2D" uid="uid://iy6r5tk7xryg" path="res://images/stations/station_2.png" id="6_ud552"]
+[ext_resource type="Texture2D" uid="uid://4juyffcxuinm" path="res://images/stations/station_3.png" id="7_5uqyu"]
+[ext_resource type="Texture2D" uid="uid://dsn0jpmrpf2k2" path="res://images/stations/station_4.png" id="8_2jy88"]
+[ext_resource type="Texture2D" uid="uid://ddsvumt8qby2q" path="res://images/stations/station_5.png" id="9_6t2v3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_t7ix4"]
 font_size = 64
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jnpvi"]
+content_margin_left = 4.0
+content_margin_right = 4.0
+bg_color = Color(1, 1, 1, 0.501961)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ty162"]
+content_margin_left = 4.0
+content_margin_right = 4.0
+bg_color = Color(0, 0, 0, 0.501961)
+border_color = Color(0, 0, 0, 0.501961)
 
 [node name="DifficultySettings" type="VBoxContainer"]
 anchors_preset = 15
@@ -53,16 +70,6 @@ mouse_filter = 1
 theme_override_font_sizes/font_size = 36
 text = "SPEED"
 
-[node name="SpeedScrollBar" type="SpinBox" parent="GridContainer"]
-visible = false
-custom_minimum_size = Vector2(400, 0)
-layout_mode = 2
-min_value = 75.0
-max_value = 200.0
-step = 5.0
-value = 100.0
-rounded = true
-
 [node name="SpeedMinusButton" type="Button" parent="GridContainer"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
@@ -85,15 +92,6 @@ mouse_filter = 1
 theme_override_font_sizes/font_size = 36
 text = "TRAFFIC_DENSITY"
 
-[node name="NumConcurrentTrainsScrollBar" type="SpinBox" parent="GridContainer"]
-visible = false
-custom_minimum_size = Vector2(400, 0)
-layout_mode = 2
-min_value = 2.0
-max_value = 5.0
-value = 3.0
-rounded = true
-
 [node name="ConcurrentMinusButton" type="Button" parent="GridContainer"]
 layout_mode = 2
 text = "-"
@@ -112,28 +110,73 @@ layout_mode = 2
 tooltip_text = "NUMBER_STATIONS_HINT"
 mouse_filter = 1
 theme_override_font_sizes/font_size = 36
-text = "NUMBER_STATIONS"
+text = "SELECTED_STATIONS"
 
-[node name="NumStationsScrollBar" type="SpinBox" parent="GridContainer"]
-visible = false
+[node name="StationButton0" type="Button" parent="GridContainer"]
+unique_name_in_owner = true
 layout_mode = 2
-min_value = 3.0
-max_value = 6.0
-value = 5.0
-rounded = true
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jnpvi")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ty162")
+toggle_mode = true
+button_pressed = true
+icon = ExtResource("4_jnpvi")
+icon_alignment = 1
 
-[node name="StationsMinusButton" type="Button" parent="GridContainer"]
+[node name="StationButton1" type="Button" parent="GridContainer"]
+unique_name_in_owner = true
 layout_mode = 2
-text = "-"
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jnpvi")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ty162")
+toggle_mode = true
+button_pressed = true
+icon = ExtResource("5_ty162")
+icon_alignment = 1
 
-[node name="StationsPlusButton" type="Button" parent="GridContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="GridContainer"]
 layout_mode = 2
-text = "+"
 
-[node name="NumStationsLabel" type="Label" parent="GridContainer"]
+[node name="StationButton2" type="Button" parent="GridContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 36
-text = "6"
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jnpvi")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ty162")
+toggle_mode = true
+button_pressed = true
+icon = ExtResource("6_ud552")
+icon_alignment = 1
+
+[node name="StationButton3" type="Button" parent="GridContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jnpvi")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ty162")
+toggle_mode = true
+button_pressed = true
+icon = ExtResource("7_5uqyu")
+icon_alignment = 1
+
+[node name="StationButton4" type="Button" parent="GridContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jnpvi")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ty162")
+toggle_mode = true
+button_pressed = true
+icon = ExtResource("8_2jy88")
+icon_alignment = 1
+
+[node name="StationButton5" type="Button" parent="GridContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jnpvi")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ty162")
+toggle_mode = true
+icon = ExtResource("9_6t2v3")
+icon_alignment = 1
 
 [node name="Label8" type="Label" parent="GridContainer"]
 layout_mode = 2
@@ -141,13 +184,6 @@ tooltip_text = "NUMBER_SWITCHES_HINT"
 mouse_filter = 1
 theme_override_font_sizes/font_size = 36
 text = "NUMBER_SWITCHES"
-
-[node name="NumSwitchesScrollBar" type="SpinBox" parent="GridContainer"]
-visible = false
-layout_mode = 2
-max_value = 10.0
-value = 5.0
-rounded = true
 
 [node name="SwitchesMinusButton" type="Button" parent="GridContainer"]
 layout_mode = 2
@@ -169,13 +205,6 @@ mouse_filter = 1
 theme_override_font_sizes/font_size = 36
 text = "NUMBER_BRAKES"
 
-[node name="NumBrakesScrollBar" type="SpinBox" parent="GridContainer"]
-visible = false
-layout_mode = 2
-max_value = 5.0
-value = 3.0
-rounded = true
-
 [node name="BrakesMinusButton" type="Button" parent="GridContainer"]
 layout_mode = 2
 text = "-"
@@ -195,13 +224,6 @@ tooltip_text = "NUMBER_ERRORS_HINT"
 mouse_filter = 1
 theme_override_font_sizes/font_size = 36
 text = "NUMBER_ERRORS"
-
-[node name="MaxErrorsScrollBar" type="SpinBox" parent="GridContainer"]
-visible = false
-layout_mode = 2
-max_value = 10.0
-value = 5.0
-rounded = true
 
 [node name="ErrorsMinusButton" type="Button" parent="GridContainer"]
 layout_mode = 2
@@ -239,26 +261,25 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="StartButton" type="Button" parent="GridContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "START"
 
-[connection signal="value_changed" from="GridContainer/SpeedScrollBar" to="." method="update_view"]
 [connection signal="pressed" from="GridContainer/SpeedMinusButton" to="." method="_on_speed_minus_button_pressed"]
 [connection signal="pressed" from="GridContainer/SpeedPlusButton" to="." method="_on_speed_plus_button_pressed"]
-[connection signal="value_changed" from="GridContainer/NumConcurrentTrainsScrollBar" to="." method="update_view"]
 [connection signal="pressed" from="GridContainer/ConcurrentMinusButton" to="." method="_on_concurrent_minus_button_pressed"]
 [connection signal="pressed" from="GridContainer/ConcurrentPlusButton" to="." method="_on_concurrent_plus_button_pressed"]
-[connection signal="value_changed" from="GridContainer/NumStationsScrollBar" to="." method="update_view"]
-[connection signal="pressed" from="GridContainer/StationsMinusButton" to="." method="_on_stations_minus_button_pressed"]
-[connection signal="pressed" from="GridContainer/StationsPlusButton" to="." method="_on_stations_plus_button_pressed"]
-[connection signal="value_changed" from="GridContainer/NumSwitchesScrollBar" to="." method="update_view"]
+[connection signal="toggled" from="GridContainer/StationButton0" to="." method="_on_station_button_toggled"]
+[connection signal="toggled" from="GridContainer/StationButton1" to="." method="_on_station_button_toggled"]
+[connection signal="toggled" from="GridContainer/HBoxContainer/StationButton2" to="." method="_on_station_button_toggled"]
+[connection signal="toggled" from="GridContainer/HBoxContainer/StationButton3" to="." method="_on_station_button_toggled"]
+[connection signal="toggled" from="GridContainer/HBoxContainer/StationButton4" to="." method="_on_station_button_toggled"]
+[connection signal="toggled" from="GridContainer/HBoxContainer/StationButton5" to="." method="_on_station_button_toggled"]
 [connection signal="pressed" from="GridContainer/SwitchesMinusButton" to="." method="_on_switches_minus_button_pressed"]
 [connection signal="pressed" from="GridContainer/SwitchesPlusButton" to="." method="_on_switches_plus_button_pressed"]
-[connection signal="value_changed" from="GridContainer/NumBrakesScrollBar" to="." method="update_view"]
 [connection signal="pressed" from="GridContainer/BrakesMinusButton" to="." method="_on_brakes_minus_button_pressed"]
 [connection signal="pressed" from="GridContainer/BrakesPlusButton" to="." method="_on_brakes_plus_button_pressed"]
-[connection signal="value_changed" from="GridContainer/MaxErrorsScrollBar" to="." method="update_view"]
 [connection signal="pressed" from="GridContainer/ErrorsMinusButton" to="." method="_on_errors_minus_button_pressed"]
 [connection signal="pressed" from="GridContainer/ErrorsPlusButton" to="." method="_on_errors_plus_button_pressed"]
 [connection signal="pressed" from="GridContainer/StartButton" to="." method="_on_start_button_pressed"]

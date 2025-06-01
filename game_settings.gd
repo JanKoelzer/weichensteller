@@ -7,7 +7,14 @@ const MAX_SPEED = 2.0
 const DEFAULT_SPEED = 1.0
 const MIN_STATIONS = 3
 const MAX_STATIONS = 6
-const DEFAULT_STATIONS = 5
+#const DEFAULT_STATIONS = 5
+const DEFAULT_STATIONS : Dictionary[int, bool] = {
+	Train.TrainColor.RED: true,
+	Train.TrainColor.ORANGE: true,
+	Train.TrainColor.YELLOW: true,
+	Train.TrainColor.GREEN: true,
+	Train.TrainColor.BLUE: true,	
+} # Only use TRUE and ERASE unused
 const MIN_CONCURRENT_TRAINS = 2
 const MAX_CONCURRENT_TRAINS = 5
 const DEFAULT_CONCURRENT_TRAINS = 3
@@ -29,11 +36,18 @@ var speed: float = DEFAULT_SPEED:
 		speed = clampf(v, MIN_SPEED, MAX_SPEED)
 		changed.emit("speed", v)
 
-var num_stations: int = DEFAULT_STATIONS:
-	get: return num_stations
+var selected_stations: Dictionary[int, bool] = DEFAULT_STATIONS:
+	get: return selected_stations
 	set(v):
-		num_stations = clampi(v, MIN_STATIONS, MAX_STATIONS)
-		changed.emit("num_stations", v)
+		for k in v.keys():
+			if k >= MAX_STATIONS or k < 0:
+				return
+		selected_stations = v
+		# always emit the signal to update/not update views
+		changed.emit("selected_stations", v)
+
+var num_stations: int:
+	get: return selected_stations.size()
 
 var num_concurrent_trains: int = DEFAULT_CONCURRENT_TRAINS:
 	get: return num_concurrent_trains
@@ -75,8 +89,11 @@ func score_factor() -> float:
 	var k := 1.0
 	k *= speed**1.2
 	k *= (float(num_concurrent_trains)/DEFAULT_CONCURRENT_TRAINS)**1.2
-	k *= (float(num_stations)/DEFAULT_STATIONS)**2
+	k *= (float(num_stations)/DEFAULT_STATIONS.size())**2
 	k *= 1 + 0.08*(DEFAULT_EXTRA_SWITCHES-num_extra_switches)
 	k *= 1 + 0.05*(DEFAULT_BRAKES-num_brakes)
 	k *= 1 + 0.1*(DEFAULT_MAX_ERRORS-max_errors)
 	return k
+
+func is_valid() -> bool:
+	return selected_stations.size() >= 3

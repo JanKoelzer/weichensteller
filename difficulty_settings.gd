@@ -1,5 +1,14 @@
 extends VBoxContainer
 
+@onready
+var station_buttons := [
+	%StationButton0,
+	%StationButton1,
+	%StationButton2,
+	%StationButton3,
+	%StationButton4,
+	%StationButton5,
+]
 
 func _ready() -> void:
 	# react to future changes in settings
@@ -17,13 +26,17 @@ func _notification(what: int) -> void:
 func update_view() -> void:
 	$GridContainer/SpeedLabel.text = str(roundi(GameSettings.speed*100))
 	$GridContainer/NumConcurrentTrainsLabel.text = str(GameSettings.num_concurrent_trains)
-	$GridContainer/NumStationsLabel.text = str(GameSettings.num_stations)
 	$GridContainer/NumSwitchesLabel.text = str(GameSettings.num_extra_switches)
 	$GridContainer/NumBrakesLabel.text = str(GameSettings.num_brakes)
 	$GridContainer/MaxErrorsLabel.text = str(GameSettings.max_errors)
 	
+	for i in range(station_buttons.size()):
+		station_buttons[i].button_pressed = GameSettings.selected_stations.has(i)
+	
 	var k: float = GameSettings.score_factor()
 	$GridContainer/VBoxContainer/FactorLabel.text = str(int(k*100)) + " %"
+	
+	%StartButton.disabled = !GameSettings.is_valid()
 	
 
 
@@ -77,3 +90,11 @@ func _on_errors_plus_button_pressed() -> void:
 
 func _on_errors_minus_button_pressed() -> void:
 	GameSettings.max_errors -= 1
+
+
+func _on_station_button_toggled(_toggled_on: bool) -> void:
+	var selected_stations: Dictionary[int, bool] = { }
+	for i in range(station_buttons.size()):
+		if station_buttons[i].button_pressed:
+			selected_stations[i] = true
+	GameSettings.selected_stations = selected_stations
