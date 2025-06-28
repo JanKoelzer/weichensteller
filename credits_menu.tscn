@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://eij2hohstuhh" path="res://images/background.png" id="1_i7fht"]
 [ext_resource type="Script" uid="uid://bnira8s8dt1r6" path="res://credits_menu.gd" id="1_ppef3"]
-[ext_resource type="Texture2D" uid="uid://ktcfmm3dnniy" path="res://icon.png" id="2_wceml"]
+[ext_resource type="Texture2D" uid="uid://d1n0n4xbj07po" path="res://icon.png" id="2_wceml"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yhltf"]
 font_size = 64
@@ -57,7 +57,7 @@ unique_name_in_owner = true
 clip_contents = true
 custom_minimum_size = Vector2(1024, 64)
 layout_mode = 2
-text = "Copyright (c) 2024 CT-Entertainment
+text = "Copyright (c) 2024-2025 CT-Entertainment
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
