@@ -52,6 +52,10 @@ func start_after_countdown() -> void:
 			label[i].find_child("AnimationPlayer").queue("fade_out")
 			if i == 0:
 				%Rails.start()
+				$%CountdownEndAudioStreamPlayer.play()
+			else:
+				%CountdownAudioStreamPlayer.play()
+				
 		)
 
 
