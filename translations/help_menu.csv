@@ -2,31 +2,25 @@ keys,de,en
 HELP_MENU,Anleitung,Manual
 BACK,zurück,back
 HELP_TEXT,"Stelle die Weichen durch Klicken/Tippen so ein, dass die Loks zu den Bahnhöfen der gleichen Farbe gelangen. Für jede Lok, die ihr Ziel erreicht, erhältst du Punkte – und zwar je mehr, desto schwerer du das Spiel eingestellt hast.
+Wenn mehrere Züge hintereinander falsch ankommen, wird automatisch eine [i]Notbremse[/i] gezogen, damit du Zeit hast, die Weichen neu zu stellen.
 
-Einstellungen:
+[b][u]Details/Einstellungen:[/u][/b]
+[ul]
+[u]Geschwindigkeit:[/u] Stelle ein, wie schnell die Züge fahren. Sie werden im Laufe des Spiels stetig schneller.
+[u]Zugdichte[/u]: Stelle ein, wie viele Züge gleichzeitig auf der Strecke sind. Wie auch die Geschwindigkeit nimmt die Zugdichte immer weiter zu.
+[u]Bahnhöfe[/u]: Stelle ein, wie viele verschiedene Bahnhöfe in welcher Farbe die Züge ansteuern. Je mehr Bahnhöfe es gibt, desto schwieriger ist es, einen Zug ans richtige Ziel zu bringen.
+[u]Anzahl Weichen[/u]: An jeder Weiche kann eine Lok gerade aus fahren oder nach oben bzw. unten abbiegen. Es gibt immer genügend Weichen, damit alle Züge den richtigen Bahnhof erreichen können. Je mehr zusätzliche Weichen es gibt, desto eher kannst du Fehler korrigieren.
+[u]Anzahl Notbremsen[/u]: Mit ""Notbremsen"" kannst du alle Loks einige Sekunden lang anhalten, um dich zu orientieren und Weichen einzustellen. Klicke/tippe dazu auf STOP. Zusätzlich kannst du automatisches Bremsen aktivieren, sodass das Spiel pausiert, wenn zwei Züge in Folge einen falschen Bahnhof erreicht haben.
+[u]Fehlertoleranz[/u]: Stelle ein, nach wie vielen falsch geleiteten Loks das Spiel endet. Alle bereits gestarteten Züge fahren noch weiter, bis sie einen Bahnhof erreicht haben.
+[/ul]","Click/tap the switches to set their direction in order to guide the trains to the destination of the same color. You gain points for every train that reaches the correct station. The harder your settings, the more points you get!
+If several trains have reached the wrong destination, an [i]emergency brake[/i] is activeted, so that you can reset the switches.
 
-Geschwindigkeit: Stelle ein, wie schnell die Züge fahren. Sie werden im Laufe des Spiels stetig schneller.
-
-Zugdichte: Stelle ein, wie viele Züge gleichzeitig auf der Strecke sind. Wie auch die Geschwindigkeit nimmt die Zugdichte immer weiter zu.
-
-Anzahl Bahnhöfe: Jeder Bahnhof hat eine Farbe (Rot, Orange, Gelb, Grün, Blau, Violett). Stelle ein, wie viele verschiedene Bahnhöfe die Züge ansteuern. Je mehr Bahnhöfe es gibt, desto schwieriger ist es, einen Zug ans richtige Ziel zu bringen.
-
-Anzahl Weichen: An jeder Weiche kann eine Lok gerade aus fahren oder nach oben bzw. unten abbiegen. Es gibt immer genügend Weichen, damit alle Züge den richtigen Bahnhof erreichen können. Je mehr zusätzliche Weichen es gibt, desto eher kannst du Fehler korrigieren.
-
-Anzahl Notbremsen: Mit ""Notbremsen"" kannst du alle Loks einige Sekunden lang anhalten, um dich zu orientieren und Weichen einzustellen. Klicke/tippe dazu auf STOP. Zusätzlich kannst du automatisches Bremsen aktivieren, sodass das Spiel pausiert, wenn zwei Züge in Folge einen falschen Bahnhof erreicht haben.
-
-Fehlertoleranz: Stelle ein, nach wie vielen falsch geleiteten Loks das Spiel endet. Alle bereits gestarteten Züge fahren noch weiter, bis sie einen Bahnhof erreicht haben.","Click/tap the switches to set their direction in order to guide the trains to the destination of the same color. You gain points for every train reaches the correct station. The harder your settings, the more points you get!
-
-Settings:
-
-Speed: Define the speed of the trains. It increases over time.
-
-Stations: Define the number of different stations that the trains go to.
-The more stations you have, the harder is the game.
-
-Switches: Define the number of switches you have available.
-The more switches there are, the easier it is to fix an error.
-
-Emergency Brakes: Define your number of Emergency Brakes. Clicking/Tapping STOP will stop all trains for some seconds so that you can set up your switches without hurry. You can also enable automatic brakes that activate, if two trains in a row reach a wrong destination.
-
-Errors: The game will end if the number of errors you have made exceeds this number."
+[b][u]Details/Settings:[/u][/b]
+[ul]
+[u]Speed:[/u] Define the speed of the trains. It increases over time.
+[u]Densitiy:[/u] Set the number of trains on track concurrently. It also increases over time.
+[u]Stations: [/u]Define the number (and color) of different stations that the trains go to. The more stations you have, the harder the game.
+[u]Number of Switches:[/u] Define the number of switches you have available. The more switches there are, the easier it is to fix an error.
+[u]Number of Emergency Brakes:[/u] Define your number of Emergency Brakes. Clicking/Tapping STOP will stop all trains for some seconds so that you can set up your switches without hurry. You can also enable automatic brakes that activate, if two trains in a row reach a wrong destination.
+[u]Number of Errors:[/u] The game will end, if the number of errors you have made exceeds this number.
+[/ul]"

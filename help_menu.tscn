@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dhkiyys86x0b8" path="res://help_menu.gd" id="1_538cs"]
 [ext_resource type="Texture2D" uid="uid://eij2hohstuhh" path="res://images/background.png" id="2_yx3vl"]
-[ext_resource type="Texture2D" uid="uid://ktcfmm3dnniy" path="res://icon.png" id="3_2jo37"]
+[ext_resource type="Texture2D" uid="uid://d1n0n4xbj07po" path="res://icon.png" id="3_2jo37"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4jct4"]
 font_size = 64
@@ -49,13 +49,15 @@ layout_mode = 2
 text = "BACK"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
-custom_minimum_size = Vector2(0, 300)
+custom_minimum_size = Vector2(0, 380)
 layout_mode = 2
 
-[node name="HelpLabel" type="Label" parent="ScrollContainer"]
+[node name="HelpLabel" type="RichTextLabel" parent="ScrollContainer"]
 custom_minimum_size = Vector2(1024, 0)
 layout_mode = 2
+bbcode_enabled = true
 text = "HELP_TEXT"
+fit_content = true
 autowrap_mode = 2
 
 [connection signal="pressed" from="CenterContainer/CloseButton" to="." method="_on_close_button_pressed"]
