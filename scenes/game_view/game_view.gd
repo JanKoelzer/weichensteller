@@ -42,7 +42,7 @@ func _ready() -> void:
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_GO_BACK_REQUEST:
-		get_tree().change_scene_to_file("res://difficulty_settings.tscn")
+		get_tree().change_scene_to_file("res://scenes/difficulty_settings/difficulty_settings.tscn")
 
 	
 func start_after_countdown() -> void:
@@ -121,11 +121,11 @@ func _on_restart_button_pressed() -> void:
 
 
 func _on_difficulty_settings_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://difficulty_settings.tscn")
+	get_tree().change_scene_to_file("res://scenes/difficulty_settings/difficulty_settings.tscn")
 
 
 func _on_main_menu_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://main_menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/main_menu/main_menu.tscn")
 
 
 func _on_highscore_submit_button_pressed(age: String) -> void:

@@ -17,19 +17,19 @@ func _on_quit_button_pressed() -> void:
 
 
 func _on_start_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://difficulty_settings.tscn")
+	get_tree().change_scene_to_file("res://scenes/difficulty_settings/difficulty_settings.tscn")
 
 
 func _on_highscore_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://highscore_menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/highscore_menu/highscore_menu.tscn")
 
 
 func _on_credits_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://credits_menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/credits_menu/credits_menu.tscn")
 
 
 func _on_help_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://help_menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/help_menu/help_menu.tscn")
 
 
 func _on_language_option_button_item_selected(index: int) -> void:

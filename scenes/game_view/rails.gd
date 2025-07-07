@@ -1,6 +1,6 @@
 extends TileMapLayer
 
-var Train_scene: PackedScene = preload("res://train.tscn")
+var Train_scene: PackedScene = preload("res://scenes/game_view/train.tscn")
 
 signal train_started(sum_trains_started: int)
 signal scored()

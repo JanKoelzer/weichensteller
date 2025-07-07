@@ -125,7 +125,7 @@ func fade_in() -> void:
 func fade_out(was_success: bool) -> void:
 	speed = 0.0
 	if not was_success:
-		var shader := preload("res://grayscale.gdshader")
+		var shader := preload("res://shader/grayscale.gdshader")
 		var shader_material := ShaderMaterial.new()
 		shader_material.shader = shader
 		shader_material.set_shader_parameter("engine_time_sec", Time.get_ticks_msec() / 1000.0)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://dev70nkbyuydv"]
 
-[ext_resource type="Texture2D" uid="uid://cqhoidm6a2ami" path="res://rails.png" id="1_lo3q4"]
-[ext_resource type="Script" uid="uid://cvormi1od74aa" path="res://train.gd" id="2_wgsvc"]
+[ext_resource type="Texture2D" uid="uid://cqhoidm6a2ami" path="res://images/rails.png" id="1_lo3q4"]
+[ext_resource type="Script" uid="uid://cvormi1od74aa" path="res://scenes/game_view/train.gd" id="2_wgsvc"]
 [ext_resource type="Texture2D" uid="uid://3mbyv70qcwdd" path="res://images/smoke-particle-small.png" id="3_ogqkn"]
 
 [sub_resource type="Animation" id="Animation_qcyb2"]
@@ -163,7 +163,7 @@ region_rect = Rect2(0, 256, 64, 64)
 
 [node name="FadePlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_bdd4j")
+&"": SubResource("AnimationLibrary_bdd4j")
 }
 
 [node name="SteamParticles" type="CPUParticles2D" parent="."]
@@ -171,11 +171,11 @@ z_index = 1
 z_as_relative = false
 position = Vector2(11, -1)
 amount = 400
+texture = ExtResource("3_ogqkn")
 lifetime = 2.0
 explosiveness = 0.1
 randomness = 0.4
 lifetime_randomness = 1.0
-texture = ExtResource("3_ogqkn")
 emission_shape = 1
 emission_sphere_radius = 8.0
 spread = 15.0
@@ -211,10 +211,10 @@ autostart = true
 [node name="ExhaustParticles" type="CPUParticles2D" parent="."]
 position = Vector2(-24, 2)
 amount = 50
+texture = ExtResource("3_ogqkn")
 lifetime = 0.3
 randomness = 0.5
 lifetime_randomness = 0.5
-texture = ExtResource("3_ogqkn")
 direction = Vector2(1, -25)
 spread = 15.0
 gravity = Vector2(0, 0)
