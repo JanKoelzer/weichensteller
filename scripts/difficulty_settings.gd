@@ -2,6 +2,9 @@ extends Node
 
 signal changed(prop: String, new: Variant)
 
+var file := ConfigFile.new()
+const config_filename := "user://difficulty.cfg"
+
 const MIN_SPEED = 0.75
 const MAX_SPEED = 2.0
 const DEFAULT_SPEED = 1.0
@@ -85,6 +88,19 @@ var max_errors: int = DEFAULT_MAX_ERRORS:
 # currently always turened off
 var joker_enabled: bool = false
 
+func _ready() -> void:
+	# At the first run on a device, there is no config file,
+	# so the default values are used (see CONSTs above).
+	# The settings are then stored in a config file.
+	# After that, this config file is loaded, everytime the
+	# game starts. The loaded values are used as settings.
+	
+	# load before connecting to signal, so changes do not result in infinite loops
+	load_from_file()
+	changed.connect(func(_prop: String, _v: Variant) -> void:
+		save_to_file()
+	)
+
 func score_factor() -> float:
 	var k := 1.0
 	k *= speed**1.2
@@ -97,3 +113,36 @@ func score_factor() -> float:
 
 func is_valid() -> bool:
 	return selected_stations.size() >= 3
+
+
+func load_from_file() -> void:
+	var err := file.load(config_filename)
+	
+	if err != OK:
+		save_to_file()	
+	
+	speed = file.get_value("Difficulty", "speed", speed)
+	selected_stations = {}
+	var stations_as_string := \
+			file.get_value("Difficulty", "selected_stations",\
+			",".join(selected_stations.keys())
+	) as String
+	for station: int in Array(stations_as_string.split(",", false)).map(func(s: String) -> int: return int(s)):
+		selected_stations[station] = true
+	
+	num_concurrent_trains = file.get_value("Difficulty", "num_concurrent_trains", num_concurrent_trains)	
+	num_extra_switches = file.get_value("Difficulty", "num_extra_switches", num_extra_switches)	
+	num_brakes = file.get_value("Difficulty", "num_brakes", num_brakes)	
+	max_errors = file.get_value("Difficulty", "max_errors", max_errors)	
+	
+
+
+func save_to_file() -> void:
+	file.set_value("Difficulty", "speed", speed)
+	file.set_value("Difficulty", "selected_stations", ",".join(selected_stations.keys()))
+	file.set_value("Difficulty", "num_concurrent_trains", num_concurrent_trains)
+	file.set_value("Difficulty", "num_extra_switches", num_extra_switches)
+	file.set_value("Difficulty", "num_brakes", num_brakes)
+	file.set_value("Difficulty", "max_errors", max_errors)
+	
+	file.save(config_filename)

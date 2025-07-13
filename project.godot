@@ -21,9 +21,9 @@ config/movie_file="res://movies/main.avi"
 
 [autoload]
 
-GameSettings="*res://scripts/game_settings.gd"
+GameSettings="*res://scripts/difficulty_settings.gd"
 Highscore="*res://scripts/highscore.gd"
-LanguageSettings="*res://scripts/language_settings.gd"
+UISettings="*res://scripts/ui_settings.gd"
 
 [debug]
 

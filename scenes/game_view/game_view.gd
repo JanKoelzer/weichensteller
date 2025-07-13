@@ -121,7 +121,7 @@ func _on_restart_button_pressed() -> void:
 
 
 func _on_difficulty_settings_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/difficulty_settings/difficulty_settings.tscn")
+	get_tree().change_scene_to_file("res://scenes/difficulty_menu/difficulty_menu.tscn")
 
 
 func _on_main_menu_button_pressed() -> void:

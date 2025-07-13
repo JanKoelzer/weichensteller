@@ -16,6 +16,7 @@ func _ready() -> void:
 			update_view()
 	) 
 	update_view()
+	
 
 
 func _notification(what: int) -> void:
