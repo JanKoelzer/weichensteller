@@ -4,13 +4,13 @@ signal changed(prop: String, new: Variant)
 
 var file := ConfigFile.new()
 const config_filename := "user://difficulty.cfg"
+const config_section := "Difficulty"
 
 const MIN_SPEED = 0.75
 const MAX_SPEED = 2.0
 const DEFAULT_SPEED = 1.0
 const MIN_STATIONS = 3
 const MAX_STATIONS = 6
-#const DEFAULT_STATIONS = 5
 const DEFAULT_STATIONS : Dictionary[int, bool] = {
 	Train.TrainColor.RED: true,
 	Train.TrainColor.ORANGE: true,
@@ -121,28 +121,28 @@ func load_from_file() -> void:
 	if err != OK:
 		save_to_file()	
 	
-	speed = file.get_value("Difficulty", "speed", speed)
+	speed = file.get_value(config_section, "speed", speed)
 	selected_stations = {}
 	var stations_as_string := \
-			file.get_value("Difficulty", "selected_stations",\
+			file.get_value(config_section, "selected_stations",\
 			",".join(selected_stations.keys())
 	) as String
 	for station: int in Array(stations_as_string.split(",", false)).map(func(s: String) -> int: return int(s)):
 		selected_stations[station] = true
 	
-	num_concurrent_trains = file.get_value("Difficulty", "num_concurrent_trains", num_concurrent_trains)	
-	num_extra_switches = file.get_value("Difficulty", "num_extra_switches", num_extra_switches)	
-	num_brakes = file.get_value("Difficulty", "num_brakes", num_brakes)	
-	max_errors = file.get_value("Difficulty", "max_errors", max_errors)	
+	num_concurrent_trains = file.get_value(config_section, "num_concurrent_trains", num_concurrent_trains)	
+	num_extra_switches = file.get_value(config_section, "num_extra_switches", num_extra_switches)	
+	num_brakes = file.get_value(config_section, "num_brakes", num_brakes)	
+	max_errors = file.get_value(config_section, "max_errors", max_errors)	
 	
 
 
 func save_to_file() -> void:
-	file.set_value("Difficulty", "speed", speed)
-	file.set_value("Difficulty", "selected_stations", ",".join(selected_stations.keys()))
-	file.set_value("Difficulty", "num_concurrent_trains", num_concurrent_trains)
-	file.set_value("Difficulty", "num_extra_switches", num_extra_switches)
-	file.set_value("Difficulty", "num_brakes", num_brakes)
-	file.set_value("Difficulty", "max_errors", max_errors)
+	file.set_value(config_section, "speed", speed)
+	file.set_value(config_section, "selected_stations", ",".join(selected_stations.keys()))
+	file.set_value(config_section, "num_concurrent_trains", num_concurrent_trains)
+	file.set_value(config_section, "num_extra_switches", num_extra_switches)
+	file.set_value(config_section, "num_brakes", num_brakes)
+	file.set_value(config_section, "max_errors", max_errors)
 	
 	file.save(config_filename)

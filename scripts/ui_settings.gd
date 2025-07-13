@@ -29,6 +29,7 @@ const AUDIO_ON_DB := 0
 
 var file := ConfigFile.new()
 const config_filename := "user://ui.cfg"
+const config_section := "UI"
 
 func _ready() -> void:
 	# At the first run on a device, there is no config file,
@@ -46,11 +47,11 @@ func load_from_file() -> void:
 	if err != OK:
 		save_to_file()	
 	
-	locale = file.get_value("UI", "locale", locale)
-	sound_enabled = file.get_value("UI", "sound_enabled", sound_enabled)
+	locale = file.get_value(config_section, "locale", locale)
+	sound_enabled = file.get_value(config_section, "sound_enabled", sound_enabled)
 	
 func save_to_file() -> void:
-	file.set_value("UI", "locale", locale)
-	file.set_value("UI", "sound_enabled", sound_enabled)
+	file.set_value(config_section, "locale", locale)
+	file.set_value(config_section, "sound_enabled", sound_enabled)
 	
 	file.save(config_filename)
