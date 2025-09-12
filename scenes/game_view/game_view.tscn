@@ -498,6 +498,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 placeholder_text = "NAME_PLACEHOLDER"
+max_length = 30
 
 [node name="ChildSubmitButton" type="Button" parent="CenterContainer/VBoxContainer/MenuContainer/HighscoreControls"]
 layout_mode = 2
