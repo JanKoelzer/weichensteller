@@ -13,8 +13,7 @@ signal highscore_updated(highscore: Dictionary)
 signal highscore_put(success: bool)
 
 func _ready() -> void:
-	var fa := FileAccess.open('res://server/credentials.json', FileAccess.READ)
-	var credentials := JSON.parse_string(fa.get_as_text()) as Dictionary
+	var credentials := JSON.parse_string(FileAccess.get_file_as_string('res://server/credentials.json')) as Dictionary
 	secret = credentials['score-url-secret']
 	get_highscore_url = credentials['score-url']
 	put_highscore_url = credentials['score-url']
