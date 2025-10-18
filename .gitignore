@@ -5,3 +5,4 @@ bin/
 movies/
 server/credentials.json
 *.import
+key/
