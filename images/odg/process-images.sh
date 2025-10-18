@@ -49,13 +49,12 @@ montage tracks1.png tracks3.png tracks2.png tracks4.png tracks5.png tracks6.png 
 echo "Montage everything…"
 montage tracks.png colored.png -tile 1x2 -background 'transparent' -geometry +0+0 rails.png
 
-
-xdg-open rails.png &
-
 cp "rails.png" "../../"
 
-echo "removing temporary png and svg files…"
 cd ".."
+cp "svg/rails10.svg" "../icons/icon.svg"
+
+echo "removing temporary png and svg files…"
 rm -r "64x64"
 rm -r "svg"
 
