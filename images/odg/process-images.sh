@@ -54,4 +54,9 @@ xdg-open rails.png &
 
 cp "rails.png" "../../"
 
+echo "removing temporary png and svg files…"
+cd ".."
+rm -r "64x64"
+rm -r "svg"
+
 echo "64x64/rails.png has been created and copied to ../rails.png."
