@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://eij2hohstuhh" path="res://images/background.png" id="1_hnsup"]
 [ext_resource type="Script" uid="uid://xfebceag673a" path="res://scenes/highscore_menu/highscore_menu.gd" id="1_wdu0c"]
-[ext_resource type="Texture2D" uid="uid://d1n0n4xbj07po" path="res://icon.png" id="2_nqsqo"]
+[ext_resource type="Texture2D" uid="uid://bkwgcv2brn8mh" path="res://images/icons/icon.svg" id="3_voc57"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_mrghh"]
 font_size = 64
@@ -37,8 +37,8 @@ layout_mode = 2
 
 [node name="LogoSprite" type="Sprite2D" parent="Title/Control"]
 position = Vector2(25, 10)
-scale = Vector2(2, 2)
-texture = ExtResource("2_nqsqo")
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_voc57")
 centered = false
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
