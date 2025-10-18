@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://beulniltj2hto"]
+[gd_scene load_steps=16 format=3 uid="uid://beulniltj2hto"]
 
 [ext_resource type="Script" uid="uid://b46v6j77q3xc8" path="res://scenes/difficulty_menu/difficulty_menu.gd" id="1_2ybyc"]
+[ext_resource type="Theme" uid="uid://drkpbmmwnukl" path="res://themes/train_one.tres" id="1_krwiw"]
 [ext_resource type="Texture2D" uid="uid://eij2hohstuhh" path="res://images/background.png" id="2_krwiw"]
 [ext_resource type="Texture2D" uid="uid://bkwgcv2brn8mh" path="res://images/icons/icon.svg" id="3_2ybyc"]
 [ext_resource type="Texture2D" uid="uid://bjxnay11d1yk4" path="res://images/stations/station_0.png" id="4_h6mec"]
@@ -66,6 +67,7 @@ alignment = 1
 [node name="TitleLabel" type="Label" parent="Title"]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
+theme = ExtResource("1_krwiw")
 theme_override_font_sizes/font_size = 64
 text = "GAME_TITLE"
 label_settings = SubResource("LabelSettings_t7ix4")

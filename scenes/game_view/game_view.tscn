@@ -1,9 +1,10 @@
-[gd_scene load_steps=24 format=4 uid="uid://b5khbek0fxki0"]
+[gd_scene load_steps=25 format=4 uid="uid://b5khbek0fxki0"]
 
 [ext_resource type="Script" uid="uid://522w2u3g8ouo" path="res://scenes/game_view/game_view.gd" id="1_6hfh6"]
 [ext_resource type="PackedScene" uid="uid://bj451436lnaqo" path="res://scenes/game_view/rails.tscn" id="1_rrse5"]
 [ext_resource type="Texture2D" uid="uid://eij2hohstuhh" path="res://images/background.png" id="2_g1875"]
 [ext_resource type="AudioStream" uid="uid://2uokg23i8gxb" path="res://sounds/switch-deactivate.ogg" id="4_cr1hu"]
+[ext_resource type="Theme" uid="uid://drkpbmmwnukl" path="res://themes/train_one.tres" id="4_gxnlg"]
 [ext_resource type="Animation" uid="uid://b8cpunt5ly3bi" path="res://animations/label_value_changed_positiv.res" id="4_mu740"]
 [ext_resource type="AudioStream" uid="uid://dyv1xctqtxo2r" path="res://sounds/score.ogg" id="5_ni2ws"]
 
@@ -237,6 +238,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAEAAAAAAABAAAAAAAEAAAAAAACAAAAAAAEAAA
 [node name="Countdown" type="Control" parent="Container"]
 modulate = Color(1, 1, 1, 0.729412)
 layout_mode = 2
+theme = ExtResource("4_gxnlg")
 
 [node name="CountdownLabel0" type="Label" parent="Container/Countdown"]
 unique_name_in_owner = true
@@ -343,6 +345,7 @@ unique_name_in_owner = true
 visible = false
 modulate = Color(1, 1, 1, 0.768627)
 layout_mode = 2
+theme = ExtResource("4_gxnlg")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Container/GameOverDisplay"]
 clip_contents = true

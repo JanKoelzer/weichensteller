@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dysw0v0macqh6"]
+[gd_scene load_steps=6 format=3 uid="uid://dysw0v0macqh6"]
 
 [ext_resource type="Texture2D" uid="uid://eij2hohstuhh" path="res://images/background.png" id="1_hnsup"]
 [ext_resource type="Script" uid="uid://xfebceag673a" path="res://scenes/highscore_menu/highscore_menu.gd" id="1_wdu0c"]
+[ext_resource type="Theme" uid="uid://drkpbmmwnukl" path="res://themes/train_one.tres" id="3_o8cb6"]
 [ext_resource type="Texture2D" uid="uid://bkwgcv2brn8mh" path="res://images/icons/icon.svg" id="3_voc57"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_mrghh"]
@@ -26,6 +27,7 @@ alignment = 1
 [node name="TitleLabel" type="Label" parent="Title"]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
+theme = ExtResource("3_o8cb6")
 theme_override_font_sizes/font_size = 64
 text = "HIGHSCORE_MENU"
 label_settings = SubResource("LabelSettings_mrghh")

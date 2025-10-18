@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://ci4d7j0imm4u"]
+[gd_scene load_steps=6 format=3 uid="uid://ci4d7j0imm4u"]
 
 [ext_resource type="Texture2D" uid="uid://eij2hohstuhh" path="res://images/background.png" id="1_i7fht"]
 [ext_resource type="Script" uid="uid://bnira8s8dt1r6" path="res://scenes/credits_menu/credits_menu.gd" id="1_ppef3"]
 [ext_resource type="Texture2D" uid="uid://bkwgcv2brn8mh" path="res://images/icons/icon.svg" id="3_5ww45"]
+[ext_resource type="Theme" uid="uid://drkpbmmwnukl" path="res://themes/train_one.tres" id="3_16lph"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yhltf"]
 font_size = 64
@@ -26,6 +27,7 @@ alignment = 1
 [node name="TitleLabel" type="Label" parent="Title"]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
+theme = ExtResource("3_16lph")
 theme_override_font_sizes/font_size = 64
 text = "Credits"
 label_settings = SubResource("LabelSettings_yhltf")

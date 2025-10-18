@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://hqe61n41cay3"]
+[gd_scene load_steps=11 format=3 uid="uid://hqe61n41cay3"]
 
 [ext_resource type="Script" uid="uid://bych0wagxg6d5" path="res://scenes/main_menu/main_menu.gd" id="1_1d7qk"]
 [ext_resource type="Texture2D" uid="uid://eij2hohstuhh" path="res://images/background.png" id="1_l5ut5"]
 [ext_resource type="Texture2D" uid="uid://cqhoidm6a2ami" path="res://images/rails.png" id="2_wo0fw"]
 [ext_resource type="Texture2D" uid="uid://bkwgcv2brn8mh" path="res://images/icons/icon.svg" id="3_4xg86"]
+[ext_resource type="Theme" uid="uid://drkpbmmwnukl" path="res://themes/train_one.tres" id="3_thkx5"]
 [ext_resource type="Texture2D" uid="uid://d1g164nxbdtto" path="res://images/whistle_on.png" id="4_8qtwp"]
 [ext_resource type="Texture2D" uid="uid://bh55pt3duejk" path="res://images/whistle_off.png" id="5_dy7ct"]
 [ext_resource type="Texture2D" uid="uid://c16c2cb5uwaxm" path="res://images/flag_de.png" id="5_qe12f"]
@@ -31,6 +32,7 @@ alignment = 1
 [node name="TitleLabel" type="Label" parent="Title"]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
+theme = ExtResource("3_thkx5")
 theme_override_font_sizes/font_size = 64
 text = "GAME_TITLE"
 label_settings = SubResource("LabelSettings_xyu7x")
