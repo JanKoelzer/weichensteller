@@ -1,7 +1,6 @@
 extends VBoxContainer
 
-@onready
-var station_buttons := [
+@onready var station_buttons := [
 	%StationButton0,
 	%StationButton1,
 	%StationButton2,
