@@ -3,11 +3,12 @@ extends VBoxContainer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	%ThirdPartyLabel.text ="\n".join(
-			["Lizenzen verwendeter Software und Assets: ",
-			Engine.get_license_text(),
-			"Erfolgs- und Fehler-Sound stammen von sound-theme-freedesktop und sind lizenziert unter CC-BY-3.0, Urheber: freedesktop.org contributors. Die Click-Sounds stammen von freesounds.org und sind lizensiert unter CC0-Lizenz, Urheber: major_internaut"
-			])
+	%CopyrightLabel.text ="\n".join([
+				FileAccess.get_file_as_string("res://LICENSE"),
+				"Lizenzen verwendeter Software und Assets: ",
+				Engine.get_license_text(),
+				FileAccess.get_file_as_string("res://legal/THIRD_PARTY.txt")
+	])
 
 
 func _on_close_button_pressed() -> void:

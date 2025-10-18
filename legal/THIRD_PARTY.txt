@@ -1,0 +1,3 @@
+Von Godot verwendete Komponenten Dritter und die jeweiligen Lizenzen sind hier aufgeführt: https://github.com/godotengine/godot/blob/master/thirdparty/README.md und https://github.com/godotengine/godot/blob/master/COPYRIGHT.txt
+Erfolgs- und Fehler-Sound stammen von sound-theme-freedesktop und sind lizenziert unter CC-BY-3.0, Urheber: freedesktop.org contributors. Die Click-Sounds stammen von freesounds.org und sind lizensiert unter CC0-Lizenz, Urheber: major_internaut
+Pfeife, Noten und Flaggen stammen von kelan, GDJ, clon und mr_johnnyp (openclipart.org) und sind lizensiert unter CC0.
