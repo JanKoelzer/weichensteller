@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" uid="uid://bych0wagxg6d5" path="res://scenes/main_menu/main_menu.gd" id="1_1d7qk"]
 [ext_resource type="Texture2D" uid="uid://eij2hohstuhh" path="res://images/background.png" id="1_l5ut5"]
-[ext_resource type="Texture2D" uid="uid://cqhoidm6a2ami" path="res://images/rails.png" id="2_wo0fw"]
 [ext_resource type="Texture2D" uid="uid://vafvwjai7e0i" path="res://images/icons/icon.svg" id="3_4xg86"]
 [ext_resource type="Theme" uid="uid://drkpbmmwnukl" path="res://themes/train_one.tres" id="3_thkx5"]
 [ext_resource type="Texture2D" uid="uid://d1g164nxbdtto" path="res://images/whistle_on.png" id="4_8qtwp"]
 [ext_resource type="Texture2D" uid="uid://bh55pt3duejk" path="res://images/whistle_off.png" id="5_dy7ct"]
 [ext_resource type="Texture2D" uid="uid://c16c2cb5uwaxm" path="res://images/flag_de.png" id="5_qe12f"]
 [ext_resource type="Texture2D" uid="uid://bmfoqsuqdyjh1" path="res://images/flag_en.png" id="6_qe12f"]
+[ext_resource type="Texture2D" uid="uid://dsd2lr07fr1sc" path="res://images/trains-padding.png" id="9_thkx5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xyu7x"]
 font_size = 64
@@ -19,11 +19,18 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 10
 script = ExtResource("1_1d7qk")
 
 [node name="BackgroundSprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_l5ut5")
 centered = false
+
+[node name="TrainsSprite" type="Sprite2D" parent="."]
+position = Vector2(512, 439)
+texture = ExtResource("9_thkx5")
+offset = Vector2(0, -40)
+region_rect = Rect2(0, 196, 384, 250)
 
 [node name="Title" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -48,24 +55,42 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_4xg86")
 centered = false
 
-[node name="StartButton" type="Button" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="StartButton" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
 text = "START_GAME"
 
-[node name="HighscoreButton" type="Button" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HighscoreButton" type="Button" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
 text = "HIGHSCORE"
 
-[node name="HelpButton" type="Button" parent="."]
+[node name="HelpButton" type="Button" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 20
 text = "MANUAL"
 
-[node name="CreditsButton" type="Button" parent="."]
+[node name="CreditsButton" type="Button" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 20
 text = "CREDITS"
 
-[node name="QuitButton" type="Button" parent="."]
+[node name="QuitButton" type="Button" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 20
 text = "QUIT_GAME"
 
 [node name="AudioSettings" type="HBoxContainer" parent="."]
@@ -93,23 +118,10 @@ popup/item_0/id = 1
 popup/item_1/icon = ExtResource("5_qe12f")
 popup/item_1/id = 0
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
-layout_mode = 2
-
-[node name="Control" type="Control" parent="CenterContainer"]
-layout_mode = 2
-
-[node name="TrainsSprite" type="Sprite2D" parent="CenterContainer/Control"]
-position = Vector2(0, 14)
-texture = ExtResource("2_wo0fw")
-offset = Vector2(0, -40)
-region_enabled = true
-region_rect = Rect2(0, 196, 384, 250)
-
-[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="HighscoreButton" to="." method="_on_highscore_button_pressed"]
-[connection signal="pressed" from="HelpButton" to="." method="_on_help_button_pressed"]
-[connection signal="pressed" from="CreditsButton" to="." method="_on_credits_button_pressed"]
-[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/HighscoreButton" to="." method="_on_highscore_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/HelpButton" to="." method="_on_help_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="item_selected" from="AudioSettings/AudioOptionButton" to="." method="_on_audio_option_button_item_selected"]
 [connection signal="item_selected" from="LanguageSettings/LanguageOptionButton" to="." method="_on_language_option_button_item_selected"]

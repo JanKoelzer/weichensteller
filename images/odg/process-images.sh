@@ -38,8 +38,17 @@ montage rails15.png rails16.png rails17.png rails18.png -tile 1x4 -background 't
 montage rails19.png rails20.png rails21.png rails22.png -tile 1x4 -background 'transparent' -geometry +0+0 trains4.png 
 montage rails23.png rails24.png rails25.png rails26.png -tile 1x4 -background 'transparent' -geometry +0+0 trains5.png 
 montage rails27.png rails28.png rails29.png rails30.png -tile 1x4 -background 'transparent' -geometry +0+0 trains6.png 
-
 montage trains[1-6].png -tile 6x1 -background 'transparent' -geometry +0+0 trains.png 
+
+echo "Create a padded version of trains for main menu and move it to ../trains-padding.png"
+montage rails7.png rails8.png rails9.png rails10.png -tile 1x4 -background 'transparent' -geometry +0-5 ptrains1.png 
+montage rails11.png rails12.png rails13.png rails14.png -tile 1x4 -background 'transparent' -geometry +0-5 ptrains2.png 
+montage rails15.png rails16.png rails17.png rails18.png -tile 1x4 -background 'transparent' -geometry +0-5 ptrains3.png 
+montage rails19.png rails20.png rails21.png rails22.png -tile 1x4 -background 'transparent' -geometry +0-5 ptrains4.png 
+montage rails23.png rails24.png rails25.png rails26.png -tile 1x4 -background 'transparent' -geometry +0-5 ptrains5.png 
+montage rails27.png rails28.png rails29.png rails30.png -tile 1x4 -background 'transparent' -geometry +0-5 ptrains6.png 
+montage ptrains[1-6].png -tile 6x1 -background 'transparent' -geometry +10+0 trains-padding.png 
+cp trains-padding.png ../../
 
 montage stations.png trains.png -tile 1x2 -background 'transparent' -geometry +0+0 colored.png 
 

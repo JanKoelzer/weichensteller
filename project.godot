@@ -42,6 +42,10 @@ window/stretch/aspect="expand"
 
 movie_writer/movie_file="/home/jtk/workspace/Weichensteller/movies/main.avi"
 
+[gui]
+
+theme/custom="uid://sdu5an0boq3"
+
 [internationalization]
 
 locale/translations=PackedStringArray("res://translations/difficulty_settings.de.translation", "res://translations/difficulty_settings.en.translation", "res://translations/game_view.de.translation", "res://translations/game_view.en.translation", "res://translations/main_menu.de.translation", "res://translations/main_menu.en.translation", "res://translations/help_menu.de.translation", "res://translations/help_menu.en.translation", "res://translations/highscore_menu.de.translation", "res://translations/highscore_menu.en.translation")
