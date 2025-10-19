@@ -2,7 +2,7 @@ extends VBoxContainer
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+func _ready() -> void:	
 	%CopyrightLabel.text = FileAccess.get_file_as_string("res://LICENSE")
 	%ThirdPartyLabel.text ="\n".join([
 				"Lizenzen verwendeter Software und Assets:",
