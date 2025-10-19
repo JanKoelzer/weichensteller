@@ -1,6 +1,6 @@
 # Weichensteller / Switchman
 
-![Screenshot/Banner of the game. It shows a bird's eye view of colored trains on tracks leading to stations, that are colored accordingly. There is text overlay that show the word Weichensteller](images/banner.png) 
+![Screenshot/Banner of the game. It shows a bird's eye view of colored trains on tracks leading to stations, that are colored accordingly. There is text overlay that show the word Weichensteller](publicity/banner2_en.png) 
 
 ## How to Play
 
@@ -9,18 +9,14 @@ Just go to [https://weichensteller.online/](https://weichensteller.online/) and 
 The rules are simple: Click on the switches to guide the trains to the right destinations (with matching colors).
 It starts slowly but gets faster and harder over time. Hurry up to set up the correct path!
 
-![Screenshot of the game. It shows a bird's eye view of colored trains on tracks leading to stations, that are colored accordingly.](images/game.png) 
+![Screenshot of the game. It shows a bird's eye view of colored trains on tracks leading to stations, that are colored accordingly.](publicity/game_en.png) 
 
 ## Settings
 
 There are settings to adapt the difficulty. If you play in a "placid mode", you collect points slower, though.
 
-![A menu showing settings for speed, number of stations, density, number of switches, number of brakes and number of errors.](images/settings.png) 
+![A menu showing settings for speed, number of stations, density, number of switches, number of brakes and number of errors.](publicity/settings_en.png) 
 
 ## Highscore
 
-You can have your scored saved online. Just enter your name and select your age. (There are differentt lists for different ages to give minors a chance to get to the front. Just be honest!)
-
-# Contribute
-
-If you have any ideas, feel free to open an issue or even use a pull request. I am going to get to them up in my spare time, so please be patient.
+You can have your score saved online. Just enter your name and select your age. (There are differentt lists for different ages to give minors a chance to get to the front. Just be honest!)

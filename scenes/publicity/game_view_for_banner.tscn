@@ -1,0 +1,114 @@
+[gd_scene load_steps=5 format=4 uid="uid://d1o1cqygc7fsb"]
+
+[ext_resource type="Texture2D" uid="uid://eij2hohstuhh" path="res://images/background.png" id="2_rkkce"]
+[ext_resource type="PackedScene" uid="uid://bj451436lnaqo" path="res://scenes/game_view/rails.tscn" id="3_qh86s"]
+[ext_resource type="PackedScene" uid="uid://dev70nkbyuydv" path="res://scenes/game_view/train.tscn" id="4_gmq0a"]
+[ext_resource type="Theme" uid="uid://drkpbmmwnukl" path="res://themes/train_one.tres" id="4_tbuoy"]
+
+[node name="GameView" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_rkkce")
+centered = false
+
+[node name="Container" type="Node2D" parent="."]
+
+[node name="Rails" parent="Container" instance=ExtResource("3_qh86s")]
+unique_name_in_owner = true
+tile_map_data = PackedByteArray("AAAAAAAAAAAEAAAAAAABAAAAAAAEAAAAAAACAAAAAAAEAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAEAAAAAAAFAAAAAAAEAAAAAAAGAAEAAAAEAAAAAAAHAAEAAAAEAAAAAAAHAAAAAAAEAAAAAAAIAAAAAAAEAAAAAAAJAAAAAAABAAAAAAAGAAAAAAAEAAAAAAAAAAEAAAAEAAAAAAABAAEAAAAEAAAAAAACAAEAAAAEAAAAAAADAAEAAAAEAAAAAAAEAAEAAAAEAAAAAAAFAAEAAAAEAAAAAAAJAAEAAAAEAAAAAAAKAAEAAAAEAAAAAAAKAAAAAAAEAAAAAAALAAAAAAAEAAAAAAALAAEAAAAEAAAAAAAIAAEAAAAEAAAAAAAAAAIAAAAEAAAAAAABAAIAAAAEAAAAAAACAAIAAAAEAAAAAAADAAIAAAAEAAAAAAAEAAIAAAAEAAAAAAAFAAIAAAAEAAAAAAAGAAIAAAAEAAAAAAAHAAIAAAAEAAAAAAAIAAIAAAAEAAAAAAAJAAIAAAAEAAAAAAAKAAIAAAAEAAAAAAALAAIAAAAEAAAAAAALAAMAAAAEAAAAAAAKAAMAAAAEAAAAAAAJAAMAAAAEAAAAAAAIAAMAAAAEAAAAAAAHAAMAAAAEAAAAAAAGAAMAAAAEAAAAAAAFAAMAAAAEAAAAAAAEAAMAAAAEAAAAAAADAAMAAAAEAAAAAAACAAMAAAADAAAAAAABAAMAAAAEAAAAAAAAAAMAAAAEAAAAAAAAAAQAAAAEAAAAAAABAAQAAAAEAAAAAAACAAQAAAAEAAAAAAADAAQAAAAEAAAAAAAEAAQAAAAEAAAAAAAFAAQAAAAEAAAAAAAGAAQAAAAEAAAAAAAHAAQAAAAEAAAAAAAIAAQAAAAEAAAAAAAJAAQAAAAEAAAAAAAKAAQAAAAEAAAAAAALAAQAAAADAAAAAAAMAAAAAAAAAAIAAAAMAAEAAAABAAIAAAAMAAIAAAACAAIAAAAMAAMAAAADAAIAAAAMAAQAAAAEAAIAAAAAAAUAAAAEAAAAAAABAAUAAAAEAAAAAAACAAUAAAAEAAAAAAADAAUAAAAEAAAAAAAEAAUAAAACAAAAAAAFAAUAAAAEAAAAAAAGAAUAAAAEAAAAAAAHAAUAAAAEAAAAAAAIAAUAAAAEAAAAAAAJAAUAAAAEAAAAAAAKAAUAAAAEAAAAAAALAAUAAAAEAAAAAAAMAAUAAAAFAAIAAAA=")
+
+[node name="Train" parent="Container" instance=ExtResource("4_gmq0a")]
+position = Vector2(551, 289)
+
+[node name="Sprite" parent="Container/Train" index="0"]
+region_rect = Rect2(192, 384, 64, 64)
+
+[node name="SteamParticles" parent="Container/Train" index="2"]
+direction = Vector2(-1, 0)
+initial_velocity_min = 30.0
+initial_velocity_max = 50.0
+
+[node name="SparkParticles" parent="Container/Train" index="3"]
+visible = false
+
+[node name="ExhaustParticles" parent="Container/Train" index="4"]
+visible = false
+
+[node name="Train3" parent="Container" instance=ExtResource("4_gmq0a")]
+position = Vector2(613, 60.00003)
+rotation = 0.7853982
+metadata/_edit_group_ = true
+
+[node name="Sprite" parent="Container/Train3" index="0"]
+region_rect = Rect2(64, 256, 64, 64)
+
+[node name="SteamParticles" parent="Container/Train3" index="2"]
+visible = false
+direction = Vector2(-1, 0.5)
+initial_velocity_min = 30.0
+initial_velocity_max = 50.0
+
+[node name="SparkParticles" parent="Container/Train3" index="3"]
+visible = false
+
+[node name="Train2" parent="Container" instance=ExtResource("4_gmq0a")]
+position = Vector2(308, 31)
+metadata/_edit_group_ = true
+
+[node name="Sprite" parent="Container/Train2" index="0"]
+region_rect = Rect2(256, 192, 64, 64)
+
+[node name="SteamParticles" parent="Container/Train2" index="2"]
+visible = false
+
+[node name="SparkParticles" parent="Container/Train2" index="3"]
+emitting = true
+one_shot = false
+
+[node name="ExhaustParticles" parent="Container/Train2" index="4"]
+visible = false
+direction = Vector2(-10, -10)
+initial_velocity_min = 30.0
+initial_velocity_max = 30.0
+
+[node name="Train4" parent="Container" instance=ExtResource("4_gmq0a")]
+position = Vector2(276, 224)
+metadata/_edit_group_ = true
+
+[node name="Sprite" parent="Container/Train4" index="0"]
+region_rect = Rect2(0, 384, 64, 64)
+
+[node name="SteamParticles" parent="Container/Train4" index="2"]
+direction = Vector2(-1, 0)
+initial_velocity_min = 40.0
+initial_velocity_max = 50.0
+
+[node name="SparkParticles" parent="Container/Train4" index="3"]
+visible = false
+
+[node name="ExhaustParticles" parent="Container/Train4" index="4"]
+visible = false
+direction = Vector2(-10, -10)
+initial_velocity_min = 30.0
+initial_velocity_max = 30.0
+
+[node name="Label" type="Label" parent="Container"]
+offset_left = 293.0
+offset_top = 93.0
+offset_right = 761.0
+offset_bottom = 272.0
+theme = ExtResource("4_tbuoy")
+theme_override_font_sizes/font_size = 60
+text = "Weichensteller
+Switchman"
+horizontal_alignment = 1
+
+[connection signal="end" from="Container/Rails" to="." method="_on_rails_end"]
+[connection signal="errored" from="Container/Rails" to="." method="_on_rails_errored"]
+[connection signal="scored" from="Container/Rails" to="." method="_on_rails_scored"]
+[connection signal="train_started" from="Container/Rails" to="." method="_on_rails_train_started"]
+
+[editable path="Container/Train"]
+[editable path="Container/Train3"]
+[editable path="Container/Train2"]
+[editable path="Container/Train4"]
