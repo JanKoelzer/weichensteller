@@ -1,11 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://hqe61n41cay3"]
+[gd_scene load_steps=16 format=3 uid="uid://hqe61n41cay3"]
 
 [ext_resource type="Script" uid="uid://bych0wagxg6d5" path="res://scenes/main_menu/main_menu.gd" id="1_1d7qk"]
 [ext_resource type="Texture2D" uid="uid://eij2hohstuhh" path="res://images/background.png" id="1_l5ut5"]
 [ext_resource type="Texture2D" uid="uid://vafvwjai7e0i" path="res://images/icons/icon.svg" id="3_4xg86"]
 [ext_resource type="Theme" uid="uid://drkpbmmwnukl" path="res://themes/train_one.tres" id="3_thkx5"]
 [ext_resource type="Texture2D" uid="uid://d1g164nxbdtto" path="res://images/whistle_on.png" id="4_8qtwp"]
+[ext_resource type="PackedScene" uid="uid://dev70nkbyuydv" path="res://scenes/game_view/train.tscn" id="4_x2yjq"]
 [ext_resource type="Texture2D" uid="uid://bh55pt3duejk" path="res://images/whistle_off.png" id="5_dy7ct"]
+[ext_resource type="Script" uid="uid://cp0nwjw5jpofy" path="res://scenes/main_menu/logo_sprite_intro.gd" id="5_lqpn7"]
 [ext_resource type="Texture2D" uid="uid://c16c2cb5uwaxm" path="res://images/flag_de.png" id="5_qe12f"]
 [ext_resource type="Texture2D" uid="uid://bmfoqsuqdyjh1" path="res://images/flag_en.png" id="6_qe12f"]
 [ext_resource type="Texture2D" uid="uid://dsd2lr07fr1sc" path="res://images/trains-padding.png" id="9_thkx5"]
@@ -13,30 +15,124 @@
 [sub_resource type="LabelSettings" id="LabelSettings_xyu7x"]
 font_size = 64
 
-[node name="MainMenu" type="VBoxContainer"]
+[sub_resource type="Animation" id="Animation_qel0l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(53, 53)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SteamParticles:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_lqpn7"]
+resource_name = "intro"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-219, -40), Vector2(-126, 53), Vector2(53, 53)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.9, 1.0333333, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.7853982, 0.7853982, 0.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SteamParticles:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rrgl4"]
+_data = {
+&"RESET": SubResource("Animation_qel0l"),
+&"intro": SubResource("Animation_lqpn7")
+}
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 10
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_1d7qk")
 
-[node name="BackgroundSprite" type="Sprite2D" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="BackgroundSprite" type="Sprite2D" parent="CenterContainer/VBoxContainer"]
+position = Vector2(-512, -260)
 texture = ExtResource("1_l5ut5")
 centered = false
 
-[node name="TrainsSprite" type="Sprite2D" parent="."]
-position = Vector2(512, 439)
-texture = ExtResource("9_thkx5")
-offset = Vector2(0, -40)
-region_rect = Rect2(0, 196, 384, 250)
-
-[node name="Title" type="HBoxContainer" parent="."]
+[node name="Title" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="TitleLabel" type="Label" parent="Title"]
+[node name="TitleLabel" type="Label" parent="CenterContainer/VBoxContainer/Title"]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 theme = ExtResource("3_thkx5")
@@ -46,57 +142,96 @@ label_settings = SubResource("LabelSettings_xyu7x")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Control" type="Control" parent="Title"]
+[node name="Control" type="Control" parent="CenterContainer/VBoxContainer/Title"]
 layout_mode = 2
 
-[node name="LogoSprite" type="Sprite2D" parent="Title/Control"]
-position = Vector2(25, 10)
+[node name="LogoSprite" parent="CenterContainer/VBoxContainer/Title/Control" instance=ExtResource("4_x2yjq")]
+unique_name_in_owner = true
+position = Vector2(53, 53)
+script = ExtResource("5_lqpn7")
+animate_intro = true
+metadata/_edit_group_ = true
+
+[node name="Sprite" parent="CenterContainer/VBoxContainer/Title/Control/LogoSprite" index="0"]
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_4xg86")
-centered = false
+region_enabled = false
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="SteamParticles" parent="CenterContainer/VBoxContainer/Title/Control/LogoSprite" index="2"]
+emitting = false
+direction = Vector2(-1, 0)
+initial_velocity_min = 80.0
+initial_velocity_max = 100.0
+
+[node name="SparkParticles" parent="CenterContainer/VBoxContainer/Title/Control/LogoSprite" index="3"]
+visible = false
+
+[node name="ExhaustParticles" parent="CenterContainer/VBoxContainer/Title/Control/LogoSprite" index="4"]
+visible = false
+
+[node name="IntroAnimation" type="AnimationPlayer" parent="CenterContainer/VBoxContainer/Title/Control/LogoSprite"]
+libraries = {
+&"": SubResource("AnimationLibrary_rrgl4")
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="StartButton" type="Button" parent="HBoxContainer"]
+[node name="StartButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "START_GAME"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="HighscoreButton" type="Button" parent="HBoxContainer/VBoxContainer"]
+[node name="HighscoreButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "HIGHSCORE"
 
-[node name="HelpButton" type="Button" parent="HBoxContainer/VBoxContainer"]
+[node name="HelpButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "MANUAL"
 
-[node name="CreditsButton" type="Button" parent="HBoxContainer/VBoxContainer"]
+[node name="CreditsButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "CREDITS"
 
-[node name="QuitButton" type="Button" parent="HBoxContainer/VBoxContainer"]
+[node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "QUIT_GAME"
 
-[node name="AudioSettings" type="HBoxContainer" parent="."]
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
+texture = ExtResource("9_thkx5")
 
-[node name="AudioOptionButton" type="OptionButton" parent="AudioSettings"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -154.0
+offset_right = 96.0
+grow_vertical = 0
+theme_override_constants/separation = 10
+
+[node name="AudioSettings" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="AudioOptionButton" type="OptionButton" parent="VBoxContainer/AudioSettings"]
+unique_name_in_owner = true
 layout_mode = 2
 selected = 0
 item_count = 2
@@ -105,10 +240,11 @@ popup/item_0/id = 1
 popup/item_1/icon = ExtResource("5_dy7ct")
 popup/item_1/id = 0
 
-[node name="LanguageSettings" type="HBoxContainer" parent="."]
+[node name="LanguageSettings" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 
-[node name="LanguageOptionButton" type="OptionButton" parent="LanguageSettings"]
+[node name="LanguageOptionButton" type="OptionButton" parent="VBoxContainer/LanguageSettings"]
 unique_name_in_owner = true
 layout_mode = 2
 selected = 0
@@ -118,10 +254,12 @@ popup/item_0/id = 1
 popup/item_1/icon = ExtResource("5_qe12f")
 popup/item_1/id = 0
 
-[connection signal="pressed" from="HBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/HighscoreButton" to="." method="_on_highscore_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/HelpButton" to="." method="_on_help_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
-[connection signal="item_selected" from="AudioSettings/AudioOptionButton" to="." method="_on_audio_option_button_item_selected"]
-[connection signal="item_selected" from="LanguageSettings/LanguageOptionButton" to="." method="_on_language_option_button_item_selected"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/HighscoreButton" to="." method="_on_highscore_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/HelpButton" to="." method="_on_help_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="item_selected" from="VBoxContainer/AudioSettings/AudioOptionButton" to="." method="_on_audio_option_button_item_selected"]
+[connection signal="item_selected" from="VBoxContainer/LanguageSettings/LanguageOptionButton" to="." method="_on_language_option_button_item_selected"]
+
+[editable path="CenterContainer/VBoxContainer/Title/Control/LogoSprite"]
