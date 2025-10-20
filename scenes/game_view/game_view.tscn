@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://b5khbek0fxki0"]
+[gd_scene load_steps=28 format=4 uid="uid://b5khbek0fxki0"]
 
 [ext_resource type="Script" uid="uid://522w2u3g8ouo" path="res://scenes/game_view/game_view.gd" id="1_6hfh6"]
 [ext_resource type="PackedScene" uid="uid://bj451436lnaqo" path="res://scenes/game_view/rails.tscn" id="1_rrse5"]
@@ -7,6 +7,9 @@
 [ext_resource type="Theme" uid="uid://drkpbmmwnukl" path="res://themes/train_one.tres" id="4_gxnlg"]
 [ext_resource type="Animation" uid="uid://b8cpunt5ly3bi" path="res://animations/label_value_changed_positiv.res" id="4_mu740"]
 [ext_resource type="AudioStream" uid="uid://dyv1xctqtxo2r" path="res://sounds/score.ogg" id="5_ni2ws"]
+[ext_resource type="Script" uid="uid://rl851crn0p0v" path="res://scenes/game_view/train_count_label.gd" id="7_1e55p"]
+[ext_resource type="Script" uid="uid://cr332vwv2t8oh" path="res://scenes/game_view/score_label.gd" id="8_3i3bd"]
+[ext_resource type="Script" uid="uid://8ld5fc0n6x0e" path="res://scenes/game_view/errors_label.gd" id="9_ituk5"]
 
 [sub_resource type="Animation" id="Animation_r1erm"]
 length = 0.001
@@ -361,7 +364,7 @@ alignment = 1
 clip_contents = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 100
-text = "Ende!"
+text = "GAME_OVER"
 horizontal_alignment = 1
 
 [node name="FinalScoreLabel" type="Label" parent="Container/GameOverDisplay/VBoxContainer"]
@@ -385,6 +388,7 @@ layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
+alignment = 1
 
 [node name="Label2" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -394,6 +398,7 @@ text = "TRAINS"
 unique_name_in_owner = true
 layout_mode = 2
 text = "0"
+script = ExtResource("7_1e55p")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer/VBoxContainer/HBoxContainer/TrainCountLabel"]
 libraries = {
@@ -412,6 +417,7 @@ text = "SCORE"
 unique_name_in_owner = true
 layout_mode = 2
 text = "0"
+script = ExtResource("8_3i3bd")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer/VBoxContainer/HBoxContainer/ScoreLabel"]
 libraries = {
@@ -430,6 +436,7 @@ text = "ERRORS"
 unique_name_in_owner = true
 layout_mode = 2
 text = "0"
+script = ExtResource("9_ituk5")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer/VBoxContainer/HBoxContainer/ErrorsLabel"]
 libraries = {
@@ -463,6 +470,7 @@ layout_mode = 2
 [node name="PauseButtons" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+alignment = 1
 
 [node name="AutoBrakeCheckBox" type="CheckBox" parent="CenterContainer/VBoxContainer/PauseButtons"]
 layout_mode = 2

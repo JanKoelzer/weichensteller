@@ -1,8 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://dev70nkbyuydv"]
+[gd_scene load_steps=20 format=3 uid="uid://dev70nkbyuydv"]
 
 [ext_resource type="Texture2D" uid="uid://cqhoidm6a2ami" path="res://images/rails.png" id="1_lo3q4"]
 [ext_resource type="Script" uid="uid://cvormi1od74aa" path="res://scenes/game_view/train.gd" id="2_wgsvc"]
 [ext_resource type="Texture2D" uid="uid://3mbyv70qcwdd" path="res://images/smoke-particle-small.png" id="3_ogqkn"]
+[ext_resource type="Script" uid="uid://dn0njkecees6c" path="res://scenes/game_view/spark_particles.gd" id="4_7o0ee"]
+[ext_resource type="Script" uid="uid://bofh71konaybx" path="res://scenes/game_view/steam_particles.gd" id="4_gfec6"]
+[ext_resource type="Script" uid="uid://bf0jevs1361el" path="res://scenes/game_view/exhaust_particles.gd" id="5_vskko"]
 
 [sub_resource type="Animation" id="Animation_qcyb2"]
 length = 0.001
@@ -186,6 +189,7 @@ scale_amount_curve = SubResource("Curve_1cflw")
 color = Color(1, 1, 1, 0.290196)
 color_ramp = SubResource("Gradient_i1d45")
 color_initial_ramp = SubResource("Gradient_pfwk8")
+script = ExtResource("4_gfec6")
 
 [node name="SparkParticles" type="CPUParticles2D" parent="."]
 texture_filter = 6
@@ -204,6 +208,7 @@ initial_velocity_min = 10.0
 initial_velocity_max = 20.0
 scale_amount_curve = SubResource("Curve_rei6s")
 color_initial_ramp = SubResource("Gradient_fodbn")
+script = ExtResource("4_7o0ee")
 
 [node name="Timer" type="Timer" parent="SparkParticles"]
 autostart = true
@@ -225,6 +230,7 @@ scale_amount_max = 0.4
 scale_amount_curve = SubResource("Curve_dmukj")
 color_ramp = SubResource("Gradient_17jyq")
 color_initial_ramp = SubResource("Gradient_6whlh")
+script = ExtResource("5_vskko")
 
 [connection signal="animation_finished" from="FadePlayer" to="." method="_on_animation_player_animation_finished"]
-[connection signal="timeout" from="SparkParticles/Timer" to="." method="_on_spark_timer_timeout"]
+[connection signal="timeout" from="SparkParticles/Timer" to="SparkParticles" method="_on_timer_timeout"]

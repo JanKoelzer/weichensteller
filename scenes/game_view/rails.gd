@@ -7,18 +7,25 @@ signal scored()
 signal errored()
 signal end()
 
-var col_count := 16
-var row_count: int
+@onready var train_creation_timer: Timer = $TrainCreationTimer
+@onready var trains: Node2D = $Trains
+@onready var error_audio_stream_player: AudioStreamPlayer = $ErrorAudioStreamPlayer
+@onready var score_audio_stream_player: AudioStreamPlayer = $ScoreAudioStreamPlayer
+@onready var activate_switch_audio_stream_player: AudioStreamPlayer = $ActivateSwitchAudioStreamPlayer
+@onready var deactivate_switch_audio_stream_player: AudioStreamPlayer = $DeactivateSwitchAudioStreamPlayer
+
+var col_count: int
+var row_count: int 
 var game_settings: GameSettings
 var colors: Dictionary[int, Train.TrainColor]
 
 var generate_trains := true:
-	get: return not $TrainCreationTimer.is_stopped()
+	get: return not train_creation_timer.is_stopped()
 	set(v):
-		if not v and not $TrainCreationTimer.is_stopped(): 
-			$TrainCreationTimer.stop()
-		elif v and $TrainCreationTimer.is_stopped():
-			$TrainCreationTimer.stop()
+		if not v and not train_creation_timer.is_stopped(): 
+			train_creation_timer.stop()
+		elif v and train_creation_timer.is_stopped():
+			train_creation_timer.stop()
 
 var trains_on_track := 0:
 	get: return trains_on_track
@@ -34,6 +41,7 @@ var sum_trains_started := 0:
 		sum_trains_started = v
 		train_started.emit(v)
 
+# wind changes for each game. it is forwarded to trains and their exhaust
 var wind_direction: Vector2
 var wind_speed: float
 
@@ -54,7 +62,7 @@ func init(num_cols: int, settings: GameSettings) -> void:
 		colors.set(i, color_keys[i])
 	create_railways()
 
-
+# called by "the world"
 func start() -> void:
 	set_train_on_tracks()
 
@@ -105,13 +113,13 @@ func set_switch(x: int, y: int, direction: int = 0) -> void:
 
 
 func pause_trains() -> void:
-	$Trains.process_mode = Node.PROCESS_MODE_DISABLED
-	$TrainCreationTimer.paused = true
+	trains.process_mode = Node.PROCESS_MODE_DISABLED
+	train_creation_timer.paused = true
 	
 
 func resume_trains() -> void:
-	$Trains.process_mode = Node.PROCESS_MODE_INHERIT
-	$TrainCreationTimer.paused = false
+	trains.process_mode = Node.PROCESS_MODE_INHERIT
+	train_creation_timer.paused = false
 
 
 func get_cell_at(local: Vector2) -> Vector2i:
@@ -134,23 +142,23 @@ func switch(cell: Vector2i) -> void:
 		# no cell selected
 		return
 	
-	
+	# only handle clicks on switches
 	if(data.get_custom_data("is_switch")):
 		assert(data.get_custom_data("switch_direction") != 0)
 		if data.get_custom_data("switch_direction") == -1:
 			if data.get_custom_data("is_active"):
 				new_atlas_coords = Vector2i(2,0)
-				audioPlayer = $DeactivateSwitchAudioStreamPlayer		
+				audioPlayer = deactivate_switch_audio_stream_player		
 			else:
 				new_atlas_coords = Vector2i(3,0)
-				audioPlayer = $ActivateSwitchAudioStreamPlayer
+				audioPlayer = activate_switch_audio_stream_player
 		elif data.get_custom_data("switch_direction") == 1:
 			if data.get_custom_data("is_active"):
 				new_atlas_coords = Vector2i(0,0)
-				audioPlayer = $DeactivateSwitchAudioStreamPlayer
+				audioPlayer = deactivate_switch_audio_stream_player
 			else:
 				new_atlas_coords = Vector2i(1,0)
-				audioPlayer = $ActivateSwitchAudioStreamPlayer
+				audioPlayer = activate_switch_audio_stream_player
 				
 		audioPlayer.play()
 		set_cell(cell, 0, new_atlas_coords)
@@ -161,6 +169,7 @@ func _on_train_moved(train: Train) -> void:
 	var data := get_cell_tile_data(cell)
 	
 	if data == null:
+		assert(false, "Has a train reached 'outer space'?!")
 		train.queue_free()
 		return
 	
@@ -171,11 +180,11 @@ func _on_train_moved(train: Train) -> void:
 		
 	if data.get_custom_data("is_end"):
 		if data.get_custom_data("train_color") == train.color:
-			$ScoreAudioStreamPlayer.play()
+			score_audio_stream_player.play()
 			train.fade_out(true)
 			scored.emit()
 		else:
-			$ErrorAudioStreamPlayer.play()
+			error_audio_stream_player.play()
 			train.fade_out(false)
 			errored.emit()
 		trains_on_track -= 1	
@@ -185,14 +194,14 @@ func _on_train_moved(train: Train) -> void:
 
 func set_train_on_tracks() -> void:
 	var t := Train_scene.instantiate() as Train
+	trains.add_child(t)
+	trains.move_child(t, 0)
 	var new_color: Train.TrainColor = game_settings.selected_stations.keys().pick_random()
 	var track := randi_range(0, game_settings.num_stations - 1)
 	var new_position := Vector2(0, tile_set.tile_size.y * track  + tile_set.tile_size.y / 2.0)
 	var new_speed := game_settings.speed + sum_trains_started / 50.0 # slowly increase speed over time	
 	t.init(tile_set.tile_size.x, new_color, new_position, new_speed, wind_speed, wind_direction )
 	
-	$Trains.add_child(t)
-	$Trains.move_child(t, 0)
 	t.fade_in()
 	trains_on_track += 1
 	sum_trains_started += 1
@@ -203,5 +212,5 @@ func set_train_on_tracks() -> void:
 	# "+ sum_trains_started/40" to make trains appear "faster faster" than
 	# the speed increases → overall traffic increases
 	var wait_time :=  col_count/(new_speed*game_settings.num_concurrent_trains + sum_trains_started/40.0)
-	$TrainCreationTimer.wait_time = wait_time
-	$TrainCreationTimer.start()
+	train_creation_timer.wait_time = wait_time
+	train_creation_timer.start()

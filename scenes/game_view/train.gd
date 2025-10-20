@@ -2,6 +2,7 @@ class_name Train
 extends Node2D
 
 signal moved(t: Train)
+signal rotation_started(direction: float, duration: float)
 
 enum TrainColor {
 		RED = 0,
@@ -25,9 +26,7 @@ var direction: int:
 		var index := directions.find(v)
 		directionIndex = index if index != -1 else 0
 
-
 var color: TrainColor
-
 
 func init(new_tile_size: int,
 		new_color: TrainColor,
@@ -41,55 +40,31 @@ func init(new_tile_size: int,
 	
 	self.tile_size = new_tile_size
 	
+	# u and v are the trains coordinates in the tileset
 	var u := color
-	var v := randi_range(3, 6)
+	var v := randi_range(3, 6) #randomly select one type of train
+	$Sprite.region_rect = Rect2(tile_size*u, tile_size*v, tile_size, tile_size)
 	
+	# electric engine?
 	if v == 3:
-		set_up_sparks()
+		$SparkParticles.set_up()
 	else:
 		remove_child($SparkParticles)
 		
+	# diesel engine?
 	if v == 4 or v == 5:
-		set_up_exhaust(
+		$ExhaustParticles.set_up(
 				Vector2i(-24, 2) if v == 5 else Vector2i(-25, -10),
 				wind_speed,	wind_direction)
 	else:
 		remove_child($ExhaustParticles)
-		
+	
+	# steam engine?
 	if v == 6:
-		set_up_smoke(wind_speed, wind_direction)
+		$SteamParticles.set_up(wind_speed, wind_direction)
+		self.rotation_started.connect($SteamParticles._on_train_rotation_started)
 	else:
 		remove_child($SteamParticles)
-		
-	$Sprite.region_rect = Rect2(tile_size*u, tile_size*v, tile_size, tile_size)
-
-
-func set_up_sparks() -> void:
-	$SparkParticles/Timer.wait_time = randf_range(2, 5)
-
-
-func set_up_exhaust(exhaust_position: Vector2i, wind_speed: float, wind_direction: Vector2) -> void:
-	$ExhaustParticles.position = exhaust_position
-	$ExhaustParticles.initial_velocity_min = wind_speed
-	$ExhaustParticles.initial_velocity_max = wind_speed
-	$ExhaustParticles.direction = wind_direction
-	$ExhaustParticles.lifetime = randf_range(0.2, 0.4)
-	$ExhaustParticles.amount = randi_range(40, 60)
-	$ExhaustParticles.color = \
-			Color($ExhaustParticles.color, randf_range(0.8, 1.0))\
-			.darkened(randf_range(0.0, 0.2))
-
-
-func set_up_smoke(wind_speed: float, wind_direction: Vector2) -> void:
-	$SteamParticles.initial_velocity_min = wind_speed
-	$SteamParticles.initial_velocity_max = wind_speed
-	$SteamParticles.direction = wind_direction
-	$SteamParticles.color = \
-			Color($SteamParticles.color, randf_range(0.4, 0.6))\
-			.darkened(randf_range(0.0, 0.3))
-	$SteamParticles.lifetime = randf_range(2.8, 3.8)
-	$SteamParticles.amount = randi_range(400, 550)
-	$SteamParticles.explosiveness = randf_range(0.0, 0.2)
 
 
 func move() -> void:
@@ -109,14 +84,8 @@ func move() -> void:
 			45*direction,
 			0.2/speed
 		).set_trans(Tween.TRANS_LINEAR)
-	var steam_particles := get_node_or_null("SteamParticles") as CPUParticles2D
-	if steam_particles != null:
-		create_tween().tween_property(
-				steam_particles,
-				"direction",
-				steam_particles.direction.rotated(-45*direction),
-				0.2/speed
-			).set_trans(Tween.TRANS_LINEAR)
+	# emit signal, so SteamParticles can adapt
+	rotation_started.emit(direction, 0.2/speed) 
 
 func fade_in() -> void:
 	$FadePlayer.play("fade_in")
@@ -136,9 +105,3 @@ func fade_out(was_success: bool) -> void:
 func _on_animation_player_animation_finished(anim_name: String) -> void:
 	if anim_name == "fade_out":
 		queue_free()
-
-
-func _on_spark_timer_timeout() -> void:
-	$SparkParticles.position.y = randi_range(-10, 10)
-	$SparkParticles.emitting = true
-	$SparkParticles/Timer.start(randf_range(3, 8))

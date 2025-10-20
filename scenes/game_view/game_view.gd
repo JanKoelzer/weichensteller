@@ -3,6 +3,11 @@ extends VBoxContainer
 
 const COL_COUNT := 16
 
+@onready var train_count_label: Label = %TrainCountLabel
+@onready var score_label: Label = %ScoreLabel
+@onready var errors_label: Label = %ErrorsLabel
+@onready var time_label: Label = %TimeLabel
+
 var time: int = 0
 var error_count: int = 0
 var score: float = 0.0
@@ -66,22 +71,20 @@ func activate_brakes(b: Button) -> void:
 	
 
 func _on_rails_scored() -> void:
-	score += 10 * GameSettings.score_factor()
+	self.score += 10 * GameSettings.score_factor()
+	score_label.update(self.score)
 	errors_in_row = 0
-	%ScoreLabel.text = str(roundi(score))
-	%ScoreLabel/AnimationPlayer.play("changed")
 
 
 func _on_rails_errored() -> void:
 	self.error_count += 1
 	self.errors_in_row += 1
-	%ErrorsLabel.text = str(error_count)
-	%ErrorsLabel/AnimationPlayer.play("changed")
+	
 	if error_count > GameSettings.max_errors:
-		%ErrorsLabel/AnimationPlayer.get_animation("changed").loop_mode = Animation.LoopMode.LOOP_LINEAR
+		errors_label.update(error_count, true)
 		sunset_game()
 	else:
-		%ErrorsLabel/AnimationPlayer.get_animation("changed").loop_mode = Animation.LoopMode.LOOP_NONE
+		errors_label.update(error_count, false)
 
 
 func sunset_game() -> void:
@@ -90,7 +93,7 @@ func sunset_game() -> void:
 
 func _on_timer_timeout() -> void:
 	time += 1
-	%TimeLabel.text = str(time)
+	time_label.text = str(time)
 
 
 func _on_rails_end() -> void:
@@ -98,7 +101,7 @@ func _on_rails_end() -> void:
 	%TimeLabel/Timer.stop()
 	%ErrorsLabel/AnimationPlayer.stop()
 	%GameOverDisplay.visible = true
-	%FinalScoreLabel.text = "Punkte: " + str(roundi(score))
+	%FinalScoreLabel.text = tr(&"SCORE") + str(roundi(score))
 	%FinalScoreLabel/AnimationPlayer.play("rainbow")
 	%FinalScoreLabel/AnimationPlayer.speed_scale = 2.0
 	
@@ -112,8 +115,8 @@ func _on_rails_end() -> void:
 
 
 func _on_rails_train_started(sum_trains_started: int) -> void:
-	%TrainCountLabel.text = str(sum_trains_started)
-	%TrainCountLabel/AnimationPlayer.play("changed")
+	train_count_label.update(sum_trains_started)
+	
 
 
 func _on_restart_button_pressed() -> void:
