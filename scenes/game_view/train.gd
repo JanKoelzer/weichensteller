@@ -33,7 +33,7 @@ func init(new_tile_size: int,
 		new_position: Vector2i,
 		new_speed: float,
 		wind_speed: float,
-		wind_direction: Vector2) -> void:
+		wind_angle: float) -> void:
 	position = new_position
 	color = new_color
 	speed = new_speed
@@ -53,13 +53,13 @@ func init(new_tile_size: int,
 		
 	# diesel engine?
 	if v == 4 or v == 5:
-		$ExhaustParticles.set_up(wind_speed, wind_direction)
+		$ExhaustParticles.set_up(wind_speed, wind_angle)
 	else:
 		remove_child($ExhaustParticles)
 	
 	# steam engine?
 	if v == 6:
-		$SteamParticles.set_up(wind_speed, wind_direction)
+		$SteamParticles.set_up(wind_speed, wind_angle)
 		self.rotation_started.connect($SteamParticles._on_train_rotation_started)
 	else:
 		remove_child($SteamParticles)
@@ -72,7 +72,7 @@ func move() -> void:
 	var delta := Vector2(tile_size * 1.0, tile_size * direction)
 	
 	# move forward	
-	tween.tween_property(self, "position", position + delta, duration)
+	tween.tween_property(self, ":position", position + delta, duration)
 	tween.set_trans(Tween.TRANS_LINEAR)
 	tween.tween_callback(func() -> void: moved.emit(self))
 	
@@ -80,7 +80,7 @@ func move() -> void:
 	var anim_duration := 0.2/speed
 	create_tween().tween_property(
 			self,
-			"rotation",
+			":rotation",
 			TAU*direction/8.0,
 			anim_duration
 		).set_trans(Tween.TRANS_LINEAR)
@@ -88,7 +88,7 @@ func move() -> void:
 	rotation_started.emit(direction, anim_duration) 
 
 func fade_in() -> void:
-	$FadePlayer.play("fade_in")
+	$FadePlayer.play(&"fade_in")
 
 
 func fade_out(was_success: bool) -> void:
@@ -97,11 +97,12 @@ func fade_out(was_success: bool) -> void:
 		var shader := preload("res://shader/grayscale.gdshader")
 		var shader_material := ShaderMaterial.new()
 		shader_material.shader = shader
-		shader_material.set_shader_parameter("engine_time_sec", Time.get_ticks_msec() / 1000.0)
-		shader_material.set_shader_parameter("duration", 0.5)
+		shader_material.set_shader_parameter(&"engine_time_sec", Time.get_ticks_msec() / 1000.0)
+		shader_material.set_shader_parameter(&"duration", 0.5)
 		$Sprite.material = shader_material
-	$FadePlayer.play("fade_out")
+	$FadePlayer.play(&"fade_out")
+
 
 func _on_animation_player_animation_finished(anim_name: String) -> void:
-	if anim_name == "fade_out":
+	if anim_name == &"fade_out":
 		queue_free()

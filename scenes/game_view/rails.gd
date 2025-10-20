@@ -42,7 +42,7 @@ var sum_trains_started := 0:
 		train_started.emit(v)
 
 # wind changes for each game. it is forwarded to trains and their exhaust
-var wind_direction: Vector2
+var wind_angle: float
 var wind_speed: float
 
 func init(num_cols: int, settings: GameSettings) -> void:
@@ -51,8 +51,8 @@ func init(num_cols: int, settings: GameSettings) -> void:
 	
 	self.game_settings = settings
 	self.col_count = num_cols
-	self.wind_direction = Vector2.from_angle(PI - randf_range(-PI/8, PI/8))
-	self.wind_speed = randf()*50
+	self.wind_angle = randf_range(-PI/8, PI/8) + TAU/4.0 # Note: 0° is upwards
+	self.wind_speed = 25 + randf()*25
 	
 	# create an array that maps each row to a (selected) color
 	row_count = game_settings.selected_stations.size()
@@ -200,7 +200,7 @@ func set_train_on_tracks() -> void:
 	var track := randi_range(0, game_settings.num_stations - 1)
 	var new_position := Vector2(0, tile_set.tile_size.y * track  + tile_set.tile_size.y / 2.0)
 	var new_speed := game_settings.speed + sum_trains_started / 50.0 # slowly increase speed over time	
-	t.init(tile_set.tile_size.x, new_color, new_position, new_speed, wind_speed, wind_direction )
+	t.init(tile_set.tile_size.x, new_color, new_position, new_speed, wind_speed, wind_angle )
 	
 	t.fade_in()
 	trains_on_track += 1
