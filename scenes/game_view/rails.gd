@@ -51,7 +51,7 @@ func init(num_cols: int, settings: GameSettings) -> void:
 	
 	self.game_settings = settings
 	self.col_count = num_cols
-	self.wind_direction = Vector2.from_angle(randf_range(-PI/8, PI/8))
+	self.wind_direction = Vector2.from_angle(PI - randf_range(-PI/8, PI/8))
 	self.wind_speed = randf()*50
 	
 	# create an array that maps each row to a (selected) color

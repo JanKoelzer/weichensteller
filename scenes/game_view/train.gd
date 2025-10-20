@@ -53,9 +53,7 @@ func init(new_tile_size: int,
 		
 	# diesel engine?
 	if v == 4 or v == 5:
-		$ExhaustParticles.set_up(
-				Vector2i(-24, 2) if v == 5 else Vector2i(-25, -10),
-				wind_speed,	wind_direction)
+		$ExhaustParticles.set_up(wind_speed, wind_direction)
 	else:
 		remove_child($ExhaustParticles)
 	
@@ -77,15 +75,17 @@ func move() -> void:
 	tween.tween_property(self, "position", position + delta, duration)
 	tween.set_trans(Tween.TRANS_LINEAR)
 	tween.tween_callback(func() -> void: moved.emit(self))
-	# rotation
+	
+	# rotate train
+	var anim_duration := 0.2/speed
 	create_tween().tween_property(
 			self,
-			"rotation_degrees",
-			45*direction,
-			0.2/speed
+			"rotation",
+			TAU*direction/8.0,
+			anim_duration
 		).set_trans(Tween.TRANS_LINEAR)
 	# emit signal, so SteamParticles can adapt
-	rotation_started.emit(direction, 0.2/speed) 
+	rotation_started.emit(direction, anim_duration) 
 
 func fade_in() -> void:
 	$FadePlayer.play("fade_in")
