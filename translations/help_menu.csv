@@ -3,7 +3,7 @@ HELP_MENU,Anleitung,Manual
 BACK,zurück,back
 HELP_TEXT,"Stelle die Weichen durch Klicken/Tippen so ein, dass die Loks zu den Bahnhöfen der gleichen Farbe gelangen. Für jede Lok, die ihr Ziel erreicht, erhältst du Punkte – und zwar je mehr, desto schwerer du das Spiel eingestellt hast.
 Wenn mehrere Züge hintereinander falsch ankommen, wird automatisch eine [i]Notbremse[/i] gezogen, damit du Zeit hast, die Weichen neu zu stellen.","Click/tap the switches to set their direction in order to guide the trains to the destination of the same color. You gain points for every train that reaches the correct station. The harder your settings, the more points you get!
-If several trains have reached the wrong destination, an [i]emergency brake[/i] is activeted, so that you can reset the switches."
+If several trains have reached the wrong destination, an [i]emergency brake[/i] is activated, so that you can reset the switches."
 HELP_TEXT_SHOW_DETAILS,Details/Einstellungen,Details/Settings:
 HELP_TEXT_DETAILS,"[ul]
 [u]Geschwindigkeit:[/u] Stelle ein, wie schnell die Züge fahren. Sie werden im Laufe des Spiels stetig schneller.
