@@ -27,7 +27,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_ybkoo"]
-resource_name = "fade_out"
+resource_name = "fade_in_out"
 length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -45,7 +45,7 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xll60"]
 _data = {
 &"RESET": SubResource("Animation_r1erm"),
-&"fade_out": SubResource("Animation_ybkoo")
+&"fade_in_out": SubResource("Animation_ybkoo")
 }
 
 [sub_resource type="Animation" id="Animation_215vd"]
@@ -511,15 +511,15 @@ layout_mode = 2
 placeholder_text = "NAME_PLACEHOLDER"
 max_length = 30
 
-[node name="ChildSubmitButton" type="Button" parent="CenterContainer/VBoxContainer/MenuContainer/HighscoreControls"]
+[node name="ChildSubmitButton" type="Button" parent="CenterContainer/VBoxContainer/MenuContainer/HighscoreControls" groups=["SubmitButton"]]
 layout_mode = 2
 text = "AGE_0"
 
-[node name="PupilSubmitButton" type="Button" parent="CenterContainer/VBoxContainer/MenuContainer/HighscoreControls"]
+[node name="PupilSubmitButton" type="Button" parent="CenterContainer/VBoxContainer/MenuContainer/HighscoreControls" groups=["SubmitButton"]]
 layout_mode = 2
 text = "AGE_1"
 
-[node name="AdultSubmitButton" type="Button" parent="CenterContainer/VBoxContainer/MenuContainer/HighscoreControls"]
+[node name="AdultSubmitButton" type="Button" parent="CenterContainer/VBoxContainer/MenuContainer/HighscoreControls" groups=["SubmitButton"]]
 layout_mode = 2
 text = "AGE_2"
 
@@ -537,6 +537,7 @@ text = "…"
 [connection signal="pressed" from="CenterContainer/VBoxContainer/MenuContainer/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/MenuContainer/DifficultySettingsButton" to="." method="_on_difficulty_settings_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/MenuContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="focus_entered" from="CenterContainer/VBoxContainer/MenuContainer/HighscoreControls/PlayerNameEdit" to="." method="_on_player_name_edit_focus_entered"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/MenuContainer/HighscoreControls/ChildSubmitButton" to="." method="_on_highscore_submit_button_pressed" binds= ["0-5"]]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/MenuContainer/HighscoreControls/PupilSubmitButton" to="." method="_on_highscore_submit_button_pressed" binds= ["6-12"]]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/MenuContainer/HighscoreControls/AdultSubmitButton" to="." method="_on_highscore_submit_button_pressed" binds= ["13+"]]

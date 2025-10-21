@@ -7,6 +7,7 @@ const COL_COUNT := 16
 @onready var score_label: Label = %ScoreLabel
 @onready var errors_label: Label = %ErrorsLabel
 @onready var time_label: Label = %TimeLabel
+@onready var submit_status_label: Label = $CenterContainer/VBoxContainer/MenuContainer/HighscoreControls/SubmitStatusLabel
 
 var time: int = 0
 var error_count: int = 0
@@ -54,7 +55,7 @@ func start_after_countdown() -> void:
 	var label: Array[Label] = [%CountdownLabel0, %CountdownLabel1, %CountdownLabel2, %CountdownLabel3]
 	for i in range(4):
 		get_tree().create_timer(3-i).timeout.connect(func() -> void:
-			label[i].find_child("AnimationPlayer").queue("fade_out")
+			label[i].find_child("AnimationPlayer").queue(&"fade_in_out")
 			if i == 0:
 				%Rails.start()
 				$%CountdownEndAudioStreamPlayer.play()
@@ -106,12 +107,6 @@ func _on_rails_end() -> void:
 	%FinalScoreLabel/AnimationPlayer.speed_scale = 2.0
 	
 	%HighscoreControls.visible = true
-	if OS.get_name() == "Web":
-		# LineEdit/TextEdit do not work well in browsers.
-		# Show a simple prompt as workauround
-		var js: String = "prompt('%s')" % [tr("PROMPT_TEXT_JS")]
-		var js_name := JavaScriptBridge.eval(js) as String
-		%HighscoreControls.find_child("PlayerNameEdit").text = js_name
 
 
 func _on_rails_train_started(sum_trains_started: int) -> void:
@@ -137,18 +132,21 @@ func _on_highscore_submit_button_pressed(age: String) -> void:
 		if not Highscore.highscore_put.is_connected(_on_highscore_put):
 			Highscore.highscore_put.connect(_on_highscore_put)
 		Highscore.put_highscore(player_name, roundi(score), age)
-		for button: Control in [%HighscoreControls/ChildSubmitButton, %HighscoreControls/PupilSubmitButton, %HighscoreControls/AdultSubmitButton]:
+		
+		for button: Control in get_tree().get_nodes_in_group("SubmitButton"):
 			button.disabled = true
-		%HighscoreControls/SubmitStatusLabel.text = "…"
-		%HighscoreControls/SubmitStatusLabel.visible = true
+		submit_status_label.text = "…"
+		submit_status_label.visible = true
 
 func _on_highscore_put(success: bool) -> void:
 	if success:
-		%HighscoreControls/SubmitStatusLabel.text = tr("OK")
+		submit_status_label.text = tr("OK")
+		for button: Button in get_tree().get_nodes_in_group("SubmitButton"):
+			button.visible = false
 	else:
-		for button: Button in [%HighscoreControls/ChildSubmitButton, %HighscoreControls/PupilSubmitButton, %HighscoreControls/AdultSubmitButton]:
+		for button: Button in get_tree().get_nodes_in_group("SubmitButton"):
 			button.disabled = false
-		%HighscoreControls/SubmitStatusLabel.text = tr("PLEASE_RETRY")
+		submit_status_label.text = tr("PLEASE_RETRY")
 	
 
 func _on_auto_brake_check_box_toggled(toggled_on: bool) -> void:
@@ -166,3 +164,12 @@ func auto_brake() -> void:
 			)
 			activate_brakes(b as Button)
 			break # activate only one brake
+
+
+func _on_player_name_edit_focus_entered() -> void:
+	if OS.get_name() == "Web":
+		# LineEdit/TextEdit do not work well in browsers.
+		# Show a simple prompt as workauround
+		var js: String = "prompt('%s')" % [tr("PROMPT_TEXT_JS")]
+		var js_name := JavaScriptBridge.eval(js) as String
+		%HighscoreControls.find_child("PlayerNameEdit").text = js_name
