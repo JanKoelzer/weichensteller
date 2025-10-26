@@ -65,6 +65,10 @@ func init(num_cols: int, settings: GameSettings) -> void:
 # called by "the world"
 func start() -> void:
 	set_train_on_tracks()
+	
+
+func stop() -> void:
+	generate_trains = false
 
 
 func create_railways() -> void:

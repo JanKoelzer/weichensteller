@@ -182,7 +182,6 @@ region_enabled = false
 
 [node name="SteamParticles" parent="CenterContainer/VBoxContainer/Title/Control/LogoSprite" index="2"]
 emitting = false
-direction = Vector2(-1, 0)
 initial_velocity_min = 80.0
 initial_velocity_max = 100.0
 

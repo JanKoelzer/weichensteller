@@ -3,11 +3,19 @@ extends VBoxContainer
 
 const COL_COUNT := 16
 
+@onready var timer: Timer = $Timer
+@onready var rails: TileMapLayer = %Rails
 @onready var train_count_label: Label = %TrainCountLabel
 @onready var score_label: Label = %ScoreLabel
 @onready var errors_label: Label = %ErrorsLabel
 @onready var time_label: Label = %TimeLabel
 @onready var submit_status_label: Label = $CenterContainer/VBoxContainer/MenuContainer/HighscoreControls/SubmitStatusLabel
+@onready var countdown_labels: Array[Label] = [
+		%CountdownLabel0,
+		%CountdownLabel1,
+		%CountdownLabel2,
+		%CountdownLabel3,
+	]
 
 var time: int = 0
 var error_count: int = 0
@@ -42,8 +50,8 @@ func _ready() -> void:
 	%PauseButtons/AutoBrakeCheckBox.button_pressed = GameSettings.auto_brake_enabled
 	
 	# start the game
-	%Rails.init(COL_COUNT, GameSettings)
-	start_after_countdown()
+	rails.init(COL_COUNT, GameSettings)
+	count_down_and_start()
 
 
 func _notification(what: int) -> void:
@@ -51,13 +59,13 @@ func _notification(what: int) -> void:
 		get_tree().change_scene_to_file("res://scenes/difficulty_settings/difficulty_settings.tscn")
 
 	
-func start_after_countdown() -> void:
-	var label: Array[Label] = [%CountdownLabel0, %CountdownLabel1, %CountdownLabel2, %CountdownLabel3]
-	for i in range(4):
-		get_tree().create_timer(3-i).timeout.connect(func() -> void:
-			label[i].find_child("AnimationPlayer").queue(&"fade_in_out")
+func count_down_and_start() -> void:
+	for i in countdown_labels.size():
+		get_tree().create_timer(countdown_labels.size()-1-i).timeout.connect(func() -> void:
+			countdown_labels[i].find_child("AnimationPlayer").queue(&"fade_in_out")
 			if i == 0:
-				%Rails.start()
+				rails.start()
+				timer.start()
 				$%CountdownEndAudioStreamPlayer.play()
 			else:
 				%CountdownAudioStreamPlayer.play()
@@ -67,8 +75,8 @@ func start_after_countdown() -> void:
 
 func activate_brakes(b: Button) -> void:
 	b.disabled = true
-	%Rails.pause_trains()	
-	get_tree().create_timer(pause_time).timeout.connect(%Rails.resume_trains)
+	rails.pause_trains()	
+	get_tree().create_timer(pause_time).timeout.connect(rails.resume_trains)
 	
 
 func _on_rails_scored() -> void:
@@ -89,7 +97,7 @@ func _on_rails_errored() -> void:
 
 
 func sunset_game() -> void:
-	%Rails.generate_trains = false
+	rails.generate_trains = false
 
 
 func _on_timer_timeout() -> void:
@@ -98,12 +106,12 @@ func _on_timer_timeout() -> void:
 
 
 func _on_rails_end() -> void:
-	%Rails.generate_trains = false
-	%TimeLabel/Timer.stop()
+	rails.stop()
+	timer.stop()
 	%ErrorsLabel/AnimationPlayer.stop()
 	%GameOverDisplay.visible = true
-	%FinalScoreLabel.text = tr(&"SCORE") + str(roundi(score))
-	%FinalScoreLabel/AnimationPlayer.play("rainbow")
+	%FinalScoreLabel.text = tr(&"SCORE") + " " + str(roundi(score))
+	%FinalScoreLabel/AnimationPlayer.play(&"rainbow")
 	%FinalScoreLabel/AnimationPlayer.speed_scale = 2.0
 	
 	%HighscoreControls.visible = true

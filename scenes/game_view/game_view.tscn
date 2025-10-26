@@ -226,6 +226,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6hfh6")
 
+[node name="Timer" type="Timer" parent="."]
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_g1875")
 centered = false
@@ -372,7 +374,7 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.67451, 0.196078, 0.196078, 1)
 theme_override_font_sizes/font_size = 100
-text = "200 Punkte"
+text = "SCORE"
 horizontal_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Container/GameOverDisplay/VBoxContainer/FinalScoreLabel"]
@@ -460,9 +462,6 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "0"
 
-[node name="Timer" type="Timer" parent="CenterContainer/VBoxContainer/HBoxContainer/TimeLabel"]
-autostart = true
-
 [node name="VSeparator4" type="VSeparator" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
@@ -528,11 +527,11 @@ visible = false
 layout_mode = 2
 text = "…"
 
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="end" from="Container/Rails" to="." method="_on_rails_end"]
 [connection signal="errored" from="Container/Rails" to="." method="_on_rails_errored"]
 [connection signal="scored" from="Container/Rails" to="." method="_on_rails_scored"]
 [connection signal="train_started" from="Container/Rails" to="." method="_on_rails_train_started"]
-[connection signal="timeout" from="CenterContainer/VBoxContainer/HBoxContainer/TimeLabel/Timer" to="." method="_on_timer_timeout"]
 [connection signal="toggled" from="CenterContainer/VBoxContainer/PauseButtons/AutoBrakeCheckBox" to="." method="_on_auto_brake_check_box_toggled"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/MenuContainer/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/MenuContainer/DifficultySettingsButton" to="." method="_on_difficulty_settings_button_pressed"]
