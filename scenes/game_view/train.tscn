@@ -162,7 +162,7 @@ script = ExtResource("2_wgsvc")
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_lo3q4")
 region_enabled = true
-region_rect = Rect2(0, 320, 64, 64)
+region_rect = Rect2(0, 480, 120, 120)
 
 [node name="FadePlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -172,15 +172,15 @@ libraries = {
 [node name="SteamParticles" type="CPUParticles2D" parent="."]
 z_index = 1
 z_as_relative = false
-position = Vector2(11, -1)
-amount = 400
+position = Vector2(16.5, 0)
+amount = 800
 texture = ExtResource("3_ogqkn")
 lifetime = 2.0
 explosiveness = 0.1
 randomness = 0.4
 lifetime_randomness = 1.0
 emission_shape = 1
-emission_sphere_radius = 8.0
+emission_sphere_radius = 15.0
 direction = Vector2(-1, 0)
 spread = 15.0
 gravity = Vector2(0, 0)
@@ -194,7 +194,7 @@ script = ExtResource("4_gfec6")
 
 [node name="SparkParticles" type="CPUParticles2D" parent="."]
 texture_filter = 6
-position = Vector2(7, 0)
+position = Vector2(16, 0)
 emitting = false
 lifetime = 0.1
 one_shot = true
@@ -215,7 +215,7 @@ script = ExtResource("4_7o0ee")
 autostart = true
 
 [node name="ExhaustParticles" type="CPUParticles2D" parent="."]
-position = Vector2(-31, 2)
+position = Vector2(-58, 0)
 amount = 50
 texture = ExtResource("3_ogqkn")
 lifetime = 0.3

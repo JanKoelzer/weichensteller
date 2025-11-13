@@ -6,7 +6,7 @@
 [ext_resource type="Theme" uid="uid://drkpbmmwnukl" path="res://themes/train_one.tres" id="3_16lph"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yhltf"]
-font_size = 64
+font_size = 128
 
 [node name="CreditsMenu" type="VBoxContainer"]
 anchors_preset = 15
@@ -38,8 +38,8 @@ vertical_alignment = 1
 layout_mode = 2
 
 [node name="LogoSprite" type="Sprite2D" parent="Title/Control"]
-position = Vector2(25, 10)
-scale = Vector2(0.25, 0.25)
+position = Vector2(25, 25)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_5ww45")
 centered = false
 
@@ -51,6 +51,7 @@ layout_mode = 2
 text = "BACK"
 
 [node name="TabContainer" type="TabContainer" parent="."]
+custom_minimum_size = Vector2(0, 800)
 layout_mode = 2
 current_tab = 0
 
@@ -62,7 +63,7 @@ metadata/_tab_index = 0
 [node name="CopyrightLabel" type="Label" parent="TabContainer/CREDITS"]
 unique_name_in_owner = true
 clip_contents = true
-custom_minimum_size = Vector2(1024, 64)
+custom_minimum_size = Vector2(1920, 64)
 layout_mode = 2
 autowrap_mode = 3
 
@@ -75,20 +76,7 @@ metadata/_tab_index = 1
 [node name="ThirdPartyLabel" type="Label" parent="TabContainer/THIRD_PARTY"]
 unique_name_in_owner = true
 clip_contents = true
-custom_minimum_size = Vector2(1024, 64)
-layout_mode = 2
-autowrap_mode = 3
-
-[node name="DISCLAIMER" type="ScrollContainer" parent="TabContainer"]
-visible = false
-custom_minimum_size = Vector2(0, 350)
-layout_mode = 2
-metadata/_tab_index = 2
-
-[node name="DisclaimerLabel" type="Label" parent="TabContainer/DISCLAIMER"]
-unique_name_in_owner = true
-clip_contents = true
-custom_minimum_size = Vector2(1024, 64)
+custom_minimum_size = Vector2(1920, 64)
 layout_mode = 2
 autowrap_mode = 3
 
@@ -96,11 +84,11 @@ autowrap_mode = 3
 visible = false
 custom_minimum_size = Vector2(0, 350)
 layout_mode = 2
-metadata/_tab_index = 3
+metadata/_tab_index = 2
 
 [node name="PrivacyInfoLabel" type="RichTextLabel" parent="TabContainer/PRIVACY_TITLE"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(1024, 320)
+custom_minimum_size = Vector2(1920, 640)
 layout_mode = 2
 bbcode_enabled = true
 text = "[url]https://buymeacoffee.com/jankoelzer[/url].
@@ -110,15 +98,16 @@ text = "[url]https://buymeacoffee.com/jankoelzer[/url].
 visible = false
 custom_minimum_size = Vector2(0, 350)
 layout_mode = 2
-metadata/_tab_index = 4
+metadata/_tab_index = 3
 
 [node name="CoffeeLabel" type="RichTextLabel" parent="TabContainer/SUPPORT"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(1024, 320)
+custom_minimum_size = Vector2(1920, 640)
 layout_mode = 2
 bbcode_enabled = true
 text = "[url]https://buymeacoffee.com/jankoelzer[/url].
-[center][img=200]res://publicity/buy-me-a-coffee-qr-code.png[/img][/center]"
+[center][url=https://buymeacoffee.com/jankoelzer][img=200]res://publicity/buy-me-a-coffee-qr-code.png[/img][/url][/center]"
 
 [connection signal="pressed" from="CenterContainer/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="meta_clicked" from="TabContainer/PRIVACY_TITLE/PrivacyInfoLabel" to="." method="_on_coffee_label_meta_clicked"]
 [connection signal="meta_clicked" from="TabContainer/SUPPORT/CoffeeLabel" to="." method="_on_coffee_label_meta_clicked"]

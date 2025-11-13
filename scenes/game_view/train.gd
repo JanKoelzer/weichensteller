@@ -13,7 +13,7 @@ enum TrainColor {
 		PURPLE = 5,
 }
 
-var tile_size := 64
+var tile_size := 120
 
 var speed: float
 

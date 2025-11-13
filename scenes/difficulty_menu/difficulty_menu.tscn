@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://ck35v7b2xepu3" path="res://images/stations/station_5.png" id="9_sedln"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_t7ix4"]
-font_size = 64
+font_size = 128
 
 [sub_resource type="Animation" id="Animation_ty162"]
 resource_name = "changed"
@@ -78,71 +78,71 @@ vertical_alignment = 1
 layout_mode = 2
 
 [node name="LogoSprite" type="Sprite2D" parent="Title/Control"]
-position = Vector2(25, 10)
-scale = Vector2(0.25, 0.25)
+position = Vector2(25, 25)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_2ybyc")
 centered = false
 
-[node name="GridContainer" type="GridContainer" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer"]
 layout_mode = 2
 columns = 4
 
-[node name="Label2" type="Label" parent="GridContainer"]
+[node name="Label2" type="Label" parent="CenterContainer/GridContainer"]
 layout_mode = 2
 tooltip_text = "SPEED_HINT"
 mouse_filter = 1
-theme_override_font_sizes/font_size = 36
 text = "SPEED"
 
-[node name="SpeedMinusButton" type="Button" parent="GridContainer"]
-custom_minimum_size = Vector2(50, 0)
+[node name="SpeedMinusButton" type="Button" parent="CenterContainer/GridContainer"]
+custom_minimum_size = Vector2(50, 120)
 layout_mode = 2
 text = "-"
 
-[node name="SpeedPlusButton" type="Button" parent="GridContainer"]
-custom_minimum_size = Vector2(50, 0)
+[node name="SpeedPlusButton" type="Button" parent="CenterContainer/GridContainer"]
+custom_minimum_size = Vector2(50, 120)
 layout_mode = 2
 text = "+"
 
-[node name="SpeedLabel" type="Label" parent="GridContainer"]
+[node name="SpeedLabel" type="Label" parent="CenterContainer/GridContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 36
 text = "100"
 
-[node name="Label3" type="Label" parent="GridContainer"]
+[node name="Label3" type="Label" parent="CenterContainer/GridContainer"]
 layout_mode = 2
 tooltip_text = "TRAFFIC_DENSITY_HINT"
 mouse_filter = 1
-theme_override_font_sizes/font_size = 36
 text = "TRAFFIC_DENSITY"
 
-[node name="ConcurrentMinusButton" type="Button" parent="GridContainer"]
+[node name="ConcurrentMinusButton" type="Button" parent="CenterContainer/GridContainer"]
+custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
 text = "-"
 
-[node name="ConcurrentPlusButton" type="Button" parent="GridContainer"]
+[node name="ConcurrentPlusButton" type="Button" parent="CenterContainer/GridContainer"]
+custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
 text = "+"
 
-[node name="NumConcurrentTrainsLabel" type="Label" parent="GridContainer"]
+[node name="NumConcurrentTrainsLabel" type="Label" parent="CenterContainer/GridContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 36
 text = "100"
 
-[node name="NumStationsLabel" type="Label" parent="GridContainer"]
+[node name="NumStationsLabel" type="Label" parent="CenterContainer/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 tooltip_text = "NUMBER_STATIONS_HINT"
 mouse_filter = 1
-theme_override_font_sizes/font_size = 36
 text = "SELECTED_STATIONS"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="GridContainer/NumStationsLabel"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer/GridContainer/NumStationsLabel"]
 libraries = {
 &"": SubResource("AnimationLibrary_ud552")
 }
 
-[node name="StationButton0" type="Button" parent="GridContainer"]
+[node name="StationButton0" type="Button" parent="CenterContainer/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ty162")
@@ -152,7 +152,7 @@ button_pressed = true
 icon = ExtResource("4_h6mec")
 icon_alignment = 1
 
-[node name="StationButton1" type="Button" parent="GridContainer"]
+[node name="StationButton1" type="Button" parent="CenterContainer/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ty162")
@@ -162,10 +162,10 @@ button_pressed = true
 icon = ExtResource("5_db5gl")
 icon_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="GridContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/GridContainer"]
 layout_mode = 2
 
-[node name="StationButton2" type="Button" parent="GridContainer/HBoxContainer"]
+[node name="StationButton2" type="Button" parent="CenterContainer/GridContainer/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
@@ -176,7 +176,7 @@ button_pressed = true
 icon = ExtResource("6_6q7bh")
 icon_alignment = 1
 
-[node name="StationButton3" type="Button" parent="GridContainer/HBoxContainer"]
+[node name="StationButton3" type="Button" parent="CenterContainer/GridContainer/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
@@ -187,7 +187,7 @@ button_pressed = true
 icon = ExtResource("7_2635y")
 icon_alignment = 1
 
-[node name="StationButton4" type="Button" parent="GridContainer/HBoxContainer"]
+[node name="StationButton4" type="Button" parent="CenterContainer/GridContainer/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
@@ -198,7 +198,7 @@ button_pressed = true
 icon = ExtResource("8_0v7ag")
 icon_alignment = 1
 
-[node name="StationButton5" type="Button" parent="GridContainer/HBoxContainer"]
+[node name="StationButton5" type="Button" parent="CenterContainer/GridContainer/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
@@ -208,108 +208,106 @@ toggle_mode = true
 icon = ExtResource("9_sedln")
 icon_alignment = 1
 
-[node name="Label8" type="Label" parent="GridContainer"]
+[node name="Label8" type="Label" parent="CenterContainer/GridContainer"]
 layout_mode = 2
 tooltip_text = "NUMBER_SWITCHES_HINT"
 mouse_filter = 1
-theme_override_font_sizes/font_size = 36
 text = "NUMBER_SWITCHES"
 
-[node name="SwitchesMinusButton" type="Button" parent="GridContainer"]
+[node name="SwitchesMinusButton" type="Button" parent="CenterContainer/GridContainer"]
+custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
 text = "-"
 
-[node name="SwitchesPlusButton" type="Button" parent="GridContainer"]
+[node name="SwitchesPlusButton" type="Button" parent="CenterContainer/GridContainer"]
+custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
 text = "+"
 
-[node name="NumSwitchesLabel" type="Label" parent="GridContainer"]
+[node name="NumSwitchesLabel" type="Label" parent="CenterContainer/GridContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 36
 text = "5"
 
-[node name="Label9" type="Label" parent="GridContainer"]
+[node name="Label9" type="Label" parent="CenterContainer/GridContainer"]
 layout_mode = 2
 tooltip_text = "NUMBER_BRAKES_HINT"
 mouse_filter = 1
-theme_override_font_sizes/font_size = 36
 text = "NUMBER_BRAKES"
 
-[node name="BrakesMinusButton" type="Button" parent="GridContainer"]
+[node name="BrakesMinusButton" type="Button" parent="CenterContainer/GridContainer"]
+custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
 text = "-"
 
-[node name="BrakesPlusButton" type="Button" parent="GridContainer"]
+[node name="BrakesPlusButton" type="Button" parent="CenterContainer/GridContainer"]
+custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
 text = "+"
 
-[node name="NumBrakesLabel" type="Label" parent="GridContainer"]
+[node name="NumBrakesLabel" type="Label" parent="CenterContainer/GridContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 36
 text = "3	"
 
-[node name="Label10" type="Label" parent="GridContainer"]
+[node name="Label10" type="Label" parent="CenterContainer/GridContainer"]
 layout_mode = 2
 tooltip_text = "NUMBER_ERRORS_HINT"
 mouse_filter = 1
-theme_override_font_sizes/font_size = 36
 text = "NUMBER_ERRORS"
 
-[node name="ErrorsMinusButton" type="Button" parent="GridContainer"]
+[node name="ErrorsMinusButton" type="Button" parent="CenterContainer/GridContainer"]
+custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
 text = "-"
 
-[node name="ErrorsPlusButton" type="Button" parent="GridContainer"]
+[node name="ErrorsPlusButton" type="Button" parent="CenterContainer/GridContainer"]
+custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
 text = "+"
 
-[node name="MaxErrorsLabel" type="Label" parent="GridContainer"]
+[node name="MaxErrorsLabel" type="Label" parent="CenterContainer/GridContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 36
 text = "5"
 
-[node name="VBoxContainer" type="HBoxContainer" parent="GridContainer"]
+[node name="VBoxContainer" type="HBoxContainer" parent="CenterContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 
-[node name="Label" type="Label" parent="GridContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="CenterContainer/GridContainer/VBoxContainer"]
 layout_mode = 2
 tooltip_text = "DIFFICULTY_HINT"
 mouse_filter = 1
-theme_override_font_sizes/font_size = 36
 text = "DIFFICULTY"
 
-[node name="FactorLabel" type="Label" parent="GridContainer/VBoxContainer"]
+[node name="FactorLabel" type="Label" parent="CenterContainer/GridContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 36
 text = "100 %"
 
-[node name="Control" type="Control" parent="GridContainer"]
+[node name="Control" type="Control" parent="CenterContainer/GridContainer"]
 layout_mode = 2
 
-[node name="Control2" type="Control" parent="GridContainer"]
+[node name="Control2" type="Control" parent="CenterContainer/GridContainer"]
 layout_mode = 2
 
-[node name="StartButton" type="Button" parent="GridContainer"]
+[node name="StartButton" type="Button" parent="CenterContainer/GridContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
-theme_override_font_sizes/font_size = 36
 text = "START"
 
-[connection signal="pressed" from="GridContainer/SpeedMinusButton" to="." method="_on_speed_minus_button_pressed"]
-[connection signal="pressed" from="GridContainer/SpeedPlusButton" to="." method="_on_speed_plus_button_pressed"]
-[connection signal="pressed" from="GridContainer/ConcurrentMinusButton" to="." method="_on_concurrent_minus_button_pressed"]
-[connection signal="pressed" from="GridContainer/ConcurrentPlusButton" to="." method="_on_concurrent_plus_button_pressed"]
-[connection signal="pressed" from="GridContainer/StationButton0" to="." method="_on_station_button_pressed"]
-[connection signal="pressed" from="GridContainer/StationButton1" to="." method="_on_station_button_pressed"]
-[connection signal="pressed" from="GridContainer/HBoxContainer/StationButton2" to="." method="_on_station_button_pressed"]
-[connection signal="pressed" from="GridContainer/HBoxContainer/StationButton3" to="." method="_on_station_button_pressed"]
-[connection signal="pressed" from="GridContainer/HBoxContainer/StationButton4" to="." method="_on_station_button_pressed"]
-[connection signal="pressed" from="GridContainer/HBoxContainer/StationButton5" to="." method="_on_station_button_pressed"]
-[connection signal="pressed" from="GridContainer/SwitchesMinusButton" to="." method="_on_switches_minus_button_pressed"]
-[connection signal="pressed" from="GridContainer/SwitchesPlusButton" to="." method="_on_switches_plus_button_pressed"]
-[connection signal="pressed" from="GridContainer/BrakesMinusButton" to="." method="_on_brakes_minus_button_pressed"]
-[connection signal="pressed" from="GridContainer/BrakesPlusButton" to="." method="_on_brakes_plus_button_pressed"]
-[connection signal="pressed" from="GridContainer/ErrorsMinusButton" to="." method="_on_errors_minus_button_pressed"]
-[connection signal="pressed" from="GridContainer/ErrorsPlusButton" to="." method="_on_errors_plus_button_pressed"]
-[connection signal="pressed" from="GridContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/SpeedMinusButton" to="." method="_on_speed_minus_button_pressed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/SpeedPlusButton" to="." method="_on_speed_plus_button_pressed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/ConcurrentMinusButton" to="." method="_on_concurrent_minus_button_pressed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/ConcurrentPlusButton" to="." method="_on_concurrent_plus_button_pressed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/StationButton0" to="." method="_on_station_button_pressed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/StationButton1" to="." method="_on_station_button_pressed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/HBoxContainer/StationButton2" to="." method="_on_station_button_pressed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/HBoxContainer/StationButton3" to="." method="_on_station_button_pressed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/HBoxContainer/StationButton4" to="." method="_on_station_button_pressed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/HBoxContainer/StationButton5" to="." method="_on_station_button_pressed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/SwitchesMinusButton" to="." method="_on_switches_minus_button_pressed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/SwitchesPlusButton" to="." method="_on_switches_plus_button_pressed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/BrakesMinusButton" to="." method="_on_brakes_minus_button_pressed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/BrakesPlusButton" to="." method="_on_brakes_plus_button_pressed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/ErrorsMinusButton" to="." method="_on_errors_minus_button_pressed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/ErrorsPlusButton" to="." method="_on_errors_plus_button_pressed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/StartButton" to="." method="_on_start_button_pressed"]

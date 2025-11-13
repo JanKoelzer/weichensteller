@@ -8,6 +8,6 @@ func set_up() -> void:
 	timer.wait_time = randf_range(2, 5)
 
 func _on_timer_timeout() -> void:
-	position.y = randi_range(-10, 10)
+	position.y = randi_range(-18, 18)
 	emitting = true
 	timer.start(randf_range(2, 5))

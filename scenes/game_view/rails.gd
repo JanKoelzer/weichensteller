@@ -195,12 +195,14 @@ func _on_train_moved(train: Train) -> void:
 		
 	train.move()
 
-
+var color_for_screenshots := 0
 func set_train_on_tracks() -> void:
 	var t := Train_scene.instantiate() as Train
 	trains.add_child(t)
 	trains.move_child(t, 0)
 	var new_color: Train.TrainColor = game_settings.selected_stations.keys().pick_random()
+	new_color = game_settings.selected_stations.keys()[color_for_screenshots%game_settings.selected_stations.keys().size()]
+	color_for_screenshots += 1
 	var track := randi_range(0, game_settings.num_stations - 1)
 	var new_position := Vector2(0, tile_set.tile_size.y * track  + tile_set.tile_size.y / 2.0)
 	var new_speed := game_settings.speed + sum_trains_started / 50.0 # slowly increase speed over time	

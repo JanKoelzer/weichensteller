@@ -1,5 +1,10 @@
 extends VBoxContainer
 
+@onready var speed_label: Label = $CenterContainer/GridContainer/SpeedLabel
+@onready var num_concurrent_trains_label: Label = $CenterContainer/GridContainer/NumConcurrentTrainsLabel
+@onready var num_switches_label: Label = $CenterContainer/GridContainer/NumSwitchesLabel
+@onready var num_brakes_label: Label = $CenterContainer/GridContainer/NumBrakesLabel
+@onready var max_errors_label: Label = $CenterContainer/GridContainer/MaxErrorsLabel
 @onready var station_buttons := [
 	%StationButton0,
 	%StationButton1,
@@ -8,6 +13,8 @@ extends VBoxContainer
 	%StationButton4,
 	%StationButton5,
 ]
+@onready var factor_label: Label = $CenterContainer/GridContainer/VBoxContainer/FactorLabel
+@onready var start_button: Button = %StartButton
 
 func _ready() -> void:
 	# react to future changes in settings
@@ -24,19 +31,19 @@ func _notification(what: int) -> void:
 
 
 func update_view() -> void:
-	$GridContainer/SpeedLabel.text = str(roundi(GameSettings.speed*100))
-	$GridContainer/NumConcurrentTrainsLabel.text = str(GameSettings.num_concurrent_trains)
-	$GridContainer/NumSwitchesLabel.text = str(GameSettings.num_extra_switches)
-	$GridContainer/NumBrakesLabel.text = str(GameSettings.num_brakes)
-	$GridContainer/MaxErrorsLabel.text = str(GameSettings.max_errors)
+	speed_label.text = str(roundi(GameSettings.speed*100))
+	num_concurrent_trains_label.text = str(GameSettings.num_concurrent_trains)
+	num_switches_label.text = str(GameSettings.num_extra_switches)
+	num_brakes_label.text = str(GameSettings.num_brakes)
+	max_errors_label.text = str(GameSettings.max_errors)
 	
 	for i in range(station_buttons.size()):
 		station_buttons[i].button_pressed = GameSettings.selected_stations.has(i)
 	
 	var k: float = GameSettings.score_factor()
-	$GridContainer/VBoxContainer/FactorLabel.text = str(int(k*100)) + " %"
+	factor_label.text = str(int(k*100)) + " %"
 	
-	%StartButton.disabled = !GameSettings.is_valid()
+	start_button.disabled = !GameSettings.is_valid()
 	
 
 

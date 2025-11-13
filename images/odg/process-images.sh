@@ -15,7 +15,7 @@ echo "Add transparency back and shrink…"
 SEARCH="fill-opacity=\"1\""
 REPLACE="fill-opacity=\"0\""
 
-mkdir -p "64x64"
+mkdir -p "120x120"
 mkdir -p "svg"
 for img in *.svg; do
   echo "  ${img}"
@@ -24,12 +24,12 @@ for img in *.svg; do
   sed -i -e "0,/${SEARCH}/ s/${SEARCH}/${REPLACE}/" "${img}" 
   
   # convert to png (inkscape preserve transparency)
-  inkscape "${img}" -o "64x64/${base}.png" -w 64
+  inkscape "${img}" -o "120x120/${base}.png" -w 120
   mv "${img}" "svg/"
 done
 
 
-cd "64x64"
+cd "120x120"
 echo "Montage railsXXX.png…"
 montage rails[1-6].png -tile 6x1 -background 'transparent' -geometry +0+0 stations.png
 montage rails7.png rails8.png rails9.png rails10.png -tile 1x4 -background 'transparent' -geometry +0+0 trains1.png 
@@ -59,12 +59,13 @@ echo "Montage everything…"
 montage tracks.png colored.png -tile 1x2 -background 'transparent' -geometry +0+0 rails.png
 
 cp "rails.png" "../../"
+for i in 1 2 3 4 5 6; do cp "rails$i.png" "../../stations/station_$((i-1)).png" ; done
 
 cd ".."
 cp "svg/rails10.svg" "../icons/icon.svg"
 
 echo "removing temporary png and svg files…"
-rm -r "64x64"
+rm -r "120x120"
 rm -r "svg"
 
-echo "64x64/rails.png has been created and copied to ../rails.png."
+echo "120x120/rails.png has been created and copied to ../rails.png."

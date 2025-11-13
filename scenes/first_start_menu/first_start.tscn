@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://vafvwjai7e0i" path="res://images/icons/icon.svg" id="4_4jhe2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4jct4"]
-font_size = 64
+font_size = 128
 
 [node name="FirstStartMenu" type="VBoxContainer"]
 anchors_preset = 15
@@ -38,8 +38,8 @@ vertical_alignment = 1
 layout_mode = 2
 
 [node name="LogoSprite" type="Sprite2D" parent="Title/Control"]
-position = Vector2(25, 10)
-scale = Vector2(0.25, 0.25)
+position = Vector2(25, 25)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_4jhe2")
 centered = false
 
@@ -51,11 +51,11 @@ layout_mode = 2
 text = "START_GAME"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
-custom_minimum_size = Vector2(0, 300)
+custom_minimum_size = Vector2(0, 800)
 layout_mode = 2
 
 [node name="HelpLabel" type="RichTextLabel" parent="ScrollContainer"]
-custom_minimum_size = Vector2(1024, 0)
+custom_minimum_size = Vector2(1920, 0)
 layout_mode = 2
 bbcode_enabled = true
 text = "PRIVACY_INFO"
