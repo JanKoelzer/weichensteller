@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=3 uid="uid://bk0n0dkf0jmum"]
+
+[ext_resource type="Script" uid="uid://3vs22300c7p6" path="res://scenes/first_start_menu/first_start.gd" id="1_ag4lj"]
+[ext_resource type="Texture2D" uid="uid://eij2hohstuhh" path="res://images/background.png" id="2_irq23"]
+[ext_resource type="Theme" uid="uid://drkpbmmwnukl" path="res://themes/train_one.tres" id="3_hxlol"]
+[ext_resource type="Texture2D" uid="uid://vafvwjai7e0i" path="res://images/icons/icon.svg" id="4_4jhe2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4jct4"]
+font_size = 64
+
+[node name="FirstStartMenu" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ag4lj")
+
+[node name="BackgroundSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_irq23")
+centered = false
+
+[node name="Title" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="Title"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme = ExtResource("3_hxlol")
+theme_override_font_sizes/font_size = 64
+text = "GAME_TITLE"
+label_settings = SubResource("LabelSettings_4jct4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="Title"]
+layout_mode = 2
+
+[node name="LogoSprite" type="Sprite2D" parent="Title/Control"]
+position = Vector2(25, 10)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_4jhe2")
+centered = false
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+
+[node name="CloseButton" type="Button" parent="CenterContainer"]
+layout_mode = 2
+text = "START_GAME"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+
+[node name="HelpLabel" type="RichTextLabel" parent="ScrollContainer"]
+custom_minimum_size = Vector2(1024, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "PRIVACY_INFO"
+fit_content = true
+autowrap_mode = 2
+
+[connection signal="pressed" from="CenterContainer/CloseButton" to="." method="_on_close_button_pressed"]

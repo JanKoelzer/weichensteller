@@ -2,4 +2,144 @@ keys,de,en
 DISCLAIMER,Haftungsausschluss,Disclaimer
 THIRD_PARTY,Drittanbieter-Lizenz,Third-Party Licenses
 SUPPORT,Buy me a coffee,Buy me a coffee
-BUY_ME_A_COFFE,"Ich liebe es, Kinderspiele zu entwickeln, die Spaß machen und fesseln. Keinesfalls aber sollen sie darauf zielen, Kinder süchtig zu machen. [i]Dark Patterns[/i] sind bei mir daher ein absolutes Tabu. Die Spiele bleiben klein und überschaubar. Unterstütze mich über „Buy me a coffe“:","I love making games for kids that are fun and engaging, but I’m careful not to make them excessively addictive. [i]Dark patterns[/i] are absolutely off-limits. I keep the games simple and friendly. Support me via „Buy me a coffe“:"
+BUY_ME_A_COFFE,"Mein Antrieb ist es, Spiele für Kinder zu entwickeln, die Spaß machen und fesseln. Keinesfalls aber sollen sie darauf zielen, Kinder süchtig zu machen. [i]Dark Patterns[/i] sind bei mir daher ein absolutes Tabu. Die Spiele bleiben klein und überschaubar. Unterstütze mich über „Buy me a coffe“:","I love making games for kids that are fun and engaging, but I’m careful not to make them excessively addictive. [i]Dark patterns[/i] are absolutely off-limits. I keep the games simple and friendly. Support me via „Buy me a coffe“:"
+PRIVACY_TITLE,Datenschutzerklärung,Privacy policy
+PRIVACY_INFO,"[p]Unsere App speichert Daten auf deinem Gerät und, wenn du möchtest, auch online. Hier erklären wir, wie und warum. Mit der Nutzung dieser App stimmst du der hier beschriebenen Datenverarbeitung zu. Wenn du unter 16 Jahren alt bist, benötigst du die Zustimmung deiner Eltern.[/p]
+
+[hr]
+
+[p]Datenschutzerklärung[/p]
+Stand: November 2025
+
+[p]1. Welche Daten werden gespeichert?[/p]
+
+a) Lokale Spieldaten und Einstellungen
+Damit das Spiel richtig funktioniert, speichert die App Spieleinstellungen (z.B. Lautstärke und Schwierigkeitsgrad) nur lokal auf deinem Gerät.
+
+b) Freiwillige Daten (Bestenliste) 
+Die App bietet dir die Möglichkeit, dich mit anderen Spielerinnen und Spieler auf der Welt zu vergleichen. Wenn du möchtest, kannst du einen Spitznamen eingeben.  
+Dieser Spitzname wird zusammen mit deiner erreichten Punktzahl und dem Datum an unseren Server gesendet, damit er in einer öffentlichen Bestenliste angezeigt werden kann.
+
+Diese Angaben sind freiwillig. Du kannst das Spiel auch ohne Online-Funktion vollständig nutzen. Wir speichern oder veröffentlichen keine weitere personenbezogenen Daten (wie IP-Adresse, Telefonnummer oder Standort).
+
+[p]2. Zweck der Datenverarbeitung[/p]  
+Die Verarbeitung der Daten erfolgt ausschließlich zum Zweck:  
+[ul]
+der Bereitstellung und Verbesserung des Spielerlebnisses,  
+der Anzeige einer öffentlichen Bestenliste und
+der Sicherstellung des technischen Betriebs unserer App.
+[/ul]
+
+[p]3. Rechtsgrundlage[/p]
+[ul]
+Art. 6 Abs. 1 lit. a DSGVO (Einwilligung) – für freiwillige Online-Daten (Spitzname, Punktzahl, Datum)  
+Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse) – für lokale Speicherung der Spieldaten zur App-Funktion
+[/ul]
+
+[p]4. Empfänger der Daten[/p]  
+Die Daten für die Bestenliste (Spitzname, Punktzahl, Datum) werden auf einem Server von IONOS gespeichert und öffentlich angezeigt. Die Datenschutzerklärung von IONOS findest du unter https://www.ionos.de/datenschutzerklaerung. 
+Wir geben diese Daten nicht an Dritte zu Werbe- oder Analysezwecken weiter.
+
+[p]5. Speicherdauer[/p]  
+[ul]
+Lokale Daten bleiben auf deinem Gerät, bis du die App oder die zugehörigen Daten löschst.  
+Online-Daten (Spitzname, Punktzahl, Datum) bleiben in der Bestenliste, bis du oder deine Eltern eine Löschung beantragt.  
+[/ul]
+Du kannst die Löschung deiner Einträge jederzeit per E-Mail an jth.koelzer@gmail.com verlangen.
+
+[p]6. Datenschutz bei Kindern[/p]  
+Unsere App richtet sich auch an Kinder. Wir sammeln keine personenbezogenen Daten, die zur Identifizierung einer Spielerin oder eines Spielers führen könnten.  
+Der Spitzname kann freiwillig angegeben werden und sollte nicht dem echten Namen entsprechen und auch keine weiteren personenbezogenen Daten enthalten.
+
+[p]7. Deine Rechte[/p]  
+Du hast das Recht auf:  
+[ul]
+Auskunft über deine gespeicherten Daten,  
+Berichtigung falscher Daten,  
+Löschung („Recht auf Vergessenwerden“),  
+Einschränkung der Verarbeitung,  
+Widerspruch gegen die Verarbeitung,  
+Datenübertragbarkeit,  
+Widerruf deiner Einwilligung jederzeit mit Wirkung für die Zukunft.  
+[/ul]
+
+Zur Ausübung deiner Rechte genügt eine formlose E-Mail an: jth.koelzer@gmail.com. Du hast außerdem das Recht, dich bei einer Datenschutzaufsichtsbehörde über die Verarbeitung deiner personenbezogenen Daten zu beschweren.
+
+[p]8. Änderungen dieser Datenschutzerklärung[/p]  
+Wenn sich rechtliche oder technische Änderungen ergeben, behalten wir uns vor, diese Datenschutzerklärung anzupassen.
+Die jeweils aktuelle Version ist jederzeit über die App einsehbar.
+
+[p]9. Verantwortliche Person/Kontakt[/p]  
+Jan Koelzer, Im Kies 3A, 64665 Alsbach-Hähnlein, jth.koelzer@gmail.com
+
+[hr]
+Kurz gesagt: Wir speichern und veröffentlichen nur Daten, die du freiwillig angibst. Verwende bitte keine echten Namen. So bleibt sichergestellt, dass dich niemand über diese Daten identifizieren kann.","[p]Unsere App speichert Daten auf deinem Gerät und, wenn du möchtest, auch online. Hier erklären wir, wie und warum. Mit der Nutzung dieser App stimmst du der hier beschriebenen Datenverarbeitung zu. Wenn du unter 16 Jahren alt bist, benötigst du die Zustimmung deiner Eltern.[/p]
+
+[hr]
+
+[p]Datenschutzerklärung[/p]
+Stand: November 2025
+
+[p]1. Welche Daten werden gespeichert?[/p]
+
+a) Lokale Spieldaten und Einstellungen
+Damit das Spiel richtig funktioniert, speichert die App Spieleinstellungen (z.B. Lautstärke und Schwierigkeitsgrad) nur lokal auf deinem Gerät.
+
+b) Freiwillige Daten (Bestenliste) 
+Die App bietet dir die Möglichkeit, dich mit anderen Spielerinnen und Spieler auf der Welt zu vergleichen. Wenn du möchtest, kannst du einen Spitznamen eingeben.  
+Dieser Spitzname wird zusammen mit deiner erreichten Punktzahl und dem Datum an unseren Server gesendet, damit er in einer öffentlichen Bestenliste angezeigt werden kann.
+
+Diese Angaben sind freiwillig. Du kannst das Spiel auch ohne Online-Funktion vollständig nutzen. Wir speichern oder veröffentlichen keine weitere personenbezogenen Daten (wie IP-Adresse, Telefonnummer oder Standort).
+
+[p]2. Zweck der Datenverarbeitung[/p]  
+Die Verarbeitung der Daten erfolgt ausschließlich zum Zweck:  
+[ul]
+der Bereitstellung und Verbesserung des Spielerlebnisses,  
+der Anzeige einer öffentlichen Bestenliste und
+der Sicherstellung des technischen Betriebs unserer App.
+[/ul]
+
+[p]3. Rechtsgrundlage[/p]
+[ul]
+Art. 6 Abs. 1 lit. a DSGVO (Einwilligung) – für freiwillige Online-Daten (Spitzname, Punktzahl, Datum)  
+Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse) – für lokale Speicherung der Spieldaten zur App-Funktion
+[/ul]
+
+[p]4. Empfänger der Daten[/p]  
+Die Daten für die Bestenliste (Spitzname, Punktzahl, Datum) werden auf einem Server von IONOS gespeichert und öffentlich angezeigt. Die Datenschutzerklärung von IONOS findest du unter https://www.ionos.de/datenschutzerklaerung. 
+Wir geben diese Daten nicht an Dritte zu Werbe- oder Analysezwecken weiter.
+
+[p]5. Speicherdauer[/p]  
+[ul]
+Lokale Daten bleiben auf deinem Gerät, bis du die App oder die zugehörigen Daten löschst.  
+Online-Daten (Spitzname, Punktzahl, Datum) bleiben in der Bestenliste, bis du oder deine Eltern eine Löschung beantragt.  
+[/ul]
+Du kannst die Löschung deiner Einträge jederzeit per E-Mail an jth.koelzer@gmail.com verlangen.
+
+[p]6. Datenschutz bei Kindern[/p]  
+Unsere App richtet sich auch an Kinder. Wir sammeln keine personenbezogenen Daten, die zur Identifizierung einer Spielerin oder eines Spielers führen könnten.  
+Der Spitzname kann freiwillig angegeben werden und sollte nicht dem echten Namen entsprechen und auch keine weiteren personenbezogenen Daten enthalten.
+
+[p]7. Deine Rechte[/p]  
+Du hast das Recht auf:  
+[ul]
+Auskunft über deine gespeicherten Daten,  
+Berichtigung falscher Daten,  
+Löschung („Recht auf Vergessenwerden“),  
+Einschränkung der Verarbeitung,  
+Widerspruch gegen die Verarbeitung,  
+Datenübertragbarkeit,  
+Widerruf deiner Einwilligung jederzeit mit Wirkung für die Zukunft.  
+[/ul]
+
+Zur Ausübung deiner Rechte genügt eine formlose E-Mail an: jth.koelzer@gmail.com. Du hast außerdem das Recht, dich bei einer Datenschutzaufsichtsbehörde über die Verarbeitung deiner personenbezogenen Daten zu beschweren.
+
+[p]8. Änderungen dieser Datenschutzerklärung[/p]  
+Wenn sich rechtliche oder technische Änderungen ergeben, behalten wir uns vor, diese Datenschutzerklärung anzupassen.
+Die jeweils aktuelle Version ist jederzeit über die App einsehbar.
+
+[p]9. Verantwortliche Person/Kontakt[/p]  
+Jan Koelzer, Im Kies 3A, 64665 Alsbach-Hähnlein, jth.koelzer@gmail.com
+
+[hr]
+Kurz gesagt: Wir speichern und veröffentlichen nur Daten, die du freiwillig angibst. Verwende bitte keine echten Namen. So bleibt sichergestellt, dass dich niemand über diese Daten identifizieren kann."

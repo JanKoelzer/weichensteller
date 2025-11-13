@@ -148,7 +148,7 @@ func _on_highscore_submit_button_pressed(age: String) -> void:
 
 func _on_highscore_put(success: bool) -> void:
 	if success:
-		submit_status_label.text = tr("OK")
+		submit_status_label.text = tr("SCORE_SAVE_OK")
 		for button: Button in get_tree().get_nodes_in_group("SubmitButton"):
 			button.visible = false
 	else:

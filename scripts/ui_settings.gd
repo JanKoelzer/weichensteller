@@ -6,7 +6,7 @@ signal sound_enabled_changed(enabled: bool)
 const AUDIO_OFF_DB := -80
 const AUDIO_ON_DB := 0
 
-@onready var locale: String = OS.get_locale_language():
+var locale: String = OS.get_locale_language():
 	get: return locale
 	set(v):
 		if v != locale:
@@ -15,7 +15,7 @@ const AUDIO_ON_DB := 0
 			locale_changed.emit(v)
 			save_to_file()
 
-@onready var sound_enabled: bool = true:
+var sound_enabled: bool = true:
 	get: return sound_enabled
 	set(v):
 		if v != sound_enabled:
@@ -27,21 +27,30 @@ const AUDIO_ON_DB := 0
 			else:
 				AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), AUDIO_OFF_DB)
 
+var privacy_accpeted: bool = false:
+	get: return privacy_accpeted
+	set(v):
+		if v == true:
+			privacy_accpeted = true
+			save_to_file()
+
+
 var file := ConfigFile.new()
 const config_filename := "user://ui.cfg"
 const config_section := "UI"
+const privacy_section := "Privacy"
 
-func _ready() -> void:
+
+func file_exists() -> bool:
+	return FileAccess.file_exists(config_filename)
+
+
+func load_from_file() -> void:
 	# At the first run on a device, there is no config file,
 	# so the default values are used (see CONSTs above).
 	# The settings are then stored in a config file.
 	# After that, this config file is loaded, everytime the
 	# game starts. The loaded values are used as settings.
-	load_from_file()
-	
-	TranslationServer.set_locale(locale)
-
-func load_from_file() -> void:
 	var err := file.load(config_filename)
 	
 	if err != OK:
@@ -49,9 +58,13 @@ func load_from_file() -> void:
 	
 	locale = file.get_value(config_section, "locale", locale)
 	sound_enabled = file.get_value(config_section, "sound_enabled", sound_enabled)
+	privacy_accpeted = file.get_value(privacy_section, "accepted", privacy_accpeted)
+	
 	
 func save_to_file() -> void:
 	file.set_value(config_section, "locale", locale)
 	file.set_value(config_section, "sound_enabled", sound_enabled)
+	
+	file.set_value(privacy_section, "accepted", privacy_accpeted)
 	
 	file.save(config_filename)

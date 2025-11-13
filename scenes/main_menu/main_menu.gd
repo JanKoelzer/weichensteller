@@ -6,9 +6,18 @@ extends Control
 
 
 func _ready() -> void:
-	audio_option_button.selected = 0 if UISettings.sound_enabled else 1
-	language_option_button.selected = 1 if UISettings.locale.begins_with("de") else 0
+	if OS.get_name() == "Android" and not UISettings.file_exists():
+		# First start. User has not accepted privacy yet.
+		call_deferred("_change_scene_to_first_start")
+	else:
+		UISettings.load_from_file()
+		audio_option_button.selected = 0 if UISettings.sound_enabled else 1
+		language_option_button.selected = 1 if UISettings.locale.begins_with("de") else 0
 
+
+func _change_scene_to_first_start() -> void:
+	get_tree().change_scene_to_file("res://scenes/first_start_menu/first_start.tscn")
+	
 
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()
@@ -39,3 +48,7 @@ func _on_language_option_button_item_selected(index: int) -> void:
 
 func _on_audio_option_button_item_selected(index: int) -> void:
 	UISettings.sound_enabled = index == 0
+
+
+func _on_privacy_policy_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/first_start_menu/first_start.tscn")
