@@ -17,7 +17,7 @@ config/quit_on_go_back=false
 config/features=PackedStringArray("4.5", "Forward Plus")
 boot_splash/image="uid://cssm5phuyr840"
 config/icon="uid://vafvwjai7e0i"
-config/windows_native_icon="res://images/icons/icon.ico"
+config/windows_native_icon="res://images/icons/icon64.ico"
 config/movie_file="res://movies/main.avi"
 
 [autoload]
