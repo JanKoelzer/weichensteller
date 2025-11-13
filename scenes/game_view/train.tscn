@@ -162,7 +162,7 @@ script = ExtResource("2_wgsvc")
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_lo3q4")
 region_enabled = true
-region_rect = Rect2(0, 480, 120, 120)
+region_rect = Rect2(0, 360, 120, 120)
 
 [node name="FadePlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -196,13 +196,15 @@ script = ExtResource("4_gfec6")
 texture_filter = 6
 position = Vector2(16, 0)
 emitting = false
-lifetime = 0.1
+amount = 12
+lifetime = 0.09999999999999999
 one_shot = true
 explosiveness = 1.0
 randomness = 0.5
 lifetime_randomness = 1.0
+local_coords = true
 emission_shape = 3
-emission_rect_extents = Vector2(1, 4)
+emission_rect_extents = Vector2(2, 8)
 spread = 180.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 10.0

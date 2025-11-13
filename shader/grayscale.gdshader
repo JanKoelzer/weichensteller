@@ -6,7 +6,7 @@ uniform float engine_time_sec;
 void fragment() {
     // Calculate mix factor depending on TIME
 	float time = clamp(TIME - engine_time_sec, 0.0, duration);
-	float factor = pow(time/duration, 2);
+	float factor = pow(time/duration, 0.5);
 
 	// grayscaled verion of the current COLOR
 	float gray = 0.299 * COLOR.r + 0.587 * COLOR.g + 0.114 * COLOR.b;
