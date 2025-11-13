@@ -91,8 +91,6 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(1920, 640)
 layout_mode = 2
 bbcode_enabled = true
-text = "[url]https://buymeacoffee.com/jankoelzer[/url].
-[center][img=200]res://publicity/buy-me-a-coffee-qr-code.png[/img][/center]"
 
 [node name="SUPPORT" type="ScrollContainer" parent="TabContainer"]
 visible = false
@@ -106,7 +104,7 @@ custom_minimum_size = Vector2(1920, 640)
 layout_mode = 2
 bbcode_enabled = true
 text = "[url]https://buymeacoffee.com/jankoelzer[/url].
-[center][url=https://buymeacoffee.com/jankoelzer][img=200]res://publicity/buy-me-a-coffee-qr-code.png[/img][/url][/center]"
+[center][url=https://buymeacoffee.com/jankoelzer][img=200]res://images/buy-me-a-coffee-qr-code.png[/img][/url][/center]"
 
 [connection signal="pressed" from="CenterContainer/CloseButton" to="." method="_on_close_button_pressed"]
 [connection signal="meta_clicked" from="TabContainer/PRIVACY_TITLE/PrivacyInfoLabel" to="." method="_on_coffee_label_meta_clicked"]

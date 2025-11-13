@@ -9,7 +9,7 @@ const COL_COUNT := 16
 @onready var score_label: Label = %ScoreLabel
 @onready var errors_label: Label = %ErrorsLabel
 @onready var time_label: Label = %TimeLabel
-@onready var submit_status_label: Label = $CenterContainer/VBoxContainer/MenuContainer/HighscoreControls/SubmitStatusLabel
+@onready var submit_status_label: Label = %HighscoreControls/SubmitStatusLabel
 @onready var countdown_labels: Array[Label] = [
 		%CountdownLabel0,
 		%CountdownLabel1,
@@ -75,7 +75,7 @@ func count_down_and_start() -> void:
 
 func activate_brakes(b: Button) -> void:
 	b.disabled = true
-	rails.pause_trains()	
+	rails.pause_trains()
 	get_tree().create_timer(pause_time).timeout.connect(rails.resume_trains)
 	
 

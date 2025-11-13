@@ -14,7 +14,7 @@ func _ready() -> void:
 	])
 	%CoffeeLabel.text = tr(&"BUY_ME_A_COFFE") + " " + %CoffeeLabel.text
 	%PrivacyInfoLabel.text = tr(&"PRIVACY_INFO")
-	$TabContainer.set_tab_icon(3, preload("res://publicity/buy_me_a_coffee.svg"))
+	$TabContainer.set_tab_icon(3, preload("res://images/buy_me_a_coffee.svg"))
 	$TabContainer.set_tab_icon_max_width(3, 32)
 	
 func _on_close_button_pressed() -> void:

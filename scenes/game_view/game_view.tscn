@@ -410,6 +410,7 @@ libraries = {
 [node name="VSeparator" type="VSeparator" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -429,6 +430,7 @@ libraries = {
 [node name="VSeparator2" type="VSeparator" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="Label3" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -448,10 +450,7 @@ libraries = {
 [node name="VSeparator3" type="VSeparator" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
-
-[node name="VSeparator5" type="VSeparator" parent="CenterContainer/VBoxContainer/HBoxContainer"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="Label5" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -461,10 +460,6 @@ text = "TIME"
 unique_name_in_owner = true
 layout_mode = 2
 text = "0"
-
-[node name="VSeparator4" type="VSeparator" parent="CenterContainer/VBoxContainer/HBoxContainer"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 2
 
 [node name="PauseButtons" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
 unique_name_in_owner = true
@@ -491,38 +486,49 @@ layout_mode = 2
 layout_mode = 2
 text = "RESTART_GAME"
 
+[node name="VSeparator" type="VSeparator" parent="CenterContainer/VBoxContainer/MenuContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
 [node name="DifficultySettingsButton" type="Button" parent="CenterContainer/VBoxContainer/MenuContainer"]
 layout_mode = 2
 text = "SETTINGS"
+
+[node name="VSeparator2" type="VSeparator" parent="CenterContainer/VBoxContainer/MenuContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="MainMenuButton" type="Button" parent="CenterContainer/VBoxContainer/MenuContainer"]
 layout_mode = 2
 text = "MAIN_MENU"
 
-[node name="HighscoreControls" type="HBoxContainer" parent="CenterContainer/VBoxContainer/MenuContainer"]
+[node name="HighscoreControls" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="PlayerNameEdit" type="LineEdit" parent="CenterContainer/VBoxContainer/MenuContainer/HighscoreControls"]
+[node name="PlayerNameEdit" type="LineEdit" parent="CenterContainer/VBoxContainer/HighscoreControls"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 placeholder_text = "NAME_PLACEHOLDER"
 max_length = 30
 
-[node name="ChildSubmitButton" type="Button" parent="CenterContainer/VBoxContainer/MenuContainer/HighscoreControls" groups=["SubmitButton"]]
+[node name="ChildSubmitButton" type="Button" parent="CenterContainer/VBoxContainer/HighscoreControls" groups=["SubmitButton"]]
 layout_mode = 2
 text = "AGE_0"
 
-[node name="PupilSubmitButton" type="Button" parent="CenterContainer/VBoxContainer/MenuContainer/HighscoreControls" groups=["SubmitButton"]]
+[node name="PupilSubmitButton" type="Button" parent="CenterContainer/VBoxContainer/HighscoreControls" groups=["SubmitButton"]]
 layout_mode = 2
 text = "AGE_1"
 
-[node name="AdultSubmitButton" type="Button" parent="CenterContainer/VBoxContainer/MenuContainer/HighscoreControls" groups=["SubmitButton"]]
+[node name="AdultSubmitButton" type="Button" parent="CenterContainer/VBoxContainer/HighscoreControls" groups=["SubmitButton"]]
 layout_mode = 2
 text = "AGE_2"
 
-[node name="SubmitStatusLabel" type="Label" parent="CenterContainer/VBoxContainer/MenuContainer/HighscoreControls"]
+[node name="SubmitStatusLabel" type="Label" parent="CenterContainer/VBoxContainer/HighscoreControls"]
 visible = false
 layout_mode = 2
 text = "…"
@@ -536,7 +542,7 @@ text = "…"
 [connection signal="pressed" from="CenterContainer/VBoxContainer/MenuContainer/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/MenuContainer/DifficultySettingsButton" to="." method="_on_difficulty_settings_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/MenuContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
-[connection signal="focus_entered" from="CenterContainer/VBoxContainer/MenuContainer/HighscoreControls/PlayerNameEdit" to="." method="_on_player_name_edit_focus_entered"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/MenuContainer/HighscoreControls/ChildSubmitButton" to="." method="_on_highscore_submit_button_pressed" binds= ["0-5"]]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/MenuContainer/HighscoreControls/PupilSubmitButton" to="." method="_on_highscore_submit_button_pressed" binds= ["6-12"]]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/MenuContainer/HighscoreControls/AdultSubmitButton" to="." method="_on_highscore_submit_button_pressed" binds= ["13+"]]
+[connection signal="focus_entered" from="CenterContainer/VBoxContainer/HighscoreControls/PlayerNameEdit" to="." method="_on_player_name_edit_focus_entered"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HighscoreControls/ChildSubmitButton" to="." method="_on_highscore_submit_button_pressed" binds= ["0-5"]]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HighscoreControls/PupilSubmitButton" to="." method="_on_highscore_submit_button_pressed" binds= ["6-12"]]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HighscoreControls/AdultSubmitButton" to="." method="_on_highscore_submit_button_pressed" binds= ["13+"]]

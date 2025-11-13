@@ -45,6 +45,7 @@ movie_writer/movie_file="/home/jtk/workspace/Weichensteller/movies/main.avi"
 
 [gui]
 
+theme/default_theme_scale=1.5
 theme/custom="uid://sdu5an0boq3"
 
 [internationalization]
