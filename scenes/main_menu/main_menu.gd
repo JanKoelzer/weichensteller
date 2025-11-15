@@ -3,6 +3,7 @@ extends Control
 @onready var audio_option_button: OptionButton = %AudioOptionButton
 @onready var language_option_button: OptionButton = %LanguageOptionButton
 @onready var logo_sprite: Node2D = %LogoSprite
+@onready var quit_button: Button = $CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/QuitButton
 
 
 func _ready() -> void:
@@ -14,6 +15,9 @@ func _ready() -> void:
 		audio_option_button.selected = 0 if UISettings.sound_enabled else 1
 		language_option_button.selected = 1 if UISettings.locale.begins_with("de") else 0
 
+	if OS.get_name() == "Web":
+		# quit() does not work well in a browser
+		quit_button.visible = false
 
 func _change_scene_to_first_start() -> void:
 	get_tree().change_scene_to_file("res://scenes/first_start_menu/first_start.tscn")
