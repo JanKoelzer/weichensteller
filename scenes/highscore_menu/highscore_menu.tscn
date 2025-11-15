@@ -60,7 +60,12 @@ custom_minimum_size = Vector2(0, 600)
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="HighscoreLabel" type="Label" parent="HighscoreTabContainer/Age0"]
+[node name="HighscoreGrid" type="GridContainer" parent="HighscoreTabContainer/Age0"]
+layout_mode = 2
+size_flags_horizontal = 3
+columns = 9
+
+[node name="HighscoreLabel" type="Label" parent="HighscoreTabContainer/Age0/HighscoreGrid"]
 custom_minimum_size = Vector2(1920, 0)
 layout_mode = 2
 text = "LOADING_HIGHSCORE"
@@ -72,7 +77,12 @@ custom_minimum_size = Vector2(0, 600)
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="HighscoreLabel" type="Label" parent="HighscoreTabContainer/Age1"]
+[node name="HighscoreGrid" type="GridContainer" parent="HighscoreTabContainer/Age1"]
+layout_mode = 2
+size_flags_horizontal = 3
+columns = 9
+
+[node name="HighscoreLabel" type="Label" parent="HighscoreTabContainer/Age1/HighscoreGrid"]
 custom_minimum_size = Vector2(1920, 0)
 layout_mode = 2
 text = "LOADING_HIGHSCORE"
@@ -84,7 +94,12 @@ custom_minimum_size = Vector2(0, 600)
 layout_mode = 2
 metadata/_tab_index = 2
 
-[node name="HighscoreLabel" type="Label" parent="HighscoreTabContainer/Age2"]
+[node name="HighscoreGrid" type="GridContainer" parent="HighscoreTabContainer/Age2"]
+layout_mode = 2
+size_flags_horizontal = 3
+columns = 9
+
+[node name="HighscoreLabel" type="Label" parent="HighscoreTabContainer/Age2/HighscoreGrid"]
 custom_minimum_size = Vector2(1920, 0)
 layout_mode = 2
 text = "LOADING_HIGHSCORE"
