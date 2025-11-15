@@ -41,7 +41,7 @@ func update_view() -> void:
 		station_buttons[i].button_pressed = GameSettings.selected_stations.has(i)
 	
 	var k: float = GameSettings.score_factor()
-	factor_label.text = str(int(k*100)) + " %"
+	factor_label.text = str(roundi(k*100)) + " %"
 	
 	start_button.disabled = !GameSettings.is_valid()
 	

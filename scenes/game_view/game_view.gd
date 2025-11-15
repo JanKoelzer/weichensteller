@@ -16,10 +16,13 @@ const COL_COUNT := 16
 		%CountdownLabel2,
 		%CountdownLabel3,
 	]
+@onready var score_factor := GameSettings.score_factor() # calculate only once
 
 var time: int = 0
 var error_count: int = 0
 var score: float = 0.0
+var score_str: String:
+	get: return str(roundi(score))
 var pauses_left: int
 var pause_time: int = 5
 
@@ -80,8 +83,8 @@ func activate_brakes(b: Button) -> void:
 	
 
 func _on_rails_scored() -> void:
-	self.score += 10 * GameSettings.score_factor()
-	score_label.update(self.score)
+	self.score += 10 * score_factor
+	score_label.update(score_str)
 	errors_in_row = 0
 
 
@@ -110,7 +113,7 @@ func _on_rails_end() -> void:
 	timer.stop()
 	%ErrorsLabel/AnimationPlayer.stop()
 	%GameOverDisplay.visible = true
-	%FinalScoreLabel.text = tr(&"SCORE") + " " + str(roundi(score))
+	%FinalScoreLabel.text = tr(&"SCORE") + " " + score_str
 	%FinalScoreLabel/AnimationPlayer.play(&"rainbow")
 	%FinalScoreLabel/AnimationPlayer.speed_scale = 2.0
 	

@@ -109,6 +109,7 @@ func score_factor() -> float:
 	k *= 1 + 0.08*(DEFAULT_EXTRA_SWITCHES-num_extra_switches)
 	k *= 1 + 0.05*(DEFAULT_BRAKES-num_brakes)
 	k *= 1 + 0.1*(DEFAULT_MAX_ERRORS-max_errors)
+	k = snappedf(k, 0.01)
 	return k
 
 func is_valid() -> bool:
