@@ -19,6 +19,7 @@ func _ready() -> void:
 		# quit() does not work well in a browser
 		quit_button.visible = false
 
+
 func _change_scene_to_first_start() -> void:
 	get_tree().change_scene_to_file("res://scenes/first_start_menu/first_start.tscn")
 	
@@ -52,7 +53,3 @@ func _on_language_option_button_item_selected(index: int) -> void:
 
 func _on_audio_option_button_item_selected(index: int) -> void:
 	UISettings.sound_enabled = index == 0
-
-
-func _on_privacy_policy_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/first_start_menu/first_start.tscn")

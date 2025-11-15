@@ -282,17 +282,11 @@ popup/item_0/id = 1
 popup/item_1/icon = ExtResource("5_qe12f")
 popup/item_1/id = 0
 
-[node name="PrivacyPolicyButton" type="Button" parent="VBoxContainer"]
-visible = false
-layout_mode = 2
-text = "PRIVACY_TITLE"
-
 [connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/HighscoreButton" to="." method="_on_highscore_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="item_selected" from="VBoxContainer/AudioSettings/AudioOptionButton" to="." method="_on_audio_option_button_item_selected"]
 [connection signal="item_selected" from="VBoxContainer/LanguageSettings/LanguageOptionButton" to="." method="_on_language_option_button_item_selected"]
-[connection signal="pressed" from="VBoxContainer/PrivacyPolicyButton" to="." method="_on_privacy_policy_button_pressed"]
 
 [editable path="CenterContainer/VBoxContainer/Title/Control/LogoSprite"]
