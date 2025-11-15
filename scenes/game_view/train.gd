@@ -13,13 +13,18 @@ enum TrainColor {
 		PURPLE = 5,
 }
 
+@onready var steam_particles: CPUParticles2D = $SteamParticles
+@onready var spark_particles: CPUParticles2D = $SparkParticles
+@onready var exhaust_particles: CPUParticles2D = $ExhaustParticles
+
+
 var tile_size := 120
 
-var speed: float
+@export var speed: float
 
 var directions: Array[int] = [-1, 0, 1]
 var directionIndex := 1
-var direction: int:
+@export var direction: int:
 	get:
 		return directions[directionIndex]
 	set(v):
@@ -47,22 +52,21 @@ func init(new_tile_size: int,
 	
 	# electric engine?
 	if v == 3:
-		$SparkParticles.set_up()
+		spark_particles.set_up()
 	else:
-		remove_child($SparkParticles)
+		remove_child(spark_particles)
 		
 	# diesel engine?
 	if v == 4 or v == 5:
-		$ExhaustParticles.set_up(wind_speed, wind_angle)
+		exhaust_particles.set_up(wind_speed, wind_angle)
 	else:
-		remove_child($ExhaustParticles)
+		remove_child(exhaust_particles)
 	
 	# steam engine?
 	if v == 6:
-		$SteamParticles.set_up(wind_speed, wind_angle)
-		self.rotation_started.connect($SteamParticles._on_train_rotation_started)
+		steam_particles.set_up(wind_speed, wind_angle)
 	else:
-		remove_child($SteamParticles)
+		remove_child(steam_particles)
 
 
 func move() -> void:
@@ -106,3 +110,8 @@ func fade_out(was_success: bool) -> void:
 func _on_animation_player_animation_finished(anim_name: String) -> void:
 	if anim_name == &"fade_out":
 		queue_free()
+
+
+@warning_ignore("shadowed_variable")
+func _on_train_rotation_started(direction: float, duration: float) -> void:
+	steam_particles.rotate_steam(direction, duration)

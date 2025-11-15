@@ -53,7 +53,7 @@ cp trains-padding.png ../../
 montage stations.png trains.png -tile 1x2 -background 'transparent' -geometry +0+0 colored.png 
 
 echo "Montage tracksXXX.png…"
-montage tracks1.png tracks3.png tracks2.png tracks4.png tracks5.png tracks6.png -tile 6x1 -background 'transparent' -geometry +0+0 tracks.png
+montage tracks[1-6].png -tile 6x1 -background 'transparent' -geometry +0+0 tracks.png
 
 echo "Montage everything…"
 montage tracks.png colored.png -tile 1x2 -background 'transparent' -geometry +0+0 rails.png

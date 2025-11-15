@@ -15,7 +15,7 @@ func set_up(wind_speed: float, wind_angle: float) -> void:
 	explosiveness = randf_range(0.0, 0.2)
 
 
-func _on_train_rotation_started(target_direction: float, duration: float) -> void:
+func rotate_steam(target_direction: float, duration: float) -> void:
 	create_tween().tween_property(
 				self,
 				":rotation",

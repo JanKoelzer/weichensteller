@@ -173,9 +173,9 @@ libraries = {
 z_index = 1
 z_as_relative = false
 position = Vector2(16.5, 0)
-amount = 800
+amount = 420
 texture = ExtResource("3_ogqkn")
-lifetime = 2.0
+lifetime = 3.4
 explosiveness = 0.1
 randomness = 0.4
 lifetime_randomness = 1.0
@@ -197,7 +197,7 @@ texture_filter = 6
 position = Vector2(16, 0)
 emitting = false
 amount = 12
-lifetime = 0.09999999999999999
+lifetime = 0.1
 one_shot = true
 explosiveness = 1.0
 randomness = 0.5
@@ -235,5 +235,6 @@ color_ramp = SubResource("Gradient_17jyq")
 color_initial_ramp = SubResource("Gradient_6whlh")
 script = ExtResource("5_vskko")
 
+[connection signal="rotation_started" from="." to="." method="_on_train_rotation_started"]
 [connection signal="animation_finished" from="FadePlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="SparkParticles/Timer" to="SparkParticles" method="_on_timer_timeout"]

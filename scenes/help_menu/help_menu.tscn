@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dhkiyys86x0b8" path="res://scenes/help_menu/help_menu.gd" id="1_538cs"]
 [ext_resource type="Texture2D" uid="uid://eij2hohstuhh" path="res://images/background.png" id="2_yx3vl"]
 [ext_resource type="Texture2D" uid="uid://vafvwjai7e0i" path="res://images/icons/icon.svg" id="3_hmep0"]
-[ext_resource type="Theme" uid="uid://drkpbmmwnukl" path="res://themes/train_one.tres" id="3_u2tvc"]
+[ext_resource type="Theme" uid="uid://drkpbmmwnukl" path="res://resources/themes/train_one.tres" id="3_u2tvc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4jct4"]
 font_size = 64
