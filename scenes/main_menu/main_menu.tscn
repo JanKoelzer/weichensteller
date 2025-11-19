@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://hqe61n41cay3"]
+[gd_scene load_steps=20 format=4 uid="uid://hqe61n41cay3"]
 
 [ext_resource type="Script" uid="uid://bych0wagxg6d5" path="res://scenes/main_menu/main_menu.gd" id="1_1d7qk"]
 [ext_resource type="Texture2D" uid="uid://eij2hohstuhh" path="res://images/background.png" id="1_l5ut5"]
@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://c16c2cb5uwaxm" path="res://images/flag_de.png" id="5_qe12f"]
 [ext_resource type="Texture2D" uid="uid://bmfoqsuqdyjh1" path="res://images/flag_en.png" id="6_qe12f"]
 [ext_resource type="Script" uid="uid://ct0ijq2fs0jd4" path="res://scenes/main_menu/start_button.gd" id="7_qel0l"]
-[ext_resource type="Texture2D" uid="uid://dsd2lr07fr1sc" path="res://images/trains-padding.png" id="9_thkx5"]
 [ext_resource type="Script" uid="uid://dg5vo2ucwwkcg" path="res://scenes/main_menu/rails.gd" id="14_4ujhu"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xyu7x"]
@@ -155,9 +154,14 @@ region_rect = Rect2(120, 600, 120, 120)
 
 [node name="SteamParticles" parent="Rails/Trains/Train1" index="2"]
 visible = false
+position = Vector2(22, 0)
 
 [node name="SparkParticles" parent="Rails/Trains/Train1" index="3"]
 visible = false
+position = Vector2(21, 0)
+
+[node name="ExhaustParticles" parent="Rails/Trains/Train1" index="4"]
+position = Vector2(-77, 0)
 
 [node name="Train2" parent="Rails/Trains" index="1" instance=ExtResource("4_x2yjq")]
 position = Vector2(780, 780)
@@ -168,15 +172,18 @@ metadata/_edit_group_ = true
 region_rect = Rect2(240, 720, 120, 120)
 
 [node name="SteamParticles" parent="Rails/Trains/Train2" index="2"]
+position = Vector2(22, 0)
 direction = Vector2(0.315, -0.12)
 initial_velocity_min = 25.0
 initial_velocity_max = 25.0
 
 [node name="SparkParticles" parent="Rails/Trains/Train2" index="3"]
 visible = false
+position = Vector2(21, 0)
 
 [node name="ExhaustParticles" parent="Rails/Trains/Train2" index="4"]
 visible = false
+position = Vector2(-77, 0)
 
 [node name="TrainCreationTimer" parent="Rails" index="5"]
 wait_time = 6.0
@@ -224,8 +231,10 @@ metadata/_edit_group_ = true
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_4xg86")
 region_enabled = false
+region_rect = Rect2(0, 480, 160, 160)
 
 [node name="SteamParticles" parent="CenterContainer/VBoxContainer/Title/Control/LogoSprite" index="2"]
+position = Vector2(22, 0)
 emitting = false
 amount = 800
 direction = Vector2(-0.995, -0.1)
@@ -235,9 +244,11 @@ initial_velocity_max = 180.0
 
 [node name="SparkParticles" parent="CenterContainer/VBoxContainer/Title/Control/LogoSprite" index="3"]
 visible = false
+position = Vector2(21, 0)
 
 [node name="ExhaustParticles" parent="CenterContainer/VBoxContainer/Title/Control/LogoSprite" index="4"]
 visible = false
+position = Vector2(-77, 0)
 
 [node name="IntroAnimation" type="AnimationPlayer" parent="CenterContainer/VBoxContainer/Title/Control/LogoSprite"]
 libraries = {
@@ -285,14 +296,6 @@ text = "LEGAL_NOTES"
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "QUIT_GAME"
-
-[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
-visible = false
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer/CenterContainer"]
-layout_mode = 2
-texture = ExtResource("9_thkx5")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
