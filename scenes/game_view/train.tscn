@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://dev70nkbyuydv"]
 
-[ext_resource type="Texture2D" uid="uid://cqhoidm6a2ami" path="res://images/rails.png" id="1_lo3q4"]
+[ext_resource type="Texture2D" uid="uid://chf34iv6d16q5" path="res://images/rails.png" id="1_lo3q4"]
 [ext_resource type="Script" uid="uid://cvormi1od74aa" path="res://scenes/game_view/train.gd" id="2_wgsvc"]
 [ext_resource type="Texture2D" uid="uid://3mbyv70qcwdd" path="res://images/smoke-particle-small.png" id="3_ogqkn"]
 [ext_resource type="Script" uid="uid://dn0njkecees6c" path="res://scenes/game_view/spark_particles.gd" id="4_7o0ee"]

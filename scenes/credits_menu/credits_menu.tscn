@@ -1,12 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://ci4d7j0imm4u"]
+[gd_scene load_steps=4 format=3 uid="uid://ci4d7j0imm4u"]
 
 [ext_resource type="Texture2D" uid="uid://eij2hohstuhh" path="res://images/background.png" id="1_i7fht"]
 [ext_resource type="Script" uid="uid://bnira8s8dt1r6" path="res://scenes/credits_menu/credits_menu.gd" id="1_ppef3"]
-[ext_resource type="Texture2D" uid="uid://vafvwjai7e0i" path="res://images/icons/icon.svg" id="3_5ww45"]
-[ext_resource type="Theme" uid="uid://drkpbmmwnukl" path="res://resources/themes/train_one.tres" id="3_16lph"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_yhltf"]
-font_size = 128
+[ext_resource type="PackedScene" uid="uid://cywhajrq5c1sc" path="res://scenes/common/title.tscn" id="3_5ww45"]
 
 [node name="CreditsMenu" type="VBoxContainer"]
 anchors_preset = 15
@@ -20,28 +16,11 @@ script = ExtResource("1_ppef3")
 texture = ExtResource("1_i7fht")
 centered = false
 
-[node name="Title" type="HBoxContainer" parent="."]
+[node name="Title" parent="." instance=ExtResource("3_5ww45")]
 layout_mode = 2
-alignment = 1
 
-[node name="TitleLabel" type="Label" parent="Title"]
-custom_minimum_size = Vector2(0, 64)
-layout_mode = 2
-theme = ExtResource("3_16lph")
-theme_override_font_sizes/font_size = 64
+[node name="TitleLabel" parent="Title" index="0"]
 text = "LEGAL_NOTES"
-label_settings = SubResource("LabelSettings_yhltf")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Control" type="Control" parent="Title"]
-layout_mode = 2
-
-[node name="LogoSprite" type="Sprite2D" parent="Title/Control"]
-position = Vector2(25, 25)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_5ww45")
-centered = false
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 2
@@ -109,3 +88,7 @@ text = "[url]https://buymeacoffee.com/jankoelzer[/url].
 [connection signal="pressed" from="CenterContainer/CloseButton" to="." method="_on_close_button_pressed"]
 [connection signal="meta_clicked" from="TabContainer/PRIVACY_TITLE/PrivacyInfoLabel" to="." method="_on_coffee_label_meta_clicked"]
 [connection signal="meta_clicked" from="TabContainer/SUPPORT/CoffeeLabel" to="." method="_on_coffee_label_meta_clicked"]
+
+[editable path="Title"]
+[editable path="Title/TitleTrain"]
+[editable path="Title/TitleTrain/TitleTrain/Train"]

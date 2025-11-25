@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cywhajrq5c1sc"]
+
+[ext_resource type="Theme" uid="uid://drkpbmmwnukl" path="res://resources/themes/train_one.tres" id="1_bn55t"]
+[ext_resource type="PackedScene" uid="uid://5ueq7hiplumc" path="res://scenes/common/title_train.tscn" id="2_jhitl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4jct4"]
+font_size = 128
+
+[node name="Title" type="HBoxContainer"]
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="."]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme = ExtResource("1_bn55t")
+theme_override_font_sizes/font_size = 64
+label_settings = SubResource("LabelSettings_4jct4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TitleTrain" parent="." instance=ExtResource("2_jhitl")]
+layout_mode = 2

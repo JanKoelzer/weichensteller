@@ -2,7 +2,6 @@ extends Control
 
 @onready var audio_option_button: OptionButton = %AudioOptionButton
 @onready var language_option_button: OptionButton = %LanguageOptionButton
-@onready var logo_sprite: Node2D = %LogoSprite
 @onready var quit_button: Button = $CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/QuitButton
 
 

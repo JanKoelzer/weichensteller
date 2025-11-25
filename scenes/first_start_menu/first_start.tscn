@@ -1,12 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bk0n0dkf0jmum"]
+[gd_scene load_steps=4 format=3 uid="uid://bk0n0dkf0jmum"]
 
 [ext_resource type="Script" uid="uid://3vs22300c7p6" path="res://scenes/first_start_menu/first_start.gd" id="1_ag4lj"]
 [ext_resource type="Texture2D" uid="uid://eij2hohstuhh" path="res://images/background.png" id="2_irq23"]
-[ext_resource type="Theme" uid="uid://drkpbmmwnukl" path="res://resources/themes/train_one.tres" id="3_hxlol"]
-[ext_resource type="Texture2D" uid="uid://vafvwjai7e0i" path="res://images/icons/icon.svg" id="4_4jhe2"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_4jct4"]
-font_size = 128
+[ext_resource type="PackedScene" uid="uid://cywhajrq5c1sc" path="res://scenes/common/title.tscn" id="3_obloy"]
 
 [node name="FirstStartMenu" type="VBoxContainer"]
 anchors_preset = 15
@@ -20,28 +16,11 @@ script = ExtResource("1_ag4lj")
 texture = ExtResource("2_irq23")
 centered = false
 
-[node name="Title" type="HBoxContainer" parent="."]
+[node name="Title" parent="." instance=ExtResource("3_obloy")]
 layout_mode = 2
-alignment = 1
 
-[node name="TitleLabel" type="Label" parent="Title"]
-custom_minimum_size = Vector2(0, 64)
-layout_mode = 2
-theme = ExtResource("3_hxlol")
-theme_override_font_sizes/font_size = 64
+[node name="TitleLabel" parent="Title" index="0"]
 text = "GAME_TITLE"
-label_settings = SubResource("LabelSettings_4jct4")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Control" type="Control" parent="Title"]
-layout_mode = 2
-
-[node name="LogoSprite" type="Sprite2D" parent="Title/Control"]
-position = Vector2(25, 25)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_4jhe2")
-centered = false
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 2
@@ -63,3 +42,5 @@ fit_content = true
 autowrap_mode = 2
 
 [connection signal="pressed" from="CenterContainer/CloseButton" to="." method="_on_close_button_pressed"]
+
+[editable path="Title"]

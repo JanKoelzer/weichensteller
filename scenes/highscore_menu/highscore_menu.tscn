@@ -1,12 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dysw0v0macqh6"]
+[gd_scene load_steps=4 format=3 uid="uid://dysw0v0macqh6"]
 
 [ext_resource type="Texture2D" uid="uid://eij2hohstuhh" path="res://images/background.png" id="1_hnsup"]
 [ext_resource type="Script" uid="uid://xfebceag673a" path="res://scenes/highscore_menu/highscore_menu.gd" id="1_wdu0c"]
-[ext_resource type="Theme" uid="uid://drkpbmmwnukl" path="res://resources/themes/train_one.tres" id="3_o8cb6"]
-[ext_resource type="Texture2D" uid="uid://vafvwjai7e0i" path="res://images/icons/icon.svg" id="3_voc57"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_mrghh"]
-font_size = 128
+[ext_resource type="PackedScene" uid="uid://cywhajrq5c1sc" path="res://scenes/common/title.tscn" id="3_voc57"]
 
 [node name="HighscoreMenu" type="VBoxContainer"]
 anchors_preset = 15
@@ -20,28 +16,11 @@ script = ExtResource("1_wdu0c")
 texture = ExtResource("1_hnsup")
 centered = false
 
-[node name="Title" type="HBoxContainer" parent="."]
-layout_mode = 2
-alignment = 1
-
-[node name="TitleLabel" type="Label" parent="Title"]
-custom_minimum_size = Vector2(0, 64)
-layout_mode = 2
-theme = ExtResource("3_o8cb6")
-theme_override_font_sizes/font_size = 64
-text = "HIGHSCORE_MENU"
-label_settings = SubResource("LabelSettings_mrghh")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Control" type="Control" parent="Title"]
+[node name="Title" parent="." instance=ExtResource("3_voc57")]
 layout_mode = 2
 
-[node name="LogoSprite" type="Sprite2D" parent="Title/Control"]
-position = Vector2(25, 25)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_voc57")
-centered = false
+[node name="TitleLabel" parent="Title" index="0"]
+text = "GAME_TITLE"
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 2
@@ -106,3 +85,5 @@ text = "LOADING_HIGHSCORE"
 autowrap_mode = 2
 
 [connection signal="pressed" from="CenterContainer/CloseButton" to="." method="_on_close_button_pressed"]
+
+[editable path="Title"]

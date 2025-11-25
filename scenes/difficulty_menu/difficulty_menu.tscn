@@ -1,18 +1,14 @@
-[gd_scene load_steps=16 format=3 uid="uid://beulniltj2hto"]
+[gd_scene load_steps=14 format=3 uid="uid://beulniltj2hto"]
 
 [ext_resource type="Script" uid="uid://b46v6j77q3xc8" path="res://scenes/difficulty_menu/difficulty_menu.gd" id="1_2ybyc"]
-[ext_resource type="Theme" uid="uid://drkpbmmwnukl" path="res://resources/themes/train_one.tres" id="1_krwiw"]
 [ext_resource type="Texture2D" uid="uid://eij2hohstuhh" path="res://images/background.png" id="2_krwiw"]
-[ext_resource type="Texture2D" uid="uid://vafvwjai7e0i" path="res://images/icons/icon.svg" id="3_2ybyc"]
+[ext_resource type="PackedScene" uid="uid://cywhajrq5c1sc" path="res://scenes/common/title.tscn" id="3_2ybyc"]
 [ext_resource type="Texture2D" uid="uid://bjxnay11d1yk4" path="res://images/stations/station_0.png" id="4_h6mec"]
 [ext_resource type="Texture2D" uid="uid://cokdv6yyop4by" path="res://images/stations/station_1.png" id="5_db5gl"]
 [ext_resource type="Texture2D" uid="uid://dts6v5c3y7rw5" path="res://images/stations/station_2.png" id="6_6q7bh"]
 [ext_resource type="Texture2D" uid="uid://m60axpcslo86" path="res://images/stations/station_3.png" id="7_2635y"]
 [ext_resource type="Texture2D" uid="uid://daujb80vuk4no" path="res://images/stations/station_4.png" id="8_0v7ag"]
 [ext_resource type="Texture2D" uid="uid://ck35v7b2xepu3" path="res://images/stations/station_5.png" id="9_sedln"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_t7ix4"]
-font_size = 128
 
 [sub_resource type="Animation" id="Animation_ty162"]
 resource_name = "changed"
@@ -60,28 +56,11 @@ script = ExtResource("1_2ybyc")
 texture = ExtResource("2_krwiw")
 centered = false
 
-[node name="Title" type="HBoxContainer" parent="."]
+[node name="Title" parent="." instance=ExtResource("3_2ybyc")]
 layout_mode = 2
-alignment = 1
 
-[node name="TitleLabel" type="Label" parent="Title"]
-custom_minimum_size = Vector2(0, 64)
-layout_mode = 2
-theme = ExtResource("1_krwiw")
-theme_override_font_sizes/font_size = 64
+[node name="TitleLabel" parent="Title" index="0"]
 text = "GAME_TITLE"
-label_settings = SubResource("LabelSettings_t7ix4")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Control" type="Control" parent="Title"]
-layout_mode = 2
-
-[node name="LogoSprite" type="Sprite2D" parent="Title/Control"]
-position = Vector2(25, 25)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_2ybyc")
-centered = false
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 2
@@ -311,3 +290,5 @@ text = "START"
 [connection signal="pressed" from="CenterContainer/GridContainer/ErrorsMinusButton" to="." method="_on_errors_minus_button_pressed"]
 [connection signal="pressed" from="CenterContainer/GridContainer/ErrorsPlusButton" to="." method="_on_errors_plus_button_pressed"]
 [connection signal="pressed" from="CenterContainer/GridContainer/StartButton" to="." method="_on_start_button_pressed"]
+
+[editable path="Title"]
