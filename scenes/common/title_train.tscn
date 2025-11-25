@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://5ueq7hiplumc"]
 
-[ext_resource type="Script" uid="uid://cp0nwjw5jpofy" path="res://scenes/common/title_train.gd" id="1_448jf"]
 [ext_resource type="PackedScene" uid="uid://dev70nkbyuydv" path="res://scenes/game_view/train.tscn" id="1_tjrhi"]
+[ext_resource type="Script" uid="uid://cp0nwjw5jpofy" path="res://scenes/common/title_train.gd" id="1_touek"]
 [ext_resource type="Texture2D" uid="uid://vafvwjai7e0i" path="res://images/icons/icon.svg" id="3_touek"]
 
 [sub_resource type="Animation" id="Animation_qel0l"]
@@ -97,7 +97,7 @@ offset_bottom = 40.0
 
 [node name="TitleTrain" type="Node2D" parent="."]
 position = Vector2(100, 110)
-script = ExtResource("1_448jf")
+script = ExtResource("1_touek")
 
 [node name="Train" parent="TitleTrain" instance=ExtResource("1_tjrhi")]
 script = null
