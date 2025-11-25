@@ -160,31 +160,30 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "HIGHSCORE"
 
-[node name="CreditsButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 64
-text = "LEGAL_NOTES"
-
 [node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "QUIT_GAME"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 2
+anchors_preset = 12
 anchor_top = 1.0
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -154.0
-offset_right = 96.0
+offset_top = -274.0
+grow_horizontal = 2
 grow_vertical = 0
+
+[node name="VBoxContainerLeft" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="AudioSettings" type="HBoxContainer" parent="VBoxContainer"]
+[node name="AudioSettings" type="HBoxContainer" parent="HBoxContainer/VBoxContainerLeft"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="AudioOptionButton" type="OptionButton" parent="VBoxContainer/AudioSettings"]
+[node name="AudioOptionButton" type="OptionButton" parent="HBoxContainer/VBoxContainerLeft/AudioSettings"]
 unique_name_in_owner = true
 layout_mode = 2
 selected = 0
@@ -194,11 +193,11 @@ popup/item_0/id = 1
 popup/item_1/icon = ExtResource("5_dy7ct")
 popup/item_1/id = 0
 
-[node name="LanguageSettings" type="HBoxContainer" parent="VBoxContainer"]
+[node name="LanguageSettings" type="HBoxContainer" parent="HBoxContainer/VBoxContainerLeft"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="LanguageOptionButton" type="OptionButton" parent="VBoxContainer/LanguageSettings"]
+[node name="LanguageOptionButton" type="OptionButton" parent="HBoxContainer/VBoxContainerLeft/LanguageSettings"]
 unique_name_in_owner = true
 layout_mode = 2
 selected = 0
@@ -208,13 +207,24 @@ popup/item_0/id = 1
 popup/item_1/icon = ExtResource("5_qe12f")
 popup/item_1/id = 0
 
+[node name="VBoxContainerRight" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 8
+theme_override_constants/separation = 10
+
+[node name="CreditsButton" type="Button" parent="HBoxContainer/VBoxContainerRight"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "LEGAL_NOTES"
+
 [connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/ManualButton" to="." method="_on_help_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/HighscoreButton" to="." method="_on_highscore_button_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
-[connection signal="item_selected" from="VBoxContainer/AudioSettings/AudioOptionButton" to="." method="_on_audio_option_button_item_selected"]
-[connection signal="item_selected" from="VBoxContainer/LanguageSettings/LanguageOptionButton" to="." method="_on_language_option_button_item_selected"]
+[connection signal="item_selected" from="HBoxContainer/VBoxContainerLeft/AudioSettings/AudioOptionButton" to="." method="_on_audio_option_button_item_selected"]
+[connection signal="item_selected" from="HBoxContainer/VBoxContainerLeft/LanguageSettings/LanguageOptionButton" to="." method="_on_language_option_button_item_selected"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainerRight/CreditsButton" to="." method="_on_credits_button_pressed"]
 
 [editable path="Rails"]
 [editable path="Rails/Trains/Train1"]
