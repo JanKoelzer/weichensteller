@@ -24,11 +24,6 @@ const DEFAULT_CONCURRENT_TRAINS = 3
 const MIN_EXTRA_SWITCHES = 0
 const MAX_EXTRA_SWITCHES = 10
 const DEFAULT_EXTRA_SWITCHES = 5
-const MIN_BRAKES = 0
-const MAX_BRAKES = 5
-const DEFAULT_BRAKES = 3
-const DEFAULT_AUTO_BRAKE_ENABLED = true
-const DEFAULT_AUTO_BRAKE_THRESHOLD = 2
 const MIN_ERRORS = 0
 const MAX_ERRORS = 10
 const DEFAULT_MAX_ERRORS = 5
@@ -64,21 +59,6 @@ var num_extra_switches: int = DEFAULT_EXTRA_SWITCHES:
 		num_extra_switches = clampi(v, MIN_EXTRA_SWITCHES, MAX_EXTRA_SWITCHES)
 		changed.emit("num_extra_switches", v)
 
-var num_brakes: int = DEFAULT_BRAKES:
-	get: return num_brakes
-	set(v):
-		num_brakes = clampi(v, MIN_BRAKES, MAX_BRAKES)
-		changed.emit("num_brakes", v)
-
-# currently not customizable
-const auto_brake_threshold: int = DEFAULT_AUTO_BRAKE_THRESHOLD
-
-var auto_brake_enabled: bool = DEFAULT_AUTO_BRAKE_ENABLED:
-	get: return auto_brake_enabled
-	set(v):
-		auto_brake_enabled = v
-		changed.emit("auto_brake_enabled", v)
-
 var max_errors: int = DEFAULT_MAX_ERRORS:
 	get: return max_errors
 	set(v):
@@ -107,7 +87,6 @@ func score_factor() -> float:
 	k *= (float(num_concurrent_trains)/DEFAULT_CONCURRENT_TRAINS)**1.2
 	k *= (float(num_stations)/DEFAULT_STATIONS.size())**2
 	k *= 1 + 0.08*(DEFAULT_EXTRA_SWITCHES-num_extra_switches)
-	k *= 1 + 0.05*(DEFAULT_BRAKES-num_brakes)
 	k *= 1 + 0.1*(DEFAULT_MAX_ERRORS-max_errors)
 	k = snappedf(k, 0.01)
 	return k
@@ -133,7 +112,6 @@ func load_from_file() -> void:
 	
 	num_concurrent_trains = file.get_value(config_section, "num_concurrent_trains", num_concurrent_trains)	
 	num_extra_switches = file.get_value(config_section, "num_extra_switches", num_extra_switches)	
-	num_brakes = file.get_value(config_section, "num_brakes", num_brakes)	
 	max_errors = file.get_value(config_section, "max_errors", max_errors)	
 	
 
@@ -143,7 +121,6 @@ func save_to_file() -> void:
 	file.set_value(config_section, "selected_stations", ",".join(selected_stations.keys()))
 	file.set_value(config_section, "num_concurrent_trains", num_concurrent_trains)
 	file.set_value(config_section, "num_extra_switches", num_extra_switches)
-	file.set_value(config_section, "num_brakes", num_brakes)
 	file.set_value(config_section, "max_errors", max_errors)
 	
 	file.save(config_filename)

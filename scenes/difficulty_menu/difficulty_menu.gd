@@ -3,7 +3,6 @@ extends VBoxContainer
 @onready var speed_label: Label = $CenterContainer/GridContainer/SpeedLabel
 @onready var num_concurrent_trains_label: Label = $CenterContainer/GridContainer/NumConcurrentTrainsLabel
 @onready var num_switches_label: Label = $CenterContainer/GridContainer/NumSwitchesLabel
-@onready var num_brakes_label: Label = $CenterContainer/GridContainer/NumBrakesLabel
 @onready var max_errors_label: Label = $CenterContainer/GridContainer/MaxErrorsLabel
 @onready var station_buttons := [
 	%StationButton0,
@@ -34,7 +33,6 @@ func update_view() -> void:
 	speed_label.text = str(roundi(GameSettings.speed*100))
 	num_concurrent_trains_label.text = str(GameSettings.num_concurrent_trains)
 	num_switches_label.text = str(GameSettings.num_extra_switches)
-	num_brakes_label.text = str(GameSettings.num_brakes)
 	max_errors_label.text = str(GameSettings.max_errors)
 	
 	for i in range(station_buttons.size()):
@@ -67,28 +65,12 @@ func _on_concurrent_minus_button_pressed() -> void:
 	GameSettings.num_concurrent_trains -= 1
 
 
-func _on_stations_plus_button_pressed() -> void:
-	GameSettings.num_stations += 1
-
-
-func _on_stations_minus_button_pressed() -> void:
-	GameSettings.num_stations -= 1
-
-
 func _on_switches_plus_button_pressed() -> void:
 	GameSettings.num_extra_switches += 1
 
 
 func _on_switches_minus_button_pressed() -> void:
 	GameSettings.num_extra_switches -= 1
-
-
-func _on_brakes_plus_button_pressed() -> void:
-	GameSettings.num_brakes += 1
-
-
-func _on_brakes_minus_button_pressed() -> void:
-	GameSettings.num_brakes -= 1
 
 
 func _on_errors_plus_button_pressed() -> void:

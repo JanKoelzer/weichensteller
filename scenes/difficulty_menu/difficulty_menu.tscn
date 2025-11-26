@@ -207,26 +207,6 @@ text = "+"
 layout_mode = 2
 text = "5"
 
-[node name="Label9" type="Label" parent="CenterContainer/GridContainer"]
-layout_mode = 2
-tooltip_text = "NUMBER_BRAKES_HINT"
-mouse_filter = 1
-text = "NUMBER_BRAKES"
-
-[node name="BrakesMinusButton" type="Button" parent="CenterContainer/GridContainer"]
-custom_minimum_size = Vector2(0, 120)
-layout_mode = 2
-text = "-"
-
-[node name="BrakesPlusButton" type="Button" parent="CenterContainer/GridContainer"]
-custom_minimum_size = Vector2(0, 120)
-layout_mode = 2
-text = "+"
-
-[node name="NumBrakesLabel" type="Label" parent="CenterContainer/GridContainer"]
-layout_mode = 2
-text = "3	"
-
 [node name="Label10" type="Label" parent="CenterContainer/GridContainer"]
 layout_mode = 2
 tooltip_text = "NUMBER_ERRORS_HINT"
@@ -285,8 +265,6 @@ text = "START"
 [connection signal="pressed" from="CenterContainer/GridContainer/HBoxContainer/StationButton5" to="." method="_on_station_button_pressed"]
 [connection signal="pressed" from="CenterContainer/GridContainer/SwitchesMinusButton" to="." method="_on_switches_minus_button_pressed"]
 [connection signal="pressed" from="CenterContainer/GridContainer/SwitchesPlusButton" to="." method="_on_switches_plus_button_pressed"]
-[connection signal="pressed" from="CenterContainer/GridContainer/BrakesMinusButton" to="." method="_on_brakes_minus_button_pressed"]
-[connection signal="pressed" from="CenterContainer/GridContainer/BrakesPlusButton" to="." method="_on_brakes_plus_button_pressed"]
 [connection signal="pressed" from="CenterContainer/GridContainer/ErrorsMinusButton" to="." method="_on_errors_minus_button_pressed"]
 [connection signal="pressed" from="CenterContainer/GridContainer/ErrorsPlusButton" to="." method="_on_errors_plus_button_pressed"]
 [connection signal="pressed" from="CenterContainer/GridContainer/StartButton" to="." method="_on_start_button_pressed"]

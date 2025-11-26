@@ -23,35 +23,9 @@ var error_count: int = 0
 var score: float = 0.0
 var score_str: String:
 	get: return str(roundi(score))
-var pauses_left: int
-var pause_time: int = 5
-
-var errors_in_row: int = 0:
-	get: return errors_in_row
-	set(v):
-		if v >= GameSettings.auto_brake_threshold and GameSettings.auto_brake_enabled:
-			errors_in_row = 0
-			auto_brake()
-		else:
-			errors_in_row = v
 
 
 func _ready() -> void:
-	# hide/show STOP buttons and checkbox
-	if GameSettings.num_brakes > 0:
-		pauses_left = GameSettings.num_brakes
-		for i in range(pauses_left):
-			var b: Button = Button.new()
-			b.text = tr("STOP")
-			b.pressed.connect(func() -> void: activate_brakes(b))
-			%PauseButtons.add_child(b)
-		# move CheckBox to the end of all its siblings
-		%PauseButtons/AutoBrakeCheckBox.move_to_front()		
-	else:
-		%PauseButtons/AutoBrakeCheckBox.visible = false
-	
-	%PauseButtons/AutoBrakeCheckBox.button_pressed = GameSettings.auto_brake_enabled
-	
 	# start the game
 	rails.init(COL_COUNT, GameSettings)
 	count_down_and_start()
@@ -76,21 +50,13 @@ func count_down_and_start() -> void:
 		)
 
 
-func activate_brakes(b: Button) -> void:
-	b.disabled = true
-	rails.pause_trains()
-	get_tree().create_timer(pause_time).timeout.connect(rails.resume_trains)
-	
-
 func _on_rails_scored() -> void:
 	self.score += 10 * score_factor
 	score_label.update(score_str)
-	errors_in_row = 0
 
 
 func _on_rails_errored() -> void:
 	self.error_count += 1
-	self.errors_in_row += 1
 	
 	if error_count > GameSettings.max_errors:
 		errors_label.update(error_count, true)
@@ -158,23 +124,6 @@ func _on_highscore_put(success: bool) -> void:
 		for button: Button in get_tree().get_nodes_in_group("SubmitButton"):
 			button.disabled = false
 		submit_status_label.text = tr("PLEASE_RETRY")
-	
-
-func _on_auto_brake_check_box_toggled(toggled_on: bool) -> void:
-	GameSettings.auto_brake_enabled = toggled_on
-
-
-func auto_brake() -> void:
-	var brakes := %PauseButtons.get_children()
-	brakes = brakes.slice(0, brakes.size()-1) # skip checkbox
-	for b in brakes:
-		if not b.disabled:
-			%PauseButtons/AutoBrakeCheckBox/AnimationPlayer.play("activated")
-			get_tree().create_timer(pause_time).timeout.connect(func() -> void:
-				%PauseButtons/AutoBrakeCheckBox/AnimationPlayer.pause()
-			)
-			activate_brakes(b as Button)
-			break # activate only one brake
 
 
 func _on_player_name_edit_focus_entered() -> void:
