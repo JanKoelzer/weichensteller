@@ -152,7 +152,7 @@ func switch(cell: Vector2i) -> void:
 	
 
 func _on_train_moved(train: Train) -> void:
-	var cell := get_cell_at(to_local(train.position))
+	var cell := get_cell_at(train.position)
 	var data := get_cell_tile_data(cell)
 	
 	if data == null:

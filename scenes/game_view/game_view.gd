@@ -35,7 +35,7 @@ func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_GO_BACK_REQUEST:
 		get_tree().change_scene_to_file("res://scenes/difficulty_settings/difficulty_settings.tscn")
 
-	
+
 func count_down_and_start() -> void:
 	for i in countdown_labels.size():
 		get_tree().create_timer(countdown_labels.size()-1-i).timeout.connect(func() -> void:
@@ -88,7 +88,6 @@ func _on_rails_end() -> void:
 
 func _on_rails_train_started(sum_trains_started: int) -> void:
 	train_count_label.update(sum_trains_started)
-	
 
 
 func _on_restart_button_pressed() -> void:

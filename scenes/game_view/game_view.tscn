@@ -182,39 +182,36 @@ _data = {
 &"changed": SubResource("Animation_sbrcx")
 }
 
-[node name="CenterContainer" type="CenterContainer"]
+[node name="GameView" type="VBoxContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+alignment = 1
+script = ExtResource("1_6hfh6")
 
-[node name="BackgroundSprite2D" type="Sprite2D" parent="."]
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_g1875")
 centered = false
 
-[node name="GameView" type="VBoxContainer" parent="."]
-layout_mode = 2
-script = ExtResource("1_6hfh6")
-
-[node name="Timer" type="Timer" parent="GameView"]
-editor_description = "This Timer just counts the time. It does not influence the game itself."
-
-[node name="Container" type="CenterContainer" parent="GameView"]
+[node name="Container" type="CenterContainer" parent="."]
 custom_minimum_size = Vector2(1920, 720)
 layout_mode = 2
 
-[node name="Rails" parent="GameView/Container" instance=ExtResource("1_rrse5")]
+[node name="Rails" parent="Container" instance=ExtResource("1_rrse5")]
 unique_name_in_owner = true
 tile_map_data = PackedByteArray("AAAAAAAAAAADAAAAAAABAAAAAAADAAAAAAACAAAAAAADAAAAAAADAAAAAAADAAAAAAAEAAAAAAADAAAAAAAFAAAAAAADAAAAAAAGAAEAAAADAAAAAAAHAAEAAAADAAAAAAAHAAAAAAADAAAAAAAIAAAAAAADAAAAAAAJAAAAAAADAAAAAAAGAAAAAAADAAAAAAAAAAEAAAADAAAAAAABAAEAAAADAAAAAAACAAEAAAADAAAAAAADAAEAAAADAAAAAAAEAAEAAAADAAAAAAAFAAEAAAADAAAAAAAJAAEAAAADAAAAAAAKAAEAAAADAAAAAAAKAAAAAAADAAAAAAALAAAAAAADAAAAAAALAAEAAAADAAAAAAAIAAEAAAADAAAAAAAAAAIAAAADAAAAAAABAAIAAAADAAAAAAACAAIAAAADAAAAAAADAAIAAAADAAAAAAAEAAIAAAADAAAAAAAFAAIAAAADAAAAAAAGAAIAAAADAAAAAAAHAAIAAAADAAAAAAAIAAIAAAADAAAAAAAJAAIAAAADAAAAAAAKAAIAAAADAAAAAAALAAIAAAADAAAAAAALAAMAAAADAAAAAAAKAAMAAAADAAAAAAAJAAMAAAADAAAAAAAIAAMAAAADAAAAAAAHAAMAAAADAAAAAAAGAAMAAAADAAAAAAAFAAMAAAADAAAAAAAEAAMAAAADAAAAAAADAAMAAAADAAAAAAACAAMAAAADAAAAAAABAAMAAAADAAAAAAAAAAMAAAADAAAAAAAAAAQAAAADAAAAAAABAAQAAAADAAAAAAACAAQAAAADAAAAAAADAAQAAAADAAAAAAAEAAQAAAADAAAAAAAFAAQAAAADAAAAAAAGAAQAAAADAAAAAAAHAAQAAAADAAAAAAAIAAQAAAADAAAAAAAJAAQAAAADAAAAAAAKAAQAAAADAAAAAAALAAQAAAADAAAAAAAMAAAAAAADAAAAAAAMAAEAAAADAAAAAAANAAEAAAADAAAAAAAMAAIAAAADAAAAAAANAAIAAAADAAAAAAAMAAMAAAADAAAAAAANAAMAAAADAAAAAAANAAQAAAADAAAAAAAMAAQAAAADAAAAAAAAAAUAAAADAAAAAAABAAUAAAADAAAAAAACAAUAAAADAAAAAAADAAUAAAADAAAAAAAEAAUAAAADAAAAAAAFAAUAAAADAAAAAAAGAAUAAAADAAAAAAAHAAUAAAADAAAAAAAIAAUAAAADAAAAAAAJAAUAAAADAAAAAAAKAAUAAAADAAAAAAALAAUAAAADAAAAAAAMAAUAAAADAAAAAAANAAUAAAADAAAAAAANAAAAAAADAAAAAAAOAAAAAAADAAAAAAAPAAAAAAAAAAIAAAAPAAEAAAABAAIAAAAPAAIAAAACAAIAAAAPAAMAAAADAAIAAAAOAAMAAAADAAAAAAAOAAQAAAADAAAAAAAOAAIAAAADAAAAAAAOAAEAAAADAAAAAAAPAAQAAAAEAAIAAAAOAAUAAAADAAAAAAAPAAUAAAAFAAIAAAA=")
 script = ExtResource("4_o7foy")
 
-[node name="Countdown" type="Control" parent="GameView/Container"]
+[node name="Countdown" type="Control" parent="Container"]
 modulate = Color(1, 1, 1, 0.729412)
 layout_mode = 2
 theme = ExtResource("4_gxnlg")
 
-[node name="CountdownLabel0" type="Label" parent="GameView/Container/Countdown"]
+[node name="CountdownLabel0" type="Label" parent="Container/Countdown"]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)
 clip_contents = true
@@ -232,12 +229,12 @@ theme_override_colors/font_color = Color(0.415686, 0.745098, 0.196078, 1)
 theme_override_font_sizes/font_size = 200
 text = "GO"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="GameView/Container/Countdown/CountdownLabel0"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Container/Countdown/CountdownLabel0"]
 libraries = {
 &"": SubResource("AnimationLibrary_xll60")
 }
 
-[node name="CountdownLabel1" type="Label" parent="GameView/Container/Countdown"]
+[node name="CountdownLabel1" type="Label" parent="Container/Countdown"]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)
 clip_contents = true
@@ -255,12 +252,12 @@ theme_override_colors/font_color = Color(0.984314, 0.94902, 0.211765, 1)
 theme_override_font_sizes/font_size = 200
 text = "1"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="GameView/Container/Countdown/CountdownLabel1"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Container/Countdown/CountdownLabel1"]
 libraries = {
 &"": SubResource("AnimationLibrary_xll60")
 }
 
-[node name="CountdownLabel2" type="Label" parent="GameView/Container/Countdown"]
+[node name="CountdownLabel2" type="Label" parent="Container/Countdown"]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)
 clip_contents = true
@@ -278,12 +275,12 @@ theme_override_colors/font_color = Color(0.87451, 0.443137, 0.14902, 1)
 theme_override_font_sizes/font_size = 200
 text = "2"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="GameView/Container/Countdown/CountdownLabel2"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Container/Countdown/CountdownLabel2"]
 libraries = {
 &"": SubResource("AnimationLibrary_xll60")
 }
 
-[node name="CountdownLabel3" type="Label" parent="GameView/Container/Countdown"]
+[node name="CountdownLabel3" type="Label" parent="Container/Countdown"]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)
 clip_contents = true
@@ -301,27 +298,27 @@ theme_override_colors/font_color = Color(0.67451, 0.196078, 0.196078, 1)
 theme_override_font_sizes/font_size = 200
 text = "3"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="GameView/Container/Countdown/CountdownLabel3"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Container/Countdown/CountdownLabel3"]
 libraries = {
 &"": SubResource("AnimationLibrary_xll60")
 }
 
-[node name="CountdownAudioStreamPlayer" type="AudioStreamPlayer" parent="GameView/Container/Countdown"]
+[node name="CountdownAudioStreamPlayer" type="AudioStreamPlayer" parent="Container/Countdown"]
 unique_name_in_owner = true
 stream = ExtResource("4_cr1hu")
 
-[node name="CountdownEndAudioStreamPlayer" type="AudioStreamPlayer" parent="GameView/Container/Countdown"]
+[node name="CountdownEndAudioStreamPlayer" type="AudioStreamPlayer" parent="Container/Countdown"]
 unique_name_in_owner = true
 stream = ExtResource("5_ni2ws")
 
-[node name="GameOverDisplay" type="Control" parent="GameView/Container"]
+[node name="GameOverDisplay" type="Control" parent="Container"]
 unique_name_in_owner = true
 visible = false
 modulate = Color(1, 1, 1, 0.768627)
 layout_mode = 2
 theme = ExtResource("4_gxnlg")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="GameView/Container/GameOverDisplay"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Container/GameOverDisplay"]
 clip_contents = true
 layout_mode = 1
 anchors_preset = 15
@@ -331,14 +328,14 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="GameView/Container/GameOverDisplay/VBoxContainer"]
+[node name="Label" type="Label" parent="Container/GameOverDisplay/VBoxContainer"]
 clip_contents = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 100
 text = "GAME_OVER"
 horizontal_alignment = 1
 
-[node name="FinalScoreLabel" type="Label" parent="GameView/Container/GameOverDisplay/VBoxContainer"]
+[node name="FinalScoreLabel" type="Label" parent="Container/GameOverDisplay/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.67451, 0.196078, 0.196078, 1)
@@ -346,155 +343,155 @@ theme_override_font_sizes/font_size = 100
 text = "SCORE"
 horizontal_alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="GameView/Container/GameOverDisplay/VBoxContainer/FinalScoreLabel"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Container/GameOverDisplay/VBoxContainer/FinalScoreLabel"]
 libraries = {
 &"": SubResource("AnimationLibrary_4him0")
 }
 
-[node name="CenterContainer" type="CenterContainer" parent="GameView"]
+[node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="GameView/CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="GameView/CenterContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="Label2" type="Label" parent="GameView/CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="Label2" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "TRAINS"
 
-[node name="TrainCountLabel" type="Label" parent="GameView/CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="TrainCountLabel" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "0"
 script = ExtResource("7_1e55p")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="GameView/CenterContainer/VBoxContainer/HBoxContainer/TrainCountLabel"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer/VBoxContainer/HBoxContainer/TrainCountLabel"]
 libraries = {
 &"": SubResource("AnimationLibrary_d0jt8")
 }
 
-[node name="VSeparator" type="VSeparator" parent="GameView/CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="VSeparator" type="VSeparator" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="GameView/CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "SCORE"
 
-[node name="ScoreLabel" type="Label" parent="GameView/CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="ScoreLabel" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "0"
 script = ExtResource("8_3i3bd")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="GameView/CenterContainer/VBoxContainer/HBoxContainer/ScoreLabel"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer/VBoxContainer/HBoxContainer/ScoreLabel"]
 libraries = {
 &"": SubResource("AnimationLibrary_y681f")
 }
 
-[node name="VSeparator2" type="VSeparator" parent="GameView/CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="VSeparator2" type="VSeparator" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label3" type="Label" parent="GameView/CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="Label3" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "ERRORS"
 
-[node name="ErrorsLabel" type="Label" parent="GameView/CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="ErrorsLabel" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "0"
 script = ExtResource("9_ituk5")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="GameView/CenterContainer/VBoxContainer/HBoxContainer/ErrorsLabel"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer/VBoxContainer/HBoxContainer/ErrorsLabel"]
 libraries = {
 &"": SubResource("AnimationLibrary_7gscs")
 }
 
-[node name="VSeparator3" type="VSeparator" parent="GameView/CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="VSeparator3" type="VSeparator" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label5" type="Label" parent="GameView/CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="Label5" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "TIME"
 
-[node name="TimeLabel" type="Label" parent="GameView/CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="TimeLabel" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "0"
 
-[node name="MenuContainer" type="HBoxContainer" parent="GameView/CenterContainer/VBoxContainer"]
+[node name="MenuContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="RestartButton" type="Button" parent="GameView/CenterContainer/VBoxContainer/MenuContainer"]
+[node name="RestartButton" type="Button" parent="CenterContainer/VBoxContainer/MenuContainer"]
 layout_mode = 2
 text = "RESTART_GAME"
 
-[node name="VSeparator" type="VSeparator" parent="GameView/CenterContainer/VBoxContainer/MenuContainer"]
+[node name="VSeparator" type="VSeparator" parent="CenterContainer/VBoxContainer/MenuContainer"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="DifficultySettingsButton" type="Button" parent="GameView/CenterContainer/VBoxContainer/MenuContainer"]
+[node name="DifficultySettingsButton" type="Button" parent="CenterContainer/VBoxContainer/MenuContainer"]
 layout_mode = 2
 text = "SETTINGS"
 
-[node name="VSeparator2" type="VSeparator" parent="GameView/CenterContainer/VBoxContainer/MenuContainer"]
+[node name="VSeparator2" type="VSeparator" parent="CenterContainer/VBoxContainer/MenuContainer"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MainMenuButton" type="Button" parent="GameView/CenterContainer/VBoxContainer/MenuContainer"]
+[node name="MainMenuButton" type="Button" parent="CenterContainer/VBoxContainer/MenuContainer"]
 layout_mode = 2
 text = "MAIN_MENU"
 
-[node name="HighscoreControls" type="HBoxContainer" parent="GameView/CenterContainer/VBoxContainer"]
+[node name="HighscoreControls" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="PlayerNameEdit" type="LineEdit" parent="GameView/CenterContainer/VBoxContainer/HighscoreControls"]
+[node name="PlayerNameEdit" type="LineEdit" parent="CenterContainer/VBoxContainer/HighscoreControls"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "NAME_PLACEHOLDER"
 max_length = 30
 
-[node name="ChildSubmitButton" type="Button" parent="GameView/CenterContainer/VBoxContainer/HighscoreControls" groups=["SubmitButton"]]
+[node name="ChildSubmitButton" type="Button" parent="CenterContainer/VBoxContainer/HighscoreControls" groups=["SubmitButton"]]
 layout_mode = 2
 text = "AGE_0"
 
-[node name="PupilSubmitButton" type="Button" parent="GameView/CenterContainer/VBoxContainer/HighscoreControls" groups=["SubmitButton"]]
+[node name="PupilSubmitButton" type="Button" parent="CenterContainer/VBoxContainer/HighscoreControls" groups=["SubmitButton"]]
 layout_mode = 2
 text = "AGE_1"
 
-[node name="AdultSubmitButton" type="Button" parent="GameView/CenterContainer/VBoxContainer/HighscoreControls" groups=["SubmitButton"]]
+[node name="AdultSubmitButton" type="Button" parent="CenterContainer/VBoxContainer/HighscoreControls" groups=["SubmitButton"]]
 layout_mode = 2
 text = "AGE_2"
 
-[node name="SubmitStatusLabel" type="Label" parent="GameView/CenterContainer/VBoxContainer/HighscoreControls"]
+[node name="SubmitStatusLabel" type="Label" parent="CenterContainer/VBoxContainer/HighscoreControls"]
 visible = false
 layout_mode = 2
 text = "…"
 
-[connection signal="timeout" from="GameView/Timer" to="GameView" method="_on_timer_timeout"]
-[connection signal="end" from="GameView/Container/Rails" to="GameView" method="_on_rails_end"]
-[connection signal="errored" from="GameView/Container/Rails" to="GameView" method="_on_rails_errored"]
-[connection signal="scored" from="GameView/Container/Rails" to="GameView" method="_on_rails_scored"]
-[connection signal="train_started" from="GameView/Container/Rails" to="GameView" method="_on_rails_train_started"]
-[connection signal="pressed" from="GameView/CenterContainer/VBoxContainer/MenuContainer/RestartButton" to="GameView" method="_on_restart_button_pressed"]
-[connection signal="pressed" from="GameView/CenterContainer/VBoxContainer/MenuContainer/DifficultySettingsButton" to="GameView" method="_on_difficulty_settings_button_pressed"]
-[connection signal="pressed" from="GameView/CenterContainer/VBoxContainer/MenuContainer/MainMenuButton" to="GameView" method="_on_main_menu_button_pressed"]
-[connection signal="focus_entered" from="GameView/CenterContainer/VBoxContainer/HighscoreControls/PlayerNameEdit" to="GameView" method="_on_player_name_edit_focus_entered"]
-[connection signal="pressed" from="GameView/CenterContainer/VBoxContainer/HighscoreControls/ChildSubmitButton" to="GameView" method="_on_highscore_submit_button_pressed" binds= ["0-5"]]
-[connection signal="pressed" from="GameView/CenterContainer/VBoxContainer/HighscoreControls/PupilSubmitButton" to="GameView" method="_on_highscore_submit_button_pressed" binds= ["6-12"]]
-[connection signal="pressed" from="GameView/CenterContainer/VBoxContainer/HighscoreControls/AdultSubmitButton" to="GameView" method="_on_highscore_submit_button_pressed" binds= ["13+"]]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="end" from="Container/Rails" to="." method="_on_rails_end"]
+[connection signal="errored" from="Container/Rails" to="." method="_on_rails_errored"]
+[connection signal="scored" from="Container/Rails" to="." method="_on_rails_scored"]
+[connection signal="train_started" from="Container/Rails" to="." method="_on_rails_train_started"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/MenuContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/MenuContainer/DifficultySettingsButton" to="." method="_on_difficulty_settings_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/MenuContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="focus_entered" from="CenterContainer/VBoxContainer/HighscoreControls/PlayerNameEdit" to="." method="_on_player_name_edit_focus_entered"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HighscoreControls/ChildSubmitButton" to="." method="_on_highscore_submit_button_pressed" binds= ["0-5"]]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HighscoreControls/PupilSubmitButton" to="." method="_on_highscore_submit_button_pressed" binds= ["6-12"]]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HighscoreControls/AdultSubmitButton" to="." method="_on_highscore_submit_button_pressed" binds= ["13+"]]
 
-[editable path="GameView/Container/Rails"]
+[editable path="Container/Rails"]
