@@ -129,10 +129,6 @@ func _unhandled_input(event: InputEvent) -> void:
 # active or deavtive a switch
 func switch(cell: Vector2i) -> void:
 	var data := get_cell_tile_data(cell)
-	var cell_atlas_coords := get_cell_atlas_coords(cell)
-	var cell_alternative := get_cell_alternative_tile(cell)
-	var new_atlas_coords: Vector2i
-	var audioPlayer: AudioStreamPlayer
 	
 	if data == null:
 		# no cell selected
@@ -140,6 +136,10 @@ func switch(cell: Vector2i) -> void:
 	
 	# only handle clicks on switches
 	if(data.get_custom_data("is_switch")):
+		var cell_atlas_coords := get_cell_atlas_coords(cell)
+		var cell_alternative := get_cell_alternative_tile(cell)
+		var new_atlas_coords: Vector2i
+		var audioPlayer: AudioStreamPlayer
 		if data.get_custom_data("is_active"):
 			new_atlas_coords = cell_atlas_coords - Vector2i(1, 0)
 			audioPlayer = deactivate_switch_audio_stream_player

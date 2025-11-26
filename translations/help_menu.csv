@@ -7,7 +7,7 @@ HELP_TEXT_DETAILS,"[ul]
 [u]Geschwindigkeit:[/u] Stelle ein, wie schnell die Züge fahren. Sie werden im Laufe des Spiels stetig schneller.
 [u]Zugdichte[/u]: Stelle ein, wie viele Züge gleichzeitig auf der Strecke sind. Wie auch die Geschwindigkeit nimmt die Zugdichte immer weiter zu.
 [u]Bahnhöfe[/u]: Stelle ein, wie viele verschiedene Bahnhöfe in welcher Farbe die Züge ansteuern. Je mehr Bahnhöfe es gibt, desto schwieriger ist es, einen Zug ans richtige Ziel zu bringen.
-[u]Anzahl Weichen[/u]: An jeder Weiche kann eine Lok gerade aus fahren oder nach oben bzw. unten abbiegen. Es gibt immer genügend Weichen, damit alle Züge den richtigen Bahnhof erreichen können. Je mehr zusätzliche Weichen es gibt, desto eher kannst du Fehler korrigieren.
+[u]Anzahl Weichen[/u]: An jeder Weiche kann eine Lok geradeaus fahren oder nach oben bzw. unten abbiegen. Es gibt immer genügend Weichen, damit alle Züge den richtigen Bahnhof erreichen können. Je mehr zusätzliche Weichen es gibt, desto eher kannst du Fehler korrigieren.
 [u]Fehlertoleranz[/u]: Stelle ein, nach wie vielen falsch geleiteten Loks das Spiel endet. Alle bereits gestarteten Züge fahren noch weiter, bis sie einen Bahnhof erreicht haben.
 [/ul]","[ul]
 [u]Speed:[/u] Define the speed of the trains. It increases over time.
