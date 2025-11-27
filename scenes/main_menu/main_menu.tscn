@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bych0wagxg6d5" path="res://scenes/main_menu/main_menu.gd" id="1_1d7qk"]
 [ext_resource type="Texture2D" uid="uid://eij2hohstuhh" path="res://images/background.png" id="1_l5ut5"]
-[ext_resource type="PackedScene" uid="uid://bj451436lnaqo" path="res://scenes/game_view/rails.tscn" id="3_dn3lk"]
+[ext_resource type="PackedScene" uid="uid://bj451436lnaqo" path="res://scenes/common/rails.tscn" id="3_dn3lk"]
 [ext_resource type="Theme" uid="uid://drkpbmmwnukl" path="res://resources/themes/train_one.tres" id="3_thkx5"]
 [ext_resource type="Texture2D" uid="uid://d1g164nxbdtto" path="res://images/whistle_on.png" id="4_8qtwp"]
 [ext_resource type="PackedScene" uid="uid://dev70nkbyuydv" path="res://scenes/game_view/train.tscn" id="4_x2yjq"]

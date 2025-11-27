@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=4 uid="uid://48bublgj4thp"]
 
 [ext_resource type="Texture2D" uid="uid://eij2hohstuhh" path="res://images/background.png" id="2_6j74y"]
-[ext_resource type="PackedScene" uid="uid://bj451436lnaqo" path="res://scenes/game_view/rails.tscn" id="3_wi23w"]
+[ext_resource type="PackedScene" uid="uid://bj451436lnaqo" path="res://scenes/common/rails.tscn" id="3_wi23w"]
 [ext_resource type="Theme" uid="uid://drkpbmmwnukl" path="res://resources/themes/train_one.tres" id="4_r5l30"]
 [ext_resource type="PackedScene" uid="uid://dev70nkbyuydv" path="res://scenes/game_view/train.tscn" id="4_wpewe"]
 [ext_resource type="AudioStream" uid="uid://2uokg23i8gxb" path="res://sounds/switch-deactivate.ogg" id="5_wv3wl"]
