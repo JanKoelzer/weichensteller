@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://hqe61n41cay3"]
+[gd_scene load_steps=39 format=4 uid="uid://hqe61n41cay3"]
 
 [ext_resource type="Script" uid="uid://bych0wagxg6d5" path="res://scenes/main_menu/main_menu.gd" id="1_1d7qk"]
 [ext_resource type="Texture2D" uid="uid://eij2hohstuhh" path="res://images/background.png" id="1_l5ut5"]
@@ -12,6 +12,161 @@
 [ext_resource type="PackedScene" uid="uid://cywhajrq5c1sc" path="res://scenes/common/title.tscn" id="6_qel0l"]
 [ext_resource type="Script" uid="uid://ct0ijq2fs0jd4" path="res://scenes/main_menu/start_button.gd" id="7_qel0l"]
 [ext_resource type="Script" uid="uid://dg5vo2ucwwkcg" path="res://scenes/main_menu/rails.gd" id="14_4ujhu"]
+
+[sub_resource type="Gradient" id="Gradient_6whlh"]
+colors = PackedColorArray(0.24, 0.24, 0.24, 0.509804, 0.76, 0.76, 0.76, 0.509804)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7e4hq"]
+gradient = SubResource("Gradient_6whlh")
+
+[sub_resource type="Gradient" id="Gradient_17jyq"]
+colors = PackedColorArray(1, 1, 1, 0.403922, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xgd0o"]
+gradient = SubResource("Gradient_17jyq")
+
+[sub_resource type="Curve" id="Curve_dmukj"]
+_limits = [1.0, 4.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 4), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_378lh"]
+curve = SubResource("Curve_dmukj")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4ujhu"]
+resource_local_to_scene = true
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+direction = Vector3(-1, 0, 0)
+spread = 15.0
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.3
+scale_max = 0.4
+scale_curve = SubResource("CurveTexture_378lh")
+color_ramp = SubResource("GradientTexture1D_xgd0o")
+color_initial_ramp = SubResource("GradientTexture1D_7e4hq")
+
+[sub_resource type="Gradient" id="Gradient_pfwk8"]
+colors = PackedColorArray(0.82, 0.82, 0.82, 1, 0.941176, 0.941176, 0.941176, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_e8e6e"]
+gradient = SubResource("Gradient_pfwk8")
+
+[sub_resource type="Gradient" id="Gradient_i1d45"]
+colors = PackedColorArray(0.66, 0.66, 0.66, 0.705882, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3gevl"]
+gradient = SubResource("Gradient_i1d45")
+
+[sub_resource type="Curve" id="Curve_1cflw"]
+_limits = [1.0, 10.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 3.98359), 5.7967, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_7e4hq"]
+curve = SubResource("Curve_1cflw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qel0l"]
+resource_local_to_scene = true
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 15.0
+direction = Vector3(-1, 0, 0)
+spread = 15.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.8
+scale_max = 1.1
+scale_curve = SubResource("CurveTexture_7e4hq")
+color = Color(1, 1, 1, 0.290196)
+color_ramp = SubResource("GradientTexture1D_3gevl")
+color_initial_ramp = SubResource("GradientTexture1D_e8e6e")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vnpsp"]
+resource_local_to_scene = true
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+direction = Vector3(-1, 0, 0)
+spread = 15.0
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.3
+scale_max = 0.4
+scale_curve = SubResource("CurveTexture_378lh")
+color_ramp = SubResource("GradientTexture1D_xgd0o")
+color_initial_ramp = SubResource("GradientTexture1D_7e4hq")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rrgl4"]
+resource_local_to_scene = true
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 15.0
+direction = Vector3(-1, 0, 0)
+spread = 15.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.8
+scale_max = 1.1
+scale_curve = SubResource("CurveTexture_7e4hq")
+color = Color(1, 1, 1, 0.290196)
+color_ramp = SubResource("GradientTexture1D_3gevl")
+color_initial_ramp = SubResource("GradientTexture1D_e8e6e")
+
+[sub_resource type="Gradient" id="Gradient_a1gy5"]
+colors = PackedColorArray(0.24, 0.24, 0.24, 0.509804, 0.76, 0.76, 0.76, 0.509804)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_bq5lc"]
+gradient = SubResource("Gradient_a1gy5")
+
+[sub_resource type="Gradient" id="Gradient_xac7c"]
+colors = PackedColorArray(1, 1, 1, 0.403922, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0m3cs"]
+gradient = SubResource("Gradient_xac7c")
+
+[sub_resource type="Curve" id="Curve_i7nm7"]
+_limits = [1.0, 4.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 4), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_tfctf"]
+curve = SubResource("Curve_i7nm7")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_n7xlh"]
+resource_local_to_scene = true
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+direction = Vector3(-1, 0, 0)
+spread = 15.0
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.3
+scale_max = 0.4
+scale_curve = SubResource("CurveTexture_tfctf")
+color_ramp = SubResource("GradientTexture1D_0m3cs")
+color_initial_ramp = SubResource("GradientTexture1D_bq5lc")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dn3lk"]
+resource_local_to_scene = true
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 15.0
+direction = Vector3(-0.995, -0.1, 0)
+spread = 5.0
+initial_velocity_min = 150.0
+initial_velocity_max = 180.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.8
+scale_max = 1.1
+scale_curve = SubResource("CurveTexture_7e4hq")
+color = Color(1, 1, 1, 0.290196)
+color_ramp = SubResource("GradientTexture1D_3gevl")
+color_initial_ramp = SubResource("GradientTexture1D_e8e6e")
 
 [sub_resource type="Animation" id="Animation_rrgl4"]
 resource_name = "rainbow"
@@ -60,41 +215,41 @@ position = Vector2(1440, 1020)
 speed = 1.0
 metadata/_edit_group_ = true
 
-[node name="Sprite" parent="Rails/Trains/Train1" index="0"]
+[node name="ExhaustParticles" parent="Rails/Trains/Train1" index="0"]
+process_material = SubResource("ParticleProcessMaterial_4ujhu")
+
+[node name="Sprite" parent="Rails/Trains/Train1" index="1"]
 region_rect = Rect2(120, 600, 120, 120)
 
-[node name="SteamParticles" parent="Rails/Trains/Train1" index="2"]
+[node name="SteamParticles" parent="Rails/Trains/Train1" index="3"]
 visible = false
 position = Vector2(22, 0)
+process_material = SubResource("ParticleProcessMaterial_qel0l")
 
-[node name="SparkParticles" parent="Rails/Trains/Train1" index="3"]
+[node name="SparkParticles" parent="Rails/Trains/Train1" index="4"]
 visible = false
 position = Vector2(21, 0)
-
-[node name="ExhaustParticles" parent="Rails/Trains/Train1" index="4"]
-position = Vector2(-77, 0)
 
 [node name="Train2" parent="Rails/Trains" index="1" instance=ExtResource("4_x2yjq")]
 position = Vector2(780, 780)
 speed = 1.0
 metadata/_edit_group_ = true
 
-[node name="Sprite" parent="Rails/Trains/Train2" index="0"]
-region_rect = Rect2(240, 720, 120, 120)
-
-[node name="SteamParticles" parent="Rails/Trains/Train2" index="2"]
-position = Vector2(22, 0)
-direction = Vector2(0.315, -0.12)
-initial_velocity_min = 25.0
-initial_velocity_max = 25.0
-
-[node name="SparkParticles" parent="Rails/Trains/Train2" index="3"]
-visible = false
-position = Vector2(21, 0)
-
-[node name="ExhaustParticles" parent="Rails/Trains/Train2" index="4"]
+[node name="ExhaustParticles" parent="Rails/Trains/Train2" index="0"]
 visible = false
 position = Vector2(-77, 0)
+process_material = SubResource("ParticleProcessMaterial_vnpsp")
+
+[node name="Sprite" parent="Rails/Trains/Train2" index="1"]
+region_rect = Rect2(240, 720, 120, 120)
+
+[node name="SteamParticles" parent="Rails/Trains/Train2" index="3"]
+position = Vector2(22, 0)
+process_material = SubResource("ParticleProcessMaterial_rrgl4")
+
+[node name="SparkParticles" parent="Rails/Trains/Train2" index="4"]
+visible = false
+position = Vector2(21, 0)
 
 [node name="TrainCreationTimer" parent="Rails" index="5"]
 wait_time = 6.0
@@ -122,6 +277,12 @@ text = "GAME_TITLE"
 
 [node name="TitleTrain" parent="CenterContainer/VBoxContainer/Title/TitleTrain" index="0"]
 animate_intro = true
+
+[node name="ExhaustParticles" parent="CenterContainer/VBoxContainer/Title/TitleTrain/TitleTrain/Train" index="0"]
+process_material = SubResource("ParticleProcessMaterial_n7xlh")
+
+[node name="SteamParticles" parent="CenterContainer/VBoxContainer/Title/TitleTrain/TitleTrain/Train" index="3"]
+process_material = SubResource("ParticleProcessMaterial_dn3lk")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 120)

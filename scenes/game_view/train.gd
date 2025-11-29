@@ -13,9 +13,9 @@ enum TrainColor {
 		PURPLE = 5,
 }
 
-@onready var steam_particles: CPUParticles2D = $SteamParticles
-@onready var spark_particles: CPUParticles2D = $SparkParticles
-@onready var exhaust_particles: CPUParticles2D = $ExhaustParticles
+@onready var steam_particles: SteamParticles = $SteamParticles
+@onready var spark_particles: SparkParticles = $SparkParticles
+@onready var exhaust_particles: ExhaustParticles = $ExhaustParticles
 
 
 var tile_size := 120

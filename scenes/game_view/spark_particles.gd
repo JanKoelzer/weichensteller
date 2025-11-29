@@ -1,4 +1,5 @@
-extends CPUParticles2D
+class_name SparkParticles
+extends GPUParticles2D
 
 @onready var timer: Timer = $Timer
 

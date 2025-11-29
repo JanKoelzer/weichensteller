@@ -1,8 +1,81 @@
-[gd_scene load_steps=7 format=3 uid="uid://5ueq7hiplumc"]
+[gd_scene load_steps=21 format=3 uid="uid://5ueq7hiplumc"]
 
 [ext_resource type="PackedScene" uid="uid://dev70nkbyuydv" path="res://scenes/game_view/train.tscn" id="1_tjrhi"]
 [ext_resource type="Script" uid="uid://cp0nwjw5jpofy" path="res://scenes/common/title_train.gd" id="1_touek"]
 [ext_resource type="Texture2D" uid="uid://vafvwjai7e0i" path="res://images/icons/icon.svg" id="3_touek"]
+
+[sub_resource type="Gradient" id="Gradient_a1gy5"]
+colors = PackedColorArray(0.24, 0.24, 0.24, 0.509804, 0.76, 0.76, 0.76, 0.509804)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_bq5lc"]
+gradient = SubResource("Gradient_a1gy5")
+
+[sub_resource type="Gradient" id="Gradient_xac7c"]
+colors = PackedColorArray(1, 1, 1, 0.403922, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0m3cs"]
+gradient = SubResource("Gradient_xac7c")
+
+[sub_resource type="Curve" id="Curve_i7nm7"]
+_limits = [1.0, 4.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 4), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_tfctf"]
+curve = SubResource("Curve_i7nm7")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4c4ud"]
+resource_local_to_scene = true
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+direction = Vector3(-1, 0, 0)
+spread = 15.0
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.3
+scale_max = 0.4
+scale_curve = SubResource("CurveTexture_tfctf")
+color_ramp = SubResource("GradientTexture1D_0m3cs")
+color_initial_ramp = SubResource("GradientTexture1D_bq5lc")
+
+[sub_resource type="Gradient" id="Gradient_pfwk8"]
+colors = PackedColorArray(0.82, 0.82, 0.82, 1, 0.941176, 0.941176, 0.941176, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_e8e6e"]
+gradient = SubResource("Gradient_pfwk8")
+
+[sub_resource type="Gradient" id="Gradient_i1d45"]
+colors = PackedColorArray(0.66, 0.66, 0.66, 0.705882, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3gevl"]
+gradient = SubResource("Gradient_i1d45")
+
+[sub_resource type="Curve" id="Curve_1cflw"]
+_limits = [1.0, 10.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 3.98359), 5.7967, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_7e4hq"]
+curve = SubResource("Curve_1cflw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_touek"]
+resource_local_to_scene = true
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 15.0
+direction = Vector3(-0.995, -0.1, 0)
+spread = 1.0
+initial_velocity_min = 150.0
+initial_velocity_max = 180.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.8
+scale_max = 1.1
+scale_curve = SubResource("CurveTexture_7e4hq")
+color = Color(1, 1, 1, 0.290196)
+color_ramp = SubResource("GradientTexture1D_3gevl")
+color_initial_ramp = SubResource("GradientTexture1D_e8e6e")
 
 [sub_resource type="Animation" id="Animation_qel0l"]
 length = 0.001
@@ -102,23 +175,22 @@ script = ExtResource("1_touek")
 [node name="Train" parent="TitleTrain" instance=ExtResource("1_tjrhi")]
 script = null
 
-[node name="Sprite" parent="TitleTrain/Train" index="0"]
+[node name="ExhaustParticles" parent="TitleTrain/Train" index="0"]
+visible = false
+process_material = SubResource("ParticleProcessMaterial_4c4ud")
+
+[node name="Sprite" parent="TitleTrain/Train" index="1"]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_touek")
 region_enabled = false
 
-[node name="SteamParticles" parent="TitleTrain/Train" index="2"]
+[node name="SteamParticles" parent="TitleTrain/Train" index="3"]
+position = Vector2(20, 0)
 emitting = false
 amount = 800
-direction = Vector2(-0.995, -0.1)
-spread = 5.0
-initial_velocity_min = 150.0
-initial_velocity_max = 180.0
+process_material = SubResource("ParticleProcessMaterial_touek")
 
-[node name="SparkParticles" parent="TitleTrain/Train" index="3"]
-visible = false
-
-[node name="ExhaustParticles" parent="TitleTrain/Train" index="4"]
+[node name="SparkParticles" parent="TitleTrain/Train" index="4"]
 visible = false
 
 [node name="IntroAnimation" type="AnimationPlayer" parent="TitleTrain"]
