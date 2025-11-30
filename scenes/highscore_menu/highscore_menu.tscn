@@ -20,7 +20,7 @@ centered = false
 layout_mode = 2
 
 [node name="TitleLabel" parent="Title" index="0"]
-text = "GAME_TITLE"
+text = "HIGHSCORE"
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 2
