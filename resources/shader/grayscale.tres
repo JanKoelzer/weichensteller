@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bhpe0mfslwwq1"]
+
+[ext_resource type="Shader" uid="uid://ccd61pflgqdvd" path="res://resources/shader/grayscale.gdshader" id="1_chhx4"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_chhx4")
+shader_parameter/duration = 0.50000002049012
+shader_parameter/engine_time_sec = 0.0

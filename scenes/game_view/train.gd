@@ -98,11 +98,8 @@ func fade_in() -> void:
 func fade_out(was_success: bool) -> void:
 	speed = 0.0
 	if not was_success:
-		var shader := preload("res://shader/grayscale.gdshader")
-		var shader_material := ShaderMaterial.new()
-		shader_material.shader = shader
+		var shader_material := preload("res://resources/shader/grayscale.tres")
 		shader_material.set_shader_parameter(&"engine_time_sec", Time.get_ticks_msec() / 1000.0)
-		shader_material.set_shader_parameter(&"duration", 0.5)
 		$Sprite.material = shader_material
 	$FadePlayer.play(&"fade_out")
 

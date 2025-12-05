@@ -1,6 +1,6 @@
 shader_type canvas_item;
 
-uniform float duration : hint_range(0.1, 10.0) = 0.2;
+uniform float duration : hint_range(0.1, 10.0) = 0.5;
 uniform float engine_time_sec;
 
 void fragment() {
