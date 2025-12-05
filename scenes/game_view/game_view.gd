@@ -82,8 +82,6 @@ func _on_rails_end() -> void:
 	%FinalScoreLabel.text = tr(&"SCORE") + " " + score_str
 	%FinalScoreLabel/AnimationPlayer.play(&"rainbow")
 	%FinalScoreLabel/AnimationPlayer.speed_scale = 2.0
-	
-	%HighscoreControls.visible = true
 
 
 func _on_rails_train_started(sum_trains_started: int) -> void:
