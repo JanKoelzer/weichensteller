@@ -1,14 +1,82 @@
-[gd_scene load_steps=14 format=3 uid="uid://beulniltj2hto"]
+[gd_scene load_steps=29 format=3 uid="uid://beulniltj2hto"]
 
 [ext_resource type="Script" uid="uid://b46v6j77q3xc8" path="res://scenes/difficulty_menu/difficulty_menu.gd" id="1_2ybyc"]
 [ext_resource type="Texture2D" uid="uid://eij2hohstuhh" path="res://images/background.png" id="2_krwiw"]
 [ext_resource type="PackedScene" uid="uid://cywhajrq5c1sc" path="res://scenes/common/title.tscn" id="3_2ybyc"]
-[ext_resource type="Texture2D" uid="uid://bjxnay11d1yk4" path="res://images/stations/station_0.png" id="4_h6mec"]
-[ext_resource type="Texture2D" uid="uid://cokdv6yyop4by" path="res://images/stations/station_1.png" id="5_db5gl"]
-[ext_resource type="Texture2D" uid="uid://dts6v5c3y7rw5" path="res://images/stations/station_2.png" id="6_6q7bh"]
-[ext_resource type="Texture2D" uid="uid://m60axpcslo86" path="res://images/stations/station_3.png" id="7_2635y"]
-[ext_resource type="Texture2D" uid="uid://daujb80vuk4no" path="res://images/stations/station_4.png" id="8_0v7ag"]
-[ext_resource type="Texture2D" uid="uid://ck35v7b2xepu3" path="res://images/stations/station_5.png" id="9_sedln"]
+[ext_resource type="Texture2D" uid="uid://chf34iv6d16q5" path="res://images/rails.png" id="4_c46ss"]
+
+[sub_resource type="Gradient" id="Gradient_a1gy5"]
+colors = PackedColorArray(0.24, 0.24, 0.24, 0.509804, 0.76, 0.76, 0.76, 0.509804)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_bq5lc"]
+gradient = SubResource("Gradient_a1gy5")
+
+[sub_resource type="Gradient" id="Gradient_xac7c"]
+colors = PackedColorArray(1, 1, 1, 0.403922, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0m3cs"]
+gradient = SubResource("Gradient_xac7c")
+
+[sub_resource type="Curve" id="Curve_i7nm7"]
+_limits = [1.0, 4.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 4), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_tfctf"]
+curve = SubResource("Curve_i7nm7")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lc7d8"]
+resource_local_to_scene = true
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+direction = Vector3(-1, 0, 0)
+spread = 15.0
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.3
+scale_max = 0.4
+scale_curve = SubResource("CurveTexture_tfctf")
+color_ramp = SubResource("GradientTexture1D_0m3cs")
+color_initial_ramp = SubResource("GradientTexture1D_bq5lc")
+
+[sub_resource type="Gradient" id="Gradient_pfwk8"]
+colors = PackedColorArray(0.82, 0.82, 0.82, 1, 0.941176, 0.941176, 0.941176, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_e8e6e"]
+gradient = SubResource("Gradient_pfwk8")
+
+[sub_resource type="Gradient" id="Gradient_i1d45"]
+colors = PackedColorArray(0.66, 0.66, 0.66, 0.705882, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3gevl"]
+gradient = SubResource("Gradient_i1d45")
+
+[sub_resource type="Curve" id="Curve_1cflw"]
+_limits = [1.0, 10.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 3.98359), 5.7967, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_7e4hq"]
+curve = SubResource("Curve_1cflw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fnlck"]
+resource_local_to_scene = true
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 15.0
+direction = Vector3(-0.995, -0.1, 0)
+spread = 1.0
+initial_velocity_min = 100.0
+initial_velocity_max = 120.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.8
+scale_max = 1.1
+scale_curve = SubResource("CurveTexture_7e4hq")
+color = Color(1, 1, 1, 0.290196)
+color_ramp = SubResource("GradientTexture1D_3gevl")
+color_initial_ramp = SubResource("GradientTexture1D_e8e6e")
 
 [sub_resource type="Animation" id="Animation_ty162"]
 resource_name = "changed"
@@ -43,6 +111,31 @@ content_margin_left = 4.0
 content_margin_right = 4.0
 bg_color = Color(1, 1, 1, 0.501961)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_esjue"]
+atlas = ExtResource("4_c46ss")
+region = Rect2(0, 240, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8jvx0"]
+atlas = ExtResource("4_c46ss")
+region = Rect2(120, 240, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ybyc"]
+atlas = ExtResource("4_c46ss")
+region = Rect2(240, 240, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_krwiw"]
+atlas = ExtResource("4_c46ss")
+region = Rect2(360, 240, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5fy7"]
+atlas = ExtResource("4_c46ss")
+region = Rect2(480, 240, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6mec"]
+atlas = ExtResource("4_c46ss")
+region = Rect2(600, 240, 120, 120)
+filter_clip = true
+
 [node name="DifficultySettings" type="VBoxContainer"]
 anchors_preset = 15
 anchor_right = 1.0
@@ -61,6 +154,12 @@ layout_mode = 2
 
 [node name="TitleLabel" parent="Title" index="0"]
 text = "GAME_TITLE"
+
+[node name="ExhaustParticles" parent="Title/TitleTrain/TitleTrain/Train" index="0"]
+process_material = SubResource("ParticleProcessMaterial_lc7d8")
+
+[node name="SteamParticles" parent="Title/TitleTrain/TitleTrain/Train" index="3"]
+process_material = SubResource("ParticleProcessMaterial_fnlck")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 2
@@ -128,7 +227,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_ty162")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_jnpvi")
 toggle_mode = true
 button_pressed = true
-icon = ExtResource("4_h6mec")
+icon = SubResource("AtlasTexture_esjue")
 icon_alignment = 1
 
 [node name="StationButton1" type="Button" parent="CenterContainer/GridContainer"]
@@ -138,7 +237,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_ty162")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_jnpvi")
 toggle_mode = true
 button_pressed = true
-icon = ExtResource("5_db5gl")
+icon = SubResource("AtlasTexture_8jvx0")
 icon_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/GridContainer"]
@@ -152,7 +251,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_ty162")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_jnpvi")
 toggle_mode = true
 button_pressed = true
-icon = ExtResource("6_6q7bh")
+icon = SubResource("AtlasTexture_2ybyc")
 icon_alignment = 1
 
 [node name="StationButton3" type="Button" parent="CenterContainer/GridContainer/HBoxContainer"]
@@ -163,7 +262,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_ty162")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_jnpvi")
 toggle_mode = true
 button_pressed = true
-icon = ExtResource("7_2635y")
+icon = SubResource("AtlasTexture_krwiw")
 icon_alignment = 1
 
 [node name="StationButton4" type="Button" parent="CenterContainer/GridContainer/HBoxContainer"]
@@ -174,7 +273,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_ty162")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_jnpvi")
 toggle_mode = true
 button_pressed = true
-icon = ExtResource("8_0v7ag")
+icon = SubResource("AtlasTexture_o5fy7")
 icon_alignment = 1
 
 [node name="StationButton5" type="Button" parent="CenterContainer/GridContainer/HBoxContainer"]
@@ -184,7 +283,7 @@ layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ty162")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_jnpvi")
 toggle_mode = true
-icon = ExtResource("9_sedln")
+icon = SubResource("AtlasTexture_h6mec")
 icon_alignment = 1
 
 [node name="Label8" type="Label" parent="CenterContainer/GridContainer"]
@@ -270,3 +369,5 @@ text = "START"
 [connection signal="pressed" from="CenterContainer/GridContainer/StartButton" to="." method="_on_start_button_pressed"]
 
 [editable path="Title"]
+[editable path="Title/TitleTrain"]
+[editable path="Title/TitleTrain/TitleTrain/Train"]

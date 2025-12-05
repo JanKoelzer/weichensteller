@@ -1,5 +1,7 @@
 soffice --headless --accept="socket,host=localhost,port=2002;urp;"
 
+echo "Maybe need to start LibreOffice manually?"
+
 for img in "tracks.odg" "rails.odg" "flags.odg"; do
     base="${img%.*}"
     echo "Convert ${img} to PDF…"
@@ -29,10 +31,9 @@ done
 
 
 cd "png"
-
-cp "flags1.png" "../../flag_de.png"
-cp "flags2.png" "../../flag_en.png"
-echo "png/flagsXX.png have been created and copied to ../"
+montage flags[1-2].png -tile 1x2 -background 'transparent' -geometry +0+0 flags.png
+cp "flags.png" "../../flags.png"
+echo "png/flags.png has been created and copied to ../"
 
 
 echo "Montage railsXXX.png…"
@@ -54,7 +55,6 @@ echo "Montage tracks, trains and stations…"
 montage tracks.png colored.png -tile 1x2 -background 'transparent' -geometry +0+0 rails.png
 
 cp "rails.png" "../../"
-for i in 1 2 3 4 5 6; do cp "rails$i.png" "../../stations/station_$((i-1)).png" ; done
 
 cp "../svg/rails10.svg" "../../icons/icon.svg"
 echo "png/rails.png has been created and copied to ../rails.png."
@@ -65,4 +65,6 @@ echo "removing temporary png and svg files…"
 cd ".."
 rm -r "png"
 rm -r "svg"
+
+echo "Maybe want to run ../icons/create-icons.sh?"
 

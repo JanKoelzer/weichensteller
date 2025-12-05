@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://hqe61n41cay3"]
+[gd_scene load_steps=40 format=4 uid="uid://hqe61n41cay3"]
 
 [ext_resource type="Script" uid="uid://bych0wagxg6d5" path="res://scenes/main_menu/main_menu.gd" id="1_1d7qk"]
 [ext_resource type="Texture2D" uid="uid://eij2hohstuhh" path="res://images/background.png" id="1_l5ut5"]
@@ -7,10 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://d1g164nxbdtto" path="res://images/whistle_on.png" id="4_8qtwp"]
 [ext_resource type="PackedScene" uid="uid://dev70nkbyuydv" path="res://scenes/game_view/train.tscn" id="4_x2yjq"]
 [ext_resource type="Texture2D" uid="uid://bh55pt3duejk" path="res://images/whistle_off.png" id="5_dy7ct"]
-[ext_resource type="Texture2D" uid="uid://c16c2cb5uwaxm" path="res://images/flag_de.png" id="5_qe12f"]
-[ext_resource type="Texture2D" uid="uid://bmfoqsuqdyjh1" path="res://images/flag_en.png" id="6_qe12f"]
 [ext_resource type="PackedScene" uid="uid://cywhajrq5c1sc" path="res://scenes/common/title.tscn" id="6_qel0l"]
 [ext_resource type="Script" uid="uid://ct0ijq2fs0jd4" path="res://scenes/main_menu/start_button.gd" id="7_qel0l"]
+[ext_resource type="Texture2D" uid="uid://c7tkj2pjngv6k" path="res://images/flags.png" id="11_lqpn7"]
 [ext_resource type="Script" uid="uid://dg5vo2ucwwkcg" path="res://scenes/main_menu/rails.gd" id="14_4ujhu"]
 
 [sub_resource type="Gradient" id="Gradient_6whlh"]
@@ -190,6 +189,14 @@ _data = {
 &"rainbow": SubResource("Animation_rrgl4")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_qel0l"]
+atlas = ExtResource("11_lqpn7")
+region = Rect2(0, 120, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rrgl4"]
+atlas = ExtResource("11_lqpn7")
+region = Rect2(0, 0, 120, 120)
+
 [node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -363,9 +370,9 @@ unique_name_in_owner = true
 layout_mode = 2
 selected = 0
 item_count = 2
-popup/item_0/icon = ExtResource("6_qe12f")
+popup/item_0/icon = SubResource("AtlasTexture_qel0l")
 popup/item_0/id = 1
-popup/item_1/icon = ExtResource("5_qe12f")
+popup/item_1/icon = SubResource("AtlasTexture_rrgl4")
 popup/item_1/id = 0
 
 [node name="VBoxContainerRight" type="VBoxContainer" parent="HBoxContainer"]
