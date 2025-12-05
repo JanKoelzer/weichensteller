@@ -70,13 +70,29 @@ func create_railways() -> void:
 				set_cell(Vector2i(col, row), 0, Vector2i(colors[row], 2))
 	
 	# set minimal switches
-	var cols := range(1, col_count - 1)
-	cols.shuffle() 
-	var cols_for_up: Array = cols.slice(0, n)
-	var cols_for_down: Array = cols.slice(n, 2*n)
+	var cols_for_up: Array
+	var cols_for_down: Array
+	var valid_setup := false
+	while not valid_setup:
+		cols_for_up = range(1, col_count - 1)
+		cols_for_up.shuffle()
+		cols_for_up = cols_for_up.slice(0, n)
+		
+		cols_for_down = range(1, col_count - 1)
+		cols_for_down.shuffle()
+		cols_for_down = cols_for_down.slice(0, n)
+		
+		cols_for_down.sort()
+		cols_for_up.sort()
+		
+		# check, that switch would not replace each other
+		valid_setup = true
+		for i: int in range(1, n):
+			for j: int in range(n-1):
+				if cols_for_down[i] == cols_for_up[-j-1]\
+				and i == j+1:
+					valid_setup = false
 
-	cols_for_down.sort()
-	cols_for_up.sort()
 	for row: int in range(n - 1):
 		set_switch(cols_for_down[row], row, 1)
 		set_switch(cols_for_up[-row-1], row+1, -1)
@@ -101,7 +117,7 @@ func set_switch(x: int, y: int, direction: int = 0) -> void:
 		# if so, invert direction
 		direction = -direction
 		
-	var atlas_coord_x := randi_range(0, 1) # if direction == 1 else randi_range(2, 3)
+	var atlas_coord_x := randi_range(0, 1)
 	var alternative := 0 if direction == 1 else 1
 	set_cell(Vector2i(x, y), 0, Vector2i(atlas_coord_x, 0), alternative)
 
