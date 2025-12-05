@@ -17,7 +17,7 @@ func set_up(wind_speed: float, wind_angle: float) -> void:
 	# Multiply each particle by this color.
 	# To make different trains output different steam,
 	# this is in script and not preset in the editor
-	m.color = Color(m.color, randf_range(0.4, 0.6))\
+	m.color = Color(m.color, randf_range(0.2, 0.4))\
 			.darkened(randf_range(0.0, 0.3))
 			
 	lifetime = randf_range(2.8, 3.8)

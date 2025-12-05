@@ -194,7 +194,7 @@ gravity = Vector3(0, 0, 0)
 scale_min = 0.8
 scale_max = 1.1
 scale_curve = SubResource("CurveTexture_7e4hq")
-color = Color(1, 1, 1, 0.290196)
+color = Color(1, 1, 1, 0.19607843)
 color_ramp = SubResource("GradientTexture1D_3gevl")
 color_initial_ramp = SubResource("GradientTexture1D_e8e6e")
 
@@ -266,7 +266,7 @@ libraries = {
 z_index = 1
 z_as_relative = false
 position = Vector2(16.5, 0)
-amount = 420
+amount = 800
 texture = ExtResource("3_gfec6")
 lifetime = 3.4
 explosiveness = 0.1
