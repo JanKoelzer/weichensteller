@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dev70nkbyuydv"]
+[gd_scene load_steps=33 format=3 uid="uid://dev70nkbyuydv"]
 
 [ext_resource type="Texture2D" uid="uid://chf34iv6d16q5" path="res://images/rails.png" id="1_lo3q4"]
 [ext_resource type="Script" uid="uid://cvormi1od74aa" path="res://scenes/game_view/train.gd" id="2_wgsvc"]
@@ -69,18 +69,6 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(1, 1)]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
 
 [sub_resource type="Animation" id="Animation_fwktr"]
 resource_name = "fade_in"
@@ -137,29 +125,11 @@ tracks/1/keys = {
 "values": [Vector2(1, 1), Vector2(20, 20)]
 }
 
-[sub_resource type="Animation" id="Animation_re58s"]
-resource_name = "rainbow"
-length = 3.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(0.67451, 0.196078, 0.196078, 1), Color(0.87451, 0.443137, 0.14902, 1), Color(0.984314, 0.823529, 0.211765, 1), Color(0.415686, 0.745098, 0.196078, 1), Color(0.356863, 0.431373, 0.882353, 1), Color(0.462745, 0.258824, 0.541176, 1), Color(0.67451, 0.196078, 0.196078, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bdd4j"]
 _data = {
 &"RESET": SubResource("Animation_qcyb2"),
 &"fade_in": SubResource("Animation_fwktr"),
-&"fade_out": SubResource("Animation_sy3o3"),
-&"rainbow": SubResource("Animation_re58s")
+&"fade_out": SubResource("Animation_sy3o3")
 }
 
 [sub_resource type="Gradient" id="Gradient_pfwk8"]
