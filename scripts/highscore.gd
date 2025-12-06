@@ -10,6 +10,7 @@ var put_highscore_url: String
 var secret: String
 
 signal highscore_updated(highscore: Dictionary)
+signal highscore_update_failed(code: int)
 signal highscore_put(success: bool)
 
 func _ready() -> void:
@@ -68,10 +69,9 @@ func encrypt(data: PackedByteArray, key: PackedByteArray, iv: PackedByteArray) -
 	aes.finish()
 	return encrypted
 
-func _on_get_highscore_request_request_completed(_result: int,
+func _on_get_highscore_request_request_completed(result: int,
 		response_code: int, _headers: PackedStringArray,
 		body: PackedByteArray) -> void:
-			
 	if response_code == 200:
 		var response_text := body.get_string_from_utf8()
 		var score_list := JSON.parse_string(response_text) as Array
@@ -88,7 +88,7 @@ func _on_get_highscore_request_request_completed(_result: int,
 		highscore_updated.emit(highscore)
 		
 	else:
-		print("Request failed with response code:", response_code)
+		highscore_update_failed.emit(result)
 
 
 func base64(data: PackedByteArray) -> String:

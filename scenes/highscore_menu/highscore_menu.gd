@@ -17,10 +17,15 @@ var highscore_grids := [
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for group_idx: int in Highscore.AgeGroups.size():
-		$HighscoreTabContainer.set_tab_title(group_idx, tr("AGE")+ " " + Highscore.AgeGroupNames[group_idx])
+		$HighscoreTabContainer.set_tab_title(group_idx, tr(&"AGE")+ " " + Highscore.AgeGroupNames[group_idx])
 	Highscore.highscore_updated.connect(_on_highscore_updated)
+	Highscore.highscore_update_failed.connect(_on_highscore_update_failed)
 	Highscore.receive_highscore()
 
+func _on_highscore_update_failed(_code:int) -> void:
+	for l: Label in highscore_labels:
+		l.text = tr(&"LOADING_FAILED")
+	
 
 func _on_highscore_updated(highscore: Dictionary) -> void:
 	for l: Label in highscore_labels:

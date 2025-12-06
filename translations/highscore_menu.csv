@@ -3,3 +3,4 @@ HIGHSCORE_MENU,Bestenliste,Highscore
 BACK,zurück,back
 AGE,Altersklasse,Age
 LOADING_HIGHSCORE,Highscore wird abgerufen. Bitte warten…,Loading highscore. Please wait…
+LOADING_FAILED,Es konnte keine Internetverbindung hergestellt werden.,Could not establish internet connection.
