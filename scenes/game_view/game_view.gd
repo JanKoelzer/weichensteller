@@ -16,7 +16,10 @@ const COL_COUNT := 16
 		%CountdownLabel2,
 		%CountdownLabel3,
 	]
-@onready var score_factor := GameSettings.score_factor() # calculate only once
+@onready var menu_container: HBoxContainer = %MenuContainer
+
+# calculate score_factor only once
+@onready var score_factor := GameSettings.score_factor()
 
 var time: int = 0
 var error_count: int = 0
@@ -78,10 +81,15 @@ func _on_rails_end() -> void:
 	rails.stop()
 	timer.stop()
 	%ErrorsLabel/AnimationPlayer.stop()
+	
 	%GameOverDisplay.visible = true
 	%FinalScoreLabel.text = tr(&"SCORE") + " " + score_str
 	%FinalScoreLabel/AnimationPlayer.play(&"rainbow")
 	%FinalScoreLabel/AnimationPlayer.speed_scale = 2.0
+	
+	# Move the menu to the center of the screen
+	menu_container.get_parent().remove_child(menu_container)
+	%GameOverMenu.call_deferred(&"add_child", menu_container)
 
 
 func _on_rails_train_started(sum_trains_started: int) -> void:
@@ -112,21 +120,22 @@ func _on_highscore_submit_button_pressed(age: String) -> void:
 		submit_status_label.text = "…"
 		submit_status_label.visible = true
 
+
 func _on_highscore_put(success: bool) -> void:
 	if success:
-		submit_status_label.text = tr("SCORE_SAVE_OK")
+		submit_status_label.text = tr(&"SCORE_SAVE_OK")
 		for button: Button in get_tree().get_nodes_in_group("SubmitButton"):
 			button.visible = false
 	else:
 		for button: Button in get_tree().get_nodes_in_group("SubmitButton"):
 			button.disabled = false
-		submit_status_label.text = tr("PLEASE_RETRY")
+		submit_status_label.text = tr(&"PLEASE_RETRY")
 
 
 func _on_player_name_edit_focus_entered() -> void:
 	if OS.get_name() == "Web":
 		# LineEdit/TextEdit do not work well in browsers.
 		# Show a simple prompt as workauround
-		var js: String = "prompt('%s')" % [tr("PROMPT_TEXT_JS")]
+		var js: String = "prompt('%s')" % [tr(&"PROMPT_TEXT_JS")]
 		var js_name := JavaScriptBridge.eval(js) as String
 		%HighscoreControls.find_child("PlayerNameEdit").text = js_name

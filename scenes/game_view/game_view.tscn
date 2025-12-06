@@ -316,24 +316,25 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Container/GameOverDisplay"]
+[node name="GameOverMenu" type="VBoxContainer" parent="Container/GameOverDisplay"]
+unique_name_in_owner = true
 clip_contents = true
 layout_mode = 2
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Container/GameOverDisplay/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Container/GameOverDisplay/GameOverMenu"]
 modulate = Color(1, 1, 1, 0.76862746)
 layout_mode = 2
 theme = ExtResource("4_gxnlg")
 
-[node name="Label" type="Label" parent="Container/GameOverDisplay/VBoxContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="Container/GameOverDisplay/GameOverMenu/VBoxContainer"]
 clip_contents = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 100
 text = "GAME_OVER"
 horizontal_alignment = 1
 
-[node name="FinalScoreLabel" type="Label" parent="Container/GameOverDisplay/VBoxContainer/VBoxContainer"]
+[node name="FinalScoreLabel" type="Label" parent="Container/GameOverDisplay/GameOverMenu/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.67451, 0.196078, 0.196078, 1)
@@ -341,38 +342,42 @@ theme_override_font_sizes/font_size = 100
 text = "SCORE"
 horizontal_alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Container/GameOverDisplay/VBoxContainer/VBoxContainer/FinalScoreLabel"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Container/GameOverDisplay/GameOverMenu/VBoxContainer/FinalScoreLabel"]
 libraries = {
 &"": SubResource("AnimationLibrary_4him0")
 }
 
-[node name="HighscoreControls" type="HBoxContainer" parent="Container/GameOverDisplay/VBoxContainer"]
+[node name="HighscoreControls" type="HBoxContainer" parent="Container/GameOverDisplay/GameOverMenu"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="PlayerNameEdit" type="LineEdit" parent="Container/GameOverDisplay/VBoxContainer/HighscoreControls"]
+[node name="PlayerNameEdit" type="LineEdit" parent="Container/GameOverDisplay/GameOverMenu/HighscoreControls"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "NAME_PLACEHOLDER"
 max_length = 30
 
-[node name="ChildSubmitButton" type="Button" parent="Container/GameOverDisplay/VBoxContainer/HighscoreControls" groups=["SubmitButton"]]
+[node name="ChildSubmitButton" type="Button" parent="Container/GameOverDisplay/GameOverMenu/HighscoreControls" groups=["SubmitButton"]]
 layout_mode = 2
 text = "AGE_0"
 
-[node name="PupilSubmitButton" type="Button" parent="Container/GameOverDisplay/VBoxContainer/HighscoreControls" groups=["SubmitButton"]]
+[node name="PupilSubmitButton" type="Button" parent="Container/GameOverDisplay/GameOverMenu/HighscoreControls" groups=["SubmitButton"]]
 layout_mode = 2
 text = "AGE_1"
 
-[node name="AdultSubmitButton" type="Button" parent="Container/GameOverDisplay/VBoxContainer/HighscoreControls" groups=["SubmitButton"]]
+[node name="AdultSubmitButton" type="Button" parent="Container/GameOverDisplay/GameOverMenu/HighscoreControls" groups=["SubmitButton"]]
 layout_mode = 2
 text = "AGE_2"
 
-[node name="SubmitStatusLabel" type="Label" parent="Container/GameOverDisplay/VBoxContainer/HighscoreControls"]
+[node name="SubmitStatusLabel" type="Label" parent="Container/GameOverDisplay/GameOverMenu/HighscoreControls"]
 visible = false
 layout_mode = 2
 text = "…"
+
+[node name="HSeparator" type="HSeparator" parent="Container/GameOverDisplay/GameOverMenu"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 2
@@ -454,6 +459,7 @@ layout_mode = 2
 text = "0"
 
 [node name="MenuContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="RestartButton" type="Button" parent="CenterContainer/VBoxContainer/MenuContainer"]
@@ -483,10 +489,10 @@ text = "MAIN_MENU"
 [connection signal="errored" from="Container/Rails" to="." method="_on_rails_errored"]
 [connection signal="scored" from="Container/Rails" to="." method="_on_rails_scored"]
 [connection signal="train_started" from="Container/Rails" to="." method="_on_rails_train_started"]
-[connection signal="focus_entered" from="Container/GameOverDisplay/VBoxContainer/HighscoreControls/PlayerNameEdit" to="." method="_on_player_name_edit_focus_entered"]
-[connection signal="pressed" from="Container/GameOverDisplay/VBoxContainer/HighscoreControls/ChildSubmitButton" to="." method="_on_highscore_submit_button_pressed" binds= ["0-5"]]
-[connection signal="pressed" from="Container/GameOverDisplay/VBoxContainer/HighscoreControls/PupilSubmitButton" to="." method="_on_highscore_submit_button_pressed" binds= ["6-12"]]
-[connection signal="pressed" from="Container/GameOverDisplay/VBoxContainer/HighscoreControls/AdultSubmitButton" to="." method="_on_highscore_submit_button_pressed" binds= ["13+"]]
+[connection signal="focus_entered" from="Container/GameOverDisplay/GameOverMenu/HighscoreControls/PlayerNameEdit" to="." method="_on_player_name_edit_focus_entered"]
+[connection signal="pressed" from="Container/GameOverDisplay/GameOverMenu/HighscoreControls/ChildSubmitButton" to="." method="_on_highscore_submit_button_pressed" binds= ["0-5"]]
+[connection signal="pressed" from="Container/GameOverDisplay/GameOverMenu/HighscoreControls/PupilSubmitButton" to="." method="_on_highscore_submit_button_pressed" binds= ["6-12"]]
+[connection signal="pressed" from="Container/GameOverDisplay/GameOverMenu/HighscoreControls/AdultSubmitButton" to="." method="_on_highscore_submit_button_pressed" binds= ["13+"]]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/MenuContainer/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/MenuContainer/DifficultySettingsButton" to="." method="_on_difficulty_settings_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/MenuContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

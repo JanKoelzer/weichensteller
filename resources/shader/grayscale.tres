@@ -5,5 +5,5 @@
 [resource]
 resource_local_to_scene = true
 shader = ExtResource("1_chhx4")
-shader_parameter/duration = 0.50000002049012
+shader_parameter/duration = 0.20000000624012
 shader_parameter/engine_time_sec = 0.0
