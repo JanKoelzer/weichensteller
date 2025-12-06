@@ -242,6 +242,7 @@ lifetime = 3.4
 explosiveness = 0.1
 randomness = 0.4
 fixed_fps = 0
+visibility_rect = Rect2(-800, -100, 600, 200)
 draw_order = 0
 process_material = SubResource("ParticleProcessMaterial_xgd0o")
 script = ExtResource("4_gfec6")
