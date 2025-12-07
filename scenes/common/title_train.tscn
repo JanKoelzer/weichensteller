@@ -187,7 +187,6 @@ region_enabled = false
 [node name="SteamParticles" parent="TitleTrain/Train" index="3"]
 position = Vector2(20, 0)
 emitting = false
-amount = 800
 process_material = SubResource("ParticleProcessMaterial_touek")
 
 [node name="SparkParticles" parent="TitleTrain/Train" index="4"]

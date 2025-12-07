@@ -160,6 +160,8 @@ emission_shape = 1
 emission_sphere_radius = 15.0
 direction = Vector3(-1, 0, 0)
 spread = 15.0
+initial_velocity_min = 80.0
+initial_velocity_max = 100.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.8
 scale_max = 1.1
@@ -242,7 +244,7 @@ lifetime = 3.4
 explosiveness = 0.1
 randomness = 0.4
 fixed_fps = 0
-visibility_rect = Rect2(-800, -100, 600, 200)
+visibility_rect = Rect2(-700, -200, 800, 400)
 draw_order = 0
 process_material = SubResource("ParticleProcessMaterial_xgd0o")
 script = ExtResource("4_gfec6")
@@ -266,6 +268,5 @@ script = ExtResource("4_7o0ee")
 [node name="Timer" type="Timer" parent="SparkParticles"]
 autostart = true
 
-[connection signal="rotation_started" from="." to="." method="_on_train_rotation_started"]
 [connection signal="animation_finished" from="FadePlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="SparkParticles/Timer" to="SparkParticles" method="_on_timer_timeout"]

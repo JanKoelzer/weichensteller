@@ -6,7 +6,7 @@ func init(num_cols: int, settings: GameSettings) -> void:
 	
 	self.game_settings = settings
 	self.col_count = num_cols
-	self.wind_angle = randf_range(-PI/8, PI/8) + TAU/4.0 # Note: 0° is upwards
+	self.wind_angle = randf_range(-TAU/8, TAU/8) + TAU/4.0 # Note: 0° is upwards
 	self.wind_speed = 25 + randf()*25
 	
 	# create an array that maps each row to a (selected) color
@@ -21,6 +21,7 @@ func init(num_cols: int, settings: GameSettings) -> void:
 func set_train_on_tracks() -> Train:
 	var new_speed := game_settings.speed + sum_trains_started / 50.0 # slowly increase speed over time	
 	var t := _set_train_on_tracks(
+		Train.TrainType.values().pick_random(),
 		game_settings.selected_stations.keys().pick_random(), # color
 		randi_range(0, game_settings.num_stations - 1), # track
 		new_speed

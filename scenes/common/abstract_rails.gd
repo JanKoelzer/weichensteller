@@ -195,12 +195,12 @@ func _on_train_moved(train: Train) -> void:
 
 @abstract func set_train_on_tracks() -> Train
 
-func _set_train_on_tracks(color: Train.TrainColor, track: int, speed: float) -> Train:
+func _set_train_on_tracks(type: Train.TrainType, color: Train.TrainColor, track: int, speed: float) -> Train:
 	var t := Train_scene.instantiate() as Train
 	trains.add_child(t)
 	trains.move_child(t, 0)
 	var new_position := Vector2(0, tile_set.tile_size.y * track  + tile_set.tile_size.y / 2.0)
-	t.init(tile_set.tile_size.x, color, new_position, speed, wind_speed, wind_angle )
+	t.init(tile_set.tile_size.x, color, type, new_position, speed, wind_speed, wind_angle )
 	t.moved.connect(_on_train_moved)
 	t.move()
 	trains_on_track += 1

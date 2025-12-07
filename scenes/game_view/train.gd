@@ -2,7 +2,6 @@ class_name Train
 extends Node2D
 
 signal moved(t: Train)
-signal rotation_started(direction: float, duration: float)
 
 enum TrainColor {
 		RED = 0,
@@ -11,6 +10,13 @@ enum TrainColor {
 		GREEN = 3,
 		BLUE = 4,
 		PURPLE = 5,
+}
+
+enum TrainType {
+	ELECTRIC = 3,
+	DIESEL1 = 4,
+	DIESEL2 = 5,
+	STEAM = 6
 }
 
 @onready var steam_particles: SteamParticles = $SteamParticles
@@ -32,22 +38,25 @@ var directionIndex := 1
 		directionIndex = index if index != -1 else 0
 
 var color: TrainColor
+var wind_angle: float
 
 func init(new_tile_size: int,
 		new_color: TrainColor,
+		new_type: TrainType,
 		new_position: Vector2i,
 		new_speed: float,
 		wind_speed: float,
-		wind_angle: float) -> void:
+		new_wind_angle: float) -> void:
 	position = new_position
 	color = new_color
 	speed = new_speed
+	wind_angle = new_wind_angle
 	
 	self.tile_size = new_tile_size
 	
 	# u and v are the trains coordinates in the tileset
 	var u := color
-	var v := randi_range(3, 6) #randomly select one type of train
+	var v := new_type
 	$Sprite.region_rect = Rect2(tile_size*u, tile_size*v, tile_size, tile_size)
 	
 	# electric engine?
@@ -64,7 +73,7 @@ func init(new_tile_size: int,
 	
 	# steam engine?
 	if v == 6:
-		steam_particles.set_up(wind_speed, wind_angle)
+		steam_particles.set_up(rotation, wind_speed, wind_angle)
 	else:
 		remove_child(steam_particles)
 
@@ -89,7 +98,8 @@ func move() -> void:
 			anim_duration
 		).set_trans(Tween.TRANS_LINEAR)
 	# emit signal, so SteamParticles can adapt
-	rotation_started.emit(direction, anim_duration) 
+	if steam_particles:
+		steam_particles.rotate_steam(direction, anim_duration)
 
 func fade_in() -> void:
 	$FadePlayer.play(&"fade_in")
@@ -107,8 +117,3 @@ func fade_out(was_success: bool) -> void:
 func _on_animation_player_animation_finished(anim_name: String) -> void:
 	if anim_name == &"fade_out":
 		queue_free()
-
-
-@warning_ignore("shadowed_variable")
-func _on_train_rotation_started(direction: float, duration: float) -> void:
-	steam_particles.rotate_steam(direction, duration)
