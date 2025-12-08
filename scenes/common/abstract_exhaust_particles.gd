@@ -1,7 +1,7 @@
-class_name SteamParticles
+class_name AbstractExhaustParticles
 extends GPUParticles2D
 
-var wind_angle: float
+@export var wind_angle: float
 
 @warning_ignore("shadowed_variable")
 func set_up(train_rotation: float, wind_speed: float, wind_angle: float) -> void:
@@ -25,7 +25,7 @@ func set_up(train_rotation: float, wind_speed: float, wind_angle: float) -> void
 	explosiveness = randf_range(0.0, 0.2)
 
 
-func rotate_steam(target_direction: float, duration: float) -> void:
+func rotate_exhaust(target_direction: float, duration: float) -> void:
 	create_tween().tween_property(
 				self,
 				":rotation",

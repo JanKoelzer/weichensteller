@@ -1,11 +1,11 @@
 [gd_scene load_steps=33 format=3 uid="uid://dev70nkbyuydv"]
 
 [ext_resource type="Texture2D" uid="uid://chf34iv6d16q5" path="res://images/rails.png" id="1_lo3q4"]
-[ext_resource type="Script" uid="uid://cvormi1od74aa" path="res://scenes/game_view/train.gd" id="2_wgsvc"]
+[ext_resource type="Script" uid="uid://cvormi1od74aa" path="res://scenes/common/train.gd" id="2_wgsvc"]
 [ext_resource type="Texture2D" uid="uid://dbs2yixpwvn2t" path="res://resources/textures/steam_particle_texture.tres" id="3_gfec6"]
-[ext_resource type="Script" uid="uid://dn0njkecees6c" path="res://scenes/game_view/spark_particles.gd" id="4_7o0ee"]
-[ext_resource type="Script" uid="uid://bofh71konaybx" path="res://scenes/game_view/steam_particles.gd" id="4_gfec6"]
-[ext_resource type="Script" uid="uid://bf0jevs1361el" path="res://scenes/game_view/exhaust_particles.gd" id="5_vskko"]
+[ext_resource type="Script" uid="uid://dn0njkecees6c" path="res://scenes/common/spark_particles.gd" id="4_7o0ee"]
+[ext_resource type="Script" uid="uid://bofh71konaybx" path="res://scenes/common/steam_particles.gd" id="4_gfec6"]
+[ext_resource type="Script" uid="uid://bf0jevs1361el" path="res://scenes/common/exhaust_particles.gd" id="5_vskko"]
 [ext_resource type="FastNoiseLite" uid="uid://lcbq8whjk7rg" path="res://resources/textures/stary_noise.tres" id="7_u3cvv"]
 
 [sub_resource type="Gradient" id="Gradient_6whlh"]

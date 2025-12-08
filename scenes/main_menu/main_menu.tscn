@@ -256,6 +256,7 @@ region_rect = Rect2(240, 720, 120, 120)
 position = Vector2(22, 0)
 rotation = 0.7853982
 process_material = SubResource("ParticleProcessMaterial_rrgl4")
+wind_angle = 0.785
 
 [node name="SparkParticles" parent="Rails/Trains/Train2" index="4"]
 visible = false

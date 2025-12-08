@@ -12,11 +12,12 @@ enum TrainColor {
 		PURPLE = 5,
 }
 
+# Those constants represent rows in the tileset
 enum TrainType {
-	ELECTRIC = 3,
-	DIESEL1 = 4,
-	DIESEL2 = 5,
-	STEAM = 6
+		ELECTRIC = 3,
+		DIESEL1 = 4,
+		DIESEL2 = 5,
+		STEAM = 6
 }
 
 @onready var steam_particles: SteamParticles = $SteamParticles
@@ -67,7 +68,7 @@ func init(new_tile_size: int,
 		
 	# diesel engine?
 	if v == 4 or v == 5:
-		exhaust_particles.set_up(wind_speed, wind_angle)
+		exhaust_particles.set_up(rotation, wind_speed, wind_angle)
 	else:
 		remove_child(exhaust_particles)
 	
@@ -81,6 +82,7 @@ func init(new_tile_size: int,
 func move() -> void:
 	var tween := create_tween()
 	
+	# duration to next tile differs for straight vs. diagonal
 	var duration: float = (1.0 + (sqrt(2)-1)*abs(direction)) / speed
 	var delta := Vector2(tile_size * 1.0, tile_size * direction)
 	
@@ -99,7 +101,9 @@ func move() -> void:
 		).set_trans(Tween.TRANS_LINEAR)
 	# emit signal, so SteamParticles can adapt
 	if steam_particles:
-		steam_particles.rotate_steam(direction, anim_duration)
+		steam_particles.rotate_exhaust(direction, anim_duration)
+	elif exhaust_particles:
+		exhaust_particles.rotate_exhaust(direction, anim_duration)
 
 func fade_in() -> void:
 	$FadePlayer.play(&"fade_in")

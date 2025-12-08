@@ -16,7 +16,7 @@ func init() -> void:
 		t.move()
 
 
-var current_train_color := 2
+var current_train_color := 2 # two trains are preset
 func set_train_on_tracks() -> Train:
 	current_train_color += 1
 	current_train_color %= Train.TrainColor.values().size()
