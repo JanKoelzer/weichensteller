@@ -9,7 +9,7 @@ func set_up(train_rotation: float, wind_speed: float, wind_angle: float) -> void
 	# To make different trains output different steam,
 	# this is in script and not preset in the editor
 	process_material.color = Color(process_material.color, randf_range(0.2, 0.4))\
-			.darkened(randf_range(0.0, 0.3))
+			.darkened(randf_range(0.0, 0.2))
 			
 	lifetime = randf_range(2.8, 3.8)
 	amount = randi_range(400, 550)

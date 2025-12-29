@@ -13,12 +13,6 @@ func set_up(train_rotation: float, wind_speed: float, wind_angle: float) -> void
 	self.wind_angle = wind_angle
 	# rotate in opposite direction (and add wind_angle)
 	self.rotation =  -train_rotation + wind_angle
-	
-	# Multiply each particle by this color.
-	# To make different trains output different steam,
-	# this is in script and not preset in the editor
-	m.color = Color(m.color, randf_range(0.2, 0.4))\
-			.darkened(randf_range(0.0, 0.3))
 			
 	lifetime = randf_range(2.8, 3.8)
 	amount = randi_range(400, 550)

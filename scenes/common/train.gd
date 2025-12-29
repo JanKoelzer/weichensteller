@@ -12,12 +12,11 @@ enum TrainColor {
 		PURPLE = 5,
 }
 
-# Those constants represent rows in the tileset
 enum TrainType {
-		ELECTRIC = 3,
-		DIESEL1 = 4,
-		DIESEL2 = 5,
-		STEAM = 6
+		ELECTRIC = 0,
+		DIESEL1 = 1,
+		DIESEL2 = 2,
+		STEAM = 3
 }
 
 @onready var steam_particles: SteamParticles = $SteamParticles
@@ -57,7 +56,7 @@ func init(new_tile_size: int,
 	
 	# u and v are the trains coordinates in the tileset
 	var u := color
-	var v := new_type
+	var v := new_type + 3
 	$Sprite.region_rect = Rect2(tile_size*u, tile_size*v, tile_size, tile_size)
 	
 	# electric engine?
