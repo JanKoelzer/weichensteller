@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://hqe61n41cay3"]
+[gd_scene format=4 uid="uid://hqe61n41cay3"]
 
 [ext_resource type="Script" uid="uid://bych0wagxg6d5" path="res://scenes/main_menu/main_menu.gd" id="1_1d7qk"]
 [ext_resource type="Texture2D" uid="uid://eij2hohstuhh" path="res://images/background.png" id="1_l5ut5"]
@@ -32,7 +32,7 @@ point_count = 2
 [sub_resource type="CurveTexture" id="CurveTexture_378lh"]
 curve = SubResource("Curve_dmukj")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4ujhu"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lqpn7"]
 resource_local_to_scene = true
 lifetime_randomness = 0.5
 particle_flag_disable_z = true
@@ -83,7 +83,7 @@ color = Color(1, 1, 1, 0.290196)
 color_ramp = SubResource("GradientTexture1D_3gevl")
 color_initial_ramp = SubResource("GradientTexture1D_e8e6e")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vnpsp"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rrgl4"]
 resource_local_to_scene = true
 lifetime_randomness = 0.5
 particle_flag_disable_z = true
@@ -98,7 +98,7 @@ scale_curve = SubResource("CurveTexture_378lh")
 color_ramp = SubResource("GradientTexture1D_xgd0o")
 color_initial_ramp = SubResource("GradientTexture1D_7e4hq")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rrgl4"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dn3lk"]
 resource_local_to_scene = true
 lifetime_randomness = 1.0
 particle_flag_disable_z = true
@@ -136,7 +136,7 @@ point_count = 2
 [sub_resource type="CurveTexture" id="CurveTexture_tfctf"]
 curve = SubResource("Curve_i7nm7")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_n7xlh"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4ujhu"]
 resource_local_to_scene = true
 lifetime_randomness = 0.5
 particle_flag_disable_z = true
@@ -151,7 +151,7 @@ scale_curve = SubResource("CurveTexture_tfctf")
 color_ramp = SubResource("GradientTexture1D_0m3cs")
 color_initial_ramp = SubResource("GradientTexture1D_bq5lc")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dn3lk"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vnpsp"]
 resource_local_to_scene = true
 lifetime_randomness = 1.0
 particle_flag_disable_z = true
@@ -199,7 +199,7 @@ region = Rect2(0, 120, 120, 120)
 atlas = ExtResource("11_lqpn7")
 region = Rect2(0, 0, 120, 120)
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" unique_id=1477291169]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -211,54 +211,53 @@ size_flags_vertical = 3
 mouse_filter = 2
 script = ExtResource("1_1d7qk")
 
-[node name="BackgroundSprite" type="Sprite2D" parent="."]
+[node name="BackgroundSprite" type="Sprite2D" parent="." unique_id=821657335]
 texture = ExtResource("1_l5ut5")
 centered = false
 
-[node name="Rails" parent="." instance=ExtResource("3_dn3lk")]
+[node name="Rails" parent="." unique_id=1113198161 instance=ExtResource("3_dn3lk")]
 tile_map_data = PackedByteArray("AAABAAMAAAACAAAAAAAAAAMAAAADAAAAAAAAAAQAAAADAAAAAAABAAQAAAADAAAAAAACAAQAAAADAAAAAAADAAQAAAACAAAAAAANAAQAAAADAAAAAAAEAAUAAAABAAAAAAAFAAUAAAADAAAAAAAGAAUAAAADAAAAAAAHAAUAAAADAAAAAAAIAAUAAAADAAAAAAAJAAUAAAADAAAAAAAKAAUAAAADAAAAAAALAAUAAAADAAAAAAAMAAUAAAACAAAAAQAQAAIAAAADAAAAAAARAAIAAAADAAAAAAASAAIAAAADAAAAAAATAAIAAAADAAAAAAAUAAIAAAADAAAAAAAVAAIAAAADAAAAAAAWAAIAAAADAAAAAAAXAAIAAAADAAAAAAAYAAIAAAADAAAAAAAZAAIAAAADAAAAAAAaAAIAAAADAAAAAAAbAAIAAAADAAAAAAAcAAIAAAADAAAAAAAQAAMAAAADAAAAAAARAAMAAAADAAAAAAASAAMAAAADAAAAAAATAAMAAAADAAAAAAAUAAMAAAADAAAAAAAVAAMAAAADAAAAAAAWAAMAAAADAAAAAAAXAAMAAAADAAAAAAAYAAMAAAADAAAAAAAZAAMAAAADAAAAAAAaAAMAAAADAAAAAAAbAAMAAAADAAAAAAAcAAMAAAADAAAAAAAQAAYAAAADAAAAAAARAAYAAAADAAAAAAASAAYAAAADAAAAAAATAAYAAAADAAAAAAAUAAYAAAADAAAAAAAVAAYAAAADAAAAAAAWAAYAAAADAAAAAAAXAAYAAAADAAAAAAAYAAYAAAADAAAAAAAZAAYAAAADAAAAAAAaAAYAAAADAAAAAAAbAAYAAAADAAAAAAAcAAYAAAADAAAAAAAHAAYAAAADAAAAAAAIAAYAAAADAAAAAAAJAAYAAAADAAAAAAAKAAYAAAADAAAAAAALAAYAAAADAAAAAAAMAAYAAAADAAAAAAANAAYAAAADAAAAAAAOAAYAAAADAAAAAAAPAAYAAAADAAAAAAAGAAcAAAADAAAAAAAFAAcAAAADAAAAAAAEAAcAAAADAAAAAAADAAcAAAADAAAAAAACAAcAAAADAAAAAAABAAcAAAADAAAAAAAAAAcAAAADAAAAAAAIAAcAAAADAAAAAAAJAAcAAAADAAAAAAAKAAcAAAADAAAAAAAIAAgAAAADAAAAAAAJAAgAAAADAAAAAAAKAAgAAAADAAAAAAALAAgAAAADAAAAAAAMAAgAAAADAAAAAAAOAAcAAAADAAAAAAANAAgAAAACAAAAAQAQAAQAAAACAAAAAQALAAcAAAACAAAAAQAOAAQAAAAAAAAAAQAPAAQAAAADAAAAAAAPAAMAAAABAAAAAQAPAAcAAAACAAAAAQAHAAcAAAABAAAAAAAGAAYAAAAAAAAAAAAFAAYAAAADAAAAAAA=")
 script = ExtResource("14_4ujhu")
 
-[node name="Train1" parent="Rails/Trains" index="0" instance=ExtResource("4_x2yjq")]
+[node name="Train1" parent="Rails/Trains" index="0" unique_id=1897423546 instance=ExtResource("4_x2yjq")]
 position = Vector2(1440, 1020)
 speed = 1.0
 metadata/_edit_group_ = true
 
-[node name="ExhaustParticles" parent="Rails/Trains/Train1" index="0"]
-process_material = SubResource("ParticleProcessMaterial_4ujhu")
+[node name="ExhaustParticles" parent="Rails/Trains/Train1" index="0" unique_id=1680992907]
+process_material = SubResource("ParticleProcessMaterial_lqpn7")
 
-[node name="Sprite" parent="Rails/Trains/Train1" index="1"]
+[node name="Sprite" parent="Rails/Trains/Train1" index="1" unique_id=337867534]
 region_rect = Rect2(120, 600, 120, 120)
 
-[node name="SteamParticles" parent="Rails/Trains/Train1" index="3"]
-visible = false
+[node name="SteamParticles" parent="Rails/Trains/Train1" index="3" unique_id=1275125623]
 position = Vector2(22, 0)
 process_material = SubResource("ParticleProcessMaterial_qel0l")
 
-[node name="SparkParticles" parent="Rails/Trains/Train1" index="4"]
+[node name="SparkParticles" parent="Rails/Trains/Train1" index="4" unique_id=1463309434]
 visible = false
 position = Vector2(21, 0)
 
-[node name="Train2" parent="Rails/Trains" index="1" instance=ExtResource("4_x2yjq")]
+[node name="Train2" parent="Rails/Trains" index="1" unique_id=1915773075 instance=ExtResource("4_x2yjq")]
 position = Vector2(780, 780)
 speed = 1.0
 metadata/_edit_group_ = true
 
-[node name="ExhaustParticles" parent="Rails/Trains/Train2" index="0"]
+[node name="ExhaustParticles" parent="Rails/Trains/Train2" index="0" unique_id=1680992907]
 visible = false
 position = Vector2(-77, 0)
-process_material = SubResource("ParticleProcessMaterial_vnpsp")
+process_material = SubResource("ParticleProcessMaterial_rrgl4")
 
-[node name="Sprite" parent="Rails/Trains/Train2" index="1"]
+[node name="Sprite" parent="Rails/Trains/Train2" index="1" unique_id=337867534]
 region_rect = Rect2(240, 720, 120, 120)
 
-[node name="SteamParticles" parent="Rails/Trains/Train2" index="3"]
+[node name="SteamParticles" parent="Rails/Trains/Train2" index="3" unique_id=1275125623]
 position = Vector2(22, 0)
 rotation = 0.7853982
-process_material = SubResource("ParticleProcessMaterial_rrgl4")
+process_material = SubResource("ParticleProcessMaterial_dn3lk")
 wind_angle = 0.785
 
-[node name="SparkParticles" parent="Rails/Trains/Train2" index="4"]
+[node name="SparkParticles" parent="Rails/Trains/Train2" index="4" unique_id=1463309434]
 visible = false
 position = Vector2(21, 0)
 
@@ -266,7 +265,7 @@ position = Vector2(21, 0)
 wait_time = 6.0
 autostart = true
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=2073729008]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -276,11 +275,11 @@ offset_right = 428.0
 offset_bottom = 516.0
 grow_horizontal = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=226495713]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Title" parent="CenterContainer/VBoxContainer" instance=ExtResource("6_qel0l")]
+[node name="Title" parent="CenterContainer/VBoxContainer" unique_id=1147916284 instance=ExtResource("6_qel0l")]
 layout_mode = 2
 
 [node name="TitleLabel" parent="CenterContainer/VBoxContainer/Title" index="0"]
@@ -289,20 +288,20 @@ text = "GAME_TITLE"
 [node name="TitleTrain" parent="CenterContainer/VBoxContainer/Title/TitleTrain" index="0"]
 animate_intro = true
 
-[node name="ExhaustParticles" parent="CenterContainer/VBoxContainer/Title/TitleTrain/TitleTrain/Train" index="0"]
-process_material = SubResource("ParticleProcessMaterial_n7xlh")
+[node name="ExhaustParticles" parent="CenterContainer/VBoxContainer/Title/TitleTrain/TitleTrain/Train" index="0" unique_id=1680992907]
+process_material = SubResource("ParticleProcessMaterial_4ujhu")
 
-[node name="SteamParticles" parent="CenterContainer/VBoxContainer/Title/TitleTrain/TitleTrain/Train" index="3"]
-process_material = SubResource("ParticleProcessMaterial_dn3lk")
+[node name="SteamParticles" parent="CenterContainer/VBoxContainer/Title/TitleTrain/TitleTrain/Train" index="3" unique_id=1275125623]
+process_material = SubResource("ParticleProcessMaterial_vnpsp")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=119823806]
 custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="StartButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="StartButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=533899086]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 theme = ExtResource("3_thkx5")
@@ -312,32 +311,30 @@ text = "START_GAME"
 autowrap_mode = 3
 script = ExtResource("7_qel0l")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer/VBoxContainer/HBoxContainer/StartButton"]
-libraries = {
-&"": SubResource("AnimationLibrary_dn3lk")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer/VBoxContainer/HBoxContainer/StartButton" unique_id=1241090889]
+libraries/ = SubResource("AnimationLibrary_dn3lk")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=848402628]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="ManualButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="ManualButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1011905878]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "MANUAL"
 
-[node name="HighscoreButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="HighscoreButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=200140140]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "HIGHSCORE"
 
-[node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1859374729]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "QUIT_GAME"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=304456508]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -347,15 +344,15 @@ offset_top = -274.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="VBoxContainerLeft" type="VBoxContainer" parent="HBoxContainer"]
+[node name="VBoxContainerLeft" type="VBoxContainer" parent="HBoxContainer" unique_id=39714512]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="AudioSettings" type="HBoxContainer" parent="HBoxContainer/VBoxContainerLeft"]
+[node name="AudioSettings" type="HBoxContainer" parent="HBoxContainer/VBoxContainerLeft" unique_id=803396812]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="AudioOptionButton" type="OptionButton" parent="HBoxContainer/VBoxContainerLeft/AudioSettings"]
+[node name="AudioOptionButton" type="OptionButton" parent="HBoxContainer/VBoxContainerLeft/AudioSettings" unique_id=2093625122]
 unique_name_in_owner = true
 layout_mode = 2
 selected = 0
@@ -365,11 +362,11 @@ popup/item_0/id = 1
 popup/item_1/icon = ExtResource("5_dy7ct")
 popup/item_1/id = 0
 
-[node name="LanguageSettings" type="HBoxContainer" parent="HBoxContainer/VBoxContainerLeft"]
+[node name="LanguageSettings" type="HBoxContainer" parent="HBoxContainer/VBoxContainerLeft" unique_id=2014160274]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="LanguageOptionButton" type="OptionButton" parent="HBoxContainer/VBoxContainerLeft/LanguageSettings"]
+[node name="LanguageOptionButton" type="OptionButton" parent="HBoxContainer/VBoxContainerLeft/LanguageSettings" unique_id=1252908449]
 unique_name_in_owner = true
 layout_mode = 2
 selected = 0
@@ -379,13 +376,13 @@ popup/item_0/id = 1
 popup/item_1/icon = SubResource("AtlasTexture_rrgl4")
 popup/item_1/id = 0
 
-[node name="VBoxContainerRight" type="VBoxContainer" parent="HBoxContainer"]
+[node name="VBoxContainerRight" type="VBoxContainer" parent="HBoxContainer" unique_id=108526312]
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 8
 theme_override_constants/separation = 10
 
-[node name="CreditsButton" type="Button" parent="HBoxContainer/VBoxContainerRight"]
+[node name="CreditsButton" type="Button" parent="HBoxContainer/VBoxContainerRight" unique_id=735039527]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "LEGAL_NOTES"
