@@ -3,6 +3,15 @@ extends Node2D
 
 signal moved(t: Train)
 
+
+enum TrainType {
+		ELECTRIC = 0,
+		DIESEL1 = 1,
+		DIESEL2 = 2,
+		STEAM = 3
+}
+
+
 enum TrainColor {
 		RED = 0,
 		ORANGE = 1,
@@ -12,12 +21,15 @@ enum TrainColor {
 		PURPLE = 5,
 }
 
-enum TrainType {
-		ELECTRIC = 0,
-		DIESEL1 = 1,
-		DIESEL2 = 2,
-		STEAM = 3
-}
+# A gradient corresponding to each TrainColor to color the steam/exhaust
+const STEAM_COLOR_GRADIENTS: Array[GradientTexture1D] = [
+			preload("uid://bfyp84mohhcv2"),
+			preload("uid://lphrcohx2aty"),
+			preload("uid://dtj5opb32tfm7"),
+			preload("uid://dmcyuxdun2let"),
+			preload("uid://d2wtwffpra4my"),
+			preload("uid://bsxxfpxk5v1mu")]
+
 
 @onready var steam_particles: SteamParticles = $SteamParticles
 @onready var spark_particles: SparkParticles = $SparkParticles
@@ -56,24 +68,25 @@ func init(new_tile_size: int,
 	
 	# u and v are the trains coordinates in the tileset
 	var u := color
-	var v := new_type + 3
+	
+	var v := new_type + 3 # for "+3" see structure of tileset
 	$Sprite.region_rect = Rect2(tile_size*u, tile_size*v, tile_size, tile_size)
 	
 	# electric engine?
-	if v == 3:
+	if new_type == TrainType.ELECTRIC:
 		spark_particles.set_up()
 	else:
 		remove_child(spark_particles)
 		
 	# diesel engine?
-	if v == 4 or v == 5:
-		exhaust_particles.set_up(rotation, wind_speed, wind_angle)
+	if new_type == TrainType.DIESEL1 or new_type == TrainType.DIESEL2:
+		exhaust_particles.set_up(rotation, wind_speed, wind_angle, STEAM_COLOR_GRADIENTS[color])
 	else:
 		remove_child(exhaust_particles)
 	
 	# steam engine?
-	if v == 6:
-		steam_particles.set_up(rotation, wind_speed, wind_angle)
+	if new_type == TrainType.STEAM:
+		steam_particles.set_up(rotation, wind_speed, wind_angle, STEAM_COLOR_GRADIENTS[color])
 	else:
 		remove_child(steam_particles)
 
