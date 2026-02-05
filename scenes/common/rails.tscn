@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=4 uid="uid://bj451436lnaqo"]
+[gd_scene format=4 uid="uid://bj451436lnaqo"]
 
 [ext_resource type="TileSet" uid="uid://c6os8kb48ipp2" path="res://resources/tilesets/rails.tres" id="1_v2ue2"]
 [ext_resource type="AudioStream" uid="uid://b1lgkk2ec4a6c" path="res://sounds/error.ogg" id="4_2xn0g"]
@@ -6,24 +6,24 @@
 [ext_resource type="AudioStream" uid="uid://bnefawndp1cgl" path="res://sounds/switch-activate.ogg" id="6_5y7s6"]
 [ext_resource type="AudioStream" uid="uid://2uokg23i8gxb" path="res://sounds/switch-deactivate.ogg" id="7_ndf4p"]
 
-[node name="Rails" type="TileMapLayer"]
+[node name="Rails" type="TileMapLayer" unique_id=1667562320]
 tile_map_data = PackedByteArray("AAAAAAAAAAADAAAAAAABAAAAAAADAAAAAAACAAAAAAADAAAAAAADAAAAAAADAAAAAAAEAAAAAAADAAAAAAAFAAAAAAADAAAAAAAGAAEAAAADAAAAAAAHAAEAAAADAAAAAAAHAAAAAAADAAAAAAAIAAAAAAADAAAAAAAJAAAAAAADAAAAAAAGAAAAAAADAAAAAAAAAAEAAAADAAAAAAABAAEAAAADAAAAAAACAAEAAAADAAAAAAADAAEAAAADAAAAAAAEAAEAAAADAAAAAAAFAAEAAAADAAAAAAAJAAEAAAADAAAAAAAKAAEAAAADAAAAAAAKAAAAAAADAAAAAAALAAAAAAADAAAAAAALAAEAAAADAAAAAAAIAAEAAAADAAAAAAAAAAIAAAADAAAAAAABAAIAAAADAAAAAAACAAIAAAADAAAAAAADAAIAAAADAAAAAAAEAAIAAAADAAAAAAAFAAIAAAADAAAAAAAGAAIAAAADAAAAAAAHAAIAAAADAAAAAAAIAAIAAAADAAAAAAAJAAIAAAADAAAAAAAKAAIAAAADAAAAAAALAAIAAAADAAAAAAALAAMAAAADAAAAAAAKAAMAAAADAAAAAAAJAAMAAAADAAAAAAAIAAMAAAADAAAAAAAHAAMAAAADAAAAAAAGAAMAAAADAAAAAAAFAAMAAAADAAAAAAAEAAMAAAADAAAAAAADAAMAAAADAAAAAAACAAMAAAADAAAAAAABAAMAAAADAAAAAAAAAAMAAAADAAAAAAAAAAQAAAADAAAAAAABAAQAAAADAAAAAAACAAQAAAADAAAAAAADAAQAAAADAAAAAAAEAAQAAAADAAAAAAAFAAQAAAADAAAAAAAGAAQAAAADAAAAAAAHAAQAAAADAAAAAAAIAAQAAAADAAAAAAAJAAQAAAADAAAAAAAKAAQAAAADAAAAAAALAAQAAAADAAAAAAAMAAAAAAADAAAAAAAMAAEAAAADAAAAAAANAAEAAAABAAIAAAAMAAIAAAADAAAAAAANAAIAAAACAAIAAAAMAAMAAAADAAAAAAANAAMAAAADAAIAAAANAAQAAAAEAAIAAAAMAAQAAAADAAAAAAAAAAUAAAADAAAAAAABAAUAAAADAAAAAAACAAUAAAADAAAAAAADAAUAAAADAAAAAAAEAAUAAAADAAAAAAAFAAUAAAADAAAAAAAGAAUAAAADAAAAAAAHAAUAAAADAAAAAAAIAAUAAAADAAAAAAAJAAUAAAADAAAAAAAKAAUAAAADAAAAAAALAAUAAAADAAAAAAAMAAUAAAADAAAAAAANAAUAAAAFAAIAAAANAAAAAAAAAAIAAAA=")
 tile_set = ExtResource("1_v2ue2")
 
-[node name="Trains" type="Node2D" parent="."]
+[node name="Trains" type="Node2D" parent="." unique_id=1464536326]
 
-[node name="ErrorAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="ErrorAudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1566294336]
 stream = ExtResource("4_2xn0g")
 
-[node name="ScoreAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="ScoreAudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1619325041]
 stream = ExtResource("5_35er8")
 
-[node name="ActivateSwitchAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="ActivateSwitchAudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=914299312]
 stream = ExtResource("6_5y7s6")
 
-[node name="DeactivateSwitchAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="DeactivateSwitchAudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=73102719]
 stream = ExtResource("7_ndf4p")
 
-[node name="TrainCreationTimer" type="Timer" parent="."]
+[node name="TrainCreationTimer" type="Timer" parent="." unique_id=1965063278]
 
 [connection signal="timeout" from="TrainCreationTimer" to="." method="set_train_on_tracks"]

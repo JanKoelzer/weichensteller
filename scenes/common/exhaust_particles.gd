@@ -3,8 +3,8 @@ extends AbstractExhaustParticles
 
 
 @warning_ignore("shadowed_variable_base_class")
-func set_up(train_rotation: float, wind_speed: float, wind_angle: float, color: GradientTexture1D) -> void:
-	super.set_up(train_rotation, wind_speed, wind_angle, color)
+func set_up(speed: float, train_rotation: float, wind_speed: float, wind_angle: float, color: GradientTexture1D) -> void:
+	super.set_up(speed, train_rotation, wind_speed, wind_angle, color)
 	position.y = randf_range(-6, 6)
 	
 	# add some variante for each instance

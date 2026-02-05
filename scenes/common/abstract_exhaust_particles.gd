@@ -4,7 +4,7 @@ extends GPUParticles2D
 @export var wind_angle: float
 
 @warning_ignore("shadowed_variable")
-func set_up(train_rotation: float, wind_speed: float, wind_angle: float, _color: GradientTexture1D) -> void:
+func set_up(_speed: float, train_rotation: float, wind_speed: float, wind_angle: float, _color: GradientTexture1D) -> void:
 	var m: ParticleProcessMaterial = process_material
 	m.initial_velocity_min = wind_speed
 	m.initial_velocity_max = wind_speed

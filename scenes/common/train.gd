@@ -80,13 +80,13 @@ func init(new_tile_size: int,
 		
 	# diesel engine?
 	if new_type == TrainType.DIESEL1 or new_type == TrainType.DIESEL2:
-		exhaust_particles.set_up(rotation, wind_speed, wind_angle, STEAM_COLOR_GRADIENTS[color])
+		exhaust_particles.set_up(speed, rotation, wind_speed, wind_angle, STEAM_COLOR_GRADIENTS[color])
 	else:
 		remove_child(exhaust_particles)
 	
 	# steam engine?
 	if new_type == TrainType.STEAM:
-		steam_particles.set_up(rotation, wind_speed, wind_angle, STEAM_COLOR_GRADIENTS[color])
+		steam_particles.set_up(speed, rotation, wind_speed, wind_angle, STEAM_COLOR_GRADIENTS[color])
 	else:
 		remove_child(steam_particles)
 
