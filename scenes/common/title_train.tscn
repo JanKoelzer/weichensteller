@@ -186,9 +186,12 @@ region_enabled = false
 
 [node name="SteamParticles" parent="TitleTrain/Train" index="3" unique_id=1275125623]
 position = Vector2(20, 0)
+rotation = 0.10471976
 emitting = false
+amount = 2000
 explosiveness = 0.05
 process_material = SubResource("ParticleProcessMaterial_4c4ud")
+wind_angle = 0.875
 
 [node name="SparkParticles" parent="TitleTrain/Train" index="4" unique_id=1463309434]
 visible = false

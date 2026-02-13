@@ -69,17 +69,19 @@ lifetime_randomness = 1.0
 particle_flag_disable_z = true
 emission_shape = 1
 emission_sphere_radius = 15.0
-direction = Vector3(-1, 0, 0)
-spread = 15.0
+direction = Vector3(-0.995, -0.1, 0)
+spread = 5.0
+initial_velocity_min = 25.0
+initial_velocity_max = 25.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.8
 scale_max = 1.1
 scale_curve = SubResource("CurveTexture_7e4hq")
 color = Color(1, 1, 1, 0.290196)
 color_ramp = SubResource("GradientTexture1D_3gevl")
-color_initial_ramp = ExtResource("6_rrgl4")
+color_initial_ramp = ExtResource("7_dn3lk")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_a1gy5"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xac7c"]
 resource_local_to_scene = true
 lifetime_randomness = 0.5
 particle_flag_disable_z = true
@@ -94,7 +96,7 @@ scale_curve = SubResource("CurveTexture_378lh")
 color_ramp = SubResource("GradientTexture1D_xgd0o")
 color_initial_ramp = SubResource("GradientTexture1D_7e4hq")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bq5lc"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0m3cs"]
 resource_local_to_scene = true
 lifetime_randomness = 1.0
 particle_flag_disable_z = true
@@ -110,7 +112,7 @@ scale_max = 1.1
 scale_curve = SubResource("CurveTexture_7e4hq")
 color = Color(1, 1, 1, 0.290196)
 color_ramp = SubResource("GradientTexture1D_3gevl")
-color_initial_ramp = ExtResource("7_dn3lk")
+color_initial_ramp = ExtResource("6_rrgl4")
 
 [sub_resource type="Gradient" id="Gradient_a1gy5"]
 colors = PackedColorArray(0.24, 0.24, 0.24, 0.509804, 0.76, 0.76, 0.76, 0.509804)
@@ -132,7 +134,7 @@ point_count = 2
 [sub_resource type="CurveTexture" id="CurveTexture_tfctf"]
 curve = SubResource("Curve_i7nm7")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xac7c"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_a1gy5"]
 resource_local_to_scene = true
 lifetime_randomness = 0.5
 particle_flag_disable_z = true
@@ -153,7 +155,7 @@ colors = PackedColorArray(0.82, 0.82, 0.82, 1, 0.941176, 0.941176, 0.941176, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_e8e6e"]
 gradient = SubResource("Gradient_pfwk8")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0m3cs"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bq5lc"]
 resource_local_to_scene = true
 lifetime_randomness = 1.0
 particle_flag_disable_z = true
@@ -221,26 +223,7 @@ centered = false
 tile_map_data = PackedByteArray("AAABAAMAAAACAAAAAAAAAAMAAAADAAAAAAAAAAQAAAADAAAAAAABAAQAAAADAAAAAAACAAQAAAADAAAAAAADAAQAAAACAAAAAAANAAQAAAADAAAAAAAEAAUAAAABAAAAAAAFAAUAAAADAAAAAAAGAAUAAAADAAAAAAAHAAUAAAADAAAAAAAIAAUAAAADAAAAAAAJAAUAAAADAAAAAAAKAAUAAAADAAAAAAALAAUAAAADAAAAAAAMAAUAAAACAAAAAQAQAAIAAAADAAAAAAARAAIAAAADAAAAAAASAAIAAAADAAAAAAATAAIAAAADAAAAAAAUAAIAAAADAAAAAAAVAAIAAAADAAAAAAAWAAIAAAADAAAAAAAXAAIAAAADAAAAAAAYAAIAAAADAAAAAAAZAAIAAAADAAAAAAAaAAIAAAADAAAAAAAbAAIAAAADAAAAAAAcAAIAAAADAAAAAAAQAAMAAAADAAAAAAARAAMAAAADAAAAAAASAAMAAAADAAAAAAATAAMAAAADAAAAAAAUAAMAAAADAAAAAAAVAAMAAAADAAAAAAAWAAMAAAADAAAAAAAXAAMAAAADAAAAAAAYAAMAAAADAAAAAAAZAAMAAAADAAAAAAAaAAMAAAADAAAAAAAbAAMAAAADAAAAAAAcAAMAAAADAAAAAAAQAAYAAAADAAAAAAARAAYAAAADAAAAAAASAAYAAAADAAAAAAATAAYAAAADAAAAAAAUAAYAAAADAAAAAAAVAAYAAAADAAAAAAAWAAYAAAADAAAAAAAXAAYAAAADAAAAAAAYAAYAAAADAAAAAAAZAAYAAAADAAAAAAAaAAYAAAADAAAAAAAbAAYAAAADAAAAAAAcAAYAAAADAAAAAAAHAAYAAAADAAAAAAAIAAYAAAADAAAAAAAJAAYAAAADAAAAAAAKAAYAAAADAAAAAAALAAYAAAADAAAAAAAMAAYAAAADAAAAAAANAAYAAAADAAAAAAAOAAYAAAADAAAAAAAPAAYAAAADAAAAAAAGAAcAAAADAAAAAAAFAAcAAAADAAAAAAAEAAcAAAADAAAAAAADAAcAAAADAAAAAAACAAcAAAADAAAAAAABAAcAAAADAAAAAAAAAAcAAAADAAAAAAAIAAcAAAADAAAAAAAJAAcAAAADAAAAAAAKAAcAAAADAAAAAAAIAAgAAAADAAAAAAAJAAgAAAADAAAAAAAKAAgAAAADAAAAAAALAAgAAAADAAAAAAAMAAgAAAADAAAAAAAOAAcAAAADAAAAAAANAAgAAAACAAAAAQAQAAQAAAACAAAAAQALAAcAAAACAAAAAQAOAAQAAAAAAAAAAQAPAAQAAAADAAAAAAAPAAMAAAABAAAAAQAPAAcAAAACAAAAAQAHAAcAAAABAAAAAAAGAAYAAAAAAAAAAAAFAAYAAAADAAAAAAA=")
 script = ExtResource("14_4ujhu")
 
-[node name="Train1" parent="Rails/Trains" index="0" unique_id=1897423546 instance=ExtResource("4_x2yjq")]
-position = Vector2(1440, 1020)
-speed = 1.0
-metadata/_edit_group_ = true
-
-[node name="ExhaustParticles" parent="Rails/Trains/Train1" index="0" unique_id=1680992907]
-process_material = SubResource("ParticleProcessMaterial_4ujhu")
-
-[node name="Sprite" parent="Rails/Trains/Train1" index="1" unique_id=337867534]
-region_rect = Rect2(120, 600, 120, 120)
-
-[node name="SteamParticles" parent="Rails/Trains/Train1" index="3" unique_id=1275125623]
-position = Vector2(22, 0)
-process_material = SubResource("ParticleProcessMaterial_vnpsp")
-
-[node name="SparkParticles" parent="Rails/Trains/Train1" index="4" unique_id=1463309434]
-visible = false
-position = Vector2(21, 0)
-
-[node name="Train2" parent="Rails/Trains" index="1" unique_id=1915773075 instance=ExtResource("4_x2yjq")]
+[node name="Train2" parent="Rails/Trains" parent_id_path=PackedInt32Array(1113198161, 1464536326) index="0" unique_id=1915773075 instance=ExtResource("4_x2yjq")]
 position = Vector2(780, 780)
 speed = 1.0
 metadata/_edit_group_ = true
@@ -248,7 +231,7 @@ metadata/_edit_group_ = true
 [node name="ExhaustParticles" parent="Rails/Trains/Train2" index="0" unique_id=1680992907]
 visible = false
 position = Vector2(-77, 0)
-process_material = SubResource("ParticleProcessMaterial_a1gy5")
+process_material = SubResource("ParticleProcessMaterial_4ujhu")
 
 [node name="Sprite" parent="Rails/Trains/Train2" index="1" unique_id=337867534]
 region_rect = Rect2(240, 720, 120, 120)
@@ -256,14 +239,37 @@ region_rect = Rect2(240, 720, 120, 120)
 [node name="SteamParticles" parent="Rails/Trains/Train2" index="3" unique_id=1275125623]
 position = Vector2(22, 0)
 rotation = 0.7853982
-process_material = SubResource("ParticleProcessMaterial_bq5lc")
+process_material = SubResource("ParticleProcessMaterial_vnpsp")
 wind_angle = 0.785
 
 [node name="SparkParticles" parent="Rails/Trains/Train2" index="4" unique_id=1463309434]
 visible = false
 position = Vector2(21, 0)
 
-[node name="TrainCreationTimer" parent="Rails" index="5"]
+[node name="Train1" parent="Rails/Trains" parent_id_path=PackedInt32Array(1113198161, 1464536326) index="1" unique_id=1778783048 instance=ExtResource("4_x2yjq")]
+position = Vector2(1440, 1020)
+speed = 1.0
+metadata/_edit_group_ = true
+
+[node name="ExhaustParticles" parent="Rails/Trains/Train1" index="0" unique_id=1680992907]
+visible = false
+position = Vector2(-77, 0)
+process_material = SubResource("ParticleProcessMaterial_xac7c")
+
+[node name="Sprite" parent="Rails/Trains/Train1" index="1" unique_id=337867534]
+region_rect = Rect2(120, 720, 120, 120)
+
+[node name="SteamParticles" parent="Rails/Trains/Train1" index="3" unique_id=1275125623]
+position = Vector2(22, 0)
+rotation = 0.7853982
+process_material = SubResource("ParticleProcessMaterial_0m3cs")
+wind_angle = 0.785
+
+[node name="SparkParticles" parent="Rails/Trains/Train1" index="4" unique_id=1463309434]
+visible = false
+position = Vector2(21, 0)
+
+[node name="TrainCreationTimer" parent="Rails" index="5" unique_id=1965063278]
 wait_time = 6.0
 autostart = true
 
@@ -287,14 +293,14 @@ layout_mode = 2
 [node name="TitleLabel" parent="CenterContainer/VBoxContainer/Title" index="0"]
 text = "GAME_TITLE"
 
-[node name="TitleTrain" parent="CenterContainer/VBoxContainer/Title/TitleTrain" index="0"]
+[node name="TitleTrain" parent="CenterContainer/VBoxContainer/Title/TitleTrain" index="0" unique_id=269267445]
 animate_intro = true
 
 [node name="ExhaustParticles" parent="CenterContainer/VBoxContainer/Title/TitleTrain/TitleTrain/Train" index="0" unique_id=1680992907]
-process_material = SubResource("ParticleProcessMaterial_xac7c")
+process_material = SubResource("ParticleProcessMaterial_a1gy5")
 
 [node name="SteamParticles" parent="CenterContainer/VBoxContainer/Title/TitleTrain/TitleTrain/Train" index="3" unique_id=1275125623]
-process_material = SubResource("ParticleProcessMaterial_0m3cs")
+process_material = SubResource("ParticleProcessMaterial_bq5lc")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=119823806]
 custom_minimum_size = Vector2(0, 120)
@@ -398,8 +404,8 @@ text = "LEGAL_NOTES"
 [connection signal="pressed" from="HBoxContainer/VBoxContainerRight/CreditsButton" to="." method="_on_credits_button_pressed"]
 
 [editable path="Rails"]
-[editable path="Rails/Trains/Train1"]
 [editable path="Rails/Trains/Train2"]
+[editable path="Rails/Trains/Train1"]
 [editable path="CenterContainer/VBoxContainer/Title"]
 [editable path="CenterContainer/VBoxContainer/Title/TitleTrain"]
 [editable path="CenterContainer/VBoxContainer/Title/TitleTrain/TitleTrain/Train"]
