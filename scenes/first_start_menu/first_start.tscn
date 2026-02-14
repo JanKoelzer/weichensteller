@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://bk0n0dkf0jmum"]
+[gd_scene format=3 uid="uid://bk0n0dkf0jmum"]
 
 [ext_resource type="Script" uid="uid://3vs22300c7p6" path="res://scenes/first_start_menu/first_start.gd" id="1_ag4lj"]
 [ext_resource type="Texture2D" uid="uid://eij2hohstuhh" path="res://images/background.png" id="2_irq23"]
 [ext_resource type="PackedScene" uid="uid://cywhajrq5c1sc" path="res://scenes/common/title.tscn" id="3_obloy"]
 
-[node name="FirstStartMenu" type="VBoxContainer"]
+[node name="FirstStartMenu" type="VBoxContainer" unique_id=669190862]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -12,28 +12,28 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ag4lj")
 
-[node name="BackgroundSprite" type="Sprite2D" parent="."]
+[node name="BackgroundSprite" type="Sprite2D" parent="." unique_id=1202265401]
 texture = ExtResource("2_irq23")
 centered = false
 
-[node name="Title" parent="." instance=ExtResource("3_obloy")]
+[node name="Title" parent="." unique_id=1034533177 instance=ExtResource("3_obloy")]
 layout_mode = 2
 
 [node name="TitleLabel" parent="Title" index="0"]
 text = "GAME_TITLE"
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=115347334]
 layout_mode = 2
 
-[node name="CloseButton" type="Button" parent="CenterContainer"]
+[node name="CloseButton" type="Button" parent="CenterContainer" unique_id=45049660]
 layout_mode = 2
 text = "START_GAME"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1098489156]
 custom_minimum_size = Vector2(0, 800)
 layout_mode = 2
 
-[node name="HelpLabel" type="RichTextLabel" parent="ScrollContainer"]
+[node name="HelpLabel" type="RichTextLabel" parent="ScrollContainer" unique_id=392708861]
 custom_minimum_size = Vector2(1920, 0)
 layout_mode = 2
 bbcode_enabled = true

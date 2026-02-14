@@ -1,83 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://dysw0v0macqh6"]
+[gd_scene format=3 uid="uid://dysw0v0macqh6"]
 
 [ext_resource type="Texture2D" uid="uid://eij2hohstuhh" path="res://images/background.png" id="1_hnsup"]
 [ext_resource type="Script" uid="uid://xfebceag673a" path="res://scenes/highscore_menu/highscore_menu.gd" id="1_wdu0c"]
 [ext_resource type="PackedScene" uid="uid://cywhajrq5c1sc" path="res://scenes/common/title.tscn" id="3_voc57"]
 
-[sub_resource type="Gradient" id="Gradient_a1gy5"]
-colors = PackedColorArray(0.24, 0.24, 0.24, 0.509804, 0.76, 0.76, 0.76, 0.509804)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_bq5lc"]
-gradient = SubResource("Gradient_a1gy5")
-
-[sub_resource type="Gradient" id="Gradient_xac7c"]
-colors = PackedColorArray(1, 1, 1, 0.403922, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_0m3cs"]
-gradient = SubResource("Gradient_xac7c")
-
-[sub_resource type="Curve" id="Curve_i7nm7"]
-_limits = [1.0, 4.0, 0.0, 1.0]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 4), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_tfctf"]
-curve = SubResource("Curve_i7nm7")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_voc57"]
-resource_local_to_scene = true
-lifetime_randomness = 0.5
-particle_flag_disable_z = true
-direction = Vector3(-1, 0, 0)
-spread = 15.0
-initial_velocity_min = 10.0
-initial_velocity_max = 10.0
-gravity = Vector3(0, 0, 0)
-scale_min = 0.3
-scale_max = 0.4
-scale_curve = SubResource("CurveTexture_tfctf")
-color_ramp = SubResource("GradientTexture1D_0m3cs")
-color_initial_ramp = SubResource("GradientTexture1D_bq5lc")
-
-[sub_resource type="Gradient" id="Gradient_pfwk8"]
-colors = PackedColorArray(0.82, 0.82, 0.82, 1, 0.941176, 0.941176, 0.941176, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_e8e6e"]
-gradient = SubResource("Gradient_pfwk8")
-
-[sub_resource type="Gradient" id="Gradient_i1d45"]
-colors = PackedColorArray(0.66, 0.66, 0.66, 0.705882, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_3gevl"]
-gradient = SubResource("Gradient_i1d45")
-
-[sub_resource type="Curve" id="Curve_1cflw"]
-_limits = [1.0, 10.0, 0.0, 1.0]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 3.98359), 5.7967, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_7e4hq"]
-curve = SubResource("Curve_1cflw")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_o8cb6"]
-resource_local_to_scene = true
-lifetime_randomness = 1.0
-particle_flag_disable_z = true
-emission_shape = 1
-emission_sphere_radius = 15.0
-direction = Vector3(-0.995, -0.1, 0)
-spread = 1.0
-initial_velocity_min = 100.0
-initial_velocity_max = 120.0
-gravity = Vector3(0, 0, 0)
-scale_min = 0.8
-scale_max = 1.1
-scale_curve = SubResource("CurveTexture_7e4hq")
-color = Color(1, 1, 1, 0.290196)
-color_ramp = SubResource("GradientTexture1D_3gevl")
-color_initial_ramp = SubResource("GradientTexture1D_e8e6e")
-
-[node name="HighscoreMenu" type="VBoxContainer"]
+[node name="HighscoreMenu" type="VBoxContainer" unique_id=1925186773]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -85,79 +12,73 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wdu0c")
 
-[node name="BackgroundSprite" type="Sprite2D" parent="."]
+[node name="BackgroundSprite" type="Sprite2D" parent="." unique_id=1334717061]
 texture = ExtResource("1_hnsup")
 centered = false
 
-[node name="Title" parent="." instance=ExtResource("3_voc57")]
+[node name="Title" parent="." unique_id=383361115 instance=ExtResource("3_voc57")]
 layout_mode = 2
 
 [node name="TitleLabel" parent="Title" index="0"]
 text = "HIGHSCORE"
 
-[node name="ExhaustParticles" parent="Title/TitleTrain/TitleTrain/Train" index="0"]
-process_material = SubResource("ParticleProcessMaterial_voc57")
-
-[node name="SteamParticles" parent="Title/TitleTrain/TitleTrain/Train" index="3"]
-process_material = SubResource("ParticleProcessMaterial_o8cb6")
-
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1603033355]
 layout_mode = 2
 
-[node name="CloseButton" type="Button" parent="CenterContainer"]
+[node name="CloseButton" type="Button" parent="CenterContainer" unique_id=618406670]
 layout_mode = 2
 text = "BACK"
 
-[node name="HighscoreTabContainer" type="TabContainer" parent="."]
+[node name="HighscoreTabContainer" type="TabContainer" parent="." unique_id=925770255]
 unique_name_in_owner = true
 layout_mode = 2
 current_tab = 0
 
-[node name="Age0" type="ScrollContainer" parent="HighscoreTabContainer"]
+[node name="Age0" type="ScrollContainer" parent="HighscoreTabContainer" unique_id=953429867]
 custom_minimum_size = Vector2(0, 600)
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="HighscoreGrid" type="GridContainer" parent="HighscoreTabContainer/Age0"]
+[node name="HighscoreGrid" type="GridContainer" parent="HighscoreTabContainer/Age0" unique_id=791955902]
 layout_mode = 2
 size_flags_horizontal = 3
 columns = 9
 
-[node name="HighscoreLabel" type="Label" parent="HighscoreTabContainer/Age0/HighscoreGrid"]
+[node name="HighscoreLabel" type="Label" parent="HighscoreTabContainer/Age0/HighscoreGrid" unique_id=641843589]
 custom_minimum_size = Vector2(1920, 0)
 layout_mode = 2
 text = "LOADING_HIGHSCORE"
 autowrap_mode = 2
 
-[node name="Age1" type="ScrollContainer" parent="HighscoreTabContainer"]
+[node name="Age1" type="ScrollContainer" parent="HighscoreTabContainer" unique_id=1469707439]
 visible = false
 custom_minimum_size = Vector2(0, 600)
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="HighscoreGrid" type="GridContainer" parent="HighscoreTabContainer/Age1"]
+[node name="HighscoreGrid" type="GridContainer" parent="HighscoreTabContainer/Age1" unique_id=1053407110]
 layout_mode = 2
 size_flags_horizontal = 3
 columns = 9
 
-[node name="HighscoreLabel" type="Label" parent="HighscoreTabContainer/Age1/HighscoreGrid"]
+[node name="HighscoreLabel" type="Label" parent="HighscoreTabContainer/Age1/HighscoreGrid" unique_id=866479870]
 custom_minimum_size = Vector2(1920, 0)
 layout_mode = 2
 text = "LOADING_HIGHSCORE"
 autowrap_mode = 2
 
-[node name="Age2" type="ScrollContainer" parent="HighscoreTabContainer"]
+[node name="Age2" type="ScrollContainer" parent="HighscoreTabContainer" unique_id=957177630]
 visible = false
 custom_minimum_size = Vector2(0, 600)
 layout_mode = 2
 metadata/_tab_index = 2
 
-[node name="HighscoreGrid" type="GridContainer" parent="HighscoreTabContainer/Age2"]
+[node name="HighscoreGrid" type="GridContainer" parent="HighscoreTabContainer/Age2" unique_id=62959697]
 layout_mode = 2
 size_flags_horizontal = 3
 columns = 9
 
-[node name="HighscoreLabel" type="Label" parent="HighscoreTabContainer/Age2/HighscoreGrid"]
+[node name="HighscoreLabel" type="Label" parent="HighscoreTabContainer/Age2/HighscoreGrid" unique_id=336733448]
 custom_minimum_size = Vector2(1920, 0)
 layout_mode = 2
 text = "LOADING_HIGHSCORE"
@@ -166,5 +87,3 @@ autowrap_mode = 2
 [connection signal="pressed" from="CenterContainer/CloseButton" to="." method="_on_close_button_pressed"]
 
 [editable path="Title"]
-[editable path="Title/TitleTrain"]
-[editable path="Title/TitleTrain/TitleTrain/Train"]

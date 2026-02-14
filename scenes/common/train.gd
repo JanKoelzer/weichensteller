@@ -34,6 +34,8 @@ const STEAM_COLOR_GRADIENTS: Array[GradientTexture1D] = [
 @onready var steam_particles: SteamParticles = $SteamParticles
 @onready var spark_particles: SparkParticles = $SparkParticles
 @onready var exhaust_particles: ExhaustParticles = $ExhaustParticles
+@onready var sprite: Sprite2D = $Sprite
+@onready var fade_player: AnimationPlayer = $FadePlayer
 
 
 var tile_size := 120
@@ -70,7 +72,7 @@ func init(new_tile_size: int,
 	var u := color
 	
 	var v := new_type + 3 # for "+3" see structure of tileset
-	$Sprite.region_rect = Rect2(tile_size*u, tile_size*v, tile_size, tile_size)
+	sprite.region_rect = Rect2(tile_size*u, tile_size*v, tile_size, tile_size)
 	
 	# electric engine?
 	if new_type == TrainType.ELECTRIC:
@@ -118,7 +120,7 @@ func move() -> void:
 		exhaust_particles.rotate_exhaust(direction, anim_duration)
 
 func fade_in() -> void:
-	$FadePlayer.play(&"fade_in")
+	fade_player.play(&"fade_in")
 
 
 func fade_out(was_success: bool) -> void:
@@ -126,8 +128,8 @@ func fade_out(was_success: bool) -> void:
 	if not was_success:
 		var shader_material := preload("res://resources/shader/grayscale.tres")
 		shader_material.set_shader_parameter(&"engine_time_sec", Time.get_ticks_msec() / 1000.0)
-		$Sprite.material = shader_material
-	$FadePlayer.play(&"fade_out")
+		sprite.material = shader_material
+	fade_player.play(&"fade_out")
 
 
 func _on_animation_player_animation_finished(anim_name: String) -> void:

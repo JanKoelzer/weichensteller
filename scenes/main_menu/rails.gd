@@ -12,6 +12,7 @@ func init() -> void:
 		trains_on_track += 1
 		sum_trains_started += 1
 		t.wind_angle = self.wind_angle
+		t.steam_particles.set_up(1,0,wind_speed,wind_angle,Train.STEAM_COLOR_GRADIENTS[sum_trains_started])
 		t.moved.connect(_on_train_moved)
 		t.move()
 

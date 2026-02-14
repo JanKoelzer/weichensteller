@@ -1,82 +1,9 @@
-[gd_scene load_steps=29 format=3 uid="uid://beulniltj2hto"]
+[gd_scene format=3 uid="uid://beulniltj2hto"]
 
 [ext_resource type="Script" uid="uid://b46v6j77q3xc8" path="res://scenes/difficulty_menu/difficulty_menu.gd" id="1_2ybyc"]
 [ext_resource type="Texture2D" uid="uid://eij2hohstuhh" path="res://images/background.png" id="2_krwiw"]
 [ext_resource type="PackedScene" uid="uid://cywhajrq5c1sc" path="res://scenes/common/title.tscn" id="3_2ybyc"]
 [ext_resource type="Texture2D" uid="uid://chf34iv6d16q5" path="res://images/rails.png" id="4_c46ss"]
-
-[sub_resource type="Gradient" id="Gradient_a1gy5"]
-colors = PackedColorArray(0.24, 0.24, 0.24, 0.509804, 0.76, 0.76, 0.76, 0.509804)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_bq5lc"]
-gradient = SubResource("Gradient_a1gy5")
-
-[sub_resource type="Gradient" id="Gradient_xac7c"]
-colors = PackedColorArray(1, 1, 1, 0.403922, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_0m3cs"]
-gradient = SubResource("Gradient_xac7c")
-
-[sub_resource type="Curve" id="Curve_i7nm7"]
-_limits = [1.0, 4.0, 0.0, 1.0]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 4), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_tfctf"]
-curve = SubResource("Curve_i7nm7")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lc7d8"]
-resource_local_to_scene = true
-lifetime_randomness = 0.5
-particle_flag_disable_z = true
-direction = Vector3(-1, 0, 0)
-spread = 15.0
-initial_velocity_min = 10.0
-initial_velocity_max = 10.0
-gravity = Vector3(0, 0, 0)
-scale_min = 0.3
-scale_max = 0.4
-scale_curve = SubResource("CurveTexture_tfctf")
-color_ramp = SubResource("GradientTexture1D_0m3cs")
-color_initial_ramp = SubResource("GradientTexture1D_bq5lc")
-
-[sub_resource type="Gradient" id="Gradient_pfwk8"]
-colors = PackedColorArray(0.82, 0.82, 0.82, 1, 0.941176, 0.941176, 0.941176, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_e8e6e"]
-gradient = SubResource("Gradient_pfwk8")
-
-[sub_resource type="Gradient" id="Gradient_i1d45"]
-colors = PackedColorArray(0.66, 0.66, 0.66, 0.705882, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_3gevl"]
-gradient = SubResource("Gradient_i1d45")
-
-[sub_resource type="Curve" id="Curve_1cflw"]
-_limits = [1.0, 10.0, 0.0, 1.0]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 3.98359), 5.7967, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_7e4hq"]
-curve = SubResource("Curve_1cflw")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fnlck"]
-resource_local_to_scene = true
-lifetime_randomness = 1.0
-particle_flag_disable_z = true
-emission_shape = 1
-emission_sphere_radius = 15.0
-direction = Vector3(-0.995, -0.1, 0)
-spread = 1.0
-initial_velocity_min = 100.0
-initial_velocity_max = 120.0
-gravity = Vector3(0, 0, 0)
-scale_min = 0.8
-scale_max = 1.1
-scale_curve = SubResource("CurveTexture_7e4hq")
-color = Color(1, 1, 1, 0.290196)
-color_ramp = SubResource("GradientTexture1D_3gevl")
-color_initial_ramp = SubResource("GradientTexture1D_e8e6e")
 
 [sub_resource type="Animation" id="Animation_ty162"]
 resource_name = "changed"
@@ -136,7 +63,7 @@ atlas = ExtResource("4_c46ss")
 region = Rect2(600, 240, 120, 120)
 filter_clip = true
 
-[node name="DifficultySettings" type="VBoxContainer"]
+[node name="DifficultySettings" type="VBoxContainer" unique_id=1379196059]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -145,82 +72,74 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2ybyc")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1796639614]
 texture = ExtResource("2_krwiw")
 centered = false
 
-[node name="Title" parent="." instance=ExtResource("3_2ybyc")]
+[node name="Title" parent="." unique_id=1938389076 instance=ExtResource("3_2ybyc")]
 layout_mode = 2
 
 [node name="TitleLabel" parent="Title" index="0"]
 text = "GAME_TITLE"
 
-[node name="ExhaustParticles" parent="Title/TitleTrain/TitleTrain/Train" index="0"]
-process_material = SubResource("ParticleProcessMaterial_lc7d8")
-
-[node name="SteamParticles" parent="Title/TitleTrain/TitleTrain/Train" index="3"]
-process_material = SubResource("ParticleProcessMaterial_fnlck")
-
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=715854983]
 layout_mode = 2
 
-[node name="GridContainer" type="GridContainer" parent="CenterContainer"]
+[node name="GridContainer" type="GridContainer" parent="CenterContainer" unique_id=524969810]
 layout_mode = 2
 columns = 4
 
-[node name="Label2" type="Label" parent="CenterContainer/GridContainer"]
+[node name="Label2" type="Label" parent="CenterContainer/GridContainer" unique_id=256668515]
 layout_mode = 2
 tooltip_text = "SPEED_HINT"
 mouse_filter = 1
 text = "SPEED"
 
-[node name="SpeedMinusButton" type="Button" parent="CenterContainer/GridContainer"]
+[node name="SpeedMinusButton" type="Button" parent="CenterContainer/GridContainer" unique_id=614021066]
 custom_minimum_size = Vector2(50, 120)
 layout_mode = 2
 text = "-"
 
-[node name="SpeedPlusButton" type="Button" parent="CenterContainer/GridContainer"]
+[node name="SpeedPlusButton" type="Button" parent="CenterContainer/GridContainer" unique_id=982146309]
 custom_minimum_size = Vector2(50, 120)
 layout_mode = 2
 text = "+"
 
-[node name="SpeedLabel" type="Label" parent="CenterContainer/GridContainer"]
+[node name="SpeedLabel" type="Label" parent="CenterContainer/GridContainer" unique_id=727547056]
 layout_mode = 2
 text = "100"
 
-[node name="Label3" type="Label" parent="CenterContainer/GridContainer"]
+[node name="Label3" type="Label" parent="CenterContainer/GridContainer" unique_id=1424667622]
 layout_mode = 2
 tooltip_text = "TRAFFIC_DENSITY_HINT"
 mouse_filter = 1
 text = "TRAFFIC_DENSITY"
 
-[node name="ConcurrentMinusButton" type="Button" parent="CenterContainer/GridContainer"]
+[node name="ConcurrentMinusButton" type="Button" parent="CenterContainer/GridContainer" unique_id=1772263251]
 custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
 text = "-"
 
-[node name="ConcurrentPlusButton" type="Button" parent="CenterContainer/GridContainer"]
+[node name="ConcurrentPlusButton" type="Button" parent="CenterContainer/GridContainer" unique_id=1443232836]
 custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
 text = "+"
 
-[node name="NumConcurrentTrainsLabel" type="Label" parent="CenterContainer/GridContainer"]
+[node name="NumConcurrentTrainsLabel" type="Label" parent="CenterContainer/GridContainer" unique_id=1887588235]
 layout_mode = 2
 text = "100"
 
-[node name="NumStationsLabel" type="Label" parent="CenterContainer/GridContainer"]
+[node name="NumStationsLabel" type="Label" parent="CenterContainer/GridContainer" unique_id=1334521798]
 unique_name_in_owner = true
 layout_mode = 2
 tooltip_text = "NUMBER_STATIONS_HINT"
 mouse_filter = 1
 text = "SELECTED_STATIONS"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer/GridContainer/NumStationsLabel"]
-libraries = {
-&"": SubResource("AnimationLibrary_ud552")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer/GridContainer/NumStationsLabel" unique_id=104082880]
+libraries/ = SubResource("AnimationLibrary_ud552")
 
-[node name="StationButton0" type="Button" parent="CenterContainer/GridContainer"]
+[node name="StationButton0" type="Button" parent="CenterContainer/GridContainer" unique_id=1646112557]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ty162")
@@ -230,7 +149,7 @@ button_pressed = true
 icon = SubResource("AtlasTexture_esjue")
 icon_alignment = 1
 
-[node name="StationButton1" type="Button" parent="CenterContainer/GridContainer"]
+[node name="StationButton1" type="Button" parent="CenterContainer/GridContainer" unique_id=1222639015]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ty162")
@@ -240,10 +159,10 @@ button_pressed = true
 icon = SubResource("AtlasTexture_8jvx0")
 icon_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/GridContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/GridContainer" unique_id=714208536]
 layout_mode = 2
 
-[node name="StationButton2" type="Button" parent="CenterContainer/GridContainer/HBoxContainer"]
+[node name="StationButton2" type="Button" parent="CenterContainer/GridContainer/HBoxContainer" unique_id=2075997499]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
@@ -254,7 +173,7 @@ button_pressed = true
 icon = SubResource("AtlasTexture_2ybyc")
 icon_alignment = 1
 
-[node name="StationButton3" type="Button" parent="CenterContainer/GridContainer/HBoxContainer"]
+[node name="StationButton3" type="Button" parent="CenterContainer/GridContainer/HBoxContainer" unique_id=602966054]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
@@ -265,7 +184,7 @@ button_pressed = true
 icon = SubResource("AtlasTexture_krwiw")
 icon_alignment = 1
 
-[node name="StationButton4" type="Button" parent="CenterContainer/GridContainer/HBoxContainer"]
+[node name="StationButton4" type="Button" parent="CenterContainer/GridContainer/HBoxContainer" unique_id=118313413]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
@@ -276,7 +195,7 @@ button_pressed = true
 icon = SubResource("AtlasTexture_o5fy7")
 icon_alignment = 1
 
-[node name="StationButton5" type="Button" parent="CenterContainer/GridContainer/HBoxContainer"]
+[node name="StationButton5" type="Button" parent="CenterContainer/GridContainer/HBoxContainer" unique_id=35199511]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
@@ -286,67 +205,67 @@ toggle_mode = true
 icon = SubResource("AtlasTexture_h6mec")
 icon_alignment = 1
 
-[node name="Label8" type="Label" parent="CenterContainer/GridContainer"]
+[node name="Label8" type="Label" parent="CenterContainer/GridContainer" unique_id=492311935]
 layout_mode = 2
 tooltip_text = "NUMBER_SWITCHES_HINT"
 mouse_filter = 1
 text = "NUMBER_SWITCHES"
 
-[node name="SwitchesMinusButton" type="Button" parent="CenterContainer/GridContainer"]
+[node name="SwitchesMinusButton" type="Button" parent="CenterContainer/GridContainer" unique_id=189929422]
 custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
 text = "-"
 
-[node name="SwitchesPlusButton" type="Button" parent="CenterContainer/GridContainer"]
+[node name="SwitchesPlusButton" type="Button" parent="CenterContainer/GridContainer" unique_id=1335060452]
 custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
 text = "+"
 
-[node name="NumSwitchesLabel" type="Label" parent="CenterContainer/GridContainer"]
+[node name="NumSwitchesLabel" type="Label" parent="CenterContainer/GridContainer" unique_id=135427605]
 layout_mode = 2
 text = "5"
 
-[node name="Label10" type="Label" parent="CenterContainer/GridContainer"]
+[node name="Label10" type="Label" parent="CenterContainer/GridContainer" unique_id=1886151310]
 layout_mode = 2
 tooltip_text = "NUMBER_ERRORS_HINT"
 mouse_filter = 1
 text = "NUMBER_ERRORS"
 
-[node name="ErrorsMinusButton" type="Button" parent="CenterContainer/GridContainer"]
+[node name="ErrorsMinusButton" type="Button" parent="CenterContainer/GridContainer" unique_id=1252245977]
 custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
 text = "-"
 
-[node name="ErrorsPlusButton" type="Button" parent="CenterContainer/GridContainer"]
+[node name="ErrorsPlusButton" type="Button" parent="CenterContainer/GridContainer" unique_id=623446851]
 custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
 text = "+"
 
-[node name="MaxErrorsLabel" type="Label" parent="CenterContainer/GridContainer"]
+[node name="MaxErrorsLabel" type="Label" parent="CenterContainer/GridContainer" unique_id=177353567]
 layout_mode = 2
 text = "5"
 
-[node name="VBoxContainer" type="HBoxContainer" parent="CenterContainer/GridContainer"]
+[node name="VBoxContainer" type="HBoxContainer" parent="CenterContainer/GridContainer" unique_id=546994883]
 layout_mode = 2
 size_flags_horizontal = 8
 
-[node name="Label" type="Label" parent="CenterContainer/GridContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="CenterContainer/GridContainer/VBoxContainer" unique_id=1763709257]
 layout_mode = 2
 tooltip_text = "DIFFICULTY_HINT"
 mouse_filter = 1
 text = "DIFFICULTY"
 
-[node name="FactorLabel" type="Label" parent="CenterContainer/GridContainer/VBoxContainer"]
+[node name="FactorLabel" type="Label" parent="CenterContainer/GridContainer/VBoxContainer" unique_id=337601128]
 layout_mode = 2
 text = "100 %"
 
-[node name="Control" type="Control" parent="CenterContainer/GridContainer"]
+[node name="Control" type="Control" parent="CenterContainer/GridContainer" unique_id=1876228027]
 layout_mode = 2
 
-[node name="Control2" type="Control" parent="CenterContainer/GridContainer"]
+[node name="Control2" type="Control" parent="CenterContainer/GridContainer" unique_id=1020121040]
 layout_mode = 2
 
-[node name="StartButton" type="Button" parent="CenterContainer/GridContainer"]
+[node name="StartButton" type="Button" parent="CenterContainer/GridContainer" unique_id=1880850677]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
@@ -369,5 +288,3 @@ text = "START"
 [connection signal="pressed" from="CenterContainer/GridContainer/StartButton" to="." method="_on_start_button_pressed"]
 
 [editable path="Title"]
-[editable path="Title/TitleTrain"]
-[editable path="Title/TitleTrain/TitleTrain/Train"]

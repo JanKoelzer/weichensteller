@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dacmw08qc6bd5"]
+[gd_scene format=3 uid="uid://dacmw08qc6bd5"]
 
 [ext_resource type="Script" uid="uid://dhkiyys86x0b8" path="res://scenes/help_menu/help_menu.gd" id="1_538cs"]
 [ext_resource type="Texture2D" uid="uid://eij2hohstuhh" path="res://images/background.png" id="2_yx3vl"]
 [ext_resource type="PackedScene" uid="uid://cywhajrq5c1sc" path="res://scenes/common/title.tscn" id="3_hmep0"]
 
-[node name="HelpMenu" type="VBoxContainer"]
+[node name="HelpMenu" type="VBoxContainer" unique_id=306521833]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -12,34 +12,34 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_538cs")
 
-[node name="BackgroundSprite" type="Sprite2D" parent="."]
+[node name="BackgroundSprite" type="Sprite2D" parent="." unique_id=536373743]
 texture = ExtResource("2_yx3vl")
 centered = false
 
-[node name="Title" parent="." instance=ExtResource("3_hmep0")]
+[node name="Title" parent="." unique_id=80337146 instance=ExtResource("3_hmep0")]
 layout_mode = 2
 
 [node name="TitleLabel" parent="Title" index="0"]
 text = "HELP_MENU"
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1480609175]
 layout_mode = 2
 
-[node name="CloseButton" type="Button" parent="CenterContainer"]
+[node name="CloseButton" type="Button" parent="CenterContainer" unique_id=705596265]
 layout_mode = 2
 text = "BACK"
 
-[node name="TabContainer" type="TabContainer" parent="."]
+[node name="TabContainer" type="TabContainer" parent="." unique_id=198374807]
 custom_minimum_size = Vector2(0, 800)
 layout_mode = 2
 current_tab = 0
 
-[node name="HELP_MENU" type="ScrollContainer" parent="TabContainer"]
+[node name="HELP_MENU" type="ScrollContainer" parent="TabContainer" unique_id=1659671553]
 custom_minimum_size = Vector2(0, 350)
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="HelpLabel" type="RichTextLabel" parent="TabContainer/HELP_MENU"]
+[node name="HelpLabel" type="RichTextLabel" parent="TabContainer/HELP_MENU" unique_id=609677061]
 custom_minimum_size = Vector2(1920, 640)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -48,13 +48,13 @@ text = "HELP_TEXT"
 fit_content = true
 autowrap_mode = 2
 
-[node name="HELP_TEXT_SHOW_DETAILS" type="ScrollContainer" parent="TabContainer"]
+[node name="HELP_TEXT_SHOW_DETAILS" type="ScrollContainer" parent="TabContainer" unique_id=2038416183]
 visible = false
 custom_minimum_size = Vector2(0, 350)
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="HelpLabel" type="RichTextLabel" parent="TabContainer/HELP_TEXT_SHOW_DETAILS"]
+[node name="HelpLabel" type="RichTextLabel" parent="TabContainer/HELP_TEXT_SHOW_DETAILS" unique_id=240032084]
 custom_minimum_size = Vector2(1920, 640)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -66,5 +66,3 @@ autowrap_mode = 2
 [connection signal="pressed" from="CenterContainer/CloseButton" to="." method="_on_close_button_pressed"]
 
 [editable path="Title"]
-[editable path="Title/TitleTrain"]
-[editable path="Title/TitleTrain/TitleTrain/Train"]
