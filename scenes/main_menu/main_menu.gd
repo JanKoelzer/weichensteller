@@ -3,6 +3,7 @@ extends Control
 @onready var audio_option_button: OptionButton = %AudioOptionButton
 @onready var language_option_button: OptionButton = %LanguageOptionButton
 @onready var quit_button: Button = $CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/QuitButton
+@onready var change_setting_audio_stream_player: AudioStreamPlayer = $ChangeSettingAudioStreamPlayer
 
 
 func _ready() -> void:
@@ -48,7 +49,9 @@ func _on_language_option_button_item_selected(index: int) -> void:
 		UISettings.locale = "en"
 	else:
 		UISettings.locale = "de"
+	change_setting_audio_stream_player.play()
 
 
 func _on_audio_option_button_item_selected(index: int) -> void:
 	UISettings.sound_enabled = index == 0
+	change_setting_audio_stream_player.play()

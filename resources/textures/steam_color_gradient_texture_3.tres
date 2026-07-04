@@ -2,7 +2,7 @@
 
 [sub_resource type="Gradient" id="Gradient_g3f73"]
 resource_local_to_scene = true
-colors = PackedColorArray(0.9098039, 0.9490196, 0.6313726, 1, 0.51921004, 0.54, 0.3618, 1)
+colors = PackedColorArray(0.48000002, 0.6, 0.36, 1, 0.3, 0.4, 0.2, 1)
 
 [resource]
 gradient = SubResource("Gradient_g3f73")

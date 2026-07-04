@@ -11,7 +11,7 @@ func set_up(speed: float, train_rotation: float, wind_speed: float, wind_angle: 
 	
 	# add some variation for each instance
 	create_random_texture()
-	process_material.color = Color(process_material.color, process_material.color.a * randf_range(0.9, 1.1))
+	process_material.color = Color(process_material.color, process_material.color.a * randf_range(0.9, 1.0))
 	lifetime *= randf_range(0.8, 1.2)
 	@warning_ignore("narrowing_conversion")
 	amount *= randf_range(0.8, 1.2) * speed
