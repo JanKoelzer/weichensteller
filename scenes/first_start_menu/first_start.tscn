@@ -19,7 +19,7 @@ centered = false
 [node name="Title" parent="." unique_id=1034533177 instance=ExtResource("3_obloy")]
 layout_mode = 2
 
-[node name="TitleLabel" parent="Title" index="0"]
+[node name="TitleLabel" parent="Title" index="0" unique_id=64782964]
 text = "GAME_TITLE"
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=115347334]
@@ -36,6 +36,7 @@ layout_mode = 2
 [node name="HelpLabel" type="RichTextLabel" parent="ScrollContainer" unique_id=392708861]
 custom_minimum_size = Vector2(1920, 0)
 layout_mode = 2
+mouse_filter = 2
 bbcode_enabled = true
 text = "PRIVACY_INFO"
 fit_content = true
