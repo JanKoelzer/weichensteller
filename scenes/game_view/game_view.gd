@@ -31,6 +31,12 @@ var score_str: String:
 func _ready() -> void:
 	# start the game
 	rails.init(COL_COUNT, GameSettings)
+	
+	# set position to have rais centered in container.
+	# (non-control is not layed out automatically)
+	@warning_ignore("integer_division")
+	rails.position.x = (get_viewport().get_visible_rect().size.x - COL_COUNT * rails.tile_set.tile_size.x) / 2
+	
 	count_down_and_start()
 
 

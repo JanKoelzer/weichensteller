@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://b5khbek0fxki0"]
+[gd_scene format=4 uid="uid://b5khbek0fxki0"]
 
 [ext_resource type="Script" uid="uid://522w2u3g8ouo" path="res://scenes/game_view/game_view.gd" id="1_6hfh6"]
 [ext_resource type="PackedScene" uid="uid://bj451436lnaqo" path="res://scenes/common/rails.tscn" id="1_rrse5"]
@@ -182,7 +182,7 @@ _data = {
 &"changed": SubResource("Animation_sbrcx")
 }
 
-[node name="GameView" type="VBoxContainer"]
+[node name="GameView" type="VBoxContainer" unique_id=1310930284]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -191,27 +191,27 @@ grow_vertical = 2
 alignment = 1
 script = ExtResource("1_6hfh6")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=467405916]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1441881316]
 texture = ExtResource("2_g1875")
 centered = false
 
-[node name="Container" type="CenterContainer" parent="."]
+[node name="Container" type="CenterContainer" parent="." unique_id=1484331843]
 custom_minimum_size = Vector2(1920, 720)
 layout_mode = 2
 
-[node name="Rails" parent="Container" instance=ExtResource("1_rrse5")]
+[node name="Rails" parent="Container" unique_id=851026409 instance=ExtResource("1_rrse5")]
 unique_name_in_owner = true
 tile_map_data = PackedByteArray("AAAAAAAAAAADAAAAAAABAAAAAAADAAAAAAACAAAAAAADAAAAAAADAAAAAAADAAAAAAAEAAAAAAADAAAAAAAFAAAAAAADAAAAAAAGAAEAAAADAAAAAAAHAAEAAAADAAAAAAAHAAAAAAADAAAAAAAIAAAAAAADAAAAAAAJAAAAAAADAAAAAAAGAAAAAAADAAAAAAAAAAEAAAADAAAAAAABAAEAAAADAAAAAAACAAEAAAADAAAAAAADAAEAAAADAAAAAAAEAAEAAAADAAAAAAAFAAEAAAADAAAAAAAJAAEAAAADAAAAAAAKAAEAAAADAAAAAAAKAAAAAAADAAAAAAALAAAAAAADAAAAAAALAAEAAAADAAAAAAAIAAEAAAADAAAAAAAAAAIAAAADAAAAAAABAAIAAAADAAAAAAACAAIAAAADAAAAAAADAAIAAAADAAAAAAAEAAIAAAADAAAAAAAFAAIAAAADAAAAAAAGAAIAAAADAAAAAAAHAAIAAAADAAAAAAAIAAIAAAADAAAAAAAJAAIAAAADAAAAAAAKAAIAAAADAAAAAAALAAIAAAADAAAAAAALAAMAAAADAAAAAAAKAAMAAAADAAAAAAAJAAMAAAADAAAAAAAIAAMAAAADAAAAAAAHAAMAAAADAAAAAAAGAAMAAAADAAAAAAAFAAMAAAADAAAAAAAEAAMAAAADAAAAAAADAAMAAAADAAAAAAACAAMAAAADAAAAAAABAAMAAAADAAAAAAAAAAMAAAADAAAAAAAAAAQAAAADAAAAAAABAAQAAAADAAAAAAACAAQAAAADAAAAAAADAAQAAAADAAAAAAAEAAQAAAADAAAAAAAFAAQAAAADAAAAAAAGAAQAAAADAAAAAAAHAAQAAAADAAAAAAAIAAQAAAADAAAAAAAJAAQAAAADAAAAAAAKAAQAAAADAAAAAAALAAQAAAADAAAAAAAMAAAAAAADAAAAAAAMAAEAAAADAAAAAAANAAEAAAADAAAAAAAMAAIAAAADAAAAAAANAAIAAAADAAAAAAAMAAMAAAADAAAAAAANAAMAAAADAAAAAAANAAQAAAADAAAAAAAMAAQAAAADAAAAAAAAAAUAAAADAAAAAAABAAUAAAADAAAAAAACAAUAAAADAAAAAAADAAUAAAADAAAAAAAEAAUAAAADAAAAAAAFAAUAAAADAAAAAAAGAAUAAAADAAAAAAAHAAUAAAADAAAAAAAIAAUAAAADAAAAAAAJAAUAAAADAAAAAAAKAAUAAAADAAAAAAALAAUAAAADAAAAAAAMAAUAAAADAAAAAAANAAUAAAADAAAAAAANAAAAAAADAAAAAAAOAAAAAAADAAAAAAAPAAAAAAAAAAIAAAAPAAEAAAABAAIAAAAPAAIAAAACAAIAAAAPAAMAAAADAAIAAAAOAAMAAAADAAAAAAAOAAQAAAADAAAAAAAOAAIAAAADAAAAAAAOAAEAAAADAAAAAAAPAAQAAAAEAAIAAAAOAAUAAAADAAAAAAAPAAUAAAAFAAIAAAA=")
 script = ExtResource("4_o7foy")
 
-[node name="Countdown" type="Control" parent="Container"]
+[node name="Countdown" type="Control" parent="Container" unique_id=371542236]
 modulate = Color(1, 1, 1, 0.729412)
 layout_mode = 2
 theme = ExtResource("4_gxnlg")
 
-[node name="CountdownLabel0" type="Label" parent="Container/Countdown"]
+[node name="CountdownLabel0" type="Label" parent="Container/Countdown" unique_id=2023276250]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)
 clip_contents = true
@@ -229,12 +229,10 @@ theme_override_colors/font_color = Color(0.415686, 0.745098, 0.196078, 1)
 theme_override_font_sizes/font_size = 200
 text = "GO"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Container/Countdown/CountdownLabel0"]
-libraries = {
-&"": SubResource("AnimationLibrary_xll60")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Container/Countdown/CountdownLabel0" unique_id=939866302]
+libraries/ = SubResource("AnimationLibrary_xll60")
 
-[node name="CountdownLabel1" type="Label" parent="Container/Countdown"]
+[node name="CountdownLabel1" type="Label" parent="Container/Countdown" unique_id=1754846142]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)
 clip_contents = true
@@ -252,12 +250,10 @@ theme_override_colors/font_color = Color(0.984314, 0.94902, 0.211765, 1)
 theme_override_font_sizes/font_size = 200
 text = "1"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Container/Countdown/CountdownLabel1"]
-libraries = {
-&"": SubResource("AnimationLibrary_xll60")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Container/Countdown/CountdownLabel1" unique_id=2092457965]
+libraries/ = SubResource("AnimationLibrary_xll60")
 
-[node name="CountdownLabel2" type="Label" parent="Container/Countdown"]
+[node name="CountdownLabel2" type="Label" parent="Container/Countdown" unique_id=1751463447]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)
 clip_contents = true
@@ -275,12 +271,10 @@ theme_override_colors/font_color = Color(0.87451, 0.443137, 0.14902, 1)
 theme_override_font_sizes/font_size = 200
 text = "2"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Container/Countdown/CountdownLabel2"]
-libraries = {
-&"": SubResource("AnimationLibrary_xll60")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Container/Countdown/CountdownLabel2" unique_id=928727808]
+libraries/ = SubResource("AnimationLibrary_xll60")
 
-[node name="CountdownLabel3" type="Label" parent="Container/Countdown"]
+[node name="CountdownLabel3" type="Label" parent="Container/Countdown" unique_id=1443329319]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)
 clip_contents = true
@@ -298,43 +292,41 @@ theme_override_colors/font_color = Color(0.67451, 0.196078, 0.196078, 1)
 theme_override_font_sizes/font_size = 200
 text = "3"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Container/Countdown/CountdownLabel3"]
-libraries = {
-&"": SubResource("AnimationLibrary_xll60")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Container/Countdown/CountdownLabel3" unique_id=231933858]
+libraries/ = SubResource("AnimationLibrary_xll60")
 
-[node name="CountdownAudioStreamPlayer" type="AudioStreamPlayer" parent="Container/Countdown"]
+[node name="CountdownAudioStreamPlayer" type="AudioStreamPlayer" parent="Container/Countdown" unique_id=1584222427]
 unique_name_in_owner = true
 stream = ExtResource("4_cr1hu")
 
-[node name="CountdownEndAudioStreamPlayer" type="AudioStreamPlayer" parent="Container/Countdown"]
+[node name="CountdownEndAudioStreamPlayer" type="AudioStreamPlayer" parent="Container/Countdown" unique_id=271123083]
 unique_name_in_owner = true
 stream = ExtResource("5_ni2ws")
 
-[node name="GameOverDisplay" type="PanelContainer" parent="Container"]
+[node name="GameOverDisplay" type="PanelContainer" parent="Container" unique_id=1730966414]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="GameOverMenu" type="VBoxContainer" parent="Container/GameOverDisplay"]
+[node name="GameOverMenu" type="VBoxContainer" parent="Container/GameOverDisplay" unique_id=176429781]
 unique_name_in_owner = true
 clip_contents = true
 layout_mode = 2
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Container/GameOverDisplay/GameOverMenu"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Container/GameOverDisplay/GameOverMenu" unique_id=1167142845]
 modulate = Color(1, 1, 1, 0.76862746)
 layout_mode = 2
 theme = ExtResource("4_gxnlg")
 
-[node name="Label" type="Label" parent="Container/GameOverDisplay/GameOverMenu/VBoxContainer"]
+[node name="Label" type="Label" parent="Container/GameOverDisplay/GameOverMenu/VBoxContainer" unique_id=949043157]
 clip_contents = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 100
 text = "GAME_OVER"
 horizontal_alignment = 1
 
-[node name="FinalScoreLabel" type="Label" parent="Container/GameOverDisplay/GameOverMenu/VBoxContainer"]
+[node name="FinalScoreLabel" type="Label" parent="Container/GameOverDisplay/GameOverMenu/VBoxContainer" unique_id=447450699]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.67451, 0.196078, 0.196078, 1)
@@ -342,145 +334,137 @@ theme_override_font_sizes/font_size = 100
 text = "SCORE"
 horizontal_alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Container/GameOverDisplay/GameOverMenu/VBoxContainer/FinalScoreLabel"]
-libraries = {
-&"": SubResource("AnimationLibrary_4him0")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Container/GameOverDisplay/GameOverMenu/VBoxContainer/FinalScoreLabel" unique_id=1164821311]
+libraries/ = SubResource("AnimationLibrary_4him0")
 
-[node name="HighscoreControls" type="HBoxContainer" parent="Container/GameOverDisplay/GameOverMenu"]
+[node name="HighscoreControls" type="HBoxContainer" parent="Container/GameOverDisplay/GameOverMenu" unique_id=1593256297]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="PlayerNameEdit" type="LineEdit" parent="Container/GameOverDisplay/GameOverMenu/HighscoreControls"]
+[node name="PlayerNameEdit" type="LineEdit" parent="Container/GameOverDisplay/GameOverMenu/HighscoreControls" unique_id=981392692]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "NAME_PLACEHOLDER"
 max_length = 30
 
-[node name="ChildSubmitButton" type="Button" parent="Container/GameOverDisplay/GameOverMenu/HighscoreControls" groups=["SubmitButton"]]
+[node name="ChildSubmitButton" type="Button" parent="Container/GameOverDisplay/GameOverMenu/HighscoreControls" unique_id=49098793 groups=["SubmitButton"]]
 layout_mode = 2
 text = "AGE_0"
 
-[node name="PupilSubmitButton" type="Button" parent="Container/GameOverDisplay/GameOverMenu/HighscoreControls" groups=["SubmitButton"]]
+[node name="PupilSubmitButton" type="Button" parent="Container/GameOverDisplay/GameOverMenu/HighscoreControls" unique_id=257883017 groups=["SubmitButton"]]
 layout_mode = 2
 text = "AGE_1"
 
-[node name="AdultSubmitButton" type="Button" parent="Container/GameOverDisplay/GameOverMenu/HighscoreControls" groups=["SubmitButton"]]
+[node name="AdultSubmitButton" type="Button" parent="Container/GameOverDisplay/GameOverMenu/HighscoreControls" unique_id=1911421639 groups=["SubmitButton"]]
 layout_mode = 2
 text = "AGE_2"
 
-[node name="SubmitStatusLabel" type="Label" parent="Container/GameOverDisplay/GameOverMenu/HighscoreControls"]
+[node name="SubmitStatusLabel" type="Label" parent="Container/GameOverDisplay/GameOverMenu/HighscoreControls" unique_id=673509434]
 visible = false
 layout_mode = 2
 text = "…"
 
-[node name="HSeparator" type="HSeparator" parent="Container/GameOverDisplay/GameOverMenu"]
+[node name="HSeparator" type="HSeparator" parent="Container/GameOverDisplay/GameOverMenu" unique_id=1273765236]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=617591739]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=2008270137]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=2061842793]
 layout_mode = 2
 alignment = 1
 
-[node name="Label2" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="Label2" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=1318049529]
 layout_mode = 2
 text = "TRAINS"
 
-[node name="TrainCountLabel" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="TrainCountLabel" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=1266462836]
 unique_name_in_owner = true
 layout_mode = 2
 text = "0"
 script = ExtResource("7_1e55p")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer/VBoxContainer/HBoxContainer/TrainCountLabel"]
-libraries = {
-&"": SubResource("AnimationLibrary_d0jt8")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer/VBoxContainer/HBoxContainer/TrainCountLabel" unique_id=709529661]
+libraries/ = SubResource("AnimationLibrary_d0jt8")
 
-[node name="VSeparator" type="VSeparator" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="VSeparator" type="VSeparator" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=1599216608]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=1056408445]
 layout_mode = 2
 text = "SCORE"
 
-[node name="ScoreLabel" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="ScoreLabel" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=884877645]
 unique_name_in_owner = true
 layout_mode = 2
 text = "0"
 script = ExtResource("8_3i3bd")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer/VBoxContainer/HBoxContainer/ScoreLabel"]
-libraries = {
-&"": SubResource("AnimationLibrary_y681f")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer/VBoxContainer/HBoxContainer/ScoreLabel" unique_id=1204422373]
+libraries/ = SubResource("AnimationLibrary_y681f")
 
-[node name="VSeparator2" type="VSeparator" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="VSeparator2" type="VSeparator" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=981930303]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label3" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="Label3" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=1022129636]
 layout_mode = 2
 text = "ERRORS"
 
-[node name="ErrorsLabel" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="ErrorsLabel" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=957152827]
 unique_name_in_owner = true
 layout_mode = 2
 text = "0"
 script = ExtResource("9_ituk5")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer/VBoxContainer/HBoxContainer/ErrorsLabel"]
-libraries = {
-&"": SubResource("AnimationLibrary_7gscs")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer/VBoxContainer/HBoxContainer/ErrorsLabel" unique_id=175580743]
+libraries/ = SubResource("AnimationLibrary_7gscs")
 
-[node name="VSeparator3" type="VSeparator" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="VSeparator3" type="VSeparator" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=76223729]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label5" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="Label5" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=1874348209]
 layout_mode = 2
 text = "TIME"
 
-[node name="TimeLabel" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="TimeLabel" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=1195549918]
 unique_name_in_owner = true
 layout_mode = 2
 text = "0"
 
-[node name="MenuContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+[node name="MenuContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=2037169393]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="RestartButton" type="Button" parent="CenterContainer/VBoxContainer/MenuContainer"]
+[node name="RestartButton" type="Button" parent="CenterContainer/VBoxContainer/MenuContainer" unique_id=2079084210]
 layout_mode = 2
 text = "RESTART_GAME"
 
-[node name="VSeparator" type="VSeparator" parent="CenterContainer/VBoxContainer/MenuContainer"]
+[node name="VSeparator" type="VSeparator" parent="CenterContainer/VBoxContainer/MenuContainer" unique_id=1985770253]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="DifficultySettingsButton" type="Button" parent="CenterContainer/VBoxContainer/MenuContainer"]
+[node name="DifficultySettingsButton" type="Button" parent="CenterContainer/VBoxContainer/MenuContainer" unique_id=1266310086]
 layout_mode = 2
 text = "SETTINGS"
 
-[node name="VSeparator2" type="VSeparator" parent="CenterContainer/VBoxContainer/MenuContainer"]
+[node name="VSeparator2" type="VSeparator" parent="CenterContainer/VBoxContainer/MenuContainer" unique_id=2097304895]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MainMenuButton" type="Button" parent="CenterContainer/VBoxContainer/MenuContainer"]
+[node name="MainMenuButton" type="Button" parent="CenterContainer/VBoxContainer/MenuContainer" unique_id=404770251]
 layout_mode = 2
 text = "MAIN_MENU"
 
