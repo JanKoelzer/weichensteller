@@ -135,7 +135,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Color(0.67451, 0.196078, 0.196078, 1), Color(0.87451, 0.443137, 0.14902, 1), Color(0.984314, 0.823529, 0.211765, 1), Color(0.415686, 0.745098, 0.196078, 1), Color(0.356863, 0.431373, 0.882353, 1), Color(0.462745, 0.258824, 0.541176, 1), Color(0.67451, 0.196078, 0.196078, 1)]
+"values": [Color(0.7882353, 0.12941177, 0.11764706, 1), Color(0.99215686, 0.5019608, 0.007843138, 1), Color(0.69, 0.69, 0, 1), Color(0.415686, 0.745098, 0.196078, 1), Color(0.14901961, 0.34117648, 0.5411765, 1), Color(0.3137255, 0.1764706, 0.52156866, 1), Color(0.67451, 0.196078, 0.196078, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dn3lk"]
@@ -255,7 +255,7 @@ alignment = 1
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 theme = ExtResource("3_thkx5")
-theme_override_colors/font_color = Color(0.67451, 0.196078, 0.196078, 1)
+theme_override_colors/font_color = Color(0.7882353, 0.12941177, 0.11764706, 1)
 theme_override_font_sizes/font_size = 64
 text = "START_GAME"
 autowrap_mode = 3

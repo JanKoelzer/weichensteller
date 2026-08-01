@@ -173,7 +173,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(0.48235294, 0.23921569, 0, 1), Color(0.7882353, 0.12941177, 0.11764706, 1), Color(0.48235294, 0.23921569, 0, 1)]
+"values": [Color(0.48235294, 0.23921569, 0, 1), Color(0.4, 0.4, 0.4, 1), Color(0.48235294, 0.23921569, 0, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7gscs"]

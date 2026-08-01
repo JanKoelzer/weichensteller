@@ -1,9 +1,10 @@
 [gd_resource type="Theme" format=3 uid="uid://sdu5an0boq3"]
 
 [ext_resource type="StyleBox" uid="uid://bdkoj3eywfdfn" path="res://resources/themes/style_box_flat.tres" id="1_1ymaj"]
+[ext_resource type="StyleBox" uid="uid://bsvgeqpb8crg5" path="res://resources/themes/style_box_flat_highlighted.tres" id="2_0k5xl"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ymaj"]
-bg_color = Color(0.94, 0.86072665, 0.7238, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dn3lk"]
+bg_color = Color(0.9411765, 0.85882354, 0.7254902, 1)
 border_width_left = 8
 border_width_top = 8
 border_width_right = 8
@@ -13,6 +14,24 @@ expand_margin_left = 2.0
 expand_margin_top = 2.0
 expand_margin_right = 2.0
 expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ujhu"]
+bg_color = Color(0.9411765, 0.85882354, 0.7254902, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.48235294, 0.23921569, 0, 1)
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0k5xl"]
+bg_color = Color(0.9411765, 0.85882354, 0.7254902, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iokhm"]
+bg_color = Color(0.70980394, 0.64705884, 0.53333336, 1)
 
 [resource]
 default_font_size = 48
@@ -24,16 +43,25 @@ Button/colors/font_pressed_color = Color(0.48235294, 0.23921569, 0, 1)
 Button/styles/focus = ExtResource("1_1ymaj")
 Button/styles/hover = ExtResource("1_1ymaj")
 Button/styles/normal = ExtResource("1_1ymaj")
-Button/styles/pressed = SubResource("StyleBoxFlat_1ymaj")
+Button/styles/pressed = ExtResource("2_0k5xl")
 Label/colors/font_color = Color(0.48235294, 0.23921569, 0, 1)
 LineEdit/colors/caret_color = Color(0.9411765, 0.87058824, 0.7254902, 1)
 LineEdit/colors/font_color = Color(0.9411765, 0.87058824, 0.7254902, 1)
+OptionButton/styles/hover = SubResource("StyleBoxFlat_dn3lk")
+OptionButton/styles/normal = ExtResource("1_1ymaj")
+OptionButton/styles/normal_mirrored = ExtResource("1_1ymaj")
+OptionButton/styles/pressed = SubResource("StyleBoxFlat_4ujhu")
+PopupMenu/styles/hover = SubResource("StyleBoxFlat_0k5xl")
+PopupMenu/styles/panel = SubResource("StyleBoxFlat_iokhm")
 RichTextLabel/colors/default_color = Color(0.9411765, 0.87058824, 0.7254902, 1)
-TabBar/colors/font_hovered_color = Color(0.9411765, 0.87058824, 0.7254902, 1)
-TabBar/colors/font_selected_color = Color(0.9411765, 0.87058824, 0.7254902, 1)
-TabBar/colors/font_unselected_color = Color(0.94, 0.83346665, 0.62039995, 1)
-TabContainer/colors/font_hovered_color = Color(0.9411765, 0.87058824, 0.7254902, 1)
-TabContainer/colors/font_selected_color = Color(0.9411765, 0.87058824, 0.7254902, 1)
-TabContainer/colors/font_unselected_color = Color(0.9411765, 0.87058824, 0.7254902, 1)
+TabBar/styles/tab_hovered = ExtResource("2_0k5xl")
+TabBar/styles/tab_selected = ExtResource("2_0k5xl")
+TabBar/styles/tab_unselected = ExtResource("1_1ymaj")
+TabContainer/colors/font_hovered_color = Color(0.48235294, 0.23921569, 0, 1)
+TabContainer/colors/font_selected_color = Color(0.48235294, 0.23921569, 0, 1)
+TabContainer/colors/font_unselected_color = Color(0.48235294, 0.23921569, 0, 1)
+TabContainer/styles/tab_hovered = ExtResource("2_0k5xl")
+TabContainer/styles/tab_selected = ExtResource("2_0k5xl")
+TabContainer/styles/tab_unselected = ExtResource("1_1ymaj")
 TextEdit/colors/caret_color = Color(0.9411765, 0.87058824, 0.7254902, 1)
 TextEdit/colors/font_color = Color(0.9411765, 0.87058824, 0.7254902, 1)

@@ -4,7 +4,7 @@ extends TileMapLayer
 var Train_scene: PackedScene = preload("res://scenes/game_view/train.tscn")
 
 signal train_started(sum_trains_started: int)
-signal scored()
+signal scored(color: Train.TrainColor)
 signal errored()
 signal end()
 
@@ -184,7 +184,7 @@ func _on_train_moved(train: Train) -> void:
 		if data.get_custom_data("train_color") == train.color:
 			score_audio_stream_player.play()
 			train.fade_out(true)
-			scored.emit()
+			scored.emit(train.color)
 		else:
 			error_audio_stream_player.play()
 			train.fade_out(false)

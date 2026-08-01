@@ -59,9 +59,9 @@ func count_down_and_start() -> void:
 		)
 
 
-func _on_rails_scored() -> void:
+func _on_rails_scored(train_color: Train.TrainColor) -> void:
 	self.score += 10 * score_factor
-	score_label.update(score_str)
+	score_label.update(score_str, preload("uid://ckva3c4xanu3p").colors[train_color])
 
 
 func _on_rails_errored() -> void:

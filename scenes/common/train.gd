@@ -21,6 +21,7 @@ enum TrainColor {
 		PURPLE = 5,
 }
 
+
 # A gradient corresponding to each TrainColor to color the steam/exhaust
 const STEAM_COLOR_GRADIENTS: Array[GradientTexture1D] = [
 			preload("uid://bfyp84mohhcv2"),
