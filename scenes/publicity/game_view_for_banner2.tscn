@@ -1,49 +1,255 @@
-[gd_scene load_steps=19 format=4 uid="uid://48bublgj4thp"]
+[gd_scene format=4 uid="uid://48bublgj4thp"]
 
-[ext_resource type="Texture2D" uid="uid://eij2hohstuhh" path="res://images/background.png" id="2_6j74y"]
+[ext_resource type="Texture2D" uid="uid://bjdagv3bbgk7x" path="res://images/background.png" id="2_6j74y"]
 [ext_resource type="PackedScene" uid="uid://bj451436lnaqo" path="res://scenes/common/rails.tscn" id="3_wi23w"]
 [ext_resource type="Theme" uid="uid://drkpbmmwnukl" path="res://resources/themes/train_one.tres" id="4_r5l30"]
 [ext_resource type="PackedScene" uid="uid://dev70nkbyuydv" path="res://scenes/game_view/train.tscn" id="4_wpewe"]
-[ext_resource type="AudioStream" uid="uid://2uokg23i8gxb" path="res://sounds/switch-deactivate.ogg" id="5_wv3wl"]
-[ext_resource type="AudioStream" uid="uid://dyv1xctqtxo2r" path="res://sounds/score.ogg" id="6_q7kfd"]
 [ext_resource type="Animation" uid="uid://b8cpunt5ly3bi" path="res://resources/animations/label_value_changed_positiv.res" id="7_6qwqm"]
 
-[sub_resource type="Animation" id="Animation_r1erm"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
+[sub_resource type="Gradient" id="Gradient_6whlh"]
+colors = PackedColorArray(0.24, 0.24, 0.24, 0.509804, 0.76, 0.76, 0.76, 0.509804)
 
-[sub_resource type="Animation" id="Animation_ybkoo"]
-resource_name = "fade_out"
-length = 1.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 1.5),
-"transitions": PackedFloat32Array(1, 0.101532, 0.353554),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7e4hq"]
+gradient = SubResource("Gradient_6whlh")
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_xll60"]
-_data = {
-&"RESET": SubResource("Animation_r1erm"),
-&"fade_out": SubResource("Animation_ybkoo")
-}
+[sub_resource type="Gradient" id="Gradient_17jyq"]
+colors = PackedColorArray(1, 1, 1, 0.11764706, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xgd0o"]
+gradient = SubResource("Gradient_17jyq")
+
+[sub_resource type="Curve" id="Curve_dmukj"]
+_limits = [1.0, 4.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 4), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_378lh"]
+curve = SubResource("Curve_dmukj")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m4xiw"]
+resource_local_to_scene = true
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+direction = Vector3(-1, 0, 0)
+spread = 15.0
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.3
+scale_max = 0.4
+scale_curve = SubResource("CurveTexture_378lh")
+color_ramp = SubResource("GradientTexture1D_xgd0o")
+color_initial_ramp = SubResource("GradientTexture1D_7e4hq")
+
+[sub_resource type="Curve" id="Curve_u3cvv"]
+_data = [Vector2(0, 0.49706912), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_3gevl"]
+curve = SubResource("Curve_u3cvv")
+
+[sub_resource type="Gradient" id="Gradient_u3cvv"]
+colors = PackedColorArray(0.78, 0.78, 0.78, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_e8e6e"]
+gradient = SubResource("Gradient_u3cvv")
+
+[sub_resource type="Curve" id="Curve_1cflw"]
+_limits = [1.0, 10.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 3.98359), 5.7967, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_7e4hq"]
+curve = SubResource("Curve_1cflw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jqfhx"]
+resource_local_to_scene = true
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 15.0
+angle_min = 1.0728835e-05
+angle_max = 180.00002
+direction = Vector3(-1, 0, 0)
+spread = 15.0
+initial_velocity_min = 80.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.9
+scale_max = 1.1999999
+scale_curve = SubResource("CurveTexture_7e4hq")
+color_initial_ramp = SubResource("GradientTexture1D_e8e6e")
+alpha_curve = SubResource("CurveTexture_3gevl")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fktll"]
+resource_local_to_scene = true
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+direction = Vector3(-1, 0, 0)
+spread = 15.0
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.3
+scale_max = 0.4
+scale_curve = SubResource("CurveTexture_378lh")
+color_ramp = SubResource("GradientTexture1D_xgd0o")
+color_initial_ramp = SubResource("GradientTexture1D_7e4hq")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fcl0l"]
+resource_local_to_scene = true
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 15.0
+angle_min = 1.0728835e-05
+angle_max = 180.00002
+direction = Vector3(-1, 0, 0)
+spread = 15.0
+initial_velocity_min = 80.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.9
+scale_max = 1.1999999
+scale_curve = SubResource("CurveTexture_7e4hq")
+color_initial_ramp = SubResource("GradientTexture1D_e8e6e")
+alpha_curve = SubResource("CurveTexture_3gevl")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qfhmy"]
+resource_local_to_scene = true
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+direction = Vector3(-1, 0, 0)
+spread = 15.0
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.3
+scale_max = 0.4
+scale_curve = SubResource("CurveTexture_378lh")
+color_ramp = SubResource("GradientTexture1D_xgd0o")
+color_initial_ramp = SubResource("GradientTexture1D_7e4hq")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5i4g0"]
+resource_local_to_scene = true
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 15.0
+angle_min = 1.0728835e-05
+angle_max = 180.00002
+direction = Vector3(-1, 0, 0)
+spread = 15.0
+initial_velocity_min = 80.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.9
+scale_max = 1.1999999
+scale_curve = SubResource("CurveTexture_7e4hq")
+color_initial_ramp = SubResource("GradientTexture1D_e8e6e")
+alpha_curve = SubResource("CurveTexture_3gevl")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_x3u0w"]
+resource_local_to_scene = true
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+direction = Vector3(-1, 0, 0)
+spread = 15.0
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.3
+scale_max = 0.4
+scale_curve = SubResource("CurveTexture_378lh")
+color_ramp = SubResource("GradientTexture1D_xgd0o")
+color_initial_ramp = SubResource("GradientTexture1D_7e4hq")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_oa0vp"]
+resource_local_to_scene = true
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 15.0
+angle_min = 1.0728835e-05
+angle_max = 180.00002
+direction = Vector3(-1, 0, 0)
+spread = 15.0
+initial_velocity_min = 80.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.9
+scale_max = 1.1999999
+scale_curve = SubResource("CurveTexture_7e4hq")
+color_initial_ramp = SubResource("GradientTexture1D_e8e6e")
+alpha_curve = SubResource("CurveTexture_3gevl")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tre34"]
+resource_local_to_scene = true
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+direction = Vector3(-1, 0, 0)
+spread = 15.0
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.3
+scale_max = 0.4
+scale_curve = SubResource("CurveTexture_378lh")
+color_ramp = SubResource("GradientTexture1D_xgd0o")
+color_initial_ramp = SubResource("GradientTexture1D_7e4hq")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g51er"]
+resource_local_to_scene = true
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 15.0
+angle_min = 1.0728835e-05
+angle_max = 180.00002
+direction = Vector3(-1, 0, 0)
+spread = 15.0
+initial_velocity_min = 80.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.9
+scale_max = 1.1999999
+scale_curve = SubResource("CurveTexture_7e4hq")
+color_initial_ramp = SubResource("GradientTexture1D_e8e6e")
+alpha_curve = SubResource("CurveTexture_3gevl")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_teoym"]
+resource_local_to_scene = true
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+direction = Vector3(-1, 0, 0)
+spread = 15.0
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.3
+scale_max = 0.4
+scale_curve = SubResource("CurveTexture_378lh")
+color_ramp = SubResource("GradientTexture1D_xgd0o")
+color_initial_ramp = SubResource("GradientTexture1D_7e4hq")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ocrax"]
+resource_local_to_scene = true
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 15.0
+angle_min = 1.0728835e-05
+angle_max = 180.00002
+direction = Vector3(-1, 0, 0)
+spread = 15.0
+initial_velocity_min = 80.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.9
+scale_max = 1.1999999
+scale_curve = SubResource("CurveTexture_7e4hq")
+color_initial_ramp = SubResource("GradientTexture1D_e8e6e")
+alpha_curve = SubResource("CurveTexture_3gevl")
 
 [sub_resource type="Animation" id="Animation_b7km5"]
 length = 0.001
@@ -140,395 +346,278 @@ _data = {
 &"changed": SubResource("Animation_sbrcx")
 }
 
-[node name="GameView" type="VBoxContainer"]
+[node name="GameView" type="VBoxContainer" unique_id=60206988]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=295623207]
 texture = ExtResource("2_6j74y")
 centered = false
 
-[node name="Container" type="CenterContainer" parent="."]
+[node name="Container" type="CenterContainer" parent="." unique_id=1665331411]
 custom_minimum_size = Vector2(1024, 384)
 layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(-36, 44)
 
-[node name="Rails" parent="Container" instance=ExtResource("3_wi23w")]
+[node name="Rails" parent="Container" unique_id=136172667 instance=ExtResource("3_wi23w")]
 unique_name_in_owner = true
-tile_map_data = PackedByteArray("AAAAAAAAAAAEAAAAAAABAAAAAAAEAAAAAAACAAAAAAAEAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAEAAAAAAAFAAAAAAAEAAAAAAAGAAEAAAAEAAAAAAAHAAEAAAAEAAAAAAAHAAAAAAAEAAAAAAAIAAAAAAAEAAAAAAAJAAAAAAABAAAAAAAGAAAAAAAEAAAAAAAAAAEAAAAEAAAAAAABAAEAAAAEAAAAAAACAAEAAAAEAAAAAAADAAEAAAAEAAAAAAAEAAEAAAAAAAAAAAAFAAEAAAAEAAAAAAAJAAEAAAAEAAAAAAAKAAEAAAAEAAAAAAAKAAAAAAAEAAAAAAALAAAAAAAEAAAAAAALAAEAAAAEAAAAAAAIAAEAAAAEAAAAAAAAAAIAAAAEAAAAAAABAAIAAAAEAAAAAAACAAIAAAAEAAAAAAADAAIAAAAEAAAAAAAEAAIAAAAEAAAAAAAFAAIAAAAEAAAAAAAGAAIAAAAEAAAAAAAHAAIAAAAEAAAAAAAIAAIAAAAEAAAAAAAJAAIAAAAEAAAAAAAKAAIAAAAEAAAAAAALAAIAAAAEAAAAAAALAAMAAAAEAAAAAAAKAAMAAAABAAAAAAAJAAMAAAAEAAAAAAAIAAMAAAAEAAAAAAAHAAMAAAADAAAAAAAGAAMAAAAEAAAAAAAFAAMAAAAEAAAAAAAEAAMAAAAEAAAAAAADAAMAAAADAAAAAAACAAMAAAAEAAAAAAABAAMAAAAEAAAAAAAAAAMAAAAEAAAAAAAAAAQAAAAEAAAAAAABAAQAAAAEAAAAAAACAAQAAAAEAAAAAAADAAQAAAAEAAAAAAAEAAQAAAAEAAAAAAAFAAQAAAAEAAAAAAAGAAQAAAACAAAAAAAHAAQAAAAEAAAAAAAIAAQAAAAEAAAAAAAJAAQAAAAEAAAAAAAKAAQAAAAEAAAAAAALAAQAAAAAAAAAAAAMAAAAAAAEAAAAAAAMAAEAAAAEAAAAAAANAAEAAAADAAAAAAAMAAIAAAAEAAAAAAANAAIAAAAEAAAAAAAMAAMAAAAEAAAAAAANAAMAAAAEAAAAAAANAAQAAAAEAAAAAAAMAAQAAAAEAAAAAAAAAAUAAAAEAAAAAAABAAUAAAAEAAAAAAACAAUAAAAEAAAAAAADAAUAAAAEAAAAAAAEAAUAAAACAAAAAAAFAAUAAAAEAAAAAAAGAAUAAAAEAAAAAAAHAAUAAAAEAAAAAAAIAAUAAAAEAAAAAAAJAAUAAAAEAAAAAAAKAAUAAAAEAAAAAAALAAUAAAAEAAAAAAAMAAUAAAAEAAAAAAANAAUAAAAEAAAAAAANAAAAAAAEAAAAAAAOAAAAAAAEAAAAAAAPAAAAAAAAAAIAAAAPAAEAAAABAAIAAAAPAAIAAAACAAIAAAAPAAMAAAADAAIAAAAOAAMAAAAEAAAAAAAOAAQAAAAEAAAAAAAOAAIAAAAEAAAAAAAOAAEAAAAEAAAAAAAPAAQAAAAEAAIAAAAOAAUAAAAEAAAAAAAPAAUAAAAFAAIAAAA=")
+tile_map_data = PackedByteArray("AAAAAAAAAAADAAAAAAABAAAAAAADAAAAAAACAAAAAAADAAAAAAADAAAAAAADAAAAAAAEAAAAAAADAAAAAAAFAAAAAAADAAAAAAAGAAEAAAADAAAAAAAHAAEAAAADAAAAAAAHAAAAAAADAAAAAAAIAAAAAAADAAAAAAAJAAAAAAADAAAAAAAGAAAAAAADAAAAAAAAAAEAAAADAAAAAAABAAEAAAADAAAAAAACAAEAAAADAAAAAAADAAEAAAADAAAAAAAEAAEAAAADAAAAAAAFAAEAAAADAAAAAAAJAAEAAAAAAAAAAAAKAAEAAAADAAAAAAAKAAAAAAADAAAAAAALAAAAAAADAAAAAAALAAEAAAADAAAAAAAIAAEAAAADAAAAAAAAAAIAAAADAAAAAAABAAIAAAADAAAAAAACAAIAAAADAAAAAAADAAIAAAADAAAAAAAEAAIAAAADAAAAAAAFAAIAAAADAAAAAAAGAAIAAAADAAAAAAAHAAIAAAADAAAAAAAIAAIAAAADAAAAAAAJAAIAAAADAAAAAAAKAAIAAAADAAAAAAALAAIAAAADAAAAAAALAAMAAAADAAAAAAAKAAMAAAADAAAAAAAJAAMAAAABAAAAAAAIAAMAAAADAAAAAAAHAAMAAAADAAAAAAAGAAMAAAADAAAAAAAFAAMAAAADAAAAAAAEAAMAAAADAAAAAAADAAMAAAADAAAAAAACAAMAAAADAAAAAAABAAMAAAADAAAAAAAAAAMAAAADAAAAAAAAAAQAAAADAAAAAAABAAQAAAADAAAAAAACAAQAAAADAAAAAAADAAQAAAADAAAAAAAEAAQAAAADAAAAAAAFAAQAAAADAAAAAAAGAAQAAAADAAAAAAAHAAQAAAADAAAAAAAIAAQAAAADAAAAAAAJAAQAAAADAAAAAAAKAAQAAAADAAAAAAALAAQAAAADAAAAAAAMAAAAAAADAAAAAAAMAAEAAAABAAAAAQANAAEAAAADAAAAAAAMAAIAAAADAAAAAAANAAIAAAADAAAAAAAMAAMAAAADAAAAAAANAAMAAAADAAAAAAANAAQAAAADAAAAAAAMAAQAAAADAAAAAAAAAAUAAAADAAAAAAABAAUAAAADAAAAAAACAAUAAAADAAAAAAADAAUAAAADAAAAAAAEAAUAAAADAAAAAAAFAAUAAAADAAAAAAAGAAUAAAADAAAAAAAHAAUAAAADAAAAAAAIAAUAAAADAAAAAAAJAAUAAAADAAAAAAAKAAUAAAADAAAAAAALAAUAAAADAAAAAAAMAAUAAAADAAAAAAANAAUAAAADAAAAAAANAAAAAAADAAAAAAAOAAAAAAADAAAAAAAPAAAAAAAAAAIAAAAPAAEAAAABAAIAAAAPAAIAAAACAAIAAAAPAAMAAAADAAIAAAAOAAMAAAADAAAAAAAOAAQAAAADAAAAAAAOAAIAAAADAAAAAAAOAAEAAAADAAAAAAAPAAQAAAAEAAIAAAAOAAUAAAADAAAAAAAPAAUAAAAFAAIAAAA=")
 
-[node name="Train4" parent="Container" instance=ExtResource("4_wpewe")]
-position = Vector2(400, 224)
+[node name="Train4" parent="Container" unique_id=1651688433 instance=ExtResource("4_wpewe")]
+position = Vector2(1081, 178)
 metadata/_edit_group_ = true
 
-[node name="Sprite" parent="Container/Train4" index="0"]
-region_rect = Rect2(0, 384, 64, 64)
+[node name="ExhaustParticles" parent="Container/Train4" index="0" unique_id=1680992907]
+visible = false
+process_material = SubResource("ParticleProcessMaterial_m4xiw")
 
-[node name="SteamParticles" parent="Container/Train4" index="2"]
-direction = Vector2(-1, 0)
-initial_velocity_min = 60.0
-initial_velocity_max = 80.0
+[node name="Sprite" parent="Container/Train4" index="1" unique_id=337867534]
+region_rect = Rect2(0, 720, 120, 120)
 
-[node name="SparkParticles" parent="Container/Train4" index="3"]
+[node name="SteamParticles" parent="Container/Train4" index="3" unique_id=1275125623]
+process_material = SubResource("ParticleProcessMaterial_jqfhx")
+
+[node name="SparkParticles" parent="Container/Train4" index="4" unique_id=1463309434]
 visible = false
 
-[node name="ExhaustParticles" parent="Container/Train4" index="4"]
-visible = false
-direction = Vector2(-10, -10)
-initial_velocity_min = 30.0
-initial_velocity_max = 30.0
-
-[node name="Train" parent="Container" instance=ExtResource("4_wpewe")]
-position = Vector2(551, 289)
-
-[node name="Sprite" parent="Container/Train" index="0"]
-region_rect = Rect2(192, 384, 64, 64)
-
-[node name="SteamParticles" parent="Container/Train" index="2"]
-direction = Vector2(-1, 0)
-initial_velocity_min = 60.0
-initial_velocity_max = 80.0
-
-[node name="SparkParticles" parent="Container/Train" index="3"]
-visible = false
-
-[node name="ExhaustParticles" parent="Container/Train" index="4"]
-visible = false
-
-[node name="Train3" parent="Container" instance=ExtResource("4_wpewe")]
-position = Vector2(613, 60.00003)
-rotation = 0.7853982
+[node name="Train" parent="Container" unique_id=405194664 instance=ExtResource("4_wpewe")]
+position = Vector2(1538, 418)
 metadata/_edit_group_ = true
 
-[node name="Sprite" parent="Container/Train3" index="0"]
-region_rect = Rect2(64, 256, 64, 64)
-
-[node name="SteamParticles" parent="Container/Train3" index="2"]
+[node name="ExhaustParticles" parent="Container/Train" index="0" unique_id=1680992907]
 visible = false
-direction = Vector2(-1, 0.5)
-initial_velocity_min = 30.0
-initial_velocity_max = 50.0
+process_material = SubResource("ParticleProcessMaterial_fktll")
 
-[node name="SparkParticles" parent="Container/Train3" index="3"]
-visible = false
-
-[node name="Train6" parent="Container" instance=ExtResource("4_wpewe")]
-position = Vector2(815.00006, 224.00002)
+[node name="Sprite" parent="Container/Train" index="1" unique_id=337867534]
+region_rect = Rect2(480, 720, 120, 120)
 metadata/_edit_group_ = true
 
-[node name="Sprite" parent="Container/Train6" index="0"]
-region_rect = Rect2(320, 256, 64, 64)
+[node name="SteamParticles" parent="Container/Train" index="3" unique_id=1275125623]
+process_material = SubResource("ParticleProcessMaterial_fcl0l")
 
-[node name="SteamParticles" parent="Container/Train6" index="2"]
-visible = false
-direction = Vector2(-1, 0.5)
-initial_velocity_min = 30.0
-initial_velocity_max = 50.0
-
-[node name="SparkParticles" parent="Container/Train6" index="3"]
+[node name="SparkParticles" parent="Container/Train" index="4" unique_id=1463309434]
 visible = false
 
-[node name="Train2" parent="Container" instance=ExtResource("4_wpewe")]
-position = Vector2(434, 94)
-metadata/_edit_group_ = true
-
-[node name="Sprite" parent="Container/Train2" index="0"]
-region_rect = Rect2(256, 192, 64, 64)
-
-[node name="SteamParticles" parent="Container/Train2" index="2"]
-visible = false
-
-[node name="SparkParticles" parent="Container/Train2" index="3"]
-emitting = true
-one_shot = false
-
-[node name="ExhaustParticles" parent="Container/Train2" index="4"]
-visible = false
-direction = Vector2(-10, -10)
-initial_velocity_min = 30.0
-initial_velocity_max = 30.0
-
-[node name="Train5" parent="Container" instance=ExtResource("4_wpewe")]
-position = Vector2(228.00002, 189.00002)
+[node name="Train3" parent="Container" unique_id=1774633064 instance=ExtResource("4_wpewe")]
+position = Vector2(1470, 154)
 rotation = -0.7853982
 metadata/_edit_group_ = true
 
-[node name="Sprite" parent="Container/Train5" index="0"]
-region_rect = Rect2(128, 192, 64, 64)
+[node name="ExhaustParticles" parent="Container/Train3" index="0" unique_id=1680992907]
+process_material = SubResource("ParticleProcessMaterial_qfhmy")
 
-[node name="SteamParticles" parent="Container/Train5" index="2"]
+[node name="Sprite" parent="Container/Train3" index="1" unique_id=337867534]
+region_rect = Rect2(120, 360, 120, 120)
+
+[node name="SteamParticles" parent="Container/Train3" index="3" unique_id=1275125623]
+visible = false
+process_material = SubResource("ParticleProcessMaterial_5i4g0")
+
+[node name="SparkParticles" parent="Container/Train3" index="4" unique_id=1463309434]
 visible = false
 
-[node name="SparkParticles" parent="Container/Train5" index="3"]
+[node name="Train6" parent="Container" unique_id=1458360619 instance=ExtResource("4_wpewe")]
+position = Vector2(942, 296)
+metadata/_edit_group_ = true
+
+[node name="ExhaustParticles" parent="Container/Train6" index="0" unique_id=1680992907]
+process_material = SubResource("ParticleProcessMaterial_x3u0w")
+
+[node name="Sprite" parent="Container/Train6" index="1" unique_id=337867534]
+region_rect = Rect2(360, 360, 120, 120)
+
+[node name="SteamParticles" parent="Container/Train6" index="3" unique_id=1275125623]
+visible = false
+process_material = SubResource("ParticleProcessMaterial_oa0vp")
+
+[node name="SparkParticles" parent="Container/Train6" index="4" unique_id=1463309434]
+visible = false
+
+[node name="Train2" parent="Container" unique_id=104100332 instance=ExtResource("4_wpewe")]
+position = Vector2(1276, 58)
+metadata/_edit_group_ = true
+
+[node name="ExhaustParticles" parent="Container/Train2" index="0" unique_id=1680992907]
+visible = false
+process_material = SubResource("ParticleProcessMaterial_tre34")
+
+[node name="Sprite" parent="Container/Train2" index="1" unique_id=337867534]
+region_rect = Rect2(240, 600, 120, 120)
+
+[node name="SteamParticles" parent="Container/Train2" index="3" unique_id=1275125623]
+visible = false
+process_material = SubResource("ParticleProcessMaterial_g51er")
+
+[node name="SparkParticles" parent="Container/Train2" index="4" unique_id=1463309434]
 emitting = true
 one_shot = false
 
-[node name="ExhaustParticles" parent="Container/Train5" index="4"]
+[node name="Train5" parent="Container" unique_id=1564097197 instance=ExtResource("4_wpewe")]
+position = Vector2(1132, 472.99997)
+rotation = 0.7853982
+metadata/_edit_group_ = true
+
+[node name="ExhaustParticles" parent="Container/Train5" index="0" unique_id=1680992907]
 visible = false
-direction = Vector2(-10, -10)
-initial_velocity_min = 30.0
-initial_velocity_max = 30.0
+process_material = SubResource("ParticleProcessMaterial_teoym")
 
-[node name="Countdown" type="Control" parent="Container"]
-modulate = Color(1, 1, 1, 0.729412)
-layout_mode = 2
-theme = ExtResource("4_r5l30")
+[node name="Sprite" parent="Container/Train5" index="1" unique_id=337867534]
+region_rect = Rect2(600, 720, 120, 120)
 
-[node name="CountdownLabel0" type="Label" parent="Container/Countdown"]
-unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0)
-clip_contents = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -57.0
-offset_top = -136.0
-offset_right = 57.0
-offset_bottom = 137.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0.415686, 0.745098, 0.196078, 1)
-theme_override_font_sizes/font_size = 200
-text = "GO"
+[node name="SteamParticles" parent="Container/Train5" index="3" unique_id=1275125623]
+visible = false
+process_material = SubResource("ParticleProcessMaterial_ocrax")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Container/Countdown/CountdownLabel0"]
-libraries = {
-&"": SubResource("AnimationLibrary_xll60")
-}
+[node name="SparkParticles" parent="Container/Train5" index="4" unique_id=1463309434]
+emitting = true
+one_shot = false
 
-[node name="CountdownLabel1" type="Label" parent="Container/Countdown"]
-unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0)
-clip_contents = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -57.0
-offset_top = -136.0
-offset_right = 57.0
-offset_bottom = 137.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0.984314, 0.94902, 0.211765, 1)
-theme_override_font_sizes/font_size = 200
-text = "1"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Container/Countdown/CountdownLabel1"]
-libraries = {
-&"": SubResource("AnimationLibrary_xll60")
-}
-
-[node name="CountdownLabel2" type="Label" parent="Container/Countdown"]
-unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0)
-clip_contents = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -57.0
-offset_top = -136.0
-offset_right = 57.0
-offset_bottom = 137.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0.87451, 0.443137, 0.14902, 1)
-theme_override_font_sizes/font_size = 200
-text = "2"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Container/Countdown/CountdownLabel2"]
-libraries = {
-&"": SubResource("AnimationLibrary_xll60")
-}
-
-[node name="CountdownLabel3" type="Label" parent="Container/Countdown"]
-unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0)
-clip_contents = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -57.0
-offset_top = -136.0
-offset_right = 57.0
-offset_bottom = 137.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0.67451, 0.196078, 0.196078, 1)
-theme_override_font_sizes/font_size = 200
-text = "3"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Container/Countdown/CountdownLabel3"]
-libraries = {
-&"": SubResource("AnimationLibrary_xll60")
-}
-
-[node name="CountdownAudioStreamPlayer" type="AudioStreamPlayer" parent="Container/Countdown"]
-unique_name_in_owner = true
-stream = ExtResource("5_wv3wl")
-
-[node name="CountdownEndAudioStreamPlayer" type="AudioStreamPlayer" parent="Container/Countdown"]
-unique_name_in_owner = true
-stream = ExtResource("6_q7kfd")
-
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=968003688]
+visible = false
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=573781602]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=284687759]
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="Label2" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=51267622]
 layout_mode = 2
 text = "TRAINS"
 
-[node name="TrainCountLabel" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="TrainCountLabel" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=1683294277]
 unique_name_in_owner = true
 layout_mode = 2
 text = "12"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer/VBoxContainer/HBoxContainer/TrainCountLabel"]
-libraries = {
-&"": SubResource("AnimationLibrary_d0jt8")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer/VBoxContainer/HBoxContainer/TrainCountLabel" unique_id=764694807]
+libraries/ = SubResource("AnimationLibrary_d0jt8")
 
-[node name="VSeparator" type="VSeparator" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="VSeparator" type="VSeparator" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=416565228]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=1772639774]
 layout_mode = 2
 text = "SCORE"
 
-[node name="ScoreLabel" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="ScoreLabel" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=322224200]
 unique_name_in_owner = true
 layout_mode = 2
 text = "120"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer/VBoxContainer/HBoxContainer/ScoreLabel"]
-libraries = {
-&"": SubResource("AnimationLibrary_y681f")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer/VBoxContainer/HBoxContainer/ScoreLabel" unique_id=935240155]
+libraries/ = SubResource("AnimationLibrary_y681f")
 
-[node name="VSeparator2" type="VSeparator" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="VSeparator2" type="VSeparator" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=527504357]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
-[node name="Label3" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="Label3" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=1315876695]
 layout_mode = 2
 text = "ERRORS"
 
-[node name="ErrorsLabel" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="ErrorsLabel" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=1084743513]
 unique_name_in_owner = true
 layout_mode = 2
 text = "0"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer/VBoxContainer/HBoxContainer/ErrorsLabel"]
-libraries = {
-&"": SubResource("AnimationLibrary_7gscs")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer/VBoxContainer/HBoxContainer/ErrorsLabel" unique_id=1925633372]
+libraries/ = SubResource("AnimationLibrary_7gscs")
 
-[node name="VSeparator3" type="VSeparator" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="VSeparator3" type="VSeparator" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=868924049]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
-[node name="VSeparator5" type="VSeparator" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="VSeparator5" type="VSeparator" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=1770643852]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
-[node name="Label5" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="Label5" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=510791405]
 layout_mode = 2
 text = "TIME"
 
-[node name="TimeLabel" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="TimeLabel" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=1348978246]
 unique_name_in_owner = true
 layout_mode = 2
 text = "32"
 
-[node name="Timer" type="Timer" parent="CenterContainer/VBoxContainer/HBoxContainer/TimeLabel"]
+[node name="Timer" type="Timer" parent="CenterContainer/VBoxContainer/HBoxContainer/TimeLabel" unique_id=1791290602]
 autostart = true
 
-[node name="VSeparator4" type="VSeparator" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="VSeparator4" type="VSeparator" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=162731697]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
-[node name="HSeparator2" type="HSeparator" parent="CenterContainer/VBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="CenterContainer/VBoxContainer" unique_id=410352775]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
-[node name="MenuContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+[node name="MenuContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=2103700202]
 layout_mode = 2
 
-[node name="RestartButton" type="Button" parent="CenterContainer/VBoxContainer/MenuContainer"]
+[node name="RestartButton" type="Button" parent="CenterContainer/VBoxContainer/MenuContainer" unique_id=1382928423]
 layout_mode = 2
 text = "RESTART_GAME"
 
-[node name="DifficultySettingsButton" type="Button" parent="CenterContainer/VBoxContainer/MenuContainer"]
+[node name="DifficultySettingsButton" type="Button" parent="CenterContainer/VBoxContainer/MenuContainer" unique_id=1163116909]
 layout_mode = 2
 text = "SETTINGS"
 
-[node name="MainMenuButton" type="Button" parent="CenterContainer/VBoxContainer/MenuContainer"]
+[node name="MainMenuButton" type="Button" parent="CenterContainer/VBoxContainer/MenuContainer" unique_id=1409232648]
 layout_mode = 2
 text = "MAIN_MENU"
 
-[node name="HighscoreControls" type="HBoxContainer" parent="CenterContainer/VBoxContainer/MenuContainer"]
+[node name="HighscoreControls" type="HBoxContainer" parent="CenterContainer/VBoxContainer/MenuContainer" unique_id=955347956]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="PlayerNameEdit" type="LineEdit" parent="CenterContainer/VBoxContainer/MenuContainer/HighscoreControls"]
+[node name="PlayerNameEdit" type="LineEdit" parent="CenterContainer/VBoxContainer/MenuContainer/HighscoreControls" unique_id=1719640828]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 placeholder_text = "NAME_PLACEHOLDER"
 max_length = 30
 
-[node name="ChildSubmitButton" type="Button" parent="CenterContainer/VBoxContainer/MenuContainer/HighscoreControls"]
+[node name="ChildSubmitButton" type="Button" parent="CenterContainer/VBoxContainer/MenuContainer/HighscoreControls" unique_id=1352035666]
 layout_mode = 2
 text = "AGE_0"
 
-[node name="PupilSubmitButton" type="Button" parent="CenterContainer/VBoxContainer/MenuContainer/HighscoreControls"]
+[node name="PupilSubmitButton" type="Button" parent="CenterContainer/VBoxContainer/MenuContainer/HighscoreControls" unique_id=1238430981]
 layout_mode = 2
 text = "AGE_1"
 
-[node name="AdultSubmitButton" type="Button" parent="CenterContainer/VBoxContainer/MenuContainer/HighscoreControls"]
+[node name="AdultSubmitButton" type="Button" parent="CenterContainer/VBoxContainer/MenuContainer/HighscoreControls" unique_id=1286359106]
 layout_mode = 2
 text = "AGE_2"
 
-[node name="SubmitStatusLabel" type="Label" parent="CenterContainer/VBoxContainer/MenuContainer/HighscoreControls"]
+[node name="SubmitStatusLabel" type="Label" parent="CenterContainer/VBoxContainer/MenuContainer/HighscoreControls" unique_id=26895598]
 visible = false
 layout_mode = 2
 text = "…"
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="Node2D" type="Node2D" parent="." unique_id=2134871998]
 
-[node name="Label" type="Label" parent="Node2D"]
-offset_left = -1.0
-offset_top = 110.0
-offset_right = 1023.0
-offset_bottom = 198.0
+[node name="Label" type="Label" parent="Node2D" unique_id=865937211]
+offset_left = 880.0
+offset_top = 193.0
+offset_right = 1904.0
+offset_bottom = 368.0
 theme = ExtResource("4_r5l30")
-theme_override_font_sizes/font_size = 60
+theme_override_colors/font_color = Color(1, 0.92716664, 0.77, 1)
+theme_override_font_sizes/font_size = 120
 text = "Switchman"
 horizontal_alignment = 1
 
-[connection signal="end" from="Container/Rails" to="." method="_on_rails_end"]
-[connection signal="errored" from="Container/Rails" to="." method="_on_rails_errored"]
-[connection signal="scored" from="Container/Rails" to="." method="_on_rails_scored"]
-[connection signal="train_started" from="Container/Rails" to="." method="_on_rails_train_started"]
 [connection signal="timeout" from="CenterContainer/VBoxContainer/HBoxContainer/TimeLabel/Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/MenuContainer/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/MenuContainer/DifficultySettingsButton" to="." method="_on_difficulty_settings_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/MenuContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/MenuContainer/HighscoreControls/ChildSubmitButton" to="." method="_on_highscore_submit_button_pressed" binds= ["0-5"]]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/MenuContainer/HighscoreControls/PupilSubmitButton" to="." method="_on_highscore_submit_button_pressed" binds= ["6-12"]]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/MenuContainer/HighscoreControls/AdultSubmitButton" to="." method="_on_highscore_submit_button_pressed" binds= ["13+"]]
 
 [editable path="Container/Train4"]
 [editable path="Container/Train"]

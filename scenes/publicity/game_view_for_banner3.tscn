@@ -1,0 +1,628 @@
+[gd_scene format=4 uid="uid://d2q4ds6xeb1gr"]
+
+[ext_resource type="Texture2D" uid="uid://bjdagv3bbgk7x" path="res://images/background.png" id="1_5wruy"]
+[ext_resource type="PackedScene" uid="uid://bj451436lnaqo" path="res://scenes/common/rails.tscn" id="2_e1qbb"]
+[ext_resource type="PackedScene" uid="uid://dev70nkbyuydv" path="res://scenes/game_view/train.tscn" id="3_fauvn"]
+[ext_resource type="Animation" uid="uid://b8cpunt5ly3bi" path="res://resources/animations/label_value_changed_positiv.res" id="4_43wcg"]
+[ext_resource type="Theme" uid="uid://drkpbmmwnukl" path="res://resources/themes/train_one.tres" id="5_3d1p3"]
+
+[sub_resource type="Gradient" id="Gradient_6whlh"]
+colors = PackedColorArray(0.24, 0.24, 0.24, 0.509804, 0.76, 0.76, 0.76, 0.509804)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7e4hq"]
+gradient = SubResource("Gradient_6whlh")
+
+[sub_resource type="Gradient" id="Gradient_17jyq"]
+colors = PackedColorArray(1, 1, 1, 0.11764706, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xgd0o"]
+gradient = SubResource("Gradient_17jyq")
+
+[sub_resource type="Curve" id="Curve_dmukj"]
+_limits = [1.0, 4.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 4), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_378lh"]
+curve = SubResource("Curve_dmukj")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5wruy"]
+resource_local_to_scene = true
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+direction = Vector3(-1, 0, 0)
+spread = 15.0
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.3
+scale_max = 0.4
+scale_curve = SubResource("CurveTexture_378lh")
+color_ramp = SubResource("GradientTexture1D_xgd0o")
+color_initial_ramp = SubResource("GradientTexture1D_7e4hq")
+
+[sub_resource type="Curve" id="Curve_u3cvv"]
+_data = [Vector2(0, 0.49706912), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_3gevl"]
+curve = SubResource("Curve_u3cvv")
+
+[sub_resource type="Gradient" id="Gradient_u3cvv"]
+colors = PackedColorArray(0.78, 0.78, 0.78, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_e8e6e"]
+gradient = SubResource("Gradient_u3cvv")
+
+[sub_resource type="Curve" id="Curve_1cflw"]
+_limits = [1.0, 10.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 3.98359), 5.7967, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_7e4hq"]
+curve = SubResource("Curve_1cflw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e1qbb"]
+resource_local_to_scene = true
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 15.0
+angle_min = 1.0728835e-05
+angle_max = 180.00002
+direction = Vector3(-1, 0, 0)
+spread = 15.0
+initial_velocity_min = 80.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.9
+scale_max = 1.1999999
+scale_curve = SubResource("CurveTexture_7e4hq")
+color_initial_ramp = SubResource("GradientTexture1D_e8e6e")
+alpha_curve = SubResource("CurveTexture_3gevl")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fauvn"]
+resource_local_to_scene = true
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+direction = Vector3(-1, 0, 0)
+spread = 15.0
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.3
+scale_max = 0.4
+scale_curve = SubResource("CurveTexture_378lh")
+color_ramp = SubResource("GradientTexture1D_xgd0o")
+color_initial_ramp = SubResource("GradientTexture1D_7e4hq")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_43wcg"]
+resource_local_to_scene = true
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 15.0
+angle_min = 1.0728835e-05
+angle_max = 180.00002
+direction = Vector3(-1, 0, 0)
+spread = 15.0
+initial_velocity_min = 80.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.9
+scale_max = 1.1999999
+scale_curve = SubResource("CurveTexture_7e4hq")
+color_initial_ramp = SubResource("GradientTexture1D_e8e6e")
+alpha_curve = SubResource("CurveTexture_3gevl")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3d1p3"]
+resource_local_to_scene = true
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+direction = Vector3(-1, 0, 0)
+spread = 15.0
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.3
+scale_max = 0.4
+scale_curve = SubResource("CurveTexture_378lh")
+color_ramp = SubResource("GradientTexture1D_xgd0o")
+color_initial_ramp = SubResource("GradientTexture1D_7e4hq")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_v7tmk"]
+resource_local_to_scene = true
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 15.0
+angle_min = 1.0728835e-05
+angle_max = 180.00002
+direction = Vector3(-1, 0, 0)
+spread = 15.0
+initial_velocity_min = 80.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.9
+scale_max = 1.1999999
+scale_curve = SubResource("CurveTexture_7e4hq")
+color_initial_ramp = SubResource("GradientTexture1D_e8e6e")
+alpha_curve = SubResource("CurveTexture_3gevl")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_skd8v"]
+resource_local_to_scene = true
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+direction = Vector3(-1, 0, 0)
+spread = 15.0
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.3
+scale_max = 0.4
+scale_curve = SubResource("CurveTexture_378lh")
+color_ramp = SubResource("GradientTexture1D_xgd0o")
+color_initial_ramp = SubResource("GradientTexture1D_7e4hq")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xwsb1"]
+resource_local_to_scene = true
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 15.0
+angle_min = 1.0728835e-05
+angle_max = 180.00002
+direction = Vector3(-1, 0, 0)
+spread = 15.0
+initial_velocity_min = 80.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.9
+scale_max = 1.1999999
+scale_curve = SubResource("CurveTexture_7e4hq")
+color_initial_ramp = SubResource("GradientTexture1D_e8e6e")
+alpha_curve = SubResource("CurveTexture_3gevl")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kpgf5"]
+resource_local_to_scene = true
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+direction = Vector3(-1, 0, 0)
+spread = 15.0
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.3
+scale_max = 0.4
+scale_curve = SubResource("CurveTexture_378lh")
+color_ramp = SubResource("GradientTexture1D_xgd0o")
+color_initial_ramp = SubResource("GradientTexture1D_7e4hq")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_563pc"]
+resource_local_to_scene = true
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 15.0
+angle_min = 1.0728835e-05
+angle_max = 180.00002
+direction = Vector3(-1, 0, 0)
+spread = 15.0
+initial_velocity_min = 80.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.9
+scale_max = 1.1999999
+scale_curve = SubResource("CurveTexture_7e4hq")
+color_initial_ramp = SubResource("GradientTexture1D_e8e6e")
+alpha_curve = SubResource("CurveTexture_3gevl")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mrx50"]
+resource_local_to_scene = true
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+direction = Vector3(-1, 0, 0)
+spread = 15.0
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.3
+scale_max = 0.4
+scale_curve = SubResource("CurveTexture_378lh")
+color_ramp = SubResource("GradientTexture1D_xgd0o")
+color_initial_ramp = SubResource("GradientTexture1D_7e4hq")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wyinb"]
+resource_local_to_scene = true
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 15.0
+angle_min = 1.0728835e-05
+angle_max = 180.00002
+direction = Vector3(-1, 0, 0)
+spread = 15.0
+initial_velocity_min = 80.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.9
+scale_max = 1.1999999
+scale_curve = SubResource("CurveTexture_7e4hq")
+color_initial_ramp = SubResource("GradientTexture1D_e8e6e")
+alpha_curve = SubResource("CurveTexture_3gevl")
+
+[sub_resource type="Animation" id="Animation_b7km5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_d0jt8"]
+_data = {
+&"RESET": SubResource("Animation_b7km5"),
+&"changed": ExtResource("4_43wcg")
+}
+
+[sub_resource type="Animation" id="Animation_plniq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0m12q"]
+resource_name = "changed"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333333, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0.584, 0.73, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y681f"]
+_data = {
+&"RESET": SubResource("Animation_plniq"),
+&"changed": SubResource("Animation_0m12q")
+}
+
+[sub_resource type="Animation" id="Animation_m1u77"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_sbrcx"]
+resource_name = "changed"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.67451, 0.196078, 0.196078, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7gscs"]
+_data = {
+&"RESET": SubResource("Animation_m1u77"),
+&"changed": SubResource("Animation_sbrcx")
+}
+
+[node name="GameView" type="VBoxContainer" unique_id=60206988]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=295623207]
+texture = ExtResource("1_5wruy")
+centered = false
+
+[node name="Container" type="CenterContainer" parent="." unique_id=1665331411]
+custom_minimum_size = Vector2(1024, 384)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(-36, 44)
+
+[node name="Rails" parent="Container" unique_id=136172667 instance=ExtResource("2_e1qbb")]
+unique_name_in_owner = true
+tile_map_data = PackedByteArray("AAAAAAAAAAADAAAAAAABAAAAAAADAAAAAAACAAAAAAADAAAAAAADAAAAAAADAAAAAAAEAAAAAAADAAAAAAAFAAAAAAAAAAAAAAAGAAEAAAADAAAAAAAHAAEAAAADAAAAAAAHAAAAAAADAAAAAAAIAAAAAAADAAAAAAAJAAAAAAADAAAAAAAGAAAAAAADAAAAAAAAAAEAAAADAAAAAAABAAEAAAADAAAAAAACAAEAAAADAAAAAAADAAEAAAADAAAAAAAEAAEAAAADAAAAAAAFAAEAAAADAAAAAAAJAAEAAAAAAAAAAAAKAAEAAAADAAAAAAAKAAAAAAADAAAAAAALAAAAAAADAAAAAAALAAEAAAADAAAAAAAIAAEAAAADAAAAAAAAAAIAAAADAAAAAAABAAIAAAADAAAAAAACAAIAAAADAAAAAAADAAIAAAADAAAAAAAEAAIAAAADAAAAAAAFAAIAAAADAAAAAAAGAAIAAAADAAAAAAAHAAIAAAADAAAAAAAIAAIAAAADAAAAAAAJAAIAAAADAAAAAAAKAAIAAAADAAAAAAALAAIAAAADAAAAAAALAAMAAAADAAAAAAAKAAMAAAADAAAAAAAJAAMAAAABAAAAAAAIAAMAAAADAAAAAAAHAAMAAAADAAAAAAAGAAMAAAADAAAAAAAFAAMAAAAAAAAAAAAEAAMAAAADAAAAAAADAAMAAAABAAAAAQACAAMAAAADAAAAAAABAAMAAAADAAAAAAAAAAMAAAADAAAAAAAAAAQAAAADAAAAAAABAAQAAAADAAAAAAACAAQAAAADAAAAAAADAAQAAAADAAAAAAAEAAQAAAADAAAAAAAFAAQAAAADAAAAAAAGAAQAAAADAAAAAAAHAAQAAAADAAAAAAAIAAQAAAADAAAAAAAJAAQAAAADAAAAAAAKAAQAAAADAAAAAAALAAQAAAADAAAAAAAMAAAAAAADAAAAAAAMAAEAAAABAAAAAQANAAEAAAADAAAAAAAMAAIAAAADAAAAAAANAAIAAAABAAAAAAAMAAMAAAADAAAAAAANAAMAAAADAAAAAAANAAQAAAADAAAAAAAMAAQAAAADAAAAAAAAAAUAAAADAAAAAAABAAUAAAADAAAAAAACAAUAAAABAAAAAQADAAUAAAADAAAAAAAEAAUAAAADAAAAAAAFAAUAAAADAAAAAAAGAAUAAAADAAAAAAAHAAUAAAADAAAAAAAIAAUAAAADAAAAAAAJAAUAAAADAAAAAAAKAAUAAAADAAAAAAALAAUAAAADAAAAAAAMAAUAAAADAAAAAAANAAUAAAADAAAAAAANAAAAAAADAAAAAAAOAAAAAAADAAAAAAAPAAAAAAAAAAIAAAAPAAEAAAABAAIAAAAPAAIAAAACAAIAAAAPAAMAAAADAAIAAAAOAAMAAAADAAAAAAAOAAQAAAADAAAAAAAOAAIAAAADAAAAAAAOAAEAAAADAAAAAAAPAAQAAAAEAAIAAAAOAAUAAAADAAAAAAAPAAUAAAAFAAIAAAA=")
+
+[node name="RedTrain" parent="Container" unique_id=1651688433 instance=ExtResource("3_fauvn")]
+position = Vector2(500, 178)
+metadata/_edit_group_ = true
+
+[node name="ExhaustParticles" parent="Container/RedTrain" index="0" unique_id=1680992907]
+visible = false
+process_material = SubResource("ParticleProcessMaterial_5wruy")
+
+[node name="Sprite" parent="Container/RedTrain" index="1" unique_id=337867534]
+region_rect = Rect2(0, 720, 120, 120)
+
+[node name="SteamParticles" parent="Container/RedTrain" index="3" unique_id=1275125623]
+process_material = SubResource("ParticleProcessMaterial_e1qbb")
+
+[node name="SparkParticles" parent="Container/RedTrain" index="4" unique_id=1463309434]
+visible = false
+
+[node name="BlueTrain" parent="Container" unique_id=405194664 instance=ExtResource("3_fauvn")]
+position = Vector2(1538, 537)
+metadata/_edit_group_ = true
+
+[node name="ExhaustParticles" parent="Container/BlueTrain" index="0" unique_id=1680992907]
+visible = false
+process_material = SubResource("ParticleProcessMaterial_fauvn")
+
+[node name="Sprite" parent="Container/BlueTrain" index="1" unique_id=337867534]
+region_rect = Rect2(480, 720, 120, 120)
+metadata/_edit_group_ = true
+
+[node name="SteamParticles" parent="Container/BlueTrain" index="3" unique_id=1275125623]
+process_material = SubResource("ParticleProcessMaterial_43wcg")
+
+[node name="SparkParticles" parent="Container/BlueTrain" index="4" unique_id=1463309434]
+visible = false
+
+[node name="OrangeTrain" parent="Container" unique_id=1774633064 instance=ExtResource("3_fauvn")]
+position = Vector2(1470, 154)
+rotation = -0.7853982
+metadata/_edit_group_ = true
+
+[node name="ExhaustParticles" parent="Container/OrangeTrain" index="0" unique_id=1680992907]
+process_material = SubResource("ParticleProcessMaterial_3d1p3")
+
+[node name="Sprite" parent="Container/OrangeTrain" index="1" unique_id=337867534]
+region_rect = Rect2(120, 360, 120, 120)
+
+[node name="SteamParticles" parent="Container/OrangeTrain" index="3" unique_id=1275125623]
+visible = false
+process_material = SubResource("ParticleProcessMaterial_v7tmk")
+
+[node name="SparkParticles" parent="Container/OrangeTrain" index="4" unique_id=1463309434]
+visible = false
+
+[node name="GreenTrain" parent="Container" unique_id=1458360619 instance=ExtResource("3_fauvn")]
+position = Vector2(942, 296)
+metadata/_edit_group_ = true
+
+[node name="ExhaustParticles" parent="Container/GreenTrain" index="0" unique_id=1680992907]
+process_material = SubResource("ParticleProcessMaterial_skd8v")
+
+[node name="Sprite" parent="Container/GreenTrain" index="1" unique_id=337867534]
+region_rect = Rect2(360, 360, 120, 120)
+
+[node name="SteamParticles" parent="Container/GreenTrain" index="3" unique_id=1275125623]
+visible = false
+process_material = SubResource("ParticleProcessMaterial_xwsb1")
+
+[node name="SparkParticles" parent="Container/GreenTrain" index="4" unique_id=1463309434]
+visible = false
+
+[node name="YellowTrain" parent="Container" unique_id=104100332 instance=ExtResource("3_fauvn")]
+position = Vector2(1200, 58)
+metadata/_edit_group_ = true
+
+[node name="ExhaustParticles" parent="Container/YellowTrain" index="0" unique_id=1680992907]
+visible = false
+process_material = SubResource("ParticleProcessMaterial_kpgf5")
+
+[node name="Sprite" parent="Container/YellowTrain" index="1" unique_id=337867534]
+region_rect = Rect2(240, 600, 120, 120)
+
+[node name="SteamParticles" parent="Container/YellowTrain" index="3" unique_id=1275125623]
+visible = false
+process_material = SubResource("ParticleProcessMaterial_563pc")
+
+[node name="SparkParticles" parent="Container/YellowTrain" index="4" unique_id=1463309434]
+emitting = true
+one_shot = false
+
+[node name="PurpleTrain" parent="Container" unique_id=1564097197 instance=ExtResource("3_fauvn")]
+position = Vector2(653, 473)
+rotation = 0.7853982
+metadata/_edit_group_ = true
+
+[node name="ExhaustParticles" parent="Container/PurpleTrain" index="0" unique_id=1680992907]
+visible = false
+process_material = SubResource("ParticleProcessMaterial_mrx50")
+
+[node name="Sprite" parent="Container/PurpleTrain" index="1" unique_id=337867534]
+region_rect = Rect2(600, 720, 120, 120)
+
+[node name="SteamParticles" parent="Container/PurpleTrain" index="3" unique_id=1275125623]
+visible = false
+process_material = SubResource("ParticleProcessMaterial_wyinb")
+
+[node name="SparkParticles" parent="Container/PurpleTrain" index="4" unique_id=1463309434]
+emitting = true
+one_shot = false
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=968003688]
+visible = false
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=573781602]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=284687759]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=51267622]
+layout_mode = 2
+text = "TRAINS"
+
+[node name="TrainCountLabel" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=1683294277]
+unique_name_in_owner = true
+layout_mode = 2
+text = "12"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer/VBoxContainer/HBoxContainer/TrainCountLabel" unique_id=764694807]
+libraries/ = SubResource("AnimationLibrary_d0jt8")
+
+[node name="VSeparator" type="VSeparator" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=416565228]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=1772639774]
+layout_mode = 2
+text = "SCORE"
+
+[node name="ScoreLabel" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=322224200]
+unique_name_in_owner = true
+layout_mode = 2
+text = "120"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer/VBoxContainer/HBoxContainer/ScoreLabel" unique_id=935240155]
+libraries/ = SubResource("AnimationLibrary_y681f")
+
+[node name="VSeparator2" type="VSeparator" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=527504357]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=1315876695]
+layout_mode = 2
+text = "ERRORS"
+
+[node name="ErrorsLabel" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=1084743513]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer/VBoxContainer/HBoxContainer/ErrorsLabel" unique_id=1925633372]
+libraries/ = SubResource("AnimationLibrary_7gscs")
+
+[node name="VSeparator3" type="VSeparator" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=868924049]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="VSeparator5" type="VSeparator" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=1770643852]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="Label5" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=510791405]
+layout_mode = 2
+text = "TIME"
+
+[node name="TimeLabel" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=1348978246]
+unique_name_in_owner = true
+layout_mode = 2
+text = "32"
+
+[node name="Timer" type="Timer" parent="CenterContainer/VBoxContainer/HBoxContainer/TimeLabel" unique_id=1791290602]
+autostart = true
+
+[node name="VSeparator4" type="VSeparator" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=162731697]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="HSeparator2" type="HSeparator" parent="CenterContainer/VBoxContainer" unique_id=410352775]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="MenuContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=2103700202]
+layout_mode = 2
+
+[node name="RestartButton" type="Button" parent="CenterContainer/VBoxContainer/MenuContainer" unique_id=1382928423]
+layout_mode = 2
+text = "RESTART_GAME"
+
+[node name="DifficultySettingsButton" type="Button" parent="CenterContainer/VBoxContainer/MenuContainer" unique_id=1163116909]
+layout_mode = 2
+text = "SETTINGS"
+
+[node name="MainMenuButton" type="Button" parent="CenterContainer/VBoxContainer/MenuContainer" unique_id=1409232648]
+layout_mode = 2
+text = "MAIN_MENU"
+
+[node name="HighscoreControls" type="HBoxContainer" parent="CenterContainer/VBoxContainer/MenuContainer" unique_id=955347956]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="PlayerNameEdit" type="LineEdit" parent="CenterContainer/VBoxContainer/MenuContainer/HighscoreControls" unique_id=1719640828]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+placeholder_text = "NAME_PLACEHOLDER"
+max_length = 30
+
+[node name="ChildSubmitButton" type="Button" parent="CenterContainer/VBoxContainer/MenuContainer/HighscoreControls" unique_id=1352035666]
+layout_mode = 2
+text = "AGE_0"
+
+[node name="PupilSubmitButton" type="Button" parent="CenterContainer/VBoxContainer/MenuContainer/HighscoreControls" unique_id=1238430981]
+layout_mode = 2
+text = "AGE_1"
+
+[node name="AdultSubmitButton" type="Button" parent="CenterContainer/VBoxContainer/MenuContainer/HighscoreControls" unique_id=1286359106]
+layout_mode = 2
+text = "AGE_2"
+
+[node name="SubmitStatusLabel" type="Label" parent="CenterContainer/VBoxContainer/MenuContainer/HighscoreControls" unique_id=26895598]
+visible = false
+layout_mode = 2
+text = "…"
+
+[node name="Node2D" type="Node2D" parent="." unique_id=2134871998]
+
+[node name="Label" type="Label" parent="Node2D" unique_id=865937211]
+offset_left = 439.0
+offset_top = 145.0
+offset_right = 1463.0
+offset_bottom = 500.0
+theme = ExtResource("5_3d1p3")
+theme_override_colors/font_color = Color(1, 0.92716664, 0.77, 1)
+theme_override_font_sizes/font_size = 120
+text = "Switchman
+Weichensteller"
+horizontal_alignment = 1
+
+[connection signal="timeout" from="CenterContainer/VBoxContainer/HBoxContainer/TimeLabel/Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/MenuContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/MenuContainer/DifficultySettingsButton" to="." method="_on_difficulty_settings_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/MenuContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+
+[editable path="Container/RedTrain"]
+[editable path="Container/BlueTrain"]
+[editable path="Container/OrangeTrain"]
+[editable path="Container/GreenTrain"]
+[editable path="Container/YellowTrain"]
+[editable path="Container/PurpleTrain"]
