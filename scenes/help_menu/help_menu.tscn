@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dacmw08qc6bd5"]
 
 [ext_resource type="Script" uid="uid://dhkiyys86x0b8" path="res://scenes/help_menu/help_menu.gd" id="1_538cs"]
-[ext_resource type="Texture2D" uid="uid://eij2hohstuhh" path="res://images/background.png" id="2_yx3vl"]
+[ext_resource type="Texture2D" uid="uid://bjdagv3bbgk7x" path="res://images/background.png" id="2_yx3vl"]
 [ext_resource type="PackedScene" uid="uid://cywhajrq5c1sc" path="res://scenes/common/title.tscn" id="3_hmep0"]
 
 [node name="HelpMenu" type="VBoxContainer" unique_id=306521833]
@@ -19,7 +19,7 @@ centered = false
 [node name="Title" parent="." unique_id=80337146 instance=ExtResource("3_hmep0")]
 layout_mode = 2
 
-[node name="TitleLabel" parent="Title" index="0"]
+[node name="TitleLabel" parent="Title" index="0" unique_id=64782964]
 text = "HELP_MENU"
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=1480609175]

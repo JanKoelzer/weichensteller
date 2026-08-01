@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ci4d7j0imm4u"]
 
-[ext_resource type="Texture2D" uid="uid://eij2hohstuhh" path="res://images/background.png" id="1_i7fht"]
+[ext_resource type="Texture2D" uid="uid://bjdagv3bbgk7x" path="res://images/background.png" id="1_i7fht"]
 [ext_resource type="Script" uid="uid://bnira8s8dt1r6" path="res://scenes/credits_menu/credits_menu.gd" id="1_ppef3"]
 [ext_resource type="PackedScene" uid="uid://cywhajrq5c1sc" path="res://scenes/common/title.tscn" id="3_5ww45"]
 
@@ -19,7 +19,7 @@ centered = false
 [node name="Title" parent="." unique_id=27792851 instance=ExtResource("3_5ww45")]
 layout_mode = 2
 
-[node name="TitleLabel" parent="Title" index="0"]
+[node name="TitleLabel" parent="Title" index="0" unique_id=64782964]
 text = "LEGAL_NOTES"
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=836131868]
@@ -41,8 +41,8 @@ metadata/_tab_index = 0
 
 [node name="CopyrightLabel" type="Label" parent="TabContainer/CREDITS" unique_id=1011037862]
 unique_name_in_owner = true
-clip_contents = true
 custom_minimum_size = Vector2(1920, 64)
+clip_contents = true
 layout_mode = 2
 autowrap_mode = 3
 
@@ -54,8 +54,8 @@ metadata/_tab_index = 1
 
 [node name="ThirdPartyLabel" type="Label" parent="TabContainer/THIRD_PARTY" unique_id=296956897]
 unique_name_in_owner = true
-clip_contents = true
 custom_minimum_size = Vector2(1920, 64)
+clip_contents = true
 layout_mode = 2
 autowrap_mode = 3
 

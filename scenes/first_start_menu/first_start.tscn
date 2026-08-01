@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bk0n0dkf0jmum"]
 
 [ext_resource type="Script" uid="uid://3vs22300c7p6" path="res://scenes/first_start_menu/first_start.gd" id="1_ag4lj"]
-[ext_resource type="Texture2D" uid="uid://eij2hohstuhh" path="res://images/background.png" id="2_irq23"]
+[ext_resource type="Texture2D" uid="uid://bjdagv3bbgk7x" path="res://images/background.png" id="2_irq23"]
 [ext_resource type="PackedScene" uid="uid://cywhajrq5c1sc" path="res://scenes/common/title.tscn" id="3_obloy"]
 
 [node name="FirstStartMenu" type="VBoxContainer" unique_id=669190862]
