@@ -164,7 +164,6 @@ mouse_filter = 2
 script = ExtResource("1_1d7qk")
 
 [node name="BackgroundSprite" type="Sprite2D" parent="." unique_id=821657335]
-rotation = 0.2617994
 texture = ExtResource("1_l5ut5")
 centered = false
 
