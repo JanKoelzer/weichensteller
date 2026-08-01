@@ -262,7 +262,6 @@ text = "5"
 
 [node name="VBoxContainer" type="HBoxContainer" parent="CenterContainer/GridContainer" unique_id=546994883]
 layout_mode = 2
-size_flags_horizontal = 8
 
 [node name="Label" type="Label" parent="CenterContainer/GridContainer/VBoxContainer" unique_id=1763709257]
 layout_mode = 2
@@ -286,6 +285,18 @@ custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
 text = "START"
 
+[node name="BackButtonContainer" type="HBoxContainer" parent="." unique_id=1748644931]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 2
+
+[node name="BackButton" type="Button" parent="BackButtonContainer" unique_id=121346054]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 32
+text = "BACK"
+
 [connection signal="pressed" from="CenterContainer/GridContainer/SpeedMinusButton" to="." method="_on_speed_minus_button_pressed"]
 [connection signal="pressed" from="CenterContainer/GridContainer/SpeedPlusButton" to="." method="_on_speed_plus_button_pressed"]
 [connection signal="pressed" from="CenterContainer/GridContainer/ConcurrentMinusButton" to="." method="_on_concurrent_minus_button_pressed"]
@@ -301,5 +312,6 @@ text = "START"
 [connection signal="pressed" from="CenterContainer/GridContainer/ErrorsMinusButton" to="." method="_on_errors_minus_button_pressed"]
 [connection signal="pressed" from="CenterContainer/GridContainer/ErrorsPlusButton" to="." method="_on_errors_plus_button_pressed"]
 [connection signal="pressed" from="CenterContainer/GridContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="BackButtonContainer/BackButton" to="." method="_on_back_button_pressed"]
 
 [editable path="Title"]
