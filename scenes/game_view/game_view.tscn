@@ -193,7 +193,7 @@ script = ExtResource("1_6hfh6")
 
 [node name="Timer" type="Timer" parent="." unique_id=467405916]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1441881316]
+[node name="BackgroundSprite" type="Sprite2D" parent="." unique_id=1441881316]
 texture = ExtResource("2_g1875")
 centered = false
 

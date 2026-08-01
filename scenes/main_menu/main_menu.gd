@@ -6,7 +6,8 @@ extends Control
 @onready var change_setting_audio_stream_player: AudioStreamPlayer = $ChangeSettingAudioStreamPlayer
 
 
-func _ready() -> void:
+
+func _ready() -> void:	
 	if OS.get_name() == "Android" and not UISettings.file_exists():
 		# First start. User has not accepted privacy yet.
 		call_deferred("_change_scene_to_first_start")
@@ -18,6 +19,7 @@ func _ready() -> void:
 	if OS.get_name() == "Web":
 		# quit() does not work well in a browser
 		quit_button.visible = false
+
 
 
 func _change_scene_to_first_start() -> void:

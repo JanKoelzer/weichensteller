@@ -71,7 +71,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2ybyc")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1796639614]
+[node name="BackgroundSprite" type="Sprite2D" parent="." unique_id=1796639614]
 texture = ExtResource("2_krwiw")
 centered = false
 

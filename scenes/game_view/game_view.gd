@@ -44,6 +44,11 @@ func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_GO_BACK_REQUEST:
 		get_tree().change_scene_to_file("res://scenes/difficulty_settings/difficulty_settings.tscn")
 
+func _enter_tree() -> void:
+	BackgroundMovement.movement_enabled = false
+	
+func _exit_tree() -> void:
+	BackgroundMovement.movement_enabled = true
 
 func count_down_and_start() -> void:
 	for i in countdown_labels.size():

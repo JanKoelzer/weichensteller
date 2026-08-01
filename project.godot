@@ -30,6 +30,7 @@ config/movie_file="res://movies/main.avi"
 GameSettings="*res://scripts/game_settings.gd"
 Highscore="*res://scripts/highscore.gd"
 UISettings="*res://scripts/ui_settings.gd"
+BackgroundMovement="*uid://mfv0lv4r36kc"
 
 [debug]
 
