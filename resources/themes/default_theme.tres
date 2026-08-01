@@ -1,4 +1,39 @@
 [gd_resource type="Theme" format=3 uid="uid://sdu5an0boq3"]
 
+[ext_resource type="StyleBox" uid="uid://bdkoj3eywfdfn" path="res://resources/themes/style_box_flat.tres" id="1_1ymaj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ymaj"]
+bg_color = Color(0.94, 0.86072665, 0.7238, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.48235294, 0.23921569, 0, 1)
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
 [resource]
 default_font_size = 48
+Button/colors/font_color = Color(0.48235294, 0.23921569, 0, 1)
+Button/colors/font_focus_color = Color(0.48235294, 0.23921569, 0, 1)
+Button/colors/font_hover_color = Color(0.48235294, 0.23921569, 0, 1)
+Button/colors/font_hover_pressed_color = Color(0.48235294, 0.23921569, 0, 1)
+Button/colors/font_pressed_color = Color(0.48235294, 0.23921569, 0, 1)
+Button/styles/focus = ExtResource("1_1ymaj")
+Button/styles/hover = ExtResource("1_1ymaj")
+Button/styles/normal = ExtResource("1_1ymaj")
+Button/styles/pressed = SubResource("StyleBoxFlat_1ymaj")
+Label/colors/font_color = Color(0.48235294, 0.23921569, 0, 1)
+LineEdit/colors/caret_color = Color(0.9411765, 0.87058824, 0.7254902, 1)
+LineEdit/colors/font_color = Color(0.9411765, 0.87058824, 0.7254902, 1)
+RichTextLabel/colors/default_color = Color(0.9411765, 0.87058824, 0.7254902, 1)
+TabBar/colors/font_hovered_color = Color(0.9411765, 0.87058824, 0.7254902, 1)
+TabBar/colors/font_selected_color = Color(0.9411765, 0.87058824, 0.7254902, 1)
+TabBar/colors/font_unselected_color = Color(0.94, 0.83346665, 0.62039995, 1)
+TabContainer/colors/font_hovered_color = Color(0.9411765, 0.87058824, 0.7254902, 1)
+TabContainer/colors/font_selected_color = Color(0.9411765, 0.87058824, 0.7254902, 1)
+TabContainer/colors/font_unselected_color = Color(0.9411765, 0.87058824, 0.7254902, 1)
+TextEdit/colors/caret_color = Color(0.9411765, 0.87058824, 0.7254902, 1)
+TextEdit/colors/font_color = Color(0.9411765, 0.87058824, 0.7254902, 1)

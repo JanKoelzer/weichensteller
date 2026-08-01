@@ -28,7 +28,7 @@ func _on_highscore_update_failed(_code:int) -> void:
 	
 
 func _on_highscore_updated(highscore: Dictionary) -> void:
-	for l: Label in highscore_labels:
+	for l: RichTextLabel in highscore_labels:
 		l.visible = false
 		
 	for group_idx: int in Highscore.AgeGroups.size():
@@ -53,6 +53,7 @@ func create_row(grid_container: GridContainer, values: Array[String]) -> void:
 func create_label(s: String, expand: bool = false) -> Label:
 	var l := Label.new()
 	l.text = s
+	l.add_theme_color_override(&"font_color", Color("f0deb9"))
 	if expand:
 		l.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	return l

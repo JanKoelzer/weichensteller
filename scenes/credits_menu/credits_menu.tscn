@@ -39,12 +39,10 @@ custom_minimum_size = Vector2(0, 350)
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="CopyrightLabel" type="Label" parent="TabContainer/CREDITS" unique_id=1011037862]
+[node name="CopyrightLabel" type="RichTextLabel" parent="TabContainer/CREDITS" unique_id=1624651023]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(1920, 64)
-clip_contents = true
+custom_minimum_size = Vector2(1920, 640)
 layout_mode = 2
-autowrap_mode = 3
 
 [node name="THIRD_PARTY" type="ScrollContainer" parent="TabContainer" unique_id=775223818]
 visible = false
@@ -52,12 +50,10 @@ custom_minimum_size = Vector2(0, 350)
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="ThirdPartyLabel" type="Label" parent="TabContainer/THIRD_PARTY" unique_id=296956897]
+[node name="ThirdPartyLabel" type="RichTextLabel" parent="TabContainer/THIRD_PARTY" unique_id=758878894]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(1920, 64)
-clip_contents = true
+custom_minimum_size = Vector2(1920, 640)
 layout_mode = 2
-autowrap_mode = 3
 
 [node name="PRIVACY_TITLE" type="ScrollContainer" parent="TabContainer" unique_id=916539825]
 visible = false

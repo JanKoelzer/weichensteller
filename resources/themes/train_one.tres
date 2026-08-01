@@ -1,6 +1,7 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://drkpbmmwnukl"]
+[gd_resource type="Theme" format=3 uid="uid://drkpbmmwnukl"]
 
 [ext_resource type="FontFile" uid="uid://cvwu0enpt3ve4" path="res://assets/train_one_font/TrainOne-Regular.ttf" id="1_ni2ug"]
 
 [resource]
 default_font = ExtResource("1_ni2ug")
+Label/colors/font_color = Color(0.48235294, 0.23921569, 0, 1)

@@ -164,6 +164,7 @@ mouse_filter = 2
 script = ExtResource("1_1d7qk")
 
 [node name="BackgroundSprite" type="Sprite2D" parent="." unique_id=821657335]
+rotation = 0.2617994
 texture = ExtResource("1_l5ut5")
 centered = false
 
@@ -248,7 +249,7 @@ animate_intro = true
 custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_constants/separation = 10
+theme_override_constants/separation = 12
 alignment = 1
 
 [node name="StartButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=533899086]
@@ -267,7 +268,7 @@ libraries/ = SubResource("AnimationLibrary_dn3lk")
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=848402628]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 12
 
 [node name="ManualButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1011905878]
 layout_mode = 2
@@ -296,7 +297,7 @@ grow_vertical = 0
 
 [node name="VBoxContainerLeft" type="VBoxContainer" parent="HBoxContainer" unique_id=39714512]
 layout_mode = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 12
 
 [node name="AudioSettings" type="HBoxContainer" parent="HBoxContainer/VBoxContainerLeft" unique_id=803396812]
 layout_mode = 2

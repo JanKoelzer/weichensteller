@@ -5,6 +5,7 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_4jct4"]
 font_size = 128
+font_color = Color(0.9411765, 0.87058824, 0.7254902, 1)
 
 [node name="Title" type="HBoxContainer" unique_id=946154726]
 alignment = 1

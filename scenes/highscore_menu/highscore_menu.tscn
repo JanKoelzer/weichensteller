@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dysw0v0macqh6"]
 
-[ext_resource type="Texture2D" uid="uid://eij2hohstuhh" path="res://images/background.png" id="1_hnsup"]
+[ext_resource type="Texture2D" uid="uid://bjdagv3bbgk7x" path="res://images/background.png" id="1_hnsup"]
 [ext_resource type="Script" uid="uid://xfebceag673a" path="res://scenes/highscore_menu/highscore_menu.gd" id="1_wdu0c"]
 [ext_resource type="PackedScene" uid="uid://cywhajrq5c1sc" path="res://scenes/common/title.tscn" id="3_voc57"]
 
@@ -19,7 +19,7 @@ centered = false
 [node name="Title" parent="." unique_id=383361115 instance=ExtResource("3_voc57")]
 layout_mode = 2
 
-[node name="TitleLabel" parent="Title" index="0"]
+[node name="TitleLabel" parent="Title" index="0" unique_id=64782964]
 text = "HIGHSCORE"
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=1603033355]
@@ -44,8 +44,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 columns = 9
 
-[node name="HighscoreLabel" type="Label" parent="HighscoreTabContainer/Age0/HighscoreGrid" unique_id=641843589]
-custom_minimum_size = Vector2(1920, 0)
+[node name="HighscoreLabel" type="RichTextLabel" parent="HighscoreTabContainer/Age0/HighscoreGrid" unique_id=943622743]
+custom_minimum_size = Vector2(1920, 640)
 layout_mode = 2
 text = "LOADING_HIGHSCORE"
 autowrap_mode = 2
@@ -61,8 +61,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 columns = 9
 
-[node name="HighscoreLabel" type="Label" parent="HighscoreTabContainer/Age1/HighscoreGrid" unique_id=866479870]
-custom_minimum_size = Vector2(1920, 0)
+[node name="HighscoreLabel" type="RichTextLabel" parent="HighscoreTabContainer/Age1/HighscoreGrid" unique_id=493063676]
+custom_minimum_size = Vector2(1920, 640)
 layout_mode = 2
 text = "LOADING_HIGHSCORE"
 autowrap_mode = 2
@@ -78,8 +78,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 columns = 9
 
-[node name="HighscoreLabel" type="Label" parent="HighscoreTabContainer/Age2/HighscoreGrid" unique_id=336733448]
-custom_minimum_size = Vector2(1920, 0)
+[node name="HighscoreLabel" type="RichTextLabel" parent="HighscoreTabContainer/Age2/HighscoreGrid" unique_id=1179689931]
+custom_minimum_size = Vector2(1920, 640)
 layout_mode = 2
 text = "LOADING_HIGHSCORE"
 autowrap_mode = 2
