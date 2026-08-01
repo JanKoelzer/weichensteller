@@ -32,6 +32,7 @@ text = "BACK"
 [node name="HighscoreTabContainer" type="TabContainer" parent="." unique_id=925770255]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 3
 current_tab = 0
 
 [node name="Age0" type="ScrollContainer" parent="HighscoreTabContainer" unique_id=953429867]
@@ -42,11 +43,13 @@ metadata/_tab_index = 0
 [node name="HighscoreGrid" type="GridContainer" parent="HighscoreTabContainer/Age0" unique_id=791955902]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
 columns = 9
 
 [node name="HighscoreLabel" type="RichTextLabel" parent="HighscoreTabContainer/Age0/HighscoreGrid" unique_id=943622743]
 custom_minimum_size = Vector2(1920, 640)
 layout_mode = 2
+size_flags_vertical = 3
 text = "LOADING_HIGHSCORE"
 autowrap_mode = 2
 
@@ -59,11 +62,13 @@ metadata/_tab_index = 1
 [node name="HighscoreGrid" type="GridContainer" parent="HighscoreTabContainer/Age1" unique_id=1053407110]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
 columns = 9
 
 [node name="HighscoreLabel" type="RichTextLabel" parent="HighscoreTabContainer/Age1/HighscoreGrid" unique_id=493063676]
 custom_minimum_size = Vector2(1920, 640)
 layout_mode = 2
+size_flags_vertical = 3
 text = "LOADING_HIGHSCORE"
 autowrap_mode = 2
 
@@ -76,11 +81,13 @@ metadata/_tab_index = 2
 [node name="HighscoreGrid" type="GridContainer" parent="HighscoreTabContainer/Age2" unique_id=62959697]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
 columns = 9
 
 [node name="HighscoreLabel" type="RichTextLabel" parent="HighscoreTabContainer/Age2/HighscoreGrid" unique_id=1179689931]
 custom_minimum_size = Vector2(1920, 640)
 layout_mode = 2
+size_flags_vertical = 3
 text = "LOADING_HIGHSCORE"
 autowrap_mode = 2
 
