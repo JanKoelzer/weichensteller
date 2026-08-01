@@ -225,7 +225,7 @@ offset_right = 57.0
 offset_bottom = 137.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.415686, 0.745098, 0.196078, 1)
+theme_override_colors/font_color = Color(0.5058824, 0.83137256, 0.101960786, 1)
 theme_override_font_sizes/font_size = 200
 text = "GO"
 
@@ -246,7 +246,7 @@ offset_right = 57.0
 offset_bottom = 137.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.984314, 0.94902, 0.211765, 1)
+theme_override_colors/font_color = Color(1, 0.83137256, 0.15686275, 1)
 theme_override_font_sizes/font_size = 200
 text = "1"
 
@@ -267,7 +267,7 @@ offset_right = 57.0
 offset_bottom = 137.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.87451, 0.443137, 0.14902, 1)
+theme_override_colors/font_color = Color(1, 0.5019608, 0, 1)
 theme_override_font_sizes/font_size = 200
 text = "2"
 
@@ -288,7 +288,7 @@ offset_right = 57.0
 offset_bottom = 137.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.67451, 0.196078, 0.196078, 1)
+theme_override_colors/font_color = Color(0.7882353, 0.12941177, 0.11764706, 1)
 theme_override_font_sizes/font_size = 200
 text = "3"
 
