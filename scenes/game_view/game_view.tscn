@@ -387,6 +387,7 @@ text = "TRAINS"
 
 [node name="TrainCountLabel" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=1266462836]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
 text = "0"
 script = ExtResource("7_1e55p")
@@ -405,6 +406,7 @@ text = "SCORE"
 
 [node name="ScoreLabel" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=884877645]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.48235294, 0.23921569, 0, 1)
 text = "0"
@@ -424,6 +426,7 @@ text = "ERRORS"
 
 [node name="ErrorsLabel" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=957152827]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.48235294, 0.23921569, 0, 1)
 text = "0"
@@ -440,36 +443,34 @@ size_flags_horizontal = 3
 [node name="Label5" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=1874348209]
 layout_mode = 2
 text = "TIME"
+horizontal_alignment = 2
 
 [node name="TimeLabel" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=1195549918]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(55, 0)
 layout_mode = 2
 text = "0"
+horizontal_alignment = 2
 
 [node name="MenuContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=2037169393]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
 
 [node name="RestartButton" type="Button" parent="CenterContainer/VBoxContainer/MenuContainer" unique_id=2079084210]
 layout_mode = 2
-text = "RESTART_GAME"
-
-[node name="VSeparator" type="VSeparator" parent="CenterContainer/VBoxContainer/MenuContainer" unique_id=1985770253]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 2
 size_flags_horizontal = 3
+text = "RESTART_GAME"
 
 [node name="DifficultySettingsButton" type="Button" parent="CenterContainer/VBoxContainer/MenuContainer" unique_id=1266310086]
 layout_mode = 2
-text = "SETTINGS"
-
-[node name="VSeparator2" type="VSeparator" parent="CenterContainer/VBoxContainer/MenuContainer" unique_id=2097304895]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 2
 size_flags_horizontal = 3
+text = "SETTINGS"
 
 [node name="MainMenuButton" type="Button" parent="CenterContainer/VBoxContainer/MenuContainer" unique_id=404770251]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "MAIN_MENU"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
