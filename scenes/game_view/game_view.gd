@@ -50,6 +50,7 @@ func _enter_tree() -> void:
 func _exit_tree() -> void:
 	BackgroundMovement.movement_enabled = true
 
+
 func count_down_and_start() -> void:
 	for i in countdown_labels.size():
 		get_tree().create_timer(countdown_labels.size()-1-i).timeout.connect(func() -> void:
