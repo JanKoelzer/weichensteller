@@ -7,6 +7,7 @@ signal train_started(sum_trains_started: int)
 signal scored(color: Train.TrainColor)
 signal errored()
 signal end()
+signal switch_changed(cell: Vector2i, is_active: bool)
 
 @onready var train_creation_timer: Timer = $TrainCreationTimer
 @onready var trains: Node2D = $Trains
@@ -165,6 +166,7 @@ func switch(cell: Vector2i) -> void:
 
 		audioPlayer.play()
 		set_cell(cell, 0, new_atlas_coords, cell_alternative)
+		switch_changed.emit(cell, not data.get_custom_data("is_active"))
 	
 
 func _on_train_moved(train: Train) -> void:

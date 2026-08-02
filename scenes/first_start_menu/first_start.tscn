@@ -3,11 +3,13 @@
 [ext_resource type="Script" uid="uid://3vs22300c7p6" path="res://scenes/first_start_menu/first_start.gd" id="1_ag4lj"]
 [ext_resource type="Texture2D" uid="uid://bjdagv3bbgk7x" path="res://images/background.png" id="2_irq23"]
 [ext_resource type="PackedScene" uid="uid://cywhajrq5c1sc" path="res://scenes/common/title.tscn" id="3_obloy"]
+[ext_resource type="PackedScene" uid="uid://bdj4ruikcqwqr" path="res://scenes/common/introduction.tscn" id="4_67mjx"]
 
 [node name="FirstStartMenu" type="VBoxContainer" unique_id=669190862]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = 477.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ag4lj")
@@ -25,15 +27,26 @@ text = "GAME_TITLE"
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=115347334]
 layout_mode = 2
 
-[node name="CloseButton" type="Button" parent="CenterContainer" unique_id=45049660]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=892628945]
+layout_mode = 2
+
+[node name="CloseButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=45049660]
+unique_name_in_owner = true
+visible = false
 layout_mode = 2
 text = "START_GAME"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1098489156]
+[node name="TutorialButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=833445330]
+unique_name_in_owner = true
+layout_mode = 2
+text = "TUTORIAL"
+
+[node name="PrivacyContainer" type="ScrollContainer" parent="." unique_id=1098489156]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 800)
 layout_mode = 2
 
-[node name="HelpLabel" type="RichTextLabel" parent="ScrollContainer" unique_id=392708861]
+[node name="HelpLabel" type="RichTextLabel" parent="PrivacyContainer" unique_id=392708861]
 custom_minimum_size = Vector2(1920, 0)
 layout_mode = 2
 mouse_filter = 2
@@ -42,6 +55,10 @@ text = "PRIVACY_INFO"
 fit_content = true
 autowrap_mode = 2
 
-[connection signal="pressed" from="CenterContainer/CloseButton" to="." method="_on_close_button_pressed"]
+[node name="Introduction" parent="." unique_id=12919545 instance=ExtResource("4_67mjx")]
+layout_mode = 2
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/TutorialButton" to="." method="_on_tutorial_button_pressed"]
 
 [editable path="Title"]

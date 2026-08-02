@@ -3,6 +3,10 @@
 [ext_resource type="Script" uid="uid://dhkiyys86x0b8" path="res://scenes/help_menu/help_menu.gd" id="1_538cs"]
 [ext_resource type="Texture2D" uid="uid://bjdagv3bbgk7x" path="res://images/background.png" id="2_yx3vl"]
 [ext_resource type="PackedScene" uid="uid://cywhajrq5c1sc" path="res://scenes/common/title.tscn" id="3_hmep0"]
+[ext_resource type="PackedScene" uid="uid://bdj4ruikcqwqr" path="res://scenes/common/introduction.tscn" id="4_u2tvc"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u2tvc"]
+texture = ExtResource("2_yx3vl")
 
 [node name="HelpMenu" type="VBoxContainer" unique_id=306521833]
 anchors_preset = 15
@@ -34,10 +38,28 @@ custom_minimum_size = Vector2(0, 800)
 layout_mode = 2
 current_tab = 0
 
+[node name="TUTORIAL" type="MarginContainer" parent="TabContainer" unique_id=146708125]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+metadata/_tab_index = 0
+
+[node name="Control" type="PanelContainer" parent="TabContainer/TUTORIAL" unique_id=690262730]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_u2tvc")
+
+[node name="Introduction" parent="TabContainer/TUTORIAL/Control" unique_id=12919545 instance=ExtResource("4_u2tvc")]
+layout_mode = 2
+
 [node name="HELP_MENU" type="ScrollContainer" parent="TabContainer" unique_id=1659671553]
+visible = false
 custom_minimum_size = Vector2(0, 350)
 layout_mode = 2
-metadata/_tab_index = 0
+metadata/_tab_index = 1
 
 [node name="HelpLabel" type="RichTextLabel" parent="TabContainer/HELP_MENU" unique_id=609677061]
 custom_minimum_size = Vector2(1920, 640)
@@ -52,7 +74,7 @@ autowrap_mode = 2
 visible = false
 custom_minimum_size = Vector2(0, 350)
 layout_mode = 2
-metadata/_tab_index = 1
+metadata/_tab_index = 2
 
 [node name="HelpLabel" type="RichTextLabel" parent="TabContainer/HELP_TEXT_SHOW_DETAILS" unique_id=240032084]
 custom_minimum_size = Vector2(1920, 640)
