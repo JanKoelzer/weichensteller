@@ -16,3 +16,4 @@ func _on_tutorial_button_pressed() -> void:
 	tutorial_button.visible = false
 	privacy_container.visible = false
 	introduction.visible = true
+	introduction.start_tutorial()

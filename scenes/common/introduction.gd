@@ -77,8 +77,9 @@ var errors := 0:
 		errors = v
 		errors_label.text = str(v)
 
-func _ready() -> void:
-	start_tutorial()
+
+func _exit_tree() -> void:
+	BackgroundMovement.movement_enabled = true
 
 func start_tutorial() -> void:
 	BackgroundMovement.movement_enabled = false

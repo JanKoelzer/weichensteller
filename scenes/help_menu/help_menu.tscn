@@ -53,6 +53,7 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_u2tvc")
 
 [node name="Introduction" parent="TabContainer/TUTORIAL/Control" unique_id=12919545 instance=ExtResource("4_u2tvc")]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="HELP_MENU" type="ScrollContainer" parent="TabContainer" unique_id=1659671553]
