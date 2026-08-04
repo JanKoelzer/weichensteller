@@ -16,14 +16,13 @@ const DEFAULT_STATIONS : Dictionary[int, bool] = {
 	Train.TrainColor.ORANGE: true,
 	Train.TrainColor.YELLOW: true,
 	Train.TrainColor.GREEN: true,
-	Train.TrainColor.BLUE: true,
 } # Only use TRUE and ERASE unused
 const MIN_CONCURRENT_TRAINS = 2
 const MAX_CONCURRENT_TRAINS = 5
 const DEFAULT_CONCURRENT_TRAINS = 3
 const MIN_EXTRA_SWITCHES = 0
-const MAX_EXTRA_SWITCHES = 10
-const DEFAULT_EXTRA_SWITCHES = 5
+const MAX_EXTRA_SWITCHES = 6
+const DEFAULT_EXTRA_SWITCHES = 4
 const MIN_ERRORS = 0
 const MAX_ERRORS = 10
 const DEFAULT_MAX_ERRORS = 5
@@ -83,10 +82,10 @@ func _ready() -> void:
 
 func score_factor() -> float:
 	var k := 1.0
-	k *= speed**1.2
-	k *= (float(num_concurrent_trains)/DEFAULT_CONCURRENT_TRAINS)**1.2
-	k *= (float(num_stations)/DEFAULT_STATIONS.size())**2
-	k *= 1 + 0.08*(DEFAULT_EXTRA_SWITCHES-num_extra_switches)
+	k *= speed**1.1
+	k *= (float(num_concurrent_trains)/DEFAULT_CONCURRENT_TRAINS)**1.1
+	k *= (float(num_stations)/DEFAULT_STATIONS.size())**1.5
+	k *= 1 + 0.05*(DEFAULT_EXTRA_SWITCHES-num_extra_switches)
 	k *= 1 + 0.1*(DEFAULT_MAX_ERRORS-max_errors)
 	k = snappedf(k, 0.01)
 	return k
