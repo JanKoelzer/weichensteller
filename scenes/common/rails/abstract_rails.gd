@@ -75,11 +75,11 @@ func create_railways() -> void:
 	var cols_for_down: Array
 	var valid_setup := false
 	while not valid_setup:
-		cols_for_up = range(1, col_count - 1)
+		cols_for_up = range(2, col_count - 1)
 		cols_for_up.shuffle()
 		cols_for_up = cols_for_up.slice(0, n)
 		
-		cols_for_down = range(1, col_count - 1)
+		cols_for_down = range(2, col_count - 1)
 		cols_for_down.shuffle()
 		cols_for_down = cols_for_down.slice(0, n)
 		
@@ -101,7 +101,7 @@ func create_railways() -> void:
 	# set extra switches
 	var num_extra_switches := game_settings.num_extra_switches
 	while num_extra_switches > 0:
-		var pos := Vector2i(randi_range(1, col_count - 2), randi_range(0, n-1))
+		var pos := Vector2i(randi_range(2, col_count - 2), randi_range(0, n-1))
 		if get_cell_tile_data(pos) != null\
 		and not get_cell_tile_data(pos).get_custom_data("is_switch"):
 			set_switch(pos.x, pos.y)

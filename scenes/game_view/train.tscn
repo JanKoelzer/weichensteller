@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://dev70nkbyuydv"]
 
 [ext_resource type="Texture2D" uid="uid://chf34iv6d16q5" path="res://images/rails.png" id="1_lo3q4"]
-[ext_resource type="Script" uid="uid://cvormi1od74aa" path="res://scenes/common/train.gd" id="2_wgsvc"]
+[ext_resource type="Script" uid="uid://cvormi1od74aa" path="res://scenes/common/train/train.gd" id="2_wgsvc"]
 [ext_resource type="Texture2D" uid="uid://dbs2yixpwvn2t" path="res://resources/textures/exhaust_particle_texture.tres" id="3_gfec6"]
-[ext_resource type="Script" uid="uid://dn0njkecees6c" path="res://scenes/common/spark_particles.gd" id="4_7o0ee"]
-[ext_resource type="Script" uid="uid://bofh71konaybx" path="res://scenes/common/steam_particles.gd" id="4_gfec6"]
-[ext_resource type="Script" uid="uid://bf0jevs1361el" path="res://scenes/common/exhaust_particles.gd" id="5_vskko"]
+[ext_resource type="Script" uid="uid://dn0njkecees6c" path="res://scenes/common/train/spark_particles.gd" id="4_7o0ee"]
+[ext_resource type="Script" uid="uid://bofh71konaybx" path="res://scenes/common/train/steam_particles.gd" id="4_gfec6"]
+[ext_resource type="Script" uid="uid://bf0jevs1361el" path="res://scenes/common/train/exhaust_particles.gd" id="5_vskko"]
 
 [sub_resource type="Gradient" id="Gradient_6whlh"]
 colors = PackedColorArray(0.24, 0.24, 0.24, 0.509804, 0.76, 0.76, 0.76, 0.509804)

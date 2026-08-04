@@ -6,11 +6,10 @@ extends Control
 @onready var change_setting_audio_stream_player: AudioStreamPlayer = $ChangeSettingAudioStreamPlayer
 
 
-
 func _ready() -> void:	
 	if OS.get_name() == "Android" and not UISettings.file_exists():
 		# First start. User has not accepted privacy yet.
-		call_deferred("_change_scene_to_first_start")
+		_change_scene_to_first_start.call_deferred()
 	else:
 		UISettings.load_from_file()
 		audio_option_button.selected = 0 if UISettings.sound_enabled else 1

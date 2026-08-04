@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cywhajrq5c1sc"]
 
 [ext_resource type="Theme" uid="uid://drkpbmmwnukl" path="res://resources/themes/train_one.tres" id="1_bn55t"]
-[ext_resource type="PackedScene" uid="uid://5ueq7hiplumc" path="res://scenes/common/title_train.tscn" id="2_jhitl"]
+[ext_resource type="PackedScene" uid="uid://5ueq7hiplumc" path="res://scenes/common/title/title_train.tscn" id="2_jhitl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4jct4"]
 font_size = 128

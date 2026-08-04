@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bjdagv3bbgk7x" path="res://images/background.png" id="1_i7fht"]
 [ext_resource type="Script" uid="uid://bnira8s8dt1r6" path="res://scenes/credits_menu/credits_menu.gd" id="1_ppef3"]
-[ext_resource type="PackedScene" uid="uid://cywhajrq5c1sc" path="res://scenes/common/title.tscn" id="3_5ww45"]
+[ext_resource type="PackedScene" uid="uid://cywhajrq5c1sc" path="res://scenes/common/title/title.tscn" id="3_5ww45"]
 
 [node name="CreditsMenu" type="VBoxContainer" unique_id=2142077552]
 anchors_preset = 15

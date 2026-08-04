@@ -1,13 +1,12 @@
 [gd_scene format=4 uid="uid://bdj4ruikcqwqr"]
 
-[ext_resource type="Script" uid="uid://d2in4n6rxv1ei" path="res://scenes/common/introduction.gd" id="1_r7we2"]
-[ext_resource type="PackedScene" uid="uid://bj451436lnaqo" path="res://scenes/common/rails.tscn" id="3_i5jk1"]
-[ext_resource type="Script" uid="uid://cekiqcp6ubjak" path="res://scenes/common/intro_rails.gd" id="4_la0mo"]
+[ext_resource type="Script" uid="uid://d2in4n6rxv1ei" path="res://scenes/common/introduction/introduction.gd" id="1_r7we2"]
+[ext_resource type="PackedScene" uid="uid://bj451436lnaqo" path="res://scenes/common/rails/rails.tscn" id="3_i5jk1"]
+[ext_resource type="Script" uid="uid://cekiqcp6ubjak" path="res://scenes/common/introduction/intro_rails.gd" id="4_la0mo"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vfism"]
 
 [node name="Introduction" type="VBoxContainer" unique_id=12919545]
-anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -90,7 +89,7 @@ layout_mode = 2
 
 [node name="Rails" parent="CenterContainer/Control" unique_id=1667562320 instance=ExtResource("3_i5jk1")]
 unique_name_in_owner = true
-tile_map_data = PackedByteArray("AAAAAAAAAAADAAAAAAABAAAAAAADAAAAAAACAAAAAAADAAAAAAADAAAAAAADAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAADAAAAAAAGAAEAAAADAAAAAAAHAAEAAAADAAIAAAAHAAAAAAAAAAIAAAAGAAAAAAADAAAAAAAFAAEAAAADAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAAAAAADAAAAAAABAAAAAAADAAAAAAACAAAAAAADAAAAAAADAAAAAAADAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAADAAAAAAAGAAEAAAADAAAAAAAHAAEAAAADAAIAAAAHAAAAAAAAAAIAAAAIAAAA//////////8JAAAA//////////8GAAAAAAADAAAAAAAAAAEA//////////8BAAEA//////////8CAAEA//////////8DAAEA//////////8EAAEA//////////8FAAEAAAADAAAAAAAJAAEA//////////8KAAEA//////////8KAAAA//////////8LAAAA//////////8LAAEA//////////8IAAEA//////////8AAAIA//////////8BAAIA//////////8CAAIA//////////8DAAIA//////////8EAAIA//////////8FAAIA//////////8GAAIA//////////8HAAIA//////////8IAAIA//////////8JAAIA//////////8KAAIA//////////8LAAIA//////////8LAAMA//////////8KAAMA//////////8JAAMA//////////8IAAMA//////////8HAAMA//////////8GAAMA//////////8FAAMA//////////8EAAMA//////////8DAAMA//////////8CAAMA//////////8BAAMA//////////8AAAMA//////////8AAAQA//////////8BAAQA//////////8CAAQA//////////8DAAQA//////////8EAAQA//////////8FAAQA//////////8GAAQA//////////8HAAQA//////////8IAAQA//////////8JAAQA//////////8KAAQA//////////8LAAQA//////////8MAAAA//////////8MAAEA//////////8NAAEA//////////8MAAIA//////////8NAAIA//////////8MAAMA//////////8NAAMA//////////8NAAQA//////////8MAAQA//////////8AAAUA//////////8BAAUA//////////8CAAUA//////////8DAAUA//////////8EAAUA//////////8FAAUA//////////8GAAUA//////////8HAAUA//////////8IAAUA//////////8JAAUA//////////8KAAUA//////////8LAAUA//////////8MAAUA//////////8NAAUA//////////8NAAAA//////////8=")
 script = ExtResource("4_la0mo")
 
 [node name="TrainCreationTimer" parent="CenterContainer/Control/Rails" index="5" unique_id=1965063278]

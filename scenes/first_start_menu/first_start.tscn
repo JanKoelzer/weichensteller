@@ -2,11 +2,10 @@
 
 [ext_resource type="Script" uid="uid://3vs22300c7p6" path="res://scenes/first_start_menu/first_start.gd" id="1_ag4lj"]
 [ext_resource type="Texture2D" uid="uid://bjdagv3bbgk7x" path="res://images/background.png" id="2_irq23"]
-[ext_resource type="PackedScene" uid="uid://cywhajrq5c1sc" path="res://scenes/common/title.tscn" id="3_obloy"]
-[ext_resource type="PackedScene" uid="uid://bdj4ruikcqwqr" path="res://scenes/common/introduction.tscn" id="4_67mjx"]
+[ext_resource type="PackedScene" uid="uid://cywhajrq5c1sc" path="res://scenes/common/title/title.tscn" id="3_obloy"]
+[ext_resource type="PackedScene" uid="uid://bdj4ruikcqwqr" path="res://scenes/common/introduction/introduction.tscn" id="4_67mjx"]
 
 [node name="FirstStartMenu" type="VBoxContainer" unique_id=669190862]
-anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_bottom = 477.0

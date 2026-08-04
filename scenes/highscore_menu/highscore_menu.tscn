@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bjdagv3bbgk7x" path="res://images/background.png" id="1_hnsup"]
 [ext_resource type="Script" uid="uid://xfebceag673a" path="res://scenes/highscore_menu/highscore_menu.gd" id="1_wdu0c"]
-[ext_resource type="PackedScene" uid="uid://cywhajrq5c1sc" path="res://scenes/common/title.tscn" id="3_voc57"]
+[ext_resource type="PackedScene" uid="uid://cywhajrq5c1sc" path="res://scenes/common/title/title.tscn" id="3_voc57"]
 
 [node name="HighscoreMenu" type="VBoxContainer" unique_id=1925186773]
 anchors_preset = 15
