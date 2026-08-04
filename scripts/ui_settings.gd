@@ -54,7 +54,7 @@ func load_from_file() -> void:
 	var err := file.load(config_filename)
 	
 	if err != OK:
-		save_to_file()	
+		save_to_file()
 	
 	locale = file.get_value(config_section, "locale", locale)
 	sound_enabled = file.get_value(config_section, "sound_enabled", sound_enabled)

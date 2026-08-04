@@ -21,7 +21,7 @@ func start_tutorial_train_1() -> void:
 func start_tutorial_train_2() -> void:
 	_set_train_on_tracks(
 		Train.TrainType.STEAM,
-		Train.TrainColor.RED,
+		Train.TrainColor.YELLOW,
 		0,
 		1
 	)

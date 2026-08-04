@@ -1,5 +1,6 @@
 keys,de,en
 TUTORIAL,Einführung,Tutorial
+START_TUTORIAL,Einführung starten,Start Tutorial
 TRY_TUTORIAL_AGAIN,Nochmal,Try again
 STEP1,"1. Tippe die [outline_color=#666666][outline_size=20]Weiche[/outline_size][/outline_color] an, um den [color=#6abe32]grünen[/color] Zug zum [color=#6abe32]grünen[/color] Bahnhof zu leiten.",1. Tap the [outline_color=#666666][outline_size=20]switch[/outline_size][/outline_color] to guide the [color=#6abe32]green[/color] train to the [color=#6abe32]green[/color] station.
-STEP2,"2. Tippe die [outline_color=#666666][outline_size=20]Weiche[/outline_size][/outline_color] an, um den [color=#c9211e]roten[/color] Zug zum [color=#c9211e]roten[/color] Bahnhof zu leiten.","2. Tap the [outline_color=#666666][outline_size=20]switch[/outline_size][/outline_color] again, to guide the [color=#c9211e]red[/color] train to the [color=#c9211e]red[/color] station"
+STEP2,"2. Tippe die [outline_color=#666666][outline_size=20]Weiche[/outline_size][/outline_color] an, um den [color=#fdd32a]gelben[/color] Zug zum [color=#fdd32a]gelben[/color] Bahnhof zu leiten.","2. Tap the [outline_color=#666666][outline_size=20]switch[/outline_size][/outline_color] again, to guide the [color=#fdd32a]yellow[/color] train to the [color=#fdd32a]yellow[/color] station"
