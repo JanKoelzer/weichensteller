@@ -25,7 +25,7 @@ const MAX_EXTRA_SWITCHES = 6
 const DEFAULT_EXTRA_SWITCHES = 4
 const MIN_ERRORS = 0
 const MAX_ERRORS = 10
-const DEFAULT_MAX_ERRORS = 5
+const DEFAULT_MAX_ERRORS = 4
 
 var speed: float = DEFAULT_SPEED:
 	get: return speed
