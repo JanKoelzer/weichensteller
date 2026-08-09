@@ -1,0 +1,107 @@
+[gd_scene format=4 uid="uid://bdj4ruikcqwqr"]
+
+[ext_resource type="Script" uid="uid://d2in4n6rxv1ei" path="res://scenes/introduction/introduction.gd" id="1_r7we2"]
+[ext_resource type="PackedScene" uid="uid://bj451436lnaqo" path="res://scenes/rails/rails.tscn" id="3_i5jk1"]
+[ext_resource type="Script" uid="uid://cekiqcp6ubjak" path="res://scenes/introduction/intro_rails.gd" id="4_la0mo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vfism"]
+
+[node name="Introduction" type="VBoxContainer" unique_id=12919545]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r7we2")
+
+[node name="Step1Label" type="RichTextLabel" parent="." unique_id=1994436112]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+text = "STEP1"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="Step2Label" type="RichTextLabel" parent="." unique_id=1214856139]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+text = "STEP2"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="Step3Control" type="VBoxContainer" parent="." unique_id=1102132004]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="GridContainer" type="GridContainer" parent="Step3Control" unique_id=793866898]
+layout_mode = 2
+columns = 4
+
+[node name="Label1" type="Label" parent="Step3Control/GridContainer" unique_id=951361925]
+layout_mode = 2
+text = "SCORE"
+
+[node name="ScoreLabel" type="Label" parent="Step3Control/GridContainer" unique_id=1959006193]
+custom_minimum_size = Vector2(55, 0)
+layout_mode = 2
+text = "0"
+horizontal_alignment = 2
+
+[node name="VSeparator" type="VSeparator" parent="Step3Control/GridContainer" unique_id=1210718557]
+layout_mode = 2
+theme_override_constants/separation = 60
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vfism")
+
+[node name="TryAgainButton" type="Button" parent="Step3Control/GridContainer" unique_id=1980123389]
+unique_name_in_owner = true
+layout_mode = 2
+text = "TRY_TUTORIAL_AGAIN"
+
+[node name="Label2" type="Label" parent="Step3Control/GridContainer" unique_id=1606471465]
+layout_mode = 2
+text = "ERRORS"
+
+[node name="ErrorsLabel" type="Label" parent="Step3Control/GridContainer" unique_id=1943056471]
+layout_mode = 2
+text = "0"
+horizontal_alignment = 2
+
+[node name="VSeparator2" type="VSeparator" parent="Step3Control/GridContainer" unique_id=2020417160]
+layout_mode = 2
+theme_override_constants/separation = 60
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vfism")
+
+[node name="StartGameButton" type="Button" parent="Step3Control/GridContainer" unique_id=1618657098]
+unique_name_in_owner = true
+layout_mode = 2
+text = "START_GAME"
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=446796358]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="CenterContainer" unique_id=549462950]
+custom_minimum_size = Vector2(960, 0)
+custom_maximum_size = Vector2(960, -1)
+layout_mode = 2
+
+[node name="Rails" parent="CenterContainer/Control" unique_id=1667562320 instance=ExtResource("3_i5jk1")]
+unique_name_in_owner = true
+tile_map_data = PackedByteArray("AAAAAAAAAAADAAAAAAABAAAAAAADAAAAAAACAAAAAAADAAAAAAADAAAAAAADAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAADAAAAAAAGAAEAAAADAAAAAAAHAAEAAAADAAIAAAAHAAAAAAACAAIAAAAGAAAAAAADAAAAAAAFAAEAAAADAAAAAAA=")
+script = ExtResource("4_la0mo")
+
+[node name="TrainCreationTimer" parent="CenterContainer/Control/Rails" index="5" unique_id=1965063278]
+wait_time = 6.0
+autostart = true
+
+[connection signal="pressed" from="Step3Control/GridContainer/TryAgainButton" to="." method="start_tutorial"]
+[connection signal="pressed" from="Step3Control/GridContainer/StartGameButton" to="." method="_on_close_button_pressed"]
+[connection signal="end" from="CenterContainer/Control/Rails" to="." method="_on_rails_end"]
+[connection signal="errored" from="CenterContainer/Control/Rails" to="." method="_on_rails_errored"]
+[connection signal="scored" from="CenterContainer/Control/Rails" to="." method="_on_rails_scored"]
+[connection signal="switch_changed" from="CenterContainer/Control/Rails" to="." method="_on_rails_switch_changed"]
+
+[editable path="CenterContainer/Control/Rails"]

@@ -1,0 +1,317 @@
+[gd_scene format=3 uid="uid://beulniltj2hto"]
+
+[ext_resource type="Script" uid="uid://b46v6j77q3xc8" path="res://menus/difficulty_menu/difficulty_menu.gd" id="1_2ybyc"]
+[ext_resource type="Texture2D" uid="uid://bjdagv3bbgk7x" path="res://images/background.png" id="2_krwiw"]
+[ext_resource type="PackedScene" uid="uid://cywhajrq5c1sc" path="res://scenes/title/title.tscn" id="3_2ybyc"]
+[ext_resource type="Texture2D" uid="uid://chf34iv6d16q5" path="res://images/rails.png" id="4_c46ss"]
+[ext_resource type="StyleBox" uid="uid://bdkoj3eywfdfn" path="res://resources/themes/style_box_flat.tres" id="4_lc7d8"]
+
+[sub_resource type="Animation" id="Animation_ty162"]
+resource_name = "changed"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.48235294, 0.23921569, 0, 1), Color(0.7882353, 0.12941177, 0.11764706, 1), Color(0.48235294, 0.23921569, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ud552"]
+_data = {
+&"changed_negative": SubResource("Animation_ty162")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ty162"]
+content_margin_left = 4.0
+content_margin_right = 4.0
+bg_color = Color(0, 0, 0, 0.501961)
+border_color = Color(0, 0, 0, 0.501961)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lc7d8"]
+bg_color = Color(0, 0, 0, 0.5019608)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_esjue"]
+atlas = ExtResource("4_c46ss")
+region = Rect2(0, 240, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8jvx0"]
+atlas = ExtResource("4_c46ss")
+region = Rect2(120, 240, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ybyc"]
+atlas = ExtResource("4_c46ss")
+region = Rect2(240, 240, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_krwiw"]
+atlas = ExtResource("4_c46ss")
+region = Rect2(360, 240, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5fy7"]
+atlas = ExtResource("4_c46ss")
+region = Rect2(480, 240, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6mec"]
+atlas = ExtResource("4_c46ss")
+region = Rect2(600, 240, 120, 120)
+filter_clip = true
+
+[node name="DifficultySettings" type="VBoxContainer" unique_id=1379196059]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2ybyc")
+
+[node name="BackgroundSprite" type="Sprite2D" parent="." unique_id=1796639614]
+texture = ExtResource("2_krwiw")
+centered = false
+
+[node name="Title" parent="." unique_id=1938389076 instance=ExtResource("3_2ybyc")]
+layout_mode = 2
+
+[node name="TitleLabel" parent="Title" index="0" unique_id=64782964]
+text = "GAME_TITLE"
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=715854983]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer" unique_id=524969810]
+layout_mode = 2
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 12
+columns = 4
+
+[node name="Label2" type="Label" parent="CenterContainer/GridContainer" unique_id=256668515]
+layout_mode = 2
+tooltip_text = "SPEED_HINT"
+mouse_filter = 1
+text = "SPEED"
+
+[node name="SpeedMinusButton" type="Button" parent="CenterContainer/GridContainer" unique_id=614021066]
+custom_minimum_size = Vector2(50, 120)
+layout_mode = 2
+text = "-"
+
+[node name="SpeedPlusButton" type="Button" parent="CenterContainer/GridContainer" unique_id=982146309]
+custom_minimum_size = Vector2(50, 120)
+layout_mode = 2
+text = "+"
+
+[node name="SpeedLabel" type="Label" parent="CenterContainer/GridContainer" unique_id=727547056]
+layout_mode = 2
+text = "100"
+
+[node name="Label3" type="Label" parent="CenterContainer/GridContainer" unique_id=1424667622]
+layout_mode = 2
+tooltip_text = "TRAFFIC_DENSITY_HINT"
+mouse_filter = 1
+text = "TRAFFIC_DENSITY"
+
+[node name="ConcurrentMinusButton" type="Button" parent="CenterContainer/GridContainer" unique_id=1772263251]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+text = "-"
+
+[node name="ConcurrentPlusButton" type="Button" parent="CenterContainer/GridContainer" unique_id=1443232836]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+text = "+"
+
+[node name="NumConcurrentTrainsLabel" type="Label" parent="CenterContainer/GridContainer" unique_id=1887588235]
+layout_mode = 2
+text = "100"
+
+[node name="NumStationsLabel" type="Label" parent="CenterContainer/GridContainer" unique_id=1334521798]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "NUMBER_STATIONS_HINT"
+mouse_filter = 1
+theme_override_colors/font_color = Color(0.48235294, 0.23921569, 0, 1)
+text = "SELECTED_STATIONS"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer/GridContainer/NumStationsLabel" unique_id=104082880]
+libraries/ = SubResource("AnimationLibrary_ud552")
+
+[node name="StationButton0" type="Button" parent="CenterContainer/GridContainer" unique_id=1646112557]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ty162")
+theme_override_styles/pressed = ExtResource("4_lc7d8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lc7d8")
+theme_override_styles/hover_pressed = ExtResource("4_lc7d8")
+toggle_mode = true
+button_pressed = true
+icon = SubResource("AtlasTexture_esjue")
+icon_alignment = 1
+
+[node name="StationButton1" type="Button" parent="CenterContainer/GridContainer" unique_id=1222639015]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ty162")
+theme_override_styles/pressed = ExtResource("4_lc7d8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lc7d8")
+theme_override_styles/hover_pressed = ExtResource("4_lc7d8")
+toggle_mode = true
+button_pressed = true
+icon = SubResource("AtlasTexture_8jvx0")
+icon_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/GridContainer" unique_id=714208536]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="StationButton2" type="Button" parent="CenterContainer/GridContainer/HBoxContainer" unique_id=2075997499]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ty162")
+theme_override_styles/pressed = ExtResource("4_lc7d8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lc7d8")
+theme_override_styles/hover_pressed = ExtResource("4_lc7d8")
+toggle_mode = true
+button_pressed = true
+icon = SubResource("AtlasTexture_2ybyc")
+icon_alignment = 1
+
+[node name="StationButton3" type="Button" parent="CenterContainer/GridContainer/HBoxContainer" unique_id=602966054]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ty162")
+theme_override_styles/pressed = ExtResource("4_lc7d8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lc7d8")
+theme_override_styles/hover_pressed = ExtResource("4_lc7d8")
+toggle_mode = true
+button_pressed = true
+icon = SubResource("AtlasTexture_krwiw")
+icon_alignment = 1
+
+[node name="StationButton4" type="Button" parent="CenterContainer/GridContainer/HBoxContainer" unique_id=118313413]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ty162")
+theme_override_styles/pressed = ExtResource("4_lc7d8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lc7d8")
+theme_override_styles/hover_pressed = ExtResource("4_lc7d8")
+toggle_mode = true
+button_pressed = true
+icon = SubResource("AtlasTexture_o5fy7")
+icon_alignment = 1
+
+[node name="StationButton5" type="Button" parent="CenterContainer/GridContainer/HBoxContainer" unique_id=35199511]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ty162")
+theme_override_styles/pressed = ExtResource("4_lc7d8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lc7d8")
+theme_override_styles/hover_pressed = ExtResource("4_lc7d8")
+toggle_mode = true
+icon = SubResource("AtlasTexture_h6mec")
+icon_alignment = 1
+
+[node name="Label8" type="Label" parent="CenterContainer/GridContainer" unique_id=492311935]
+layout_mode = 2
+tooltip_text = "NUMBER_SWITCHES_HINT"
+mouse_filter = 1
+text = "NUMBER_SWITCHES"
+
+[node name="SwitchesMinusButton" type="Button" parent="CenterContainer/GridContainer" unique_id=189929422]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+text = "-"
+
+[node name="SwitchesPlusButton" type="Button" parent="CenterContainer/GridContainer" unique_id=1335060452]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+text = "+"
+
+[node name="NumSwitchesLabel" type="Label" parent="CenterContainer/GridContainer" unique_id=135427605]
+layout_mode = 2
+text = "5"
+
+[node name="Label10" type="Label" parent="CenterContainer/GridContainer" unique_id=1886151310]
+layout_mode = 2
+tooltip_text = "NUMBER_ERRORS_HINT"
+mouse_filter = 1
+text = "NUMBER_ERRORS"
+
+[node name="ErrorsMinusButton" type="Button" parent="CenterContainer/GridContainer" unique_id=1252245977]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+text = "-"
+
+[node name="ErrorsPlusButton" type="Button" parent="CenterContainer/GridContainer" unique_id=623446851]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+text = "+"
+
+[node name="MaxErrorsLabel" type="Label" parent="CenterContainer/GridContainer" unique_id=177353567]
+layout_mode = 2
+text = "5"
+
+[node name="VBoxContainer" type="HBoxContainer" parent="CenterContainer/GridContainer" unique_id=546994883]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/GridContainer/VBoxContainer" unique_id=1763709257]
+layout_mode = 2
+tooltip_text = "DIFFICULTY_HINT"
+mouse_filter = 1
+text = "DIFFICULTY"
+
+[node name="FactorLabel" type="Label" parent="CenterContainer/GridContainer/VBoxContainer" unique_id=337601128]
+layout_mode = 2
+text = "100 %"
+
+[node name="Control" type="Control" parent="CenterContainer/GridContainer" unique_id=1876228027]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="CenterContainer/GridContainer" unique_id=1020121040]
+layout_mode = 2
+
+[node name="StartButton" type="Button" parent="CenterContainer/GridContainer" unique_id=1880850677]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+text = "START"
+
+[node name="BackButtonContainer" type="HBoxContainer" parent="." unique_id=1748644931]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 2
+
+[node name="BackButton" type="Button" parent="BackButtonContainer" unique_id=121346054]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 32
+text = "BACK"
+
+[connection signal="pressed" from="CenterContainer/GridContainer/SpeedMinusButton" to="." method="_on_speed_minus_button_pressed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/SpeedPlusButton" to="." method="_on_speed_plus_button_pressed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/ConcurrentMinusButton" to="." method="_on_concurrent_minus_button_pressed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/ConcurrentPlusButton" to="." method="_on_concurrent_plus_button_pressed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/StationButton0" to="." method="_on_station_button_pressed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/StationButton1" to="." method="_on_station_button_pressed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/HBoxContainer/StationButton2" to="." method="_on_station_button_pressed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/HBoxContainer/StationButton3" to="." method="_on_station_button_pressed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/HBoxContainer/StationButton4" to="." method="_on_station_button_pressed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/HBoxContainer/StationButton5" to="." method="_on_station_button_pressed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/SwitchesMinusButton" to="." method="_on_switches_minus_button_pressed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/SwitchesPlusButton" to="." method="_on_switches_plus_button_pressed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/ErrorsMinusButton" to="." method="_on_errors_minus_button_pressed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/ErrorsPlusButton" to="." method="_on_errors_plus_button_pressed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="BackButtonContainer/BackButton" to="." method="_on_back_button_pressed"]
+
+[editable path="Title"]

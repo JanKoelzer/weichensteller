@@ -1,9 +1,9 @@
 [gd_scene format=4 uid="uid://48bublgj4thp"]
 
 [ext_resource type="Texture2D" uid="uid://bjdagv3bbgk7x" path="res://images/background.png" id="2_6j74y"]
-[ext_resource type="PackedScene" uid="uid://bj451436lnaqo" path="res://scenes/common/rails/rails.tscn" id="3_wi23w"]
+[ext_resource type="PackedScene" uid="uid://bj451436lnaqo" path="res://scenes/rails/rails.tscn" id="3_wi23w"]
 [ext_resource type="Theme" uid="uid://drkpbmmwnukl" path="res://resources/themes/train_one.tres" id="4_r5l30"]
-[ext_resource type="PackedScene" uid="uid://dev70nkbyuydv" path="res://scenes/game_view/train.tscn" id="4_wpewe"]
+[ext_resource type="PackedScene" uid="uid://dev70nkbyuydv" path="res://scenes/train/train.tscn" id="4_wpewe"]
 
 [sub_resource type="Gradient" id="Gradient_6whlh"]
 colors = PackedColorArray(0.24, 0.24, 0.24, 0.509804, 0.76, 0.76, 0.76, 0.509804)

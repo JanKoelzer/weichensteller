@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cywhajrq5c1sc"]
+
+[ext_resource type="Theme" uid="uid://drkpbmmwnukl" path="res://resources/themes/train_one.tres" id="1_bn55t"]
+[ext_resource type="PackedScene" uid="uid://5ueq7hiplumc" path="res://scenes/title/title_train.tscn" id="2_jhitl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4jct4"]
+font_size = 128
+font_color = Color(0.9411765, 0.87058824, 0.7254902, 1)
+
+[node name="Title" type="HBoxContainer" unique_id=946154726]
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="." unique_id=64782964]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme = ExtResource("1_bn55t")
+theme_override_font_sizes/font_size = 64
+label_settings = SubResource("LabelSettings_4jct4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TitleTrain" parent="." unique_id=2076536345 instance=ExtResource("2_jhitl")]
+layout_mode = 2
