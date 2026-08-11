@@ -1,5 +1,6 @@
 extends Node
 
+# Do not use preload() here to avoid loading all scenes when booting the game.
 const CREDITS_MENU = "uid://ci4d7j0imm4u"
 const DIFFICULTY_MENU = "uid://beulniltj2hto"
 const FIRST_START = "uid://bk0n0dkf0jmum"

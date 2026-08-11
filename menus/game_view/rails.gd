@@ -19,7 +19,7 @@ func init(num_cols: int, settings: GameSettings) -> void:
 
 
 func set_train_on_tracks() -> Train:
-	var new_speed := game_settings.speed + sum_trains_started / 80.0 # slowly increase speed over time	
+	var new_speed := game_settings.speed + sum_trains_started / 60.0 # slowly increase speed over time	
 	var t := _set_train_on_tracks(
 		Train.TrainType.values().pick_random(),
 		game_settings.selected_stations.keys().pick_random(), # color
