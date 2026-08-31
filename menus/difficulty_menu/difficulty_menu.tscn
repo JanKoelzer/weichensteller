@@ -40,22 +40,27 @@ bg_color = Color(0, 0, 0, 0.5019608)
 [sub_resource type="AtlasTexture" id="AtlasTexture_esjue"]
 atlas = ExtResource("4_c46ss")
 region = Rect2(0, 240, 120, 120)
+filter_clip = true
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8jvx0"]
 atlas = ExtResource("4_c46ss")
 region = Rect2(120, 240, 120, 120)
+filter_clip = true
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2ybyc"]
 atlas = ExtResource("4_c46ss")
 region = Rect2(240, 240, 120, 120)
+filter_clip = true
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_krwiw"]
 atlas = ExtResource("4_c46ss")
 region = Rect2(360, 240, 120, 120)
+filter_clip = true
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o5fy7"]
 atlas = ExtResource("4_c46ss")
 region = Rect2(480, 240, 120, 120)
+filter_clip = true
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h6mec"]
 atlas = ExtResource("4_c46ss")
