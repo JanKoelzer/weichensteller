@@ -161,7 +161,7 @@ tile_map_data = PackedByteArray("AAABAAMAAAACAAAAAAAAAAMAAAADAAAAAAAAAAQAAAADAAA
 script = ExtResource("14_4ujhu")
 
 [node name="SwitchMarkers" parent="Rails" index="0" unique_id=654680758]
-tile_map_data = PackedByteArray("AAAAAAAAAAAEAAEAAAAEAAUAAAAEAAAAAAAOAAQAAAAEAAAAAAAPAAMAAAAFAAAAAAAHAAcAAAAFAAAAAAAGAAYAAAAEAAAAAAA=")
+tile_map_data = PackedByteArray("AAAEAAUAAAAEAAAAAAAOAAQAAAAEAAAAAAAPAAMAAAAFAAAAAAAHAAcAAAAFAAAAAAAGAAYAAAAEAAAAAAA=")
 
 [node name="Train1" parent="Rails/Trains" parent_id_path=PackedInt32Array(1113198161, 1464536326) index="0" unique_id=1778783048 instance=ExtResource("4_x2yjq")]
 position = Vector2(1440, 1020)
