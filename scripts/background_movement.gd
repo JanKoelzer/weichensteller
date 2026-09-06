@@ -1,7 +1,18 @@
+# Autoloaded (see Project Settings)
+# Slowly moves the background from left to right  and from
+# top to bottom and back.
+# To disable movement, call BackgroundMovement.movement_enabled = false.
+
 extends Node
 
 var sprite: Sprite2D = null
-var movement_enabled := true
+var movement_enabled := true:
+	set(v):
+		if v:
+			movement_enabled = find_and_set_sprite()
+		else:
+			movement_enabled = false
+	get: return movement_enabled
 
 var target_position: Vector2 = Vector2.ZERO
 var sprite_position: Vector2 = Vector2.ZERO
@@ -26,14 +37,16 @@ func _ready() -> void:
 	
 
 # Gets called everytime the scene changes
-func scene_changed() -> void:
-	sprite = get_tree().current_scene.find_child("BackgroundSprite")
-	if sprite == null:
-		movement_enabled = false
-	else:
+func scene_changed() -> void:	
+	if find_and_set_sprite():
 		sprite.position = sprite_position
 		sprite.rotation_degrees = sprite_rotation
+	else:
+		movement_enabled = false
 
+func find_and_set_sprite() -> bool:
+	sprite = get_tree().current_scene.find_child("BackgroundSprite")
+	return sprite != null
 
 func _process(delta: float) -> void:
 	if not movement_enabled:
