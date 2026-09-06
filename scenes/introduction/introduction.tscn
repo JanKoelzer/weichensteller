@@ -90,10 +90,13 @@ layout_mode = 2
 
 [node name="Rails" parent="CenterContainer/Control" unique_id=1667562320 instance=ExtResource("3_i5jk1")]
 unique_name_in_owner = true
-tile_map_data = PackedByteArray("AAAAAAAAAAADAAAAAAABAAAAAAADAAAAAAACAAAAAAADAAAAAAADAAAAAAADAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAADAAAAAAAGAAEAAAADAAAAAAAHAAEAAAADAAIAAAAHAAAAAAACAAIAAAAGAAAAAAADAAAAAAAFAAEAAAADAAAAAAA=")
+tile_map_data = PackedByteArray("AAABAAAAAAADAAAAAAACAAAAAAADAAAAAAADAAAAAAADAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAADAAAAAAAGAAEAAAADAAAAAAAHAAEAAAADAAIAAAAHAAAAAAACAAIAAAAGAAAAAAADAAAAAAAFAAEAAAADAAAAAAAAAAAAAAADAAAAAAA=")
 script = ExtResource("4_la0mo")
 
-[node name="TrainCreationTimer" parent="CenterContainer/Control/Rails" index="5" unique_id=1965063278]
+[node name="SwitchMarkers" parent="CenterContainer/Control/Rails" index="0" unique_id=654680758]
+tile_map_data = PackedByteArray("AAAEAAAAAAAEAAAAAAA=")
+
+[node name="TrainCreationTimer" parent="CenterContainer/Control/Rails" index="6" unique_id=1965063278]
 wait_time = 6.0
 autostart = true
 

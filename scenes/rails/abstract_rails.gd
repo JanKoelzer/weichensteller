@@ -15,6 +15,7 @@ signal switch_changed(cell: Vector2i, is_active: bool)
 @onready var score_audio_stream_player: AudioStreamPlayer = $ScoreAudioStreamPlayer
 @onready var activate_switch_audio_stream_player: AudioStreamPlayer = $ActivateSwitchAudioStreamPlayer
 @onready var deactivate_switch_audio_stream_player: AudioStreamPlayer = $DeactivateSwitchAudioStreamPlayer
+@onready var switch_markers: TileMapLayer = $SwitchMarkers
 
 var col_count: int
 var row_count: int 
@@ -61,6 +62,7 @@ func create_railways() -> void:
 	var n := game_settings.selected_stations.size()
 	# reset everything
 	self.clear()
+	switch_markers.clear()
 	for row in row_count:
 		for col in range(col_count):
 			if col < col_count - 1:
@@ -121,6 +123,7 @@ func set_switch(x: int, y: int, direction: int = 0) -> void:
 	var atlas_coord_x := randi_range(0, 1)
 	var alternative := 0 if direction == 1 else 1
 	set_cell(Vector2i(x, y), 0, Vector2i(atlas_coord_x, 0), alternative)
+	switch_markers.set_cell(Vector2i(x, y), 0, Vector2i(4+atlas_coord_x, 0))
 
 
 func pause_trains() -> void:
@@ -166,6 +169,7 @@ func switch(cell: Vector2i) -> void:
 
 		audioPlayer.play()
 		set_cell(cell, 0, new_atlas_coords, cell_alternative)
+		switch_markers.set_cell(cell, 0, Vector2i(4,0) + new_atlas_coords)
 		switch_changed.emit(cell, not data.get_custom_data("is_active"))
 	
 

@@ -1,6 +1,8 @@
+echo "Maybe need to start LibreOffice manually?"
+
 soffice --headless --accept="socket,host=localhost,port=2002;urp;"
 
-echo "Maybe need to start LibreOffice manually?"
+echo "LibreOffice seems to be OK."
 
 for img in "tracks.odg" "rails.odg" "flags.odg"; do
     base="${img%.*}"
