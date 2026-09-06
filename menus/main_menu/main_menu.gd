@@ -3,10 +3,10 @@ extends Control
 @onready var quit_button: Button = $CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/QuitButton
 
 func _ready() -> void:	
-	if OS.get_name() == "Android" and\
-		(not UISettings.file_exists() or not UISettings.privacy_accpeted):
-		# First start. User has not accepted privacy yet.
-		_change_scene_to_first_start.call_deferred()		
+	if OS.get_name() == "Android":
+		if not UISettings.file_exists():
+			# First start. User has not accepted privacy yet.
+			_change_scene_to_first_start.call_deferred()
 
 	if OS.get_name() == "Web":
 		# quit() does not work well in a browser
