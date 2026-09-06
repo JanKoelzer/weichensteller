@@ -12,7 +12,7 @@ HELP_TEXT_DETAILS,"[ul]
 [/ul]","[ul]
 [u]Speed:[/u] Define the speed of the trains. It increases over time.
 [u]Densitiy:[/u] Set the number of trains on track concurrently. It also increases over time.
-[u]Stations: [/u]Define the number (and color) of different stations that the trains go to. The more stations you have, the harder the game.
+[u]Stations:[/u] Define the number (and color) of different stations that the trains go to. The more stations you have, the harder the game.
 [u]Number of Switches:[/u] Define the number of switches you have available. The more switches there are, the easier it is to fix an error.
 [u]Number of Errors:[/u] The game will end, if the number of errors you have made exceeds this number.
 [/ul]"
