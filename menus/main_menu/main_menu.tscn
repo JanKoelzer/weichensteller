@@ -174,7 +174,7 @@ position = Vector2(-77, 0)
 process_material = SubResource("ParticleProcessMaterial_d1j5c")
 
 [node name="Sprite" parent="Rails/Trains/Train1" index="1" unique_id=337867534]
-region_rect = Rect2(120, 720, 120, 120)
+region_rect = Rect2(120, 840, 120, 120)
 
 [node name="SteamParticles" parent="Rails/Trains/Train1" index="3" unique_id=1275125623]
 position = Vector2(22, 0)
@@ -197,7 +197,7 @@ position = Vector2(-77, 0)
 process_material = SubResource("ParticleProcessMaterial_sk04l")
 
 [node name="Sprite" parent="Rails/Trains/Train2" index="1" unique_id=337867534]
-region_rect = Rect2(240, 720, 120, 120)
+region_rect = Rect2(240, 840, 120, 120)
 
 [node name="SteamParticles" parent="Rails/Trains/Train2" index="3" unique_id=1275125623]
 position = Vector2(22, 0)

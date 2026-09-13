@@ -5,10 +5,12 @@ signal moved(t: Train)
 
 
 enum TrainType {
-		ELECTRIC = 0,
-		DIESEL1 = 1,
-		DIESEL2 = 2,
-		STEAM = 3
+		ELECTRIC1 = 0,
+		ELECTRIC2 = 1,
+		DIESEL1 = 2,
+		DIESEL2 = 3,
+		STEAM1 = 4,
+		STEAM2 = 5,
 }
 
 
@@ -76,7 +78,7 @@ func init(new_tile_size: int,
 	sprite.region_rect = Rect2(tile_size*u, tile_size*v, tile_size, tile_size)
 	
 	# electric engine?
-	if new_type == TrainType.ELECTRIC:
+	if new_type == TrainType.ELECTRIC1 or new_type == TrainType.ELECTRIC2:
 		spark_particles.set_up()
 	else:
 		remove_child(spark_particles)
@@ -88,7 +90,7 @@ func init(new_tile_size: int,
 		remove_child(exhaust_particles)
 	
 	# steam engine?
-	if new_type == TrainType.STEAM:
+	if new_type == TrainType.STEAM1 or new_type == TrainType.STEAM2:
 		steam_particles.set_up(speed, rotation, wind_speed, wind_angle, STEAM_COLOR_GRADIENTS[color])
 	else:
 		remove_child(steam_particles)

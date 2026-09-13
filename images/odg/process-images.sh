@@ -4,6 +4,10 @@ soffice --headless --accept="socket,host=localhost,port=2002;urp;"
 
 echo "LibreOffice seems to be OK."
 
+# convert odg files to pdf and then to svg.
+# svg files are prepended by the page number.
+
+echo "Convert odg to svg (via pdf))"
 for img in "tracks.odg" "rails.odg" "flags.odg"; do
     base="${img%.*}"
     echo "Convert ${img} to PDF…"
@@ -40,12 +44,12 @@ echo "png/flags.png has been created and copied to ../"
 
 echo "Montage railsXXX.png…"
 montage rails{1..6}.png -tile 6x1 -background 'transparent' -geometry +0+0 stations.png
-montage rails7.png rails8.png rails9.png rails10.png -tile 1x4 -background 'transparent' -geometry +0+0 trains1.png 
-montage rails11.png rails12.png rails13.png rails14.png -tile 1x4 -background 'transparent' -geometry +0+0 trains2.png 
-montage rails15.png rails16.png rails17.png rails18.png -tile 1x4 -background 'transparent' -geometry +0+0 trains3.png 
-montage rails19.png rails20.png rails21.png rails22.png -tile 1x4 -background 'transparent' -geometry +0+0 trains4.png 
-montage rails23.png rails24.png rails25.png rails26.png -tile 1x4 -background 'transparent' -geometry +0+0 trains5.png 
-montage rails27.png rails28.png rails29.png rails30.png -tile 1x4 -background 'transparent' -geometry +0+0 trains6.png 
+montage rails{7..12}.png -tile 1x6 -background 'transparent' -geometry +0+0 trains1.png 
+montage rails{13..18}.png -tile 1x6 -background 'transparent' -geometry +0+0 trains2.png 
+montage rails{19..24}.png -tile 1x6 -background 'transparent' -geometry +0+0 trains3.png 
+montage rails{25..30}.png -tile 1x6 -background 'transparent' -geometry +0+0 trains4.png 
+montage rails{31..36}.png -tile 1x6 -background 'transparent' -geometry +0+0 trains5.png 
+montage rails{37..42}.png -tile 1x6 -background 'transparent' -geometry +0+0 trains6.png 
 montage trains{1..6}.png -tile 6x1 -background 'transparent' -geometry +0+0 trains.png 
 
 montage stations.png trains.png -tile 1x2 -background 'transparent' -geometry +0+0 colored.png 
@@ -58,7 +62,7 @@ montage tracks.png colored.png -tile 1x2 -background 'transparent' -geometry +0+
 
 cp "rails.png" "../../"
 
-cp "../svg/rails10.svg" "../../icons/icon.svg"
+cp "../svg/rails11.svg" "../../icons/icon.svg"
 echo "png/rails.png has been created and copied to ../rails.png."
 
 
