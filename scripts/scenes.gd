@@ -1,3 +1,9 @@
+# Define some constants to make the code more readable.
+# This Global is also used to store the Rails and Trains that move
+# in the main menu. (The node Rails is appended/reparented
+# to Scenes when leaving main menu and later
+# reparented back to the main menu.
+
 extends Node
 
 # Do not use preload() here to avoid loading all scenes when booting the game.
