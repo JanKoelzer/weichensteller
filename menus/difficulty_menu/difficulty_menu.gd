@@ -16,12 +16,14 @@ extends VBoxContainer
 @onready var start_button: Button = %StartButton
 
 func _ready() -> void:
-	# react to future changes in settings
+	# Always start with valid settings.
+	GameSettings.sanitize()
+	
+	# React to future changes in settings
 	GameSettings.changed.connect(func(_prop: String, _v: Variant) -> void:
 			update_view()
-	) 
+	)
 	update_view()
-	
 
 
 func _notification(what: int) -> void:
@@ -33,21 +35,31 @@ func _on_back_button_pressed() -> void:
 	get_tree().change_scene_to_file(Scenes.MAIN_MENU)
 
 
-
 func update_view() -> void:
 	speed_label.text = str(roundi(GameSettings.speed*100))
 	num_concurrent_trains_label.text = str(GameSettings.num_concurrent_trains)
 	num_switches_label.text = str(GameSettings.num_extra_switches)
 	max_errors_label.text = str(GameSettings.max_errors)
 	
-	for i in range(station_buttons.size()):
-		station_buttons[i].button_pressed = GameSettings.selected_stations.has(i)
+	update_stations()
 	
 	var k: float = GameSettings.score_factor()
 	factor_label.text = str(roundi(k*100)) + " %"
 	
 	start_button.disabled = !GameSettings.is_valid()
 	
+func update_stations() -> void:	
+	for i in range(station_buttons.size()):
+		station_buttons[i].button_pressed = GameSettings.selected_stations.has(i)
+		
+	var anim_player := %NumStationsInvalidLabel/AnimationPlayer as AnimationPlayer
+	
+	if GameSettings.is_valid():
+		anim_player.get_animation("changed_negative").loop_mode = Animation.LOOP_NONE
+	else:
+		anim_player.play("fade_in")
+		anim_player.queue("changed_negative")
+		anim_player.get_animation("changed_negative").loop_mode = Animation.LOOP_LINEAR
 
 
 func _on_start_button_pressed() -> void:
@@ -92,11 +104,3 @@ func _on_station_button_pressed() -> void:
 		if station_buttons[i].button_pressed:
 			selected_stations[i] = true
 	GameSettings.selected_stations = selected_stations
-	if GameSettings.is_valid():
-		%NumStationsLabel/AnimationPlayer.get_animation("changed_negative").\
-				loop_mode = Animation.LOOP_NONE
-	else:
-		%NumStationsLabel/AnimationPlayer.play("changed_negative")
-		%NumStationsLabel/AnimationPlayer.get_animation("changed_negative").\
-				loop_mode = Animation.LOOP_LINEAR
-		

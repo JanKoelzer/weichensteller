@@ -94,6 +94,13 @@ func is_valid() -> bool:
 	return selected_stations.size() >= 3
 
 
+func sanitize() -> void:
+	var i := 0
+	while not is_valid():
+		selected_stations[i] = true
+		i += 1
+
+
 func load_from_file() -> void:
 	var err := file.load(config_filename)
 	
