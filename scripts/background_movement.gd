@@ -7,12 +7,10 @@ extends Node
 
 var sprite: Sprite2D = null
 var movement_enabled := true:
-	set(v):
-		if v:
-			movement_enabled = find_and_set_sprite()
-		else:
-			movement_enabled = false
-	get: return movement_enabled
+	set(enabled):
+		set_process(enabled and find_and_set_sprite())
+	get:
+		return is_processing()
 
 var target_position: Vector2 = Vector2.ZERO
 var sprite_position: Vector2 = Vector2.ZERO
@@ -45,13 +43,12 @@ func scene_changed() -> void:
 		movement_enabled = false
 
 func find_and_set_sprite() -> bool:
+	# Find the sprite to be moved. It needs to be a direct child
+	# of the current_scene and needs to be named "BackgroundSprite".
 	sprite = get_tree().current_scene.find_child("BackgroundSprite")
 	return sprite != null
 
 func _process(delta: float) -> void:
-	if not movement_enabled:
-		return
-		
 	for i in range(2): # for both directions x and y:
 		# if we are close to the target position...
 		if abs(sprite_position[i] - target_position[i]) < abs(speed[i]):
@@ -59,7 +56,9 @@ func _process(delta: float) -> void:
 			speed[i] *= -1
 			target_position[i] = - (sprite.get_rect().size[i] - get_viewport().get_visible_rect().size[i]) - target_position[i]
 	
+	# if we are close to the target rotation...
 	if abs(sprite_rotation - target_rotation) < abs(rotation_speed):
+		# ..change direction
 		target_rotation *= -1
 		rotation_speed *= -1
 		
@@ -69,5 +68,3 @@ func _process(delta: float) -> void:
 	
 	sprite_rotation += rotation_speed * delta
 	sprite.rotation_degrees = sprite_rotation
-
-	
