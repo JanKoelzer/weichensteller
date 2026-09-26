@@ -23,7 +23,7 @@ func _ready() -> void:
 	Highscore.receive_highscore()
 
 func _on_highscore_update_failed(_code:int) -> void:
-	for l: Label in highscore_labels:
+	for l: RichTextLabel in highscore_labels:
 		l.text = tr(&"LOADING_FAILED")
 	
 
