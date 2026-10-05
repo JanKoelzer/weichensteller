@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://udt8ewy0cm8f"
+
+[deps]
+
+files=["res://translations/highscore_menu.de.translation", "res://translations/highscore_menu.en.translation"]
+
+source_file="res://translations/highscore_menu.csv"
+dest_files=["res://translations/highscore_menu.de.translation", "res://translations/highscore_menu.en.translation"]
+
+[params]
+
+compress=true
+delimiter=0
+unescape_keys=false
+unescape_translations=true

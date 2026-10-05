@@ -1,22 +1,38 @@
 # Weichensteller / Switchman
 
-![Screenshot/Banner of the game. It shows a bird's eye view of colored trains on tracks leading to stations, that are colored accordingly. There is text overlay that show the word Weichensteller](publicity/banner2_en.png) 
+![Screenshot/Banner of the game. It shows a bird's eye view of colored trains on tracks leading to stations, that are colored accordingly. There is text overlay: Switchman/Weichensteller](publicity/banner3_en_de.png) 
 
-## How to Play
+## The Game
 
-Just go to [https://weichensteller.online/](https://weichensteller.online/) and wait for the game to load.
+Just go to [https://weichensteller.online/](https://weichensteller.online/play) and wait for the game to load.
 
 The rules are simple: Click on the switches to guide the trains to the right destinations (with matching colors).
 It starts slowly but gets faster and harder over time. Hurry up to set up the correct path!
 
-![Screenshot of the game. It shows a bird's eye view of colored trains on tracks leading to stations, that are colored accordingly.](publicity/game_en.png) 
+You can have your score saved online. Just enter your name and select your age. (There are differentt lists for different ages to give minors a chance to get to the top. Just be honest!)
 
-## Settings
+## The Source Code
 
-There are settings to adapt the difficulty. If you play in a "placid mode", you collect points slower, though.
+### Dependencies
 
-![A menu showing settings for speed, number of stations, density, number of switches, number of brakes and number of errors.](publicity/settings_en.png) 
+* Godot 4 (version 4.7)
+* ImageMagick (version 6.9; montage, convert)
+* Inkscape (version 1.2)
+* LibreOffice (version 26.2; soffice)
+* pdf2svg (version 0.2.3)
 
-## Highscore
+### Prepare for Godot import
 
-You can have your score saved online. Just enter your name and select your age. (There are differentt lists for different ages to give minors a chance to get to the front. Just be honest!)
+1. Run `./images/odg/process-images.sh`
+2. Run `./images/sources/create-background.sh`
+3. Run `./images/icons/create-icons.sh`
+4. Start Godot and import the project.`
+5. If you want to export for Android, use "Project > Install Android Build Template…"
+
+### Run
+
+You should be able to run the project (`F5` key) or to export it ("Project > Export…"). The exported game will be located at `bin/`.
+
+### Contribute
+
+Feel free to create a pull request.
