@@ -14,7 +14,12 @@ signal highscore_update_failed(code: int)
 signal highscore_put(success: bool)
 
 func _ready() -> void:
-	var credentials := JSON.parse_string(FileAccess.get_file_as_string('res://server/credentials.json')) as Dictionary
+	var credentials_as_str := FileAccess.get_file_as_string('res://server/credentials.json')
+	if credentials_as_str == "":
+		print_debug(FileAccess.get_open_error())
+		return
+
+	var credentials := JSON.parse_string(credentials_as_str) as Dictionary
 	secret = credentials['score-url-secret']
 	get_highscore_url = credentials['score-url']
 	put_highscore_url = credentials['score-url']
@@ -29,10 +34,18 @@ func _ready() -> void:
 
 
 func receive_highscore() -> void:
+	if get_highscore_request == null:
+		print_debug("Cannot receive highscore.")
+		return
+		
 	get_highscore_request.request(get_highscore_url)
 	
 	
 func put_highscore(user_name: String, score: int, group: String) -> void:
+	if put_highscore_request == null:
+		print_debug("Cannot put highscore.")
+		return
+	
 	# create nonce for basic replay protection
 	var crypto := Crypto.new()
 	var nonce := crypto.generate_random_bytes(4).decode_u32(0)

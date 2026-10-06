@@ -24,10 +24,12 @@ You can have your score saved online. Just enter your name and select your age. 
 ### Prepare for Godot import
 
 1. Run `./images/odg/process-images.sh`
-2. Run `./images/sources/create-background.sh`
-3. Run `./images/icons/create-icons.sh`
-4. Start Godot and import the project.`
-5. If you want to export for Android, use "Project > Install Android Build Template…"
+2. Run `./images/icons/create-icons.sh`
+3. Run `./images/sources/create-background.sh`
+4. Run `cp server/credentials.json.example server/credentials.json`
+5. Start Godot and import the project.
+6. If you want to export for Android, use "Project > Install Android Build Template…"
+7. If you want to use online highscore, edit `server/credentials.json`.
 
 ### Run
 
