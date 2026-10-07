@@ -1,12 +1,8 @@
 #!/bin/bash
 
+set -euo pipefail
+
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-
-echo "Maybe need to start LibreOffice manually?"
-
-soffice --headless --accept="socket,host=localhost,port=2002;urp;"
-
-echo "LibreOffice seems to be OK."
 
 # convert odg files to pdf and then to svg.
 # svg files are prepended by the page number.
