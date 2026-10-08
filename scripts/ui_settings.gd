@@ -3,8 +3,6 @@ extends Node
 signal locale_changed(locale: String)
 signal sound_enabled_changed(enabled: bool)
 
-const AUDIO_OFF_DB := -80
-const AUDIO_ON_DB := 0
 
 var locale: String = OS.get_locale_language():
 	get: return locale
@@ -14,16 +12,16 @@ var locale: String = OS.get_locale_language():
 			TranslationServer.set_locale(v)
 			locale_changed.emit(v)
 
+
 var sound_enabled: bool = true:
 	get: return sound_enabled
 	set(v):
 		if v != sound_enabled:
 			sound_enabled = v
 			sound_enabled_changed.emit(v)
-			if sound_enabled:
-				AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), AUDIO_ON_DB)
-			else:
-				AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), AUDIO_OFF_DB)
+			var master_bus := AudioServer.get_bus_index("Master")
+			AudioServer.set_bus_mute(master_bus, !sound_enabled)
+
 
 var privacy_accpeted: bool = false:
 	get: return privacy_accpeted
@@ -60,8 +58,8 @@ func load_from_file() -> void:
 	locale = file.get_value(config_section, "locale", locale)
 	sound_enabled = file.get_value(config_section, "sound_enabled", sound_enabled)
 	privacy_accpeted = file.get_value(privacy_section, "accepted", privacy_accpeted)
-	
-	
+
+
 func save_to_file() -> void:
 	file.set_value(config_section, "locale", locale)
 	file.set_value(config_section, "sound_enabled", sound_enabled)
