@@ -13,7 +13,6 @@ var locale: String = OS.get_locale_language():
 			locale = v
 			TranslationServer.set_locale(v)
 			locale_changed.emit(v)
-			save_to_file()
 
 var sound_enabled: bool = true:
 	get: return sound_enabled
@@ -21,7 +20,6 @@ var sound_enabled: bool = true:
 		if v != sound_enabled:
 			sound_enabled = v
 			sound_enabled_changed.emit(v)
-			save_to_file()
 			if sound_enabled:
 				AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), AUDIO_ON_DB)
 			else:
@@ -32,7 +30,6 @@ var privacy_accpeted: bool = false:
 	set(v):
 		if v == true:
 			privacy_accpeted = true
-			save_to_file()
 
 
 var file := ConfigFile.new()
@@ -41,8 +38,12 @@ const config_section := "UI"
 const privacy_section := "Privacy"
 
 
-func file_exists() -> bool:
-	return FileAccess.file_exists(config_filename)
+func _enter_tree() -> void:
+	load_from_file()
+
+
+func _exit_tree() -> void:
+	save_to_file()
 
 
 func load_from_file() -> void:

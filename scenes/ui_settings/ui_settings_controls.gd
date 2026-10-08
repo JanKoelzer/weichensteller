@@ -5,7 +5,6 @@ extends VBoxContainer
 @onready var change_setting_audio_stream_player: AudioStreamPlayer = $ChangeSettingAudioStreamPlayer
 
 func _ready() -> void:
-	UISettings.load_from_file()
 	audio_option_button.selected = 0 if UISettings.sound_enabled else 1
 	language_option_button.selected = 1 if UISettings.locale.begins_with("de") else 0
 

@@ -4,7 +4,7 @@ extends Control
 
 func _ready() -> void:	
 	if OS.get_name() == "Android":
-		if not UISettings.file_exists():
+		if not UISettings.privacy_accpeted:
 			# First start. User has not accepted privacy yet.
 			_change_scene_to_first_start.call_deferred()
 
