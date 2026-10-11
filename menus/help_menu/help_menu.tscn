@@ -75,6 +75,7 @@ autowrap_mode = 2
 visible = false
 custom_minimum_size = Vector2(0, 350)
 layout_mode = 2
+horizontal_scroll_mode = 0
 metadata/_tab_index = 2
 
 [node name="HelpLabel" type="RichTextLabel" parent="TabContainer/HELP_TEXT_SHOW_DETAILS" unique_id=240032084]
