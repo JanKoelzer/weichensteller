@@ -2,7 +2,7 @@ extends Control
 
 @onready var quit_button: Button = $CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/QuitButton
 
-func _ready() -> void:	
+func _ready() -> void:
 	if OS.get_name() == "Android":
 		if not UISettings.privacy_accpeted:
 			# First start. User has not accepted privacy yet.

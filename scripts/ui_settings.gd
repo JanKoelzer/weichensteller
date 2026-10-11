@@ -2,6 +2,7 @@ extends Node
 
 signal locale_changed(locale: String)
 signal sound_enabled_changed(enabled: bool)
+signal privacy_accepted_changed()
 
 
 var locale: String = OS.get_locale_language():
@@ -28,6 +29,7 @@ var privacy_accpeted: bool = false:
 	set(v):
 		if v == true:
 			privacy_accpeted = true
+			privacy_accepted_changed.emit()
 
 
 var file := ConfigFile.new()
@@ -36,12 +38,19 @@ const config_section := "UI"
 const privacy_section := "Privacy"
 
 
-func _enter_tree() -> void:
+func _ready() -> void:
+	# At the first run on a device, there is no config file,
+	# so the default values are used .
+	# The settings are then stored in a config file.
+	# After that, this config file is loaded, everytime the
+	# game starts. The loaded values are used as settings.
+	
+	# load before connecting to signal, so changes do not result in infinite loops
 	load_from_file()
-
-
-func _exit_tree() -> void:
-	save_to_file()
+	
+	locale_changed.connect(func(_l: String) -> void: save_to_file())
+	sound_enabled_changed.connect(func(_b: bool) -> void: save_to_file())
+	privacy_accepted_changed.connect(save_to_file)
 
 
 func load_from_file() -> void:
