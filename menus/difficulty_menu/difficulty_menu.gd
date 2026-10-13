@@ -1,9 +1,9 @@
 extends VBoxContainer
 
-@onready var speed_label: Label = $CenterContainer/GridContainer/SpeedLabel
-@onready var num_concurrent_trains_label: Label = $CenterContainer/GridContainer/NumConcurrentTrainsLabel
-@onready var num_switches_label: Label = $CenterContainer/GridContainer/NumSwitchesLabel
-@onready var max_errors_label: Label = $CenterContainer/GridContainer/MaxErrorsLabel
+@onready var speed_label: Label = %SpeedLabel
+@onready var num_concurrent_trains_label: Label = %NumConcurrentTrainsLabel
+@onready var num_switches_label: Label = %NumSwitchesLabel
+@onready var max_errors_label: Label = %MaxErrorsLabel
 @onready var station_buttons := [
 	%StationButton0,
 	%StationButton1,
@@ -12,7 +12,7 @@ extends VBoxContainer
 	%StationButton4,
 	%StationButton5,
 ]
-@onready var factor_label: Label = $CenterContainer/GridContainer/VBoxContainer/FactorLabel
+@onready var factor_label: Label = %FactorLabel
 @onready var start_button: Button = %StartButton
 
 func _ready() -> void:

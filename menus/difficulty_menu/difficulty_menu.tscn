@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://cywhajrq5c1sc" path="res://scenes/title/title.tscn" id="3_2ybyc"]
 [ext_resource type="Texture2D" uid="uid://chf34iv6d16q5" path="res://images/rails.png" id="4_c46ss"]
 [ext_resource type="StyleBox" uid="uid://bdkoj3eywfdfn" path="res://resources/themes/style_box_flat.tres" id="4_lc7d8"]
+[ext_resource type="Script" uid="uid://dhxuie83drm1y" path="res://addons/spanning_table/spanning_table_container.gd" id="4_tn21a"]
+[ext_resource type="Script" uid="uid://dys7inln7ufjw" path="res://addons/spanning_table/spanning_cell_container.gd" id="7_xbisk"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_182tk"]
 
@@ -121,11 +123,13 @@ text = "GAME_TITLE"
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=715854983]
 layout_mode = 2
 
-[node name="GridContainer" type="GridContainer" parent="CenterContainer" unique_id=524969810]
+[node name="GridContainer" type="Container" parent="CenterContainer" unique_id=1578180160]
 layout_mode = 2
-theme_override_constants/h_separation = 12
-theme_override_constants/v_separation = 12
-columns = 4
+script = ExtResource("4_tn21a")
+columns = 7
+theme_h_separation = 12
+theme_v_separation = 12
+metadata/_custom_type_script = "uid://dhxuie83drm1y"
 
 [node name="Label2" type="Label" parent="CenterContainer/GridContainer" unique_id=256668515]
 layout_mode = 2
@@ -143,7 +147,14 @@ custom_minimum_size = Vector2(50, 120)
 layout_mode = 2
 text = "+"
 
-[node name="SpeedLabel" type="Label" parent="CenterContainer/GridContainer" unique_id=727547056]
+[node name="SpanningCellContainer2" type="Container" parent="CenterContainer/GridContainer" unique_id=987948709]
+layout_mode = 2
+script = ExtResource("7_xbisk")
+col_span = 4
+metadata/_custom_type_script = "uid://dys7inln7ufjw"
+
+[node name="SpeedLabel" type="Label" parent="CenterContainer/GridContainer/SpanningCellContainer2" unique_id=727547056]
+unique_name_in_owner = true
 layout_mode = 2
 text = "100"
 
@@ -163,7 +174,14 @@ custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
 text = "+"
 
-[node name="NumConcurrentTrainsLabel" type="Label" parent="CenterContainer/GridContainer" unique_id=1887588235]
+[node name="SpanningCellContainer3" type="Container" parent="CenterContainer/GridContainer" unique_id=1856306657]
+layout_mode = 2
+script = ExtResource("7_xbisk")
+col_span = 4
+metadata/_custom_type_script = "uid://dys7inln7ufjw"
+
+[node name="NumConcurrentTrainsLabel" type="Label" parent="CenterContainer/GridContainer/SpanningCellContainer3" unique_id=1887588235]
+unique_name_in_owner = true
 layout_mode = 2
 text = "100"
 
@@ -218,11 +236,7 @@ button_pressed = true
 icon = SubResource("AtlasTexture_8jvx0")
 icon_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/GridContainer" unique_id=714208536]
-layout_mode = 2
-theme_override_constants/separation = 12
-
-[node name="StationButton2" type="Button" parent="CenterContainer/GridContainer/HBoxContainer" unique_id=2075997499]
+[node name="StationButton2" type="Button" parent="CenterContainer/GridContainer" unique_id=2075997499]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
@@ -235,7 +249,7 @@ button_pressed = true
 icon = SubResource("AtlasTexture_2ybyc")
 icon_alignment = 1
 
-[node name="StationButton3" type="Button" parent="CenterContainer/GridContainer/HBoxContainer" unique_id=602966054]
+[node name="StationButton3" type="Button" parent="CenterContainer/GridContainer" unique_id=602966054]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
@@ -248,7 +262,7 @@ button_pressed = true
 icon = SubResource("AtlasTexture_krwiw")
 icon_alignment = 1
 
-[node name="StationButton4" type="Button" parent="CenterContainer/GridContainer/HBoxContainer" unique_id=118313413]
+[node name="StationButton4" type="Button" parent="CenterContainer/GridContainer" unique_id=118313413]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
@@ -261,7 +275,7 @@ button_pressed = true
 icon = SubResource("AtlasTexture_o5fy7")
 icon_alignment = 1
 
-[node name="StationButton5" type="Button" parent="CenterContainer/GridContainer/HBoxContainer" unique_id=35199511]
+[node name="StationButton5" type="Button" parent="CenterContainer/GridContainer" unique_id=35199511]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
@@ -289,7 +303,14 @@ custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
 text = "+"
 
-[node name="NumSwitchesLabel" type="Label" parent="CenterContainer/GridContainer" unique_id=135427605]
+[node name="SpanningCellContainer4" type="Container" parent="CenterContainer/GridContainer" unique_id=1929778072]
+layout_mode = 2
+script = ExtResource("7_xbisk")
+col_span = 4
+metadata/_custom_type_script = "uid://dys7inln7ufjw"
+
+[node name="NumSwitchesLabel" type="Label" parent="CenterContainer/GridContainer/SpanningCellContainer4" unique_id=135427605]
+unique_name_in_owner = true
 layout_mode = 2
 text = "5"
 
@@ -309,30 +330,44 @@ custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
 text = "+"
 
-[node name="MaxErrorsLabel" type="Label" parent="CenterContainer/GridContainer" unique_id=177353567]
+[node name="SpanningCellContainer5" type="Container" parent="CenterContainer/GridContainer" unique_id=452271063]
+layout_mode = 2
+script = ExtResource("7_xbisk")
+col_span = 4
+metadata/_custom_type_script = "uid://dys7inln7ufjw"
+
+[node name="MaxErrorsLabel" type="Label" parent="CenterContainer/GridContainer/SpanningCellContainer5" unique_id=177353567]
+unique_name_in_owner = true
 layout_mode = 2
 text = "5"
 
-[node name="VBoxContainer" type="HBoxContainer" parent="CenterContainer/GridContainer" unique_id=546994883]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="CenterContainer/GridContainer/VBoxContainer" unique_id=1763709257]
+[node name="Label" type="Label" parent="CenterContainer/GridContainer" unique_id=1763709257]
 layout_mode = 2
 tooltip_text = "DIFFICULTY_HINT"
 mouse_filter = 1
 text = "DIFFICULTY"
 
-[node name="FactorLabel" type="Label" parent="CenterContainer/GridContainer/VBoxContainer" unique_id=337601128]
+[node name="SpanningCellContainer" type="Container" parent="CenterContainer/GridContainer" unique_id=1683162679]
+layout_mode = 2
+script = ExtResource("7_xbisk")
+col_span = 2
+metadata/_custom_type_script = "uid://dys7inln7ufjw"
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/GridContainer/SpanningCellContainer" unique_id=1709154459]
+layout_mode = 2
+
+[node name="FactorLabel" type="Label" parent="CenterContainer/GridContainer/SpanningCellContainer/CenterContainer" unique_id=337601128]
+unique_name_in_owner = true
 layout_mode = 2
 text = "100 %"
 
-[node name="Control" type="Control" parent="CenterContainer/GridContainer" unique_id=1876228027]
+[node name="SpanningCellContainer6" type="Container" parent="CenterContainer/GridContainer" unique_id=1994586009]
 layout_mode = 2
+script = ExtResource("7_xbisk")
+col_span = 4
+metadata/_custom_type_script = "uid://dys7inln7ufjw"
 
-[node name="Control2" type="Control" parent="CenterContainer/GridContainer" unique_id=1020121040]
-layout_mode = 2
-
-[node name="StartButton" type="Button" parent="CenterContainer/GridContainer" unique_id=1880850677]
+[node name="StartButton" type="Button" parent="CenterContainer/GridContainer/SpanningCellContainer6" unique_id=1880850677]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
@@ -356,15 +391,15 @@ text = "BACK"
 [connection signal="pressed" from="CenterContainer/GridContainer/ConcurrentPlusButton" to="." method="_on_concurrent_plus_button_pressed"]
 [connection signal="pressed" from="CenterContainer/GridContainer/StationButton0" to="." method="_on_station_button_pressed"]
 [connection signal="pressed" from="CenterContainer/GridContainer/StationButton1" to="." method="_on_station_button_pressed"]
-[connection signal="pressed" from="CenterContainer/GridContainer/HBoxContainer/StationButton2" to="." method="_on_station_button_pressed"]
-[connection signal="pressed" from="CenterContainer/GridContainer/HBoxContainer/StationButton3" to="." method="_on_station_button_pressed"]
-[connection signal="pressed" from="CenterContainer/GridContainer/HBoxContainer/StationButton4" to="." method="_on_station_button_pressed"]
-[connection signal="pressed" from="CenterContainer/GridContainer/HBoxContainer/StationButton5" to="." method="_on_station_button_pressed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/StationButton2" to="." method="_on_station_button_pressed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/StationButton3" to="." method="_on_station_button_pressed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/StationButton4" to="." method="_on_station_button_pressed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/StationButton5" to="." method="_on_station_button_pressed"]
 [connection signal="pressed" from="CenterContainer/GridContainer/SwitchesMinusButton" to="." method="_on_switches_minus_button_pressed"]
 [connection signal="pressed" from="CenterContainer/GridContainer/SwitchesPlusButton" to="." method="_on_switches_plus_button_pressed"]
 [connection signal="pressed" from="CenterContainer/GridContainer/ErrorsMinusButton" to="." method="_on_errors_minus_button_pressed"]
 [connection signal="pressed" from="CenterContainer/GridContainer/ErrorsPlusButton" to="." method="_on_errors_plus_button_pressed"]
-[connection signal="pressed" from="CenterContainer/GridContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/SpanningCellContainer6/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="BackButtonContainer/BackButton" to="." method="_on_back_button_pressed"]
 
 [editable path="Title"]
