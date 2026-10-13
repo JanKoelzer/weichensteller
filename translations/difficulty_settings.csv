@@ -7,7 +7,7 @@ SELECTED_STATIONS,Bahnhöfe,Stations
 SELECTED_STATIONS_INVALID,(min. 3),(at least 3)
 NUMBER_SWITCHES,Anzahl Zusatzweichen,Number of extra Switches
 NUMBER_ERRORS,Fehlertoleranz,Max. number of Errors
-DIFFICULTY,Schwierigkeit:,Difficulty:
+DIFFICULTY,Schwierigkeit,Difficulty
 DIFFICULTY_HINT,"Je schwieriger das Spiel eingestellt ist,
 desto mehr Punkte bekommst du für jeden richtig geleieten Zug.","The harder the game, the more points you
 earn for each train that reaches its destination."
