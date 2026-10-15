@@ -10,7 +10,7 @@ func set_up(speed: float, train_rotation: float, wind_speed: float, wind_angle: 
 	process_material.color_initial_ramp = steam_color
 	
 	# add some variation for each instance
-	create_random_texture()
+	texture = create_random_texture()
 	process_material.color = Color(process_material.color, process_material.color.a * randf_range(0.9, 1.0))
 	lifetime *= randf_range(0.8, 1.2)
 	@warning_ignore("narrowing_conversion")
@@ -18,7 +18,7 @@ func set_up(speed: float, train_rotation: float, wind_speed: float, wind_angle: 
 	explosiveness *= randf_range(0.0, 1.5)
 	
 	
-func create_random_texture() -> void:
+static func create_random_texture() -> ImageTexture:
 	# Use some noise to create unique textures for each train
 	var noise: FastNoiseLite = preload("res://resources/textures/steam_noise.tres")
 	noise.seed = randi()
@@ -37,4 +37,4 @@ func create_random_texture() -> void:
 
 			img.set_pixel(x, y, color)
 			
-	texture = ImageTexture.create_from_image(img)
+	return ImageTexture.create_from_image(img)
