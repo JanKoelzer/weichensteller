@@ -45,12 +45,12 @@ echo "$SCRIPT_DIR/png/flags.png has been created and copied to $SCRIPT_DIR/../"
 
 echo "Montage $SCRIPT_DIR/png/railsXXX.png…"
 montage "$SCRIPT_DIR/png/rails"{1..6}.png -tile 6x1 -background 'transparent' -geometry +0+0 "$SCRIPT_DIR/png/stations.png"
-montage "$SCRIPT_DIR/png/rails"{7..12}.png -tile 1x6 -background 'transparent' -geometry +0+0 "$SCRIPT_DIR/png/trains1.png"
-montage "$SCRIPT_DIR/png/rails"{13..18}.png -tile 1x6 -background 'transparent' -geometry +0+0 "$SCRIPT_DIR/png/trains2.png"
-montage "$SCRIPT_DIR/png/rails"{19..24}.png -tile 1x6 -background 'transparent' -geometry +0+0 "$SCRIPT_DIR/png/trains3.png"
-montage "$SCRIPT_DIR/png/rails"{25..30}.png -tile 1x6 -background 'transparent' -geometry +0+0 "$SCRIPT_DIR/png/trains4.png"
-montage "$SCRIPT_DIR/png/rails"{31..36}.png -tile 1x6 -background 'transparent' -geometry +0+0 "$SCRIPT_DIR/png/trains5.png"
-montage "$SCRIPT_DIR/png/rails"{37..42}.png -tile 1x6 -background 'transparent' -geometry +0+0 "$SCRIPT_DIR/png/trains6.png"
+montage "$SCRIPT_DIR/png/rails"{7..15}.png -tile 1x9 -background 'transparent' -geometry +0+0 "$SCRIPT_DIR/png/trains1.png"
+montage "$SCRIPT_DIR/png/rails"{16..24}.png -tile 1x9 -background 'transparent' -geometry +0+0 "$SCRIPT_DIR/png/trains2.png"
+montage "$SCRIPT_DIR/png/rails"{25..33}.png -tile 1x9 -background 'transparent' -geometry +0+0 "$SCRIPT_DIR/png/trains3.png"
+montage "$SCRIPT_DIR/png/rails"{34..42}.png -tile 1x9 -background 'transparent' -geometry +0+0 "$SCRIPT_DIR/png/trains4.png"
+montage "$SCRIPT_DIR/png/rails"{43..51}.png -tile 1x9 -background 'transparent' -geometry +0+0 "$SCRIPT_DIR/png/trains5.png"
+montage "$SCRIPT_DIR/png/rails"{52..60}.png -tile 1x9 -background 'transparent' -geometry +0+0 "$SCRIPT_DIR/png/trains6.png"
 montage "$SCRIPT_DIR/png/trains"{1..6}.png -tile 6x1 -background 'transparent' -geometry +0+0 "$SCRIPT_DIR/png/trains.png"
 montage "$SCRIPT_DIR/png/stations.png" "$SCRIPT_DIR/png/trains.png" -tile 1x2 -background 'transparent' -geometry +0+0 "$SCRIPT_DIR/png/colored.png"
 
@@ -63,8 +63,8 @@ montage "$SCRIPT_DIR/png/tracks.png" "$SCRIPT_DIR/png/colored.png" -tile 1x2 -ba
 cp "$SCRIPT_DIR/png/rails.png" "$SCRIPT_DIR/../rails.png"
 echo "$SCRIPT_DIR/png/rails.png has been created and copied to $SCRIPT_DIR/../rails.png."
 
-cp "$SCRIPT_DIR/svg/rails11.svg" "$SCRIPT_DIR/../icons/icon.svg"
-echo "$SCRIPT_DIR/svg/rails11.svg has been created and copied to $SCRIPT_DIR/../icons/icon.svg."
+cp "$SCRIPT_DIR/svg/rails13.svg" "$SCRIPT_DIR/../icons/icon.svg"
+echo "$SCRIPT_DIR/svg/rails13.svg has been created and copied to $SCRIPT_DIR/../icons/icon.svg."
 
 
 echo "removing temporary png and svg files…"
