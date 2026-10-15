@@ -22,6 +22,7 @@ func set_train_on_tracks() -> Train:
 	var new_speed := game_settings.speed + sum_trains_started / 60.0 # slowly increase speed over time	
 	var t := _set_train_on_tracks(
 		Train.TrainType.values().pick_random(),
+		randi(),
 		game_settings.selected_stations.keys().pick_random(), # color
 		randi_range(0, game_settings.num_stations - 1), # track
 		new_speed

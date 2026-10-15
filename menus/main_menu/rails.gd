@@ -24,6 +24,7 @@ func set_train_on_tracks() -> Train:
 
 	return _set_train_on_tracks(
 		Train.TrainType.values().pick_random(),
+		randi(),
 		current_train_color,
 		[3, 4, 7].pick_random(),
 		1.0

@@ -4,17 +4,10 @@ extends Node2D
 signal moved(t: Train)
 
 
-enum TrainType {
-		ELECTRIC1,
-		ELECTRIC2,
-		ELECTRIC3,
-		DIESEL1,
-		DIESEL2,
-		DIESEL3,
-		STEAM1,
-		STEAM2,
-		STEAM3,
-}
+enum TrainType { ELECTRIC = 0, DIESEL = 1, STEAM = 2}
+
+const skin_count_per_type = 3 # Note that currently all types have the SAME number of skins
+const skin_offset = 3 # see structure of tileset (rails and stations at the top)
 
 
 enum TrainColor {
@@ -63,6 +56,7 @@ var wind_angle: float
 func init(new_tile_size: int,
 		new_color: TrainColor,
 		new_type: TrainType,
+		new_skin: int, # can be any int and will be wrapped to be valid
 		new_position: Vector2i,
 		new_speed: float,
 		wind_speed: float,
@@ -74,26 +68,27 @@ func init(new_tile_size: int,
 	
 	self.tile_size = new_tile_size
 	
-	# u and v are the trains coordinates in the tileset
+	# u and v are the skin's coordinates in the tileset
 	var u := color
+	new_skin %= skin_count_per_type # sanitize value of new_skin
+	var v := skin_count_per_type * new_type + new_skin + skin_offset
 	
-	var v := new_type + 3 # for "+3" see structure of tileset
 	sprite.region_rect = Rect2(tile_size*u, tile_size*v, tile_size, tile_size)
 	
 	# electric engine?
-	if new_type in [TrainType.ELECTRIC1, TrainType.ELECTRIC2, TrainType.ELECTRIC3]:
+	if new_type == TrainType.ELECTRIC:
 		spark_particles.set_up()
 	else:
 		remove_child(spark_particles)
 		
 	# diesel engine?
-	if new_type in [TrainType.DIESEL1, TrainType.DIESEL2, TrainType.DIESEL3]:
+	if new_type == TrainType.DIESEL:
 		exhaust_particles.set_up(speed, rotation, wind_speed, wind_angle, STEAM_COLOR_GRADIENTS[color])
 	else:
 		remove_child(exhaust_particles)
 	
 	# steam engine?
-	if new_type in [TrainType.STEAM1, TrainType.STEAM2, TrainType.STEAM3]:
+	if new_type == TrainType.STEAM:
 		steam_particles.set_up(speed, rotation, wind_speed, wind_angle, STEAM_COLOR_GRADIENTS[color])
 	else:
 		remove_child(steam_particles)
