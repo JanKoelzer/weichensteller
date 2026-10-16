@@ -100,8 +100,7 @@ func _on_rails_end() -> void:
 	%FinalScoreLabel/AnimationPlayer.speed_scale = 2.0
 	
 	# Move the menu to the center of the screen
-	menu_container.get_parent().remove_child(menu_container)
-	%GameOverMenu.call_deferred(&"add_child", menu_container)
+	menu_container.reparent.call_deferred(%GameOverMenu)
 
 
 func _on_rails_train_started(sum_trains_started: int) -> void:

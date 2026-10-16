@@ -79,19 +79,19 @@ func init(new_tile_size: int,
 	if new_type == TrainType.ELECTRIC:
 		spark_particles.set_up()
 	else:
-		remove_child(spark_particles)
+		spark_particles.queue_free()
 		
 	# diesel engine?
 	if new_type == TrainType.DIESEL:
 		exhaust_particles.set_up(speed, rotation, wind_speed, wind_angle, STEAM_COLOR_GRADIENTS[color])
 	else:
-		remove_child(exhaust_particles)
+		exhaust_particles.queue_free()
 	
 	# steam engine?
 	if new_type == TrainType.STEAM:
 		steam_particles.set_up(speed, rotation, wind_speed, wind_angle, STEAM_COLOR_GRADIENTS[color])
 	else:
-		remove_child(steam_particles)
+		steam_particles.queue_free()
 
 
 func move() -> void:
