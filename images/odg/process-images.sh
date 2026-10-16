@@ -17,6 +17,13 @@ for img_name in "tracks.odg" "rails.odg" "flags.odg"; do
     pdf2svg "${base}.pdf" "${base}%d.svg" all    
     rm "${base}.pdf"
 done
+# handle whistle separately, because there SVG code is different
+for img_name in "whistle_on.odg" "whistle_off.odg"; do
+    img="$SCRIPT_DIR/$img_name"
+    base="${img%.*}"
+    echo "Convert ${img} to SVG…"
+    soffice --headless --convert-to svg --outdir "$SCRIPT_DIR" "$img"
+done
 
 echo "Add transparency back and shrink…"
 
@@ -66,6 +73,10 @@ echo "$SCRIPT_DIR/png/rails.png has been created and copied to $SCRIPT_DIR/../ra
 cp "$SCRIPT_DIR/svg/rails13.svg" "$SCRIPT_DIR/../icons/icon.svg"
 echo "$SCRIPT_DIR/svg/rails13.svg has been created and copied to $SCRIPT_DIR/../icons/icon.svg."
 
+cp "$SCRIPT_DIR/png/whistle_on.png" "$SCRIPT_DIR/../whistle_on.png"
+echo "$SCRIPT_DIR/png/whistle_on.png has been created and copied to $SCRIPT_DIR/../whistle_on.png"
+cp "$SCRIPT_DIR/png/whistle_off.png" "$SCRIPT_DIR/../whistle_off.png"
+echo "$SCRIPT_DIR/png/whistle_off.png has been created and copied to $SCRIPT_DIR/../whistle_off.png"
 
 echo "removing temporary png and svg files…"
 rm -r "$SCRIPT_DIR/png"
