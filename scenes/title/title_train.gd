@@ -6,7 +6,7 @@ extends Control
 @onready var intro_animation: AnimationPlayer = $TitleTrain/IntroAnimation
 
 func _ready() -> void:
-	steam_particles.create_random_texture()
+	steam_particles.set_random_texture()
 	
 	if animate_intro:
 		intro_animation.play("intro")

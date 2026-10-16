@@ -20,12 +20,13 @@ func init() -> void:
 var current_train_color := 2 # two trains are preset
 func set_train_on_tracks() -> Train:
 	current_train_color += 1
-	current_train_color %= Train.TrainColor.values().size()
+	current_train_color %= Train.TrainColor.size()
 
 	return _set_train_on_tracks(
 		Train.TrainType.values().pick_random(),
 		randi(),
 		current_train_color,
+		# The rails in the main menu start at those positions only:
 		[3, 4, 7].pick_random(),
 		1.0
 	)
