@@ -9,6 +9,8 @@ key/
 # Generated files
 bin/
 images/rails.png
+images/trains.png
+images/tracks.png
 images/background.png
 images/flags.png
 images/whistle_*.png

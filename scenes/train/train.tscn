@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dev70nkbyuydv"]
 
-[ext_resource type="Texture2D" uid="uid://chf34iv6d16q5" path="res://images/rails.png" id="1_lo3q4"]
 [ext_resource type="Script" uid="uid://cvormi1od74aa" path="res://scenes/train/train.gd" id="2_wgsvc"]
 [ext_resource type="Texture2D" uid="uid://dbs2yixpwvn2t" path="res://resources/textures/exhaust_particle_texture.tres" id="3_gfec6"]
+[ext_resource type="Texture2D" uid="uid://dig01h3ibdkg" path="res://images/trains.png" id="4_0drc4"]
 [ext_resource type="Script" uid="uid://dn0njkecees6c" path="res://scenes/train/spark_particles.gd" id="4_7o0ee"]
 [ext_resource type="Script" uid="uid://bofh71konaybx" path="res://scenes/train/steam_particles.gd" id="4_gfec6"]
 [ext_resource type="Script" uid="uid://bf0jevs1361el" path="res://scenes/train/exhaust_particles.gd" id="5_vskko"]
@@ -230,7 +230,7 @@ process_material = SubResource("ParticleProcessMaterial_f87wr")
 script = ExtResource("5_vskko")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=337867534]
-texture = ExtResource("1_lo3q4")
+texture = ExtResource("4_0drc4")
 region_enabled = true
 region_rect = Rect2(0, 600, 120, 120)
 

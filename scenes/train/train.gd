@@ -7,7 +7,7 @@ signal moved(t: Train)
 enum TrainType { ELECTRIC = 0, DIESEL = 1, STEAM = 2}
 
 const skin_count_per_type = 3 # Note that currently all types have the SAME number of skins
-const skin_offset = 3 # see structure of tileset (rails and stations at the top)
+const skin_offset = 0 # see structure of tileset (rails and stations at the top)
 
 
 enum TrainColor {
